@@ -56,6 +56,6 @@ jobs:
         with:
           tag_name: ${{ steps.tagger.outputs.new-tag }}
           files: |
-            Making-Games-*.zip
+            *.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
