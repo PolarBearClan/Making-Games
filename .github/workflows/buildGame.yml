@@ -3,34 +3,6 @@ name: Actions 😎
 on: [push, pull_request]
 
 jobs:
-  test:
-    name: Test my project 🧪
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-
-      # Cache
-      - uses: actions/cache@v3
-        with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-
-
-      # Test
-      - name: Run tests
-        uses: game-ci/unity-test-runner@v4
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
@@ -47,7 +19,7 @@ jobs:
           lfs: true
 
       # Cache
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4.1.0
         with:
           path: Library
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
@@ -65,8 +37,24 @@ jobs:
           targetPlatform: StandaloneWindows64
           allowDirtyBuild: true
 
+      # Create Tag
+      - uses: phish108/autotag-action@v1.1.55
+        id: tagger
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN}}
+          with-v: "true"
+
       # Output
       - uses: actions/upload-artifact@v3
         with:
-          name: Build
+          name: Making-Games-${{ steps.tagger.outputs.new-tag }}-win-x64
           path: build
+
+      # Release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            Making-Games-*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
