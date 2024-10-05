@@ -46,6 +46,7 @@ jobs:
 
       # Output
       - uses: actions/upload-artifact@v3
+        id: upload
         with:
           name: Making-Games-${{ steps.tagger.outputs.new-tag }}-win-x64
           path: build
@@ -56,6 +57,6 @@ jobs:
         with:
           tag_name: ${{ steps.tagger.outputs.new-tag }}
           files: |
-            *.zip
+            ${{ steps.upload.outputs.artifact-url }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
