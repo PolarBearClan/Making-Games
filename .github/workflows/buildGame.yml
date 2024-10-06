@@ -61,6 +61,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ steps.tagger.outputs.new-tag }}  # Use the tag created in the build job
-          files: Making-Games-${{ steps.tagger.outputs.new-tag }}-win-x64/**  # Attach downloaded artifact   
+          files: /home/runner/work/Making-Games/Making-Games/**.zip # Attach downloaded artifact   
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
