@@ -1,19 +1,18 @@
 name: Build-Game 🎮
 
-on: 
+on:
   push:
-    branches:
-      - main
+    branches: ["main"]
+
 jobs:
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
     steps:
-
       # Free Disk Space
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@v1.3.1
-        
+
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -56,6 +55,6 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ steps.tagger.outputs.new-tag }}  # Use the tag created in the build job
+          tag_name: v${{ steps.tagger.outputs.new-tag }} # Use the tag created in the build job
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
