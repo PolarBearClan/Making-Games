@@ -64,13 +64,13 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
-          name: Making-Games-${{ needs.build.steps.tagger.outputs.new-tag }}-win-x64  # The tag from the previous job
+          name: Making-Games-${{ build.steps.tagger.outputs.new-tag }}-win-x64  # The tag from the previous job
 
       # Create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ needs.build.steps.tagger.outputs.new-tag }}  # Use the tag created in the build job
-          files: Making-Games-${{ needs.build.steps.tagger.outputs.new-tag }}-win-x64/**  # Attach downloaded artifact
+          files: Making-Games-${{ build.steps.tagger.outputs.new-tag }}-win-x64/**  # Attach downloaded artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
