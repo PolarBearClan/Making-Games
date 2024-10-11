@@ -7,6 +7,7 @@
 This is a project for the course 'Making Games (Autumn 2024)' at the IT-University of Copenhagen.
 The game will be accsesable on Itch.io and steam in the foreseerable future...
 
+
 # Running the Game
 
 To play the game on you local PC, you need a few things:
@@ -60,3 +61,7 @@ The full task description should contain any revelant infomation in any form e.g
 - Scenes should be created as a collection for a specific feature.
 
 - Prefabs are awesome! Should be a folder for its own.
+
+## Unity Version
+
+6000.0.21f1
