@@ -1,6 +1,10 @@
 # Making-Games-Project
-This is a project for the course 'Making Games (Autumn 2024)' at the IT-University of Copenhagen.
+[![](https://img.shields.io/github/actions/workflow/status/PolarBearClan/Making-Games/buildGame.yml?style=for-the-badge)]()
+[![](https://img.shields.io/badge/Windows%20version-555555?style=for-the-badge&logo=windows&logoColor=white&cacheSeconds=3000)](https://nightly.link/PolarBearClan/Making-Games/workflows/buildGame/main/Making-Games-v0.0.21-win-x64.zip)
+![](https://img.shields.io/github/v/tag/PolarBearClan/Making-Games?style=for-the-badge)
+<br>
 
+This is a project for the course 'Making Games (Autumn 2024)' at the IT-University of Copenhagen.
 The game will be accsesable on Itch.io and steam in the foreseerable future...
 
 # Running the Game
