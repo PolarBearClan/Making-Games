@@ -526,6 +526,34 @@ public class FirstPersonController : MonoBehaviour
             joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
         }
     }
+
+    public void DisableInput()
+    {
+        playerCanMove = false;
+        cameraCanMove = false;
+        enableJump = false;
+        enableCrouch = false;
+        enableHeadBob = false;
+        
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        lockCursor = false;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void EnableInput()
+    {
+        playerCanMove = true;
+        cameraCanMove = true;
+        enableJump = true;
+        enableCrouch = true;
+        enableHeadBob = true;
+
+        lockCursor = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        // pitch = 0; // this is not correct
+    }
 }
 
 

@@ -7,12 +7,14 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public TMP_Text interactionText;
+    public GameObject dialogueBox;
     
     private PlayerInputActions playerInput;
     private InputAction interact;
 
     private GameObject currentTarget;
-
+    private bool canInteract = true;
+    
     private void Awake()
     {
         playerInput = new PlayerInputActions();
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
         if (currentInteractable != null)
         {
-            currentTarget.GetComponent<IInteractable>().Activate();
+            currentInteractable.Activate();
             interactionText.text = "Press E to interact with\n" + currentTarget.name + ".";
         }
     }
@@ -93,7 +95,7 @@ public class PlayerController : MonoBehaviour
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
         if (currentInteractable != null)
         {
-            currentTarget.GetComponent<IInteractable>().Deactivate();
+            currentInteractable.Deactivate();
             interactionText.text = "";
         }
     }
@@ -106,16 +108,23 @@ public class PlayerController : MonoBehaviour
 
     void InteractMethod(InputAction.CallbackContext context)
     {
-        if (currentTarget == null) return;
+        if (currentTarget == null || !canInteract) return;
         
         var interactable = currentTarget.GetComponent<IInteractable>();
         if (interactable != null)
         {
             interactable.Interact();
         }
-        else
-        {
-           //print("No interaction target found!");
-        }
+    }
+
+    public void DisableInput()
+    {
+        canInteract = false;
+        TryDeactivateCurrentTarget();
+    }
+
+    public void EnableInput()
+    {
+        canInteract = true;
     }
 }
