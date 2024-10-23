@@ -534,7 +534,9 @@ public class FirstPersonController : MonoBehaviour
         enableJump = false;
         enableCrouch = false;
         enableHeadBob = false;
+        enableZoom = false;
         
+        // Stop the player
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
@@ -549,10 +551,12 @@ public class FirstPersonController : MonoBehaviour
         enableJump = true;
         enableCrouch = true;
         enableHeadBob = true;
+        enableZoom = true;
 
         lockCursor = true;
         Cursor.lockState = CursorLockMode.Locked;
-        // pitch = 0; // this is not correct
+        
+        pitch = 0; // is this the correct solution ?
     }
 }
 

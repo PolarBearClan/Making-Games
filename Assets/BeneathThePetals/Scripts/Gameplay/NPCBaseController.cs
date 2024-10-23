@@ -1,8 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class NPCBaseController : MonoBehaviour, ITalkable
 {
+    public string npcName;
+    public Transform pointToFace;
+
+    [Space] 
     public List<DialogueNode> dialogue;
 
     private GameObject player;
@@ -13,8 +18,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        FPSScript = player.GetComponent<FirstPersonController>();
-        PlayerController = player.GetComponent<PlayerController>();
+        firstPersonController = player.GetComponent<FirstPersonController>();
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -25,19 +30,15 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     public void Interact()
     {
-        // Open dialogue
-        print("Opening dialogue");
         if (dialogue.Count > 0)
         {
-            // Starting dialogue
             StartDialogue();
         }
     }
 
     private void StartDialogue()
     {
-        FPSScript.DisableInput();
-        FPSScript.playerCamera.transform.LookAt(transform.position);
+        firstPersonController.DisableInput();
 
         PlayerController.DisableInput();
 
@@ -56,7 +57,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
                            -> when dialogue ends the camera pops back to the original pitch
                                 -> resulting in camera snap
                                     -> we need to calculate the pitch for this and then set it in the FPS
-                                        -> or 'zatmívačka'
+                                        -> or 'zatm�va?ka'
 
            2) Rotate the player to face me (NPC)
                -> EZ: playerCamera.transform.lookAt
@@ -80,9 +81,14 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
-    public void EndDialogue()
+    public string GetName()
     {
-        FPSScript.EnableInput();
-        PlayerController.EnableInput();
+        return npcName;
+    }
+
+    private void EndDialogue()
+    {
+        firstPersonController.EnableInput();
+        playerController.EnableInput();
     }
 }

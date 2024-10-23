@@ -4995,6 +4995,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: npcName
+      value: Cultist
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: dialogue.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -5596,6 +5600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea1cd925a865544685e9415749efe2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Cube 2
 --- !u!65 &1797285411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6246,6 +6251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea1cd925a865544685e9415749efe2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Cube 3
 --- !u!65 &2042865006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6813,6 +6819,14 @@ PrefabInstance:
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 1360667822}
+    - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: cameraTweenDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: interactionDistance
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
