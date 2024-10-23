@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TestCube : MonoBehaviour, IInteractable
 {
+    public string objectName;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,5 +28,15 @@ public class TestCube : MonoBehaviour, IInteractable
     public void Deactivate()
     {
         GetComponent<MeshRenderer>().material.color = Color.red;
+    }
+
+    public string GetName()
+    {
+        return objectName;
+    }
+
+    public string GetActionName()
+    {
+        return "interact with";
     }
 }

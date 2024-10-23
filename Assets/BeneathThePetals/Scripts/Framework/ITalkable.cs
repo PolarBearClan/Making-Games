@@ -1,4 +1,7 @@
 public interface ITalkable : IInteractable
 {
-    // TODO check if we really need more interfaces
+    string IInteractable.GetActionName()
+    {
+        return "talk to";
+    }
 }

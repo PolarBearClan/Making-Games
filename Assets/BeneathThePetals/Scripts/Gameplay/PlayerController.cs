@@ -6,15 +6,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("General")] 
+    public float interactionDistance = 5f;
+    public float cameraTweenDuration = 3f;
+
+    [Header("UI")] 
     public TMP_Text interactionText;
     public GameObject dialogueBox;
-    
+
     private PlayerInputActions playerInput;
     private InputAction interact;
 
     private GameObject currentTarget;
     private bool canInteract = true;
-    
+
     private void Awake()
     {
         playerInput = new PlayerInputActions();
@@ -46,8 +51,8 @@ public class PlayerController : MonoBehaviour
     private void CheckForInteractables()
     {
         var cameraTransform = GetCamera().transform;
-        
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit))
+
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance))
         {
             var newTarget = hit.collider.gameObject;
 
@@ -56,9 +61,9 @@ public class PlayerController : MonoBehaviour
                 if (newTarget != currentTarget)
                 {
                     TryDeactivateCurrentTarget();
-                    
+
                     currentTarget = newTarget;
-                    
+
                     TryActivateCurrentTarget();
                 }
             }
@@ -79,19 +84,20 @@ public class PlayerController : MonoBehaviour
     private void TryActivateCurrentTarget()
     {
         if (!currentTarget) return;
-        
+
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
         if (currentInteractable != null)
         {
             currentInteractable.Activate();
-            interactionText.text = "Press E to interact with\n" + currentTarget.name + ".";
+            interactionText.text = "Press E to " + currentInteractable.GetActionName() + " \n" +
+                                   currentInteractable.GetName();
         }
     }
 
     private void TryDeactivateCurrentTarget()
     {
         if (!currentTarget) return;
-        
+
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
         if (currentInteractable != null)
         {
@@ -99,7 +105,7 @@ public class PlayerController : MonoBehaviour
             interactionText.text = "";
         }
     }
-    
+
     private Transform GetCamera()
     {
         return transform.GetChild(0).GetChild(0);
@@ -109,7 +115,7 @@ public class PlayerController : MonoBehaviour
     void InteractMethod(InputAction.CallbackContext context)
     {
         if (currentTarget == null || !canInteract) return;
-        
+
         var interactable = currentTarget.GetComponent<IInteractable>();
         if (interactable != null)
         {
