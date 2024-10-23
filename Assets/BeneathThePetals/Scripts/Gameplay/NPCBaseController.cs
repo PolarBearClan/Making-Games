@@ -8,7 +8,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private GameObject player;
     private FirstPersonController FPSScript;
     private PlayerController PlayerController;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +20,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Interact()
@@ -40,12 +40,12 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         FPSScript.playerCamera.transform.LookAt(transform.position);
 
         PlayerController.DisableInput();
-        
+
         GameObject dialogueGo = PlayerController.dialogueBox;
         dialogueGo.GetComponent<DialogueSystem>().DialogueEndCallback = EndDialogue;
         dialogueGo.GetComponent<DialogueSystem>().PlayDialogue(dialogue);
-        
-        
+
+
         // Few things:
         /*
            1) Disable controls: movement + camera rotation
@@ -57,16 +57,16 @@ public class NPCBaseController : MonoBehaviour, ITalkable
                                 -> resulting in camera snap
                                     -> we need to calculate the pitch for this and then set it in the FPS
                                         -> or 'zatmívačka'
-                                        
+
            2) Rotate the player to face me (NPC)
                -> EZ: playerCamera.transform.lookAt
-               
+
            3) Start processing the dialogue
                -> put the strings into UI elements
                    -> UI elements of the player probably?
                    -> we need reference for the player then
                        -> just find by tag
-         
+
          */
     }
 
