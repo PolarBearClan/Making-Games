@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [Header("UI")]
     public TMP_Text interactionText;
     public GameObject dialogueBox;
+    public QuestManager questManager;
 
     private PlayerInputActions playerInput;
     private InputAction interact;
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private bool canInteract = true;
 
     private string[] inventory = Array.Empty<string>();
+
+    private Quest currentQuest;
 
     private void Awake()
     {
@@ -145,5 +148,18 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("Added " + item + " to inventory");
         Debug.Log("Inventory: " + string.Join(", ", inventory));
+    }
+
+    public void AssignQuest(Quest q)
+    {
+        currentQuest = q;
+        q.OnQuestAdvanced = questManager.UpdateLog;
+        
+        questManager.UpdateLog(currentQuest);
+    }
+
+    public Quest GetCurrentQuest()
+    {
+        return currentQuest;
     }
 }

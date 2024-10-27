@@ -8,6 +8,9 @@ public class DialogueSystem : MonoBehaviour
     public delegate void DialogueEnd();
     public DialogueEnd DialogueEndCallback;
     
+    public delegate void QuestFromDialogue();
+    public QuestFromDialogue QuestFromDialogueCallback;
+    
     [SerializeField] private GameObject mainTextGameObject;
     [SerializeField] private GameObject buttonChoice1;
     [SerializeField] private GameObject buttonChoice2;
@@ -72,7 +75,12 @@ public class DialogueSystem : MonoBehaviour
         buttonChoice2.SetActive(dialogueNode.isQuestion);
         button2Text.text = dialogueNode.option2Text;
         buttonContinue.SetActive(!dialogueNode.isQuestion);
-            
+
+        if (dialogueNode.givesQuest)
+        {
+            QuestFromDialogueCallback();
+        }
+        
         currentDialogueNode = idx;
     }
 

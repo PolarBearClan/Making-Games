@@ -1,12 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting.FullSerializer;
+using UnityEditor;
+using UnityEditor.Rendering;
+using UnityEngine.InputSystem.Editor;
 
 public class NPCBaseController : MonoBehaviour, ITalkable
 {
     public string npcName;
     public Transform pointToFace;
 
+    [Space]
+    [Header("Quest")]
+    public bool givesQuest = false;
+    public Quest quest;
+    public List<DialogueNode> dialogueAfterQuestAssigned;
+    
     [Space] 
     public List<DialogueNode> dialogue;
 
@@ -47,9 +57,10 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         
         playerController.DisableInput();
 
-        GameObject dialogueGo = playerController.dialogueBox;
-        dialogueGo.GetComponent<DialogueSystem>().DialogueEndCallback = EndDialogue;
-        dialogueGo.GetComponent<DialogueSystem>().PlayDialogue(dialogue);
+        var dialogueSystem = playerController.dialogueBox.GetComponent<DialogueSystem>();
+        dialogueSystem.DialogueEndCallback = EndDialogue;
+        dialogueSystem.QuestFromDialogueCallback = AssignQuest;
+        dialogueSystem.PlayDialogue(dialogue);
     }
 
     public void Activate()
@@ -71,5 +82,17 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     {
         firstPersonController.EnableInput();
         playerController.EnableInput();
+    }
+
+    private void AssignQuest()
+    {
+        quest.OnQuestFinished = ChangeDialogueAfterQuest;
+        playerController.AssignQuest(quest);
+        dialogue = dialogueAfterQuestAssigned;
+    }
+
+    private void ChangeDialogueAfterQuest(List<DialogueNode> newDialogue)
+    {
+        dialogue = newDialogue;
     }
 }
