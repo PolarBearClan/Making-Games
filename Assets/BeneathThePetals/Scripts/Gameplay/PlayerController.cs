@@ -8,11 +8,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("General")]
+    [Header("General")] 
     public float interactionDistance = 5f;
     public float cameraTweenDuration = 3f;
 
-    [Header("UI")]
+    [Header("UI")] 
     public TMP_Text interactionText;
     public GameObject dialogueBox;
     public QuestManager questManager;
@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     private Quest currentQuest;
 
+    public delegate void ActivateQuestItems();
+    public ActivateQuestItems ActivateQuestItemsCallback;
+    
     private void Awake()
     {
         playerInput = new PlayerInputActions();
@@ -37,7 +40,9 @@ public class PlayerController : MonoBehaviour
         interact = playerInput.Player.Interact;
         interact.Enable();
         interact.started += InteractMethod;
+        interact.canceled += StopInteractionMethod;
     }
+
 
     private void OnDisable()
     {
@@ -62,7 +67,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance))
         {
             var newTarget = hit.collider.gameObject;
-
+            
             if (currentTarget)
             {
                 if (newTarget != currentTarget)
@@ -95,21 +100,24 @@ public class PlayerController : MonoBehaviour
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
         if (currentInteractable != null)
         {
+            if (!currentInteractable.IsInteractable()) return;
+            
             currentInteractable.Activate();
-            interactionText.text = "Press E to " + currentInteractable.GetActionName() + " \n" +
+            interactionText.text = currentInteractable.GetActionType() + " E to " + currentInteractable.GetActionName() + " \n" +
                                    currentInteractable.GetName();
         }
     }
 
     private void TryDeactivateCurrentTarget()
     {
+        interactionText.text = "";  // Do this regardless of having any target
+        
         if (!currentTarget) return;
 
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
         if (currentInteractable != null)
         {
             currentInteractable.Deactivate();
-            interactionText.text = "";
         }
     }
 
@@ -126,8 +134,16 @@ public class PlayerController : MonoBehaviour
         var interactable = currentTarget.GetComponent<IInteractable>();
         if (interactable != null)
         {
+            if (!interactable.IsInteractable()) return;
+            
             interactable.Interact();
         }
+    }
+
+    private void StopInteractionMethod(InputAction.CallbackContext context)
+    {
+        TryDeactivateCurrentTarget();
+        TryActivateCurrentTarget();
     }
 
     public void DisableInput()
@@ -154,7 +170,9 @@ public class PlayerController : MonoBehaviour
     {
         currentQuest = q;
         q.OnQuestAdvanced = questManager.UpdateLog;
-        
+
+        ActivateQuestItemsCallback();
+
         questManager.UpdateLog(currentQuest);
     }
 

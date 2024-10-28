@@ -3,11 +3,13 @@ using UnityEngine;
 public class QuestObjectiveTest : MonoBehaviour, IInteractable
 {
     private PlayerController playerController;
+    private bool isActive = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerController.ActivateQuestItemsCallback += () => { isActive = true; };
     }
 
     // Update is called once per frame
@@ -19,13 +21,9 @@ public class QuestObjectiveTest : MonoBehaviour, IInteractable
     public void Interact()
     {
         print("Quest advanced");
-        
-        // TODO checks if the player is on any quest (+ this quest)
-        // Maybe we dont need check for this quest
-        // this because on each day there will be only items that will correspond to the current task
-        
+            
         playerController.GetCurrentQuest().currentAmount++;
-        
+            
         Destroy(gameObject);
     }
 
@@ -47,5 +45,10 @@ public class QuestObjectiveTest : MonoBehaviour, IInteractable
     public string GetActionName()
     {
         return "interact with";
+    }
+
+    public bool IsInteractable()
+    {
+        return isActive;
     }
 }

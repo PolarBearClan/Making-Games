@@ -13,7 +13,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     [Space]
     [Header("Quest")]
-    public bool givesQuest = false;
+    public bool givesQuest = false; // Will this be used ? TODO
     public Quest quest;
     public List<DialogueNode> dialogueAfterQuestAssigned;
     
