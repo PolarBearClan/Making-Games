@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using NUnit.Framework;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,11 +8,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("General")] 
+    [Header("General")]
     public float interactionDistance = 5f;
     public float cameraTweenDuration = 3f;
 
-    [Header("UI")] 
+    [Header("UI")]
     public TMP_Text interactionText;
     public GameObject dialogueBox;
 
@@ -19,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private GameObject currentTarget;
     private bool canInteract = true;
+
+    private string[] inventory = Array.Empty<string>();
 
     private void Awake()
     {
@@ -132,5 +136,14 @@ public class PlayerController : MonoBehaviour
     public void EnableInput()
     {
         canInteract = true;
+    }
+
+    public void AddToInventory(string item)
+    {
+        Array.Resize(ref inventory, inventory.Length + 1);
+        inventory[^1] = item;
+
+        Debug.Log("Added " + item + " to inventory");
+        Debug.Log("Inventory: " + string.Join(", ", inventory));
     }
 }
