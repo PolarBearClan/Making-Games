@@ -5,17 +5,22 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("General")] 
-    public float interactionDistance = 5f;
-    public float cameraTweenDuration = 3f;
+    [SerializeField] private float interactionDistance;
+    
+    [Tooltip("Time it takes for the camera to look at NPC when interaction is started.")]
+    [SerializeField] internal float cameraLookAtTweenDuration;
 
-    [Header("UI")] 
-    public TMP_Text interactionText;
-    public GameObject dialogueBox;
-    public QuestManager questManager;
+    [Header("UI")]
+    [SerializeField] private TMP_Text interactionText;
+    [SerializeField] internal GameObject dialogueBox;
+    [SerializeField] private QuestManager questManager;
+    [SerializeField] internal Image progressImage;
 
     private PlayerInputActions playerInput;
     private InputAction interact;

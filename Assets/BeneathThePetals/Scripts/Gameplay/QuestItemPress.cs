@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class QuestObjectiveTest : MonoBehaviour, IInteractable
+public class QuestItemPress : MonoBehaviour, IInteractable
 {
-    private PlayerController playerController;
+    [SerializeField] private string itemName;
+    [SerializeField] private string actionName;
+    
     private bool isActive = false;
+    
+    private PlayerController playerController;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,12 +43,12 @@ public class QuestObjectiveTest : MonoBehaviour, IInteractable
 
     public string GetName()
     {
-        return "QuestGiverTest";
+        return itemName;
     }
 
     public string GetActionName()
     {
-        return "interact with";
+        return actionName;
     }
 
     public bool IsInteractable()

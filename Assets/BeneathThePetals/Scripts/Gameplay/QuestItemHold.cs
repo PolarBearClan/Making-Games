@@ -1,22 +1,28 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class QuestItemHold : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float targetTime;
-    [SerializeField] private Image progressImg;
+    [SerializeField] private string itemName;
+    [SerializeField] private string actionName;
+    [SerializeField] private float targetHoldTime;
+    
+    private bool isActive = false;
     
     private bool holdingKey = false;
     private float holdingTime;
+    private Image progressImg;
     
     private PlayerController playerController;
-    private bool isActive = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerController.ActivateQuestItemsCallback += () => { isActive = true; };
+        
+        progressImg = playerController.progressImage;
     }
 
     // Update is called once per frame
@@ -26,7 +32,7 @@ public class QuestItemHold : MonoBehaviour, IInteractable
         
         holdingTime += Time.deltaTime;
 
-        if (holdingTime >= targetTime)
+        if (holdingTime >= targetHoldTime)
         {
             print("Quest advanced");
 
@@ -42,7 +48,7 @@ public class QuestItemHold : MonoBehaviour, IInteractable
 
     private void UpdateUI()
     {
-        progressImg.fillAmount = holdingTime / targetTime;
+        progressImg.fillAmount = holdingTime / targetHoldTime;
     }
 
     public void Interact()
@@ -67,12 +73,12 @@ public class QuestItemHold : MonoBehaviour, IInteractable
 
     public string GetName()
     {
-        return "broken cube";
+        return itemName;
     }
 
     public string GetActionName()
     {
-        return "fix";
+        return actionName;
     }
     
     public string GetActionType()

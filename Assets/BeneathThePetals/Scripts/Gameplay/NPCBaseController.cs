@@ -1,24 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Unity.VisualScripting.FullSerializer;
-using UnityEditor;
-using UnityEditor.Rendering;
-using UnityEngine.InputSystem.Editor;
+using UnityEngine.Serialization;
 
 public class NPCBaseController : MonoBehaviour, ITalkable
 {
-    public string npcName;
-    public Transform pointToFace;
+    [SerializeField] private string npcName;
+    [SerializeField] private Transform pointToFace;
 
     [Space]
-    [Header("Quest")]
-    public bool givesQuest = false; // Will this be used ? TODO
-    public Quest quest;
-    public List<DialogueNode> dialogueAfterQuestAssigned;
+    [SerializeField] private List<DialogueNode> mainDialogue;
     
-    [Space] 
-    public List<DialogueNode> dialogue;
+    [Space]
+    [Header("Quest related variables")]
+    [SerializeField] private Quest quest;
+    [Space]
+    [SerializeField] private List<DialogueNode> dialogueAfterQuestAssigned;
+    
 
     private GameObject player;
     private FirstPersonController firstPersonController;
@@ -39,7 +37,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     public void Interact()
     {
-        if (dialogue.Count > 0)
+        if (mainDialogue.Count > 0)
         {
             StartDialogue();
         }
@@ -49,7 +47,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     {
         firstPersonController.DisableInput();
 
-        float tweenDuration = playerController.cameraTweenDuration;
+        float tweenDuration = playerController.cameraLookAtTweenDuration;
         
         // Important to rotate them both
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
@@ -60,7 +58,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         var dialogueSystem = playerController.dialogueBox.GetComponent<DialogueSystem>();
         dialogueSystem.DialogueEndCallback = EndDialogue;
         dialogueSystem.QuestFromDialogueCallback = AssignQuest;
-        dialogueSystem.PlayDialogue(dialogue);
+        dialogueSystem.PlayDialogue(mainDialogue);
     }
 
     public void Activate()
@@ -80,6 +78,10 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     private void EndDialogue()
     {
+        // Finish tweens in case of a quick dialogue ending
+        firstPersonController.playerCamera.transform.DOComplete();
+        firstPersonController.transform.DOComplete();
+        
         firstPersonController.EnableInput();
         playerController.EnableInput();
     }
@@ -88,11 +90,11 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     {
         quest.OnQuestFinished = ChangeDialogueAfterQuest;
         playerController.AssignQuest(quest);
-        dialogue = dialogueAfterQuestAssigned;
+        mainDialogue = dialogueAfterQuestAssigned;
     }
 
     private void ChangeDialogueAfterQuest(List<DialogueNode> newDialogue)
     {
-        dialogue = newDialogue;
+        mainDialogue = newDialogue;
     }
 }

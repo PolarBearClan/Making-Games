@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class Quest
@@ -11,11 +12,13 @@ public class Quest
     public QuestFinished OnQuestFinished;
     
     public bool Completed { get; private set; }
-    public string description;
-    public int goalAmount;
+    [SerializeField] private string description;
+    [SerializeField] private int goalAmount;
+    
     private int _currentAmount;
     
-    public List<DialogueNode> dialogueToUnlock;
+    [Space]
+    [SerializeField] private List<DialogueNode> dialogueAfterQuestCompleted;
     
     public int currentAmount
     {
@@ -50,10 +53,11 @@ public class Quest
     {
         Debug.Log("Quest completed!");
         
-        // Change UI
-        // -- done via the OnQuestAdvancedCallback
-        
         // Unlock new dialogue
-        OnQuestFinished(dialogueToUnlock);
+        OnQuestFinished(dialogueAfterQuestCompleted);
     }
+
+    public string Description => description;
+
+    public int GoalAmount => goalAmount;
 }
