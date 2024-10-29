@@ -127,9 +127,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6ed371d29c04f4cbe248db82fcaa81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: 
-  dialogue: []
+  npcName: Input_NPC_NAME_HERE
   pointToFace: {fileID: 5980116843808757678}
+  mainDialogue: []
+  quest:
+    description: 
+    goalAmount: 0
+    dialogueAfterQuestCompleted: []
+  dialogueAfterQuestAssigned: []
 --- !u!1 &1053555163312213089
 GameObject:
   m_ObjectHideFlags: 0
