@@ -556,7 +556,7 @@ public class FirstPersonController : MonoBehaviour
         lockCursor = true;
         Cursor.lockState = CursorLockMode.Locked;
 
-        //pitch = 0; // is this the correct solution ?
+        pitch = 0; // is this the correct solution ?
     }
 }
 
