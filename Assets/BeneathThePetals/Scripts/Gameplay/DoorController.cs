@@ -8,8 +8,8 @@ public class DoorController : MonoBehaviour, IInteractable
     [SerializeField] private Ease rotationEase = Ease.OutBounce;
     
     [Space]
-    [SerializeField]
-    private bool doorLocked = false;
+    [SerializeField] private bool doorLocked = false;
+    [SerializeField] private StoryClue requiredStoryClue;
     
     private bool doorOpen = false;
     private bool interactable = true;
@@ -18,7 +18,9 @@ public class DoorController : MonoBehaviour, IInteractable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        doorCollider = GetComponent<BoxCollider>();   
+        doorCollider = GetComponent<BoxCollider>();
+        
+        if (requiredStoryClue) requiredStoryClue.OnStoryCluePickup += () => { doorLocked = false; };
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class DoorController : MonoBehaviour, IInteractable
         {
             // Play locked sound effect
             // Animation too ? 
+            print("Door is locked");
         }
         else
         {

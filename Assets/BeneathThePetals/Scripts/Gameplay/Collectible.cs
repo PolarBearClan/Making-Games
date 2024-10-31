@@ -14,10 +14,12 @@ public class Collectible : MonoBehaviour, IInteractable
     private bool isCollected = false;
 
     private GameObject player;
-    private FirstPersonController firstPersonController;
-    private PlayerController playerController;
+    protected FirstPersonController firstPersonController;
+    protected PlayerController playerController;
 
-    void Start()
+    protected bool shouldEnableInput = true;
+    
+    protected void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         firstPersonController = player.GetComponent<FirstPersonController>();
@@ -25,7 +27,7 @@ public class Collectible : MonoBehaviour, IInteractable
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (isCollected)
         {
@@ -41,22 +43,22 @@ public class Collectible : MonoBehaviour, IInteractable
         if (Vector3.Distance(transform.position, player.transform.position) < 0.1f)
         {
             playerController.AddToInventory(collectibleName);
-            firstPersonController.EnableInput();
+            if (shouldEnableInput) firstPersonController.EnableInput();
             Destroy(gameObject);
         }
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         isCollected = true;
     }
 
-    public void Activate()
+    public virtual void Activate()
     {
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
-    public void Deactivate()
+    public virtual void Deactivate()
     {
         GetComponent<MeshRenderer>().material.color = Color.red;
     }
@@ -66,8 +68,13 @@ public class Collectible : MonoBehaviour, IInteractable
         return collectibleName;
     }
 
-    public string GetActionName()
+    public virtual string GetActionName()
     {
         return "collect";
+    }
+
+    protected void DisableInputEnabling()
+    {
+        shouldEnableInput = false;
     }
 }
