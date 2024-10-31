@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private GameObject currentTarget;
     private bool canInteract = true;
+    private bool hiding = false;
+
 
     private string[] inventory = Array.Empty<string>();
 
@@ -184,5 +186,13 @@ public class PlayerController : MonoBehaviour
     public Quest GetCurrentQuest()
     {
         return currentQuest;
+    }
+
+    public bool GetHidingStatus() {
+        return hiding;
+    }
+
+    public void SetHidingStatus(bool desiredState) { 
+        hiding = desiredState;
     }
 }
