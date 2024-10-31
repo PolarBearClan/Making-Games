@@ -7,19 +7,19 @@ public class DialogueSystem : MonoBehaviour
     // this might be deleted, depends on the selected approach
     public delegate void DialogueEnd();
     public DialogueEnd DialogueEndCallback;
-    
+
     public delegate void QuestFromDialogue();
     public QuestFromDialogue QuestFromDialogueCallback;
-    
+
     [SerializeField] private GameObject mainTextGameObject;
     [SerializeField] private GameObject buttonChoice1;
     [SerializeField] private GameObject buttonChoice2;
     [SerializeField] private GameObject buttonContinue;
-    
+
     private TMPro.TMP_Text mainText;
     private TMPro.TMP_Text button1Text;
     private TMPro.TMP_Text button2Text;
-    
+
     private List<DialogueNode> dialogueNodes;
     private int currentDialogueNode = -1;
 
@@ -34,27 +34,27 @@ public class DialogueSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void NextText()
     {
-        if (dialogueNodes[currentDialogueNode].givesQuest) 
+        if (dialogueNodes[currentDialogueNode].givesQuest)
             QuestFromDialogueCallback();
         LoadDialogueNode(currentDialogueNode + 1);
     }
-    
+
     public void PlayDialogue(List<DialogueNode> dialogueFromNpc)
     {
         dialogueNodes = dialogueFromNpc;
         gameObject.SetActive(true);
-        
+
         LoadDialogueNode(0);
     }
 
@@ -68,7 +68,7 @@ public class DialogueSystem : MonoBehaviour
             DialogueEndCallback();
             return;
         }
-        
+
         var dialogueNode = dialogueNodes[idx];
 
         mainText.text = dialogueNode.mainText;
@@ -77,7 +77,7 @@ public class DialogueSystem : MonoBehaviour
         buttonChoice2.SetActive(dialogueNode.isQuestion);
         button2Text.text = dialogueNode.option2Text;
         buttonContinue.SetActive(!dialogueNode.isQuestion);
-        
+
         currentDialogueNode = idx;
     }
 
