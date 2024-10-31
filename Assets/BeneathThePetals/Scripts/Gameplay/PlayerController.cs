@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal GameObject dialogueBox;
     [SerializeField] private QuestManager questManager;
     [SerializeField] internal Image progressImage;
+    [SerializeField] internal ScreenNoteManager screenNoteManager;
 
     private PlayerInputActions playerInput;
     private InputAction interact;
@@ -59,6 +60,11 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        screenNoteManager.NoteEndCallback = () =>
+        {
+            EnableInput();
+            GetComponent<FirstPersonController>().EnableInput();
+        };
     }
 
     // Update is called once per frame
