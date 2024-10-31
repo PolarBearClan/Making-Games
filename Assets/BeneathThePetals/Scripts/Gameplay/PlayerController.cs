@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     private void TryActivateCurrentTarget()
     {
-        if (!currentTarget) return;
+        if (currentTarget == null || !canInteract) return;
 
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
         if (currentInteractable != null)
