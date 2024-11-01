@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
 using Unity.VisualScripting;
 public class LoadingBar : MonoBehaviour
 {
