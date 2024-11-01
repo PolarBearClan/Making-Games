@@ -82,7 +82,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController.playerCamera.transform.DOComplete();
         firstPersonController.transform.DOComplete();
         
-        firstPersonController.EnableInput();
+        firstPersonController.EnableInput(true);
         playerController.EnableInput();
     }
 

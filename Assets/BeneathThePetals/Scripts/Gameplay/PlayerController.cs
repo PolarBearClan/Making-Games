@@ -21,12 +21,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal GameObject dialogueBox;
     [SerializeField] private QuestManager questManager;
     [SerializeField] internal Image progressImage;
+    [SerializeField] internal ScreenNoteManager screenNoteManager;
 
     private PlayerInputActions playerInput;
     private InputAction interact;
 
     private GameObject currentTarget;
     private bool canInteract = true;
+    private bool hiding = false;
+
 
     private string[] inventory = Array.Empty<string>();
 
@@ -57,6 +60,11 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        screenNoteManager.NoteEndCallback = () =>
+        {
+            EnableInput();
+            GetComponent<FirstPersonController>().EnableInput();
+        };
     }
 
     // Update is called once per frame
@@ -100,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private void TryActivateCurrentTarget()
     {
-        if (!currentTarget) return;
+        if (currentTarget == null || !canInteract) return;
 
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
         if (currentInteractable != null)
@@ -184,5 +192,13 @@ public class PlayerController : MonoBehaviour
     public Quest GetCurrentQuest()
     {
         return currentQuest;
+    }
+
+    public bool GetHidingStatus() {
+        return hiding;
+    }
+
+    public void SetHidingStatus(bool desiredState) { 
+        hiding = desiredState;
     }
 }

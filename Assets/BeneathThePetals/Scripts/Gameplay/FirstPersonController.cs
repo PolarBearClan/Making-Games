@@ -544,7 +544,7 @@ public class FirstPersonController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void EnableInput()
+    public void EnableInput(bool resetPitch = false)
     {
         playerCanMove = true;
         cameraCanMove = true;
@@ -556,7 +556,7 @@ public class FirstPersonController : MonoBehaviour
         lockCursor = true;
         Cursor.lockState = CursorLockMode.Locked;
 
-        pitch = 0; // is this the correct solution ?
+        if (resetPitch) pitch = 0; // is this the correct solution ?
     }
 }
 
