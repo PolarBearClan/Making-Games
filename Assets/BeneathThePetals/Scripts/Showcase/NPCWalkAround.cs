@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 
 public class NPCWalkAround : MonoBehaviour
 {
