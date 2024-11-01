@@ -12,14 +12,14 @@ public class StoryClue : Collectible
     public StoryCluePickup OnStoryCluePickup;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    new void Start()
     {
         base.Start();
         noteText.text = storyText;
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         base.Update();
     }
