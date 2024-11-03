@@ -25,7 +25,7 @@ public class NPCMovement_example : MonoBehaviour
         animator.SetBool("IsIdle", IsIdle);
         if (!IsIdle)
         {
-            transform.LookAt(destination);
+            transform.LookAt(new Vector3(destination.position.x, 0, destination.position.z));
             Vector3 vector3 = new Vector3(destination.position.x, transform.position.y, destination.position.z);
             this.transform.position = Vector3.Lerp(transform.position, vector3, speed * Time.deltaTime);
         }
