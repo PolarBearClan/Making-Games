@@ -66,12 +66,12 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     public void Activate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        //GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     public void Deactivate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        //GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
     public string GetName()
