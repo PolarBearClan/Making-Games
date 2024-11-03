@@ -9,6 +9,8 @@ public class SceneChange : MonoBehaviour, IInteractable
     public GameObject fadeToBlack;
     public GameObject globalUiObject;
 
+    private Animator anim;
+
     public void ChangeScene() 
     {
         var globalUiState = globalUiObject.GetComponent<GlobalUIState>();
@@ -19,17 +21,19 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public void Interact() 
     {
+        if(GetComponent<Animator>() != null)
+            GetComponent<Animator>().SetTrigger("OpenDoors");
         ChangeScene();
     }
 
     public void Activate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        //GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     public void Deactivate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        //GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
     public string GetName()
