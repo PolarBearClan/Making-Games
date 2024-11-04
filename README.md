@@ -43,22 +43,22 @@ The full task description should contain any revelant infomation in any form e.g
 # Guideline
 - Commits should be short and concise like e.g *"Add fix for dark mode toggle state"* to show intent of commit code.
 
-- Pull requests into *main* branch should always contain the *Major* tag into the title for version control reasons. For *dev* branch it applies with the tags *Minor* and *Patch*. 
+- Pull requests into *main* branch should always contain the *#major* tag into the title for version control reasons. For *dev* branch it applies with the tags *#minor* and *#patch*. 
 
 - Task estimation every monday after class to estimate size of features/tasks from backlog.
 
-- *Main* is for major changes and build the game for release, dev is for minor and patches and branches are for issues.
+- *main* is for milestones and build the game for release, *dev* is for features and patches and branches are for issues.
 
 - Pull requests are required to be reviewed and approved by another developer, for pull requests into *main* the Tech Lead should be involved in the process. 
 
 - Releases are of the format v<x.y.z> where:
-  - x: MAJOR version when you make incompatible API changes
-  - y: MINOR version when you add functionality in a backward compatible manner
-  - z: PATCH version when you make backward compatible bug fixes
+  - x: MAJOR version when you prepare the game for a milestone/showcase (e.g. Verical Slice, Alpha, Playtest, Project Deadline)
+  - y: MINOR version when you add a feature to the project
+  - z: PATCH version when you make a fix/patch to a existing feature
 
 - Scenes: create a scene for your own issue if neccesary. There should be a main scene for the acutal gameplay/level designer.
 
-- Scenes should be created as a collection for a specific feature.
+- Dev scenes should be created as a collection for a specific feature.
 
 - Prefabs are awesome! Should be a folder for its own.
 
