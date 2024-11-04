@@ -59,16 +59,19 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         dialogueSystem.DialogueEndCallback = EndDialogue;
         dialogueSystem.QuestFromDialogueCallback = AssignQuest;
         dialogueSystem.PlayDialogue(mainDialogue);
+
+        if (playerController.dialogueBox.GetComponent<Animator>().gameObject.activeSelf)
+            playerController.dialogueBox.GetComponent<Animator>().SetBool("DialogueBars", true);
     }
 
     public void Activate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        //GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     public void Deactivate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        //GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
     public string GetName()

@@ -38,12 +38,12 @@ public class StoryClue : Collectible
 
     public override void Activate()
     {
-        transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material.color = Color.green;
+        //transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     public override void Deactivate()
     {
-        transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material.color = Color.red;
+        //transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material.color = Color.red;
     }
     
     public override string GetActionName()

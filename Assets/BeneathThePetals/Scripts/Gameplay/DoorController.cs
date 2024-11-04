@@ -59,12 +59,12 @@ public class DoorController : MonoBehaviour, IInteractable
 
     public void Activate()
     {
-        GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+        //GetComponentInChildren<MeshRenderer>().material.color = Color.green;
     }
 
     public void Deactivate()
     {
-        GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        //GetComponentInChildren<MeshRenderer>().material.color = Color.red;
     }
 
     public string GetName()
