@@ -47,7 +47,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     {
         firstPersonController.DisableInput();
 
-        float tweenDuration = playerController.cameraLookAtTweenDuration;
+        float tweenDuration = playerController.CameraLookAtTweenDuration;
         
         // Important to rotate them both
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
@@ -55,13 +55,15 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         
         playerController.DisableInput();
 
-        var dialogueSystem = playerController.dialogueBox.GetComponent<DialogueSystem>();
+        var dialogueBox = playerController.DialogueBox;
+        var dialogueSystem = dialogueBox.GetComponent<DialogueSystem>();
         dialogueSystem.DialogueEndCallback = EndDialogue;
         dialogueSystem.QuestFromDialogueCallback = AssignQuest;
         dialogueSystem.PlayDialogue(mainDialogue);
 
-        if (playerController.dialogueBox.GetComponent<Animator>().gameObject.activeSelf)
-            playerController.dialogueBox.GetComponent<Animator>().SetBool("DialogueBars", true);
+        var animator = dialogueBox.GetComponent<Animator>();
+        if (animator.gameObject.activeSelf)
+            animator.SetBool("DialogueBars", true);
     }
 
     public void Activate()
