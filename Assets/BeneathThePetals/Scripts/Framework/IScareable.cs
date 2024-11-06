@@ -1,5 +1,7 @@
-public interface IScareable
+using UnityEngine;
+
+public abstract class Jumpscare : MonoBehaviour
 {
     // When the player triggers a collision
-    void Scare();
+    public abstract void Scare();
 }
