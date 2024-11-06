@@ -35,6 +35,7 @@ public class AIFollower : MonoBehaviour
             if (IsPlayerCloseEnough())
             {
                 foundPlayer = true;
+                noiseObstaclesManager.OnNoiseMade();
                 print("Target acquired");
             }
         }

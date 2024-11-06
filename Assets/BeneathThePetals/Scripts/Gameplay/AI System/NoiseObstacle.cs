@@ -19,6 +19,11 @@ public class NoiseObstacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Player")) return;
+        
+        // TODO make sound
+        // sound.Play() ?
+        
         // send signal to NPC to follow you
         noiseObstaclesManager.OnNoiseMade();
         Destroy(gameObject);
