@@ -8,9 +8,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
+using UnityEngine.InputSystem.Android;
+
+
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
     using System.Net;
 #endif
 
@@ -18,10 +24,14 @@ public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
 
+    EventInstance soundWhenBob;
+    int soundCounter;
+    
     #region Camera Movement Variables
 
     public Camera playerCamera;
 
+    public EventReference eventToPlayWhenOpen;
     public float fov = 60f;
     public bool invertCamera = false;
     public bool cameraCanMove = true;
@@ -129,6 +139,7 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 jointOriginalPos;
     private float timer = 0;
 
+
     #endregion
 
     private void Awake()
@@ -151,6 +162,9 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        eventToPlayWhenOpen = this.gameObject.GetComponent<PlayerController>().eventToPlayWhenBob;
+        soundWhenBob = RuntimeManager.CreateInstance(eventToPlayWhenOpen);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenBob, transform);
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -362,6 +376,26 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
+       UnityEngine.Debug.Log("owo");
+        
+        if (isWalking)
+        {
+            soundCounter++;
+            if (isSprinting)
+            {
+                soundCounter++;
+            }
+         
+            if (soundCounter >= 200)
+            {
+                soundCounter = 0;
+                soundWhenBob.start();
+            }
+        }
+        else {
+            soundCounter = 0; 
+        }
+
     }
 
     void FixedUpdate()
@@ -450,7 +484,7 @@ public class FirstPersonController : MonoBehaviour
 
         if (Physics.Raycast(origin, direction, out RaycastHit hit, distance))
         {
-            Debug.DrawRay(origin, direction * distance, Color.red);
+           UnityEngine.Debug.DrawRay(origin, direction * distance, Color.red);
             isGrounded = true;
         }
         else

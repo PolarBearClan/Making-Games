@@ -9,6 +9,7 @@ public class HidingInteractable : MonoBehaviour, IInteractable
     private PlayerController playerController;
     private Vector3 previousSpot;
 
+    public void PlayInteractSound() { }
     public void Activate()
     {
         GetComponent<MeshRenderer>().material.color = Color.green;

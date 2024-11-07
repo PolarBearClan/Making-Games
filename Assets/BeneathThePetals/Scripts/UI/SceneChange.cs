@@ -2,12 +2,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
 public class SceneChange : MonoBehaviour, IInteractable
 {
     public string sceneToChangeTo;
     public string actionName;
     public GameObject fadeToBlack;
     public GameObject globalUiObject;
+    public EventReference eventToPlay;
 
     private Animator anim;
 
@@ -19,10 +23,21 @@ public class SceneChange : MonoBehaviour, IInteractable
         StartCoroutine(MetaFade(0.01f));
     }
 
+    public void PlayInteractSound() {
+        EventInstance sceneChangeSound = RuntimeManager.CreateInstance(eventToPlay);
+        RuntimeManager.AttachInstanceToGameObject(sceneChangeSound, transform);
+        sceneChangeSound.start();
+        sceneChangeSound.release();
+        
+
+    }
+
     public void Interact() 
     {
+        PlayInteractSound();
         if(GetComponent<Animator>() != null)
             GetComponent<Animator>().SetTrigger("OpenDoors");
+
         ChangeScene();
     }
 

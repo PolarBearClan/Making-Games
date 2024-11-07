@@ -7,6 +7,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInputActions playerInput;
     private InputAction interact;
-
+    public EventReference eventToPlayWhenBob;
     private GameObject currentTarget;
     private bool canInteract = true;
     private bool hiding = false;
@@ -175,8 +178,8 @@ public class PlayerController : MonoBehaviour
         Array.Resize(ref inventory, inventory.Length + 1);
         inventory[^1] = item;
 
-        Debug.Log("Added " + item + " to inventory");
-        Debug.Log("Inventory: " + string.Join(", ", inventory));
+        UnityEngine.Debug.Log("Added " + item + " to inventory");
+        UnityEngine.Debug.Log("Inventory: " + string.Join(", ", inventory));
     }
 
     public void AssignQuest(Quest q)

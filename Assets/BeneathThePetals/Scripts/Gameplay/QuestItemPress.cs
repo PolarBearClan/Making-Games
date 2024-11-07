@@ -21,6 +21,7 @@ public class QuestItemPress : MonoBehaviour, IInteractable
     {
         
     }
+    public void PlayInteractSound() { }
     
     public void Interact()
     {
