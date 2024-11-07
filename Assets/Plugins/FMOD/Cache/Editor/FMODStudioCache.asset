@@ -69,10 +69,10 @@ MonoBehaviour:
   Path: Assets/BeneathThePetals/Audio/FMODProject/BTP_FMOD_Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638665363052799170
+  lastModified: 638664512488674694
   FileSizes:
   - Name: Desktop
-    Value: 264736
+    Value: 307456
   Exists: 1
 --- !u!114 &-1610126924625986352
 MonoBehaviour:
@@ -121,13 +121,15 @@ MonoBehaviour:
   - {fileID: -4243969484640682413}
   - {fileID: -2644027399476820188}
   - {fileID: -1610126924625986352}
+  - {fileID: 6603783779994176643}
   EditorParameters:
   - {fileID: 4967336219606165859}
   MasterBanks:
   - {fileID: -1747337084063255338}
   StringsBanks:
   - {fileID: 8288190511343458248}
-  cacheTime: 638665363052811033
+  cacheTime: 638664512488685459
+
   cacheVersion: 131620
 --- !u!114 &2830897237608553871
 MonoBehaviour:
@@ -187,6 +189,33 @@ MonoBehaviour:
   - Sword
   - Carpet
   Exists: 1
+--- !u!114 &6603783779994176643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Jumpscare_1
+  m_EditorClassIdentifier: 
+  Path: event:/Jumpscare_1
+  Guid:
+    Data1: 1395900100
+    Data2: 1258995628
+    Data3: 1623148214
+    Data4: 941121657
+  Banks:
+  - {fileID: -1747337084063255338}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3576
 --- !u!114 &8288190511343458248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,8 +231,8 @@ MonoBehaviour:
   Path: Assets/BeneathThePetals/Audio/FMODProject/BTP_FMOD_Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638665363052811033
+  lastModified: 638664512488685459
   FileSizes:
   - Name: Desktop
-    Value: 914
+    Value: 956
   Exists: 1
