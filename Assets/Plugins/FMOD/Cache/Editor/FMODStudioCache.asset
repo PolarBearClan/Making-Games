@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5302
+--- !u!114 &-3100068438956422776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/World/Creepy/HeartBeating
+  m_EditorClassIdentifier: 
+  Path: event:/World/Creepy/HeartBeating
+  Guid:
+    Data1: -339898334
+    Data2: 1103412439
+    Data3: 590202766
+    Data4: -1096483985
+  Banks:
+  - {fileID: -1747337084063255338}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 115720
 --- !u!114 &-1747337084063255338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +69,10 @@ MonoBehaviour:
   Path: Assets/BeneathThePetals/Audio/FMODProject/BTP_FMOD_Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638666221970495783
+  lastModified: 638666265759289495
   FileSizes:
   - Name: Desktop
-    Value: 719200
+    Value: 2382400
   Exists: 1
 --- !u!114 &-1610126924625986352
 MonoBehaviour:
@@ -123,14 +150,43 @@ MonoBehaviour:
   - {fileID: 4052009172556151112}
   - {fileID: -589061217318380014}
   - {fileID: 5715582274626937379}
+  - {fileID: 565203680373418974}
+  - {fileID: -3100068438956422776}
   EditorParameters:
   - {fileID: 4967336219606165859}
   MasterBanks:
   - {fileID: -1747337084063255338}
   StringsBanks:
   - {fileID: 8288190511343458248}
-  cacheTime: 638666221970510851
+  cacheTime: 638666265759319784
   cacheVersion: 131620
+--- !u!114 &565203680373418974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/World/Doors/BarnHatch
+  m_EditorClassIdentifier: 
+  Path: event:/World/Doors/BarnHatch
+  Guid:
+    Data1: 512469858
+    Data2: 1105025480
+    Data3: -82663279
+    Data4: -1448105691
+  Banks:
+  - {fileID: -1747337084063255338}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &2830897237608553871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,8 +202,8 @@ MonoBehaviour:
   Name: FS_index
   StudioPath: 
   Min: 0
-  Max: 6
-  Default: 1
+  Max: 7
+  Default: 2
   ID:
     data1: 2365804270
     data2: 577053024
@@ -155,6 +211,7 @@ MonoBehaviour:
   IsGlobal: 1
   Labels:
   - Null
+  - Dirt
   - Grass
   - WoodIndoors
   - WoodOutdoors
@@ -204,8 +261,8 @@ MonoBehaviour:
   Name: FS_index
   StudioPath: parameter:/FS_index
   Min: 0
-  Max: 6
-  Default: 1
+  Max: 7
+  Default: 2
   ID:
     data1: 2365804270
     data2: 577053024
@@ -213,6 +270,7 @@ MonoBehaviour:
   IsGlobal: 1
   Labels:
   - Null
+  - Dirt
   - Grass
   - WoodIndoors
   - WoodOutdoors
@@ -262,8 +320,8 @@ MonoBehaviour:
   Path: Assets/BeneathThePetals/Audio/FMODProject/BTP_FMOD_Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638666221970510851
+  lastModified: 638666265759319784
   FileSizes:
   - Name: Desktop
-    Value: 1072
+    Value: 1186
   Exists: 1

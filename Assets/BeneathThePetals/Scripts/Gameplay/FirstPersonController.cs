@@ -376,7 +376,6 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
-       UnityEngine.Debug.Log("owo");
         
         if (isWalking)
         {
