@@ -36,18 +36,23 @@ public class JumpscareTrigger : MonoBehaviour
         {
             if (_timeElapsed == 0)
             {
-                _playerController.playerCamera.transform.DOLookAt(_jumpscareObject.transform.position, _tweenDuration);
-                _playerController.transform.DOLookAt(_jumpscareObject.transform.position, _tweenDuration);
+                if (_jumpscare.GetType() != typeof(JumpscareSpawn))
+                {
+                    _playerController.playerCamera.transform.DOLookAt(_jumpscareObject.transform.position, _tweenDuration);
+                    _playerController.transform.DOLookAt(_jumpscareObject.transform.position, _tweenDuration);
+                }
             }
 
             if (_timeElapsed >= _tweenDuration)
             {
-                _playerController.playerCamera.transform.DOLookAt(_jumpscareObject.transform.position, 0);
+                if (_jumpscare.GetType() != typeof(JumpscareSpawn))
+                    _playerController.playerCamera.transform.DOLookAt(_jumpscareObject.transform.position, 0);
             }
 
             if (_timeElapsed > _duration)
             {
-                _playerController.EnableInput();
+                if (_jumpscare.GetType() != typeof(JumpscareSpawn))
+                    _playerController.EnableInput();
                 Destroy(gameObject);
             }
             _timeElapsed += Time.deltaTime;
