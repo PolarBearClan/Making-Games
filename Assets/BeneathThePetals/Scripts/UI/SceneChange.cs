@@ -5,21 +5,25 @@ using System.Collections;
 public class SceneChange : MonoBehaviour, IInteractable
 {
     public string sceneToChangeTo;
+    public string objectToSpawnAt;
     public string actionName;
     public GameObject fadeToBlack;
     public GameObject globalUiObject;
 
     private Animator anim;
 
-    public void ChangeScene() 
+    public void ChangeScene()
     {
         var globalUiState = globalUiObject.GetComponent<GlobalUIState>();
         globalUiState.setSceneToChangeTo(sceneToChangeTo);
+        globalUiState.setObjectToSpawnAt(objectToSpawnAt);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         StartCoroutine(MetaFade(0.01f));
     }
 
-    public void Interact() 
+    public void Interact()
     {
         if(GetComponent<Animator>() != null)
             GetComponent<Animator>().SetTrigger("OpenDoors");
@@ -65,5 +69,27 @@ public class SceneChange : MonoBehaviour, IInteractable
         image.color = new Color(0, 0, 0, alpha + 0.01f);
         yield return new WaitForSeconds(waitTime);
         StartCoroutine(MetaFade(waitTime));
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "LoadingScreen")
+        {
+            GameObject _player = GameObject.FindGameObjectWithTag("Player");
+            var globalUiState = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GlobalUIState>();
+
+            if (GameObject.Find(globalUiState.getObjectToSpawnAt()) != null)
+            {
+                _player.transform.position = GameObject.Find(globalUiState.getObjectToSpawnAt()).transform.position;
+                _player.transform.rotation = GameObject.Find(globalUiState.getObjectToSpawnAt()).transform.rotation;
+            }
+            else
+            {
+                Debug.LogWarning("Object to spawn at not found: " + globalUiState.getObjectToSpawnAt());
+            }
+        }
+
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
     }
 }

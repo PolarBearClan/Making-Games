@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4243969484640682413
+--- !u!114 &-8146952536940384018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Test
+  m_Name: event:/Jumpscare_1
   m_EditorClassIdentifier: 
-  Path: event:/Test
+  Path: event:/Jumpscare_1
   Guid:
-    Data1: 2096875302
-    Data2: 1125874003
-    Data3: -622902083
-    Data4: 1388615328
+    Data1: 1395900100
+    Data2: 1258995628
+    Data3: 1623148214
+    Data4: 941121657
   Banks:
-  - {fileID: -1747337084063255338}
+  - {fileID: 6522780383045518863}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 620
---- !u!114 &-2644027399476820188
+  Length: 3576
+--- !u!114 &-2738610813198384824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
     Data3: 121111472
     Data4: -537924339
   Banks:
-  - {fileID: -1747337084063255338}
+  - {fileID: 6522780383045518863}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 15120
---- !u!114 &-1747337084063255338
+--- !u!114 &-1602216837181896895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
   Path: Assets/BeneathThePetals/Audio/FMODProject/BTP_FMOD_Project/Build/Desktop/Master.bank
   Name: Master
@@ -72,36 +72,8 @@ MonoBehaviour:
   lastModified: 638666074890564675
   FileSizes:
   - Name: Desktop
-    Value: 307456
+    Value: 956
   Exists: 1
---- !u!114 &-1610126924625986352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Character/Footsteps
-  m_EditorClassIdentifier: 
-  Path: event:/Character/Footsteps
-  Guid:
-    Data1: -250649108
-    Data2: 1147043908
-    Data3: 733960639
-    Data4: -1139886336
-  Banks:
-  - {fileID: -1747337084063255338}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 2830897237608553871}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,56 +87,24 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 8288190511343458248}
-  - {fileID: -1747337084063255338}
+  - {fileID: -1602216837181896895}
+  - {fileID: 6522780383045518863}
   EditorEvents:
-  - {fileID: -4243969484640682413}
-  - {fileID: -2644027399476820188}
-  - {fileID: -1610126924625986352}
-  - {fileID: 6603783779994176643}
+  - {fileID: 2970299977171406539}
+  - {fileID: -2738610813198384824}
+  - {fileID: -8146952536940384018}
+  - {fileID: 7200220467681588640}
   EditorParameters:
-  - {fileID: 4967336219606165859}
+  - {fileID: 670309617357606778}
   MasterBanks:
-  - {fileID: -1747337084063255338}
+  - {fileID: 6522780383045518863}
   StringsBanks:
   - {fileID: 8288190511343458248}
-<<<<<<< HEAD
-  cacheTime: 638666074890584671
-=======
   cacheTime: 638664512488685459
-
->>>>>>> 3a842484a61e9443058cf55b7b7aeb0f0ac0a1da
+  - {fileID: -1602216837181896895}
+  cacheTime: 638666074890584671
   cacheVersion: 131620
---- !u!114 &2830897237608553871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Footsteps/FS_index
-  m_EditorClassIdentifier: 
-  Name: FS_index
-  StudioPath: 
-  Min: 0
-  Max: 4
-  Default: 1
-  ID:
-    data1: 2365804270
-    data2: 577053024
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - Null
-  - Grass
-  - Stone
-  - Sword
-  - Carpet
-  Exists: 1
---- !u!114 &4967336219606165859
+--- !u!114 &670309617357606778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,7 +133,7 @@ MonoBehaviour:
   - Sword
   - Carpet
   Exists: 1
---- !u!114 &6603783779994176643
+--- !u!114 &2970299977171406539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,24 +143,53 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Jumpscare_1
+  m_Name: event:/Test
   m_EditorClassIdentifier: 
-  Path: event:/Jumpscare_1
+  Path: event:/Test
   Guid:
-    Data1: 1395900100
-    Data2: 1258995628
-    Data3: 1623148214
-    Data4: 941121657
+    Data1: 2096875302
+    Data2: 1125874003
+    Data3: -622902083
+    Data4: 1388615328
   Banks:
-  - {fileID: -1747337084063255338}
+  - {fileID: 6522780383045518863}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3576
---- !u!114 &8288190511343458248
+  Length: 620
+--- !u!114 &4621616067308604043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/FS_index
+  m_EditorClassIdentifier: 
+  Name: FS_index
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 1
+  ID:
+    data1: 2365804270
+    data2: 577053024
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Null
+  - Grass
+  - Stone
+  - Sword
+  - Carpet
+  Exists: 1
+--- !u!114 &6522780383045518863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,7 +199,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/BeneathThePetals/Audio/FMODProject/BTP_FMOD_Project/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638666074890564675
+  FileSizes:
+  - Name: Desktop
+    Value: 307456
+  Exists: 1
+--- !u!114 &7200220467681588640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character/Footsteps
   m_EditorClassIdentifier: 
   Path: Assets/BeneathThePetals/Audio/FMODProject/BTP_FMOD_Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
@@ -240,3 +229,19 @@ MonoBehaviour:
   - Name: Desktop
     Value: 956
   Exists: 1
+  Path: event:/Character/Footsteps
+  Guid:
+    Data1: -250649108
+    Data2: 1147043908
+    Data3: 733960639
+    Data4: -1139886336
+  Banks:
+  - {fileID: 6522780383045518863}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 4621616067308604043}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
