@@ -20,14 +20,16 @@ public class InventoryUI : MonoBehaviour
     [Header("Inventory Settings")]
     [SerializeField] private Transform pivot;
     [SerializeField] private GameObject[] objects;
-    [SerializeField] private float radius = 5f;
-    [SerializeField] private float rotationSpeed = 50f;
+    [SerializeField] private GameObject[] newObjects;
+    [SerializeField] private float radius = 2.5f;
+    [SerializeField] private float rotationSpeed = 1.5f;
     [SerializeField] private float selectedRotationSpeed = 50f;
 
     private List<Vector3> positions = new List<Vector3>();
     private List<Quaternion> defaultRotations = new List<Quaternion>();
     private bool isRotating = false;
     private int currentSelected = 0;
+    private int nextAvailableSlot = 0;
 
     void Start()
     {
@@ -41,6 +43,8 @@ public class InventoryUI : MonoBehaviour
         {
             defaultRotations.Add(obj.transform.rotation);
         }
+
+        UpdateInventoryUI();
     }
 
     void Update()
@@ -62,9 +66,10 @@ public class InventoryUI : MonoBehaviour
         if (objects.Length > 0 && !isRotating)
         {
             Vector3 rotation = objects[currentSelected].transform.rotation.eulerAngles;
-            rotation.y += selectedRotationSpeed * Time.deltaTime;
+            rotation.y += selectedRotationSpeed * Time.unscaledDeltaTime;
             objects[currentSelected].transform.rotation = Quaternion.Euler(rotation);
         }
+
     }
 
     void ToggleCamera()
@@ -76,11 +81,13 @@ public class InventoryUI : MonoBehaviour
         {
             MainUIObj.SetActive(false);
             InventoryUIObj.SetActive(true);
+            Time.timeScale = 0;
         }
         else
         {
             MainUIObj.SetActive(true);
             InventoryUIObj.SetActive(false);
+            Time.timeScale = 1;
         }
     } 
 
@@ -117,13 +124,12 @@ public class InventoryUI : MonoBehaviour
         }
 
         ShowInfoUI(false);
-
         objects[currentSelected].transform.rotation = defaultRotations[currentSelected];
 
         float t = 0;
         while (t < 1)
         {
-            t += Time.deltaTime * rotationSpeed;
+            t += Time.unscaledDeltaTime * rotationSpeed;
             for (int i = 0; i < objects.Length; i++)
             {
                 objects[i].transform.position = Vector3.Lerp(objects[i].transform.position, newPositions[i], t);
@@ -142,6 +148,28 @@ public class InventoryUI : MonoBehaviour
         ChangeUIText(objects[currentSelected]);
         ShowInfoUI(true);
 
+    }
+
+    public void UpdateInventoryUI()
+    {
+        for (int i = 0; i < InventoryManager.Instance.inventoryItems.Count; i++)
+        {
+            string itemName = InventoryManager.Instance.inventoryItems[i];
+
+            foreach (var itemModel in newObjects)
+            {
+                if (itemModel.GetComponent<StoryClueInfo>().ReturnName() == itemName)
+                {
+                    Destroy(objects[i]);
+                    objects[i] = Instantiate(itemModel, positions[i], defaultRotations[i], pivot.parent);
+                    break;
+                }
+            }
+        }
+        if (objects.Length > 0)
+        {
+            ChangeUIText(objects[currentSelected]);
+        }
     }
 
     void ChangeUIText(GameObject storyclue)

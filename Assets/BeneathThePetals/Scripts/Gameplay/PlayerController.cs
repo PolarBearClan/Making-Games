@@ -177,6 +177,9 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("Added " + item + " to inventory");
         Debug.Log("Inventory: " + string.Join(", ", inventory));
+
+        InventoryManager.Instance.AddItem(item);
+        FindAnyObjectByType<InventoryUI>().UpdateInventoryUI();
     }
 
     public void AssignQuest(Quest q)
