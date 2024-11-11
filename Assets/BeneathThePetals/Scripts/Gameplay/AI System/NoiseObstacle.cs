@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class NoiseObstacle : MonoBehaviour
 {
-    private NoiseObstaclesManager noiseObstaclesManager;
+    private NoiseManager noiseManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        noiseObstaclesManager = transform.parent.GetComponent<NoiseObstaclesManager>();
+        noiseManager = transform.parent.GetComponent<NoiseManager>();
     }
 
     // Update is called once per frame
@@ -21,11 +21,9 @@ public class NoiseObstacle : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         
-        // TODO make sound
-        // sound.Play() ?
+        // TODO make sound of branch braking
         
-        // send signal to NPC to follow you
-        noiseObstaclesManager.OnNoiseMade();
+        noiseManager.IncreaseNoise();
         Destroy(gameObject);
     }
 }
