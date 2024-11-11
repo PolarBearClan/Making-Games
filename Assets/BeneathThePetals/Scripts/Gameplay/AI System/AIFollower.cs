@@ -56,7 +56,6 @@ public class AIFollower : MonoBehaviour
             if (IsPlayerCloseEnough())
             {
                 // Game Over
-                print("GAME OVER!");
                 
                 // TODO game over screen
                 

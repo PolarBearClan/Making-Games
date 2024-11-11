@@ -34,13 +34,14 @@ public class NoiseManager : MonoBehaviour
         if (currentNoiseLevel > maxValue)
         {
             // Threshold reached -> alert NPCs
-            print("INTRUDER ALERT!");
             OnAlertNPCs();
             enabled = false;
             
             return;
         }
         currentNoiseLevel = Mathf.Min(currentNoiseLevel, maxValue); // Clamp to maxValue
+        
+        // TODO update UI overlay based on the noise level
     }
     
     public float CurrentNoiseLevel => currentNoiseLevel;
