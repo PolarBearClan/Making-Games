@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class PathingManager : MonoBehaviour
 {
-    public int changeCirclesAfterPoints = 0;
+    [Tooltip("How many waypoints will be walked through in the INNER circle. Outside circle is  n - 1")]
+    [SerializeField] private int changeCirclesAfterPoints = 0;
     
-    public List<Transform> pointsInner;
-    public List<Transform> pointsOuter;
+    [Space]
+    [SerializeField] private List<Transform> pointsInner;
+    [SerializeField] private List<Transform> pointsOuter;
     
     private int currentPoints = 0;
     
@@ -29,5 +31,5 @@ public class PathingManager : MonoBehaviour
         return innerCircle ? pointsInner[index % pointsInner.Count] : pointsOuter[index % pointsOuter.Count];
     }
     
-    public int CurrentPoints => currentPoints;
+    public int ChangeCirclesAfterPoints => changeCirclesAfterPoints;
 }

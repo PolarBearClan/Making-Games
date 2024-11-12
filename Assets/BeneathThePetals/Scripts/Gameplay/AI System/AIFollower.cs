@@ -1,19 +1,24 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class AIFollower : MonoBehaviour
 {
-    [SerializeField] private float maxDistance;
+    [Tooltip("How close does the follower need to get to trigger Game Over.")]
+    [SerializeField] private float catchDistance;
+    [Tooltip("Running speed after the player is revealed.")]
     [SerializeField] private float runningSpeed;
 
-    [Space]
-    [Header("Sacrificial place variables")]
-    public PathingManager pathingManager;
-    public int startingIdx = 0;
-    public bool startingInner = true;
 
+    [Space]
+    [Header("Sacrificial circle variables")]
+    [Tooltip("Index of starting waypoint in the list of all waypoints.")]
+    [SerializeField] private int startingIndex = 0;
+    [SerializeField] private bool startingInner = true;
+
+    private PathingManager pathingManager;
     private NavMeshAgent navMeshAgent;
-    private GameObject playerGO;
+    private GameObject playerGameObject;
     private NoiseManager noiseManager;
 
     private bool foundPlayer = false;
@@ -27,12 +32,13 @@ public class AIFollower : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        changeAfter = pathingManager.changeCirclesAfterPoints;
+        pathingManager = GameObject.FindGameObjectWithTag("CirclePathingManager").GetComponent<PathingManager>();
+        changeAfter = pathingManager.ChangeCirclesAfterPoints;
         
-        playerGO = GameObject.FindGameObjectWithTag("Player");
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
         
-        currPoint = startingIdx;
+        currPoint = startingIndex;
         innerCircle = startingInner;
         if (!innerCircle) changeAfter--;
         
@@ -50,17 +56,8 @@ public class AIFollower : MonoBehaviour
         if (foundPlayer)
         {
             // follow him no matter what
-            navMeshAgent.destination = playerGO.transform.position;
+            navMeshAgent.destination = playerGameObject.transform.position;
             navMeshAgent.isStopped = false;
-
-            if (IsPlayerCloseEnough())
-            {
-                // Game Over
-                
-                // TODO game over screen
-                
-                enabled = false;
-            }
         }
         else
         {
@@ -69,9 +66,19 @@ public class AIFollower : MonoBehaviour
                 GoToNextPoint();
             }
         }
+        
+        if (IsPlayerCloseEnough())
+        {
+            // Game Over
+            
+            // TODO game over screen
+            print("Game Over!");
+            
+            enabled = false;
+        }
     }
 
-    private bool IsPlayerCloseEnough() => Vector3.Distance(transform.position, playerGO.transform.position) <= maxDistance;
+    private bool IsPlayerCloseEnough() => Vector3.Distance(transform.position, playerGameObject.transform.position) <= catchDistance;
 
     private void RevealPlayer()
     {
