@@ -40,6 +40,6 @@ public enum QuestItemType
     // TODO implement functionality that allows the player to carry only 2 pieces of wood at a time
     // TODO and flower pots? How many ?
     
-    WoodLOG,
+    WoodLog,
     FlowerPot
 }

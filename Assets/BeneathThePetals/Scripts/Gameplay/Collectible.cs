@@ -55,12 +55,12 @@ public class Collectible : MonoBehaviour, IInteractable
 
     public virtual void Activate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        //GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     public virtual void Deactivate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        //GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
     public string GetName()

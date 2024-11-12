@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private Transform cameraTransform;
     private bool hiding = false;
     
-    private string[] inventory = Array.Empty<string>();
+    private List<string> inventory = new List<string>();
 
     
     // Quest related properties
@@ -93,7 +93,8 @@ public class PlayerController : MonoBehaviour
             if (deliveryArea != null)
             {
                 // This is a quest delivery area
-                if (!carryingItem) return;
+                if (GetCurrentQuest() == null || GetCurrentQuest().Completed) return;
+                if (deliveryArea.QuestItemType == QuestItemType.WoodLog && !carryingItem) return;
                 
                 TryDeactivateCurrentTarget();
                 currentTarget = newTarget;
@@ -191,13 +192,21 @@ public class PlayerController : MonoBehaviour
 
     public void AddToInventory(string item)
     {
-        Array.Resize(ref inventory, inventory.Length + 1);
-        inventory[^1] = item;
-
-        Debug.Log("Added " + item + " to inventory");
+        inventory.Add(item);
         Debug.Log("Inventory: " + string.Join(", ", inventory));
     }
 
+    public bool RemoveFromInventory(string item)
+    {
+        if (inventory.Contains(item))
+        {
+            inventory.Remove(item);
+            Debug.Log("Inventory: " + string.Join(", ", inventory));
+            return true;
+        }
+        return false;
+    }
+    
     public void AssignQuest(Quest q)
     {
         currentQuest = q;
@@ -232,6 +241,11 @@ public class PlayerController : MonoBehaviour
         interactionText.text = "";
 
         return carriedItem;
+    }
+
+    public QuestItemType GetCarriedItemType()
+    {
+        return currentlyCarriedItem.GetComponent<QuestItemCarry>().QuestItemType;
     }
 
     private void ChangeText(string text, bool overridingPermission = false)
