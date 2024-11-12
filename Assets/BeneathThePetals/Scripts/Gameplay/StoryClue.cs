@@ -27,7 +27,7 @@ public class StoryClue : Collectible
     public override void Interact()
     {
         if (OnStoryCluePickup != null) OnStoryCluePickup();
-        playerController.screenNoteManager.ShowNote(storyText);
+        playerController.ScreenNoteManagerScript.ShowNote(storyText);
         
         playerController.DisableInput();
         firstPersonController.DisableInput();

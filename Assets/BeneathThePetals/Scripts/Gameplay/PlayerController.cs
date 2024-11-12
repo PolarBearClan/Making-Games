@@ -14,29 +14,36 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float interactionDistance;
     
     [Tooltip("Time it takes for the camera to look at NPC when interaction is started.")]
-    [SerializeField] internal float cameraLookAtTweenDuration;
+    [SerializeField] private float cameraLookAtTweenDuration;
 
     [Header("UI")]
     [SerializeField] private TMP_Text interactionText;
-    [SerializeField] internal GameObject dialogueBox;
+    [SerializeField] private GameObject dialogueBox;
     [SerializeField] private QuestManager questManager;
-    [SerializeField] internal Image progressImage;
-    [SerializeField] internal ScreenNoteManager screenNoteManager;
+    [SerializeField] private Image progressImage;
+    [SerializeField] private ScreenNoteManager screenNoteManager;
 
     private PlayerInputActions playerInput;
     private InputAction interact;
 
     private GameObject currentTarget;
     private bool canInteract = true;
+    private Transform cameraTransform;
     private bool hiding = false;
-
-
+    
     private string[] inventory = Array.Empty<string>();
 
-    private Quest currentQuest;
-
+    
+    // Quest related properties
     public delegate void ActivateQuestItems();
     public ActivateQuestItems ActivateQuestItemsCallback;
+
+    private Quest currentQuest;
+    private GameObject currentlyCarriedItem = null;
+    private bool carryingItem = false;
+    
+    [Header("Quest related")]
+    [SerializeField] private Transform carryParrent;
     
     private void Awake()
     {
@@ -65,6 +72,7 @@ public class PlayerController : MonoBehaviour
             EnableInput();
             GetComponent<FirstPersonController>().EnableInput();
         };
+        cameraTransform = GetCamera().transform;
     }
 
     // Update is called once per frame
@@ -75,11 +83,22 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForInteractables()
     {
-        var cameraTransform = GetCamera().transform;
-
+        
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance))
         {
             var newTarget = hit.collider.gameObject;
+
+            // Check if this is a quest delivery area -> only able to interact with this when carryingItem
+            var deliveryArea = newTarget.GetComponent<QuestDeliveryLocation>();
+            if (deliveryArea != null)
+            {
+                // This is a quest delivery area
+                if (!carryingItem) return;
+                
+                TryDeactivateCurrentTarget();
+                currentTarget = newTarget;
+                TryActivateCurrentTarget(true);
+            }
             
             if (currentTarget)
             {
@@ -106,7 +125,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void TryActivateCurrentTarget()
+    private void TryActivateCurrentTarget(bool aimingAtQuestItem = false)
     {
         if (currentTarget == null || !canInteract) return;
 
@@ -116,14 +135,14 @@ public class PlayerController : MonoBehaviour
             if (!currentInteractable.IsInteractable()) return;
             
             currentInteractable.Activate();
-            interactionText.text = currentInteractable.GetActionType() + " E to " + currentInteractable.GetActionName() + " \n" +
-                                   currentInteractable.GetName();
+            ChangeText(currentInteractable.GetActionType() + " E to " + currentInteractable.GetActionName() + " \n" +
+                       currentInteractable.GetName(), aimingAtQuestItem);
         }
     }
 
     private void TryDeactivateCurrentTarget()
     {
-        interactionText.text = "";  // Do this regardless of having any target
+        ChangeText("", true); // Do this regardless of having any target
         
         if (!currentTarget) return;
 
@@ -143,7 +162,7 @@ public class PlayerController : MonoBehaviour
     void InteractMethod(InputAction.CallbackContext context)
     {
         if (currentTarget == null || !canInteract) return;
-
+        
         var interactable = currentTarget.GetComponent<IInteractable>();
         if (interactable != null)
         {
@@ -189,16 +208,55 @@ public class PlayerController : MonoBehaviour
         questManager.UpdateLog(currentQuest);
     }
 
+    public void StartCarryingItem(GameObject itemToCarry)
+    {
+        currentlyCarriedItem = itemToCarry;
+        carryingItem = true;
+        interactionText.text = "";
+        
+        currentlyCarriedItem.transform.SetParent(carryParrent);
+        currentlyCarriedItem.transform.localPosition = Vector3.zero;
+        
+        currentlyCarriedItem.GetComponent<QuestItemBase>().DeactivateItem(); // not available for further interaction
+        currentlyCarriedItem.GetComponent<Collider>().enabled = false;
+    }
+
+    public GameObject DropCarriedItem()
+    {
+        currentlyCarriedItem.transform.SetParent(null);
+
+        GameObject carriedItem = currentlyCarriedItem;
+        
+        carryingItem = false;
+        currentlyCarriedItem = null;
+        interactionText.text = "";
+
+        return carriedItem;
+    }
+
+    private void ChangeText(string text, bool overridingPermission = false)
+    {
+        if (overridingPermission || !carryingItem)
+            interactionText.text = text;
+    }
+
     public Quest GetCurrentQuest()
     {
         return currentQuest;
     }
 
-    public bool GetHidingStatus() {
+    public bool GetHidingStatus()
+    {
         return hiding;
     }
 
-    public void SetHidingStatus(bool desiredState) { 
+    public void SetHidingStatus(bool desiredState)
+    {
         hiding = desiredState;
     }
+
+    public GameObject DialogueBox => dialogueBox;
+    public Image ProgressImage => progressImage;
+    public ScreenNoteManager ScreenNoteManagerScript => screenNoteManager;
+    public float CameraLookAtTweenDuration => cameraLookAtTweenDuration;
 }
