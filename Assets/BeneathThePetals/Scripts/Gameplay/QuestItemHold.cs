@@ -46,6 +46,7 @@ public class QuestItemHold : MonoBehaviour, IInteractable
         UpdateUI();
     }
 
+    public void PlayInteractSound() { }
     private void UpdateUI()
     {
         progressImg.fillAmount = holdingTime / targetHoldTime;
