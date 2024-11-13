@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions playerInput;
     private InputAction interact;
     public EventReference eventToPlayWhenBob;
+    public EventReference eventToPlayWhenJump;
     private GameObject currentTarget;
     private bool canInteract = true;
     private bool hiding = false;

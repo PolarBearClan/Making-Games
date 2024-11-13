@@ -25,6 +25,7 @@ public class FirstPersonController : MonoBehaviour
     private Rigidbody rb;
 
     EventInstance soundWhenBob;
+    EventInstance soundWhenJump;
     int soundCounter;
     
     #region Camera Movement Variables
@@ -32,6 +33,7 @@ public class FirstPersonController : MonoBehaviour
     public Camera playerCamera;
 
     public EventReference eventToPlayWhenOpen;
+    public EventReference eventToPlayWhenJump;
     public float fov = 60f;
     public bool invertCamera = false;
     public bool cameraCanMove = true;
@@ -138,6 +140,7 @@ public class FirstPersonController : MonoBehaviour
     // Internal Variables
     private Vector3 jointOriginalPos;
     private float timer = 0;
+    private float soundTimer = 0;
 
 
     #endregion
@@ -163,8 +166,11 @@ public class FirstPersonController : MonoBehaviour
     void Start()
     {
         eventToPlayWhenOpen = this.gameObject.GetComponent<PlayerController>().eventToPlayWhenBob;
+        eventToPlayWhenJump = this.gameObject.GetComponent<PlayerController>().eventToPlayWhenJump;
         soundWhenBob = RuntimeManager.CreateInstance(eventToPlayWhenOpen);
+        soundWhenJump = RuntimeManager.CreateInstance(eventToPlayWhenJump);
         RuntimeManager.AttachInstanceToGameObject(soundWhenBob, transform);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenJump, transform);
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -376,23 +382,22 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
-        
         if (isWalking)
         {
-            soundCounter++;
+            soundTimer += Time.deltaTime;
             if (isSprinting)
             {
-                soundCounter++;
+                soundTimer+= Time.deltaTime;
             }
-         
-            if (soundCounter >= 200)
+            if (soundTimer >= 0.66)
             {
-                soundCounter = 0;
+                soundTimer = 0;
                 soundWhenBob.start();
+                //soundWhenBob.release();
             }
         }
         else {
-            soundCounter = 0; 
+            soundTimer = 0; 
         }
 
     }
@@ -455,7 +460,7 @@ public class FirstPersonController : MonoBehaviour
 
                 if (hideBarWhenFull && sprintRemaining == sprintDuration)
                 {
-                    sprintBarCG.alpha -= 3 * Time.deltaTime;
+                    //sprintBarCG.alpha -= 3 * Time.deltaTime;
                 }
 
                 targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
@@ -497,6 +502,8 @@ public class FirstPersonController : MonoBehaviour
         // Adds force to the player rigidbody to jump
         if (isGrounded)
         {
+            soundWhenJump.start();
+            //soundWhenJump.release();
             rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
             isGrounded = false;
         }
@@ -507,6 +514,7 @@ public class FirstPersonController : MonoBehaviour
             Crouch();
         }
     }
+
 
     private void Crouch()
     {

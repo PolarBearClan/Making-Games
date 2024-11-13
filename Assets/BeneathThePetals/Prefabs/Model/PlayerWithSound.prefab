@@ -1152,6 +1152,13 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  eventToPlayWhenJump:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   fov: 60
   invertCamera: 0
   cameraCanMove: 1
@@ -1216,11 +1223,18 @@ MonoBehaviour:
   screenNoteManager: {fileID: 7421976499819998195}
   eventToPlayWhenBob:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -250649108
+      Data2: 1147043908
+      Data3: 733960639
+      Data4: -1139886336
+    Path: event:/Character/Footsteps
+  eventToPlayWhenJump:
+    Guid:
+      Data1: 359452346
+      Data2: 1259269203
+      Data3: -240982633
+      Data4: -1552387493
+    Path: event:/Character/Jump
 --- !u!1 &4459864850190357393
 GameObject:
   m_ObjectHideFlags: 0
