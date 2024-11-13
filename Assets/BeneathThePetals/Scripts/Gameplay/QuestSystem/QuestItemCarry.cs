@@ -19,7 +19,12 @@ public class QuestItemCarry : QuestItemBase
     
     public override void Interact()
     {
-        playerController.StartCarryingItem(gameObject);
+        if (playerController.HasFreeSpot()) playerController.StartCarryingItem(gameObject);
+        else
+        {
+            // TODO possible screen note
+            print("Player can only carry 2 items at a time!");
+        }
     }
 
     public override void Activate()
@@ -37,9 +42,7 @@ public class QuestItemCarry : QuestItemBase
 
 public enum QuestItemType
 {
-    // TODO implement functionality that allows the player to carry only 2 pieces of wood at a time
-    // TODO and flower pots? How many ?
-    
     WoodLog,
-    FlowerPot
+    FlowerPot,
+    None
 }

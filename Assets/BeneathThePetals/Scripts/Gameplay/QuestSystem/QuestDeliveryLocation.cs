@@ -41,10 +41,7 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
                     print("This item accepts different quest item type!");
                     return;
                 }
-                
-                // Deliver quest item
-                questItem = playerController.DropCarriedItem();
-
+                questItem = playerController.StopCarryingItem();
                 break;
             }
 
