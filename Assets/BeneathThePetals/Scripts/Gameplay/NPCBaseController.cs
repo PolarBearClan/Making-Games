@@ -35,6 +35,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     {
     }
 
+    public void PlayInteractSound() { }
     public void Interact()
     {
         if (mainDialogue.Count > 0)

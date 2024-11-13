@@ -52,6 +52,7 @@ public class Collectible : MonoBehaviour, IInteractable
     {
         isCollected = true;
     }
+    public void PlayInteractSound() { }
 
     public virtual void Activate()
     {
