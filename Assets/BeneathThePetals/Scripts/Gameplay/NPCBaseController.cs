@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Serialization;
-
+using FMOD;
+using FMOD.Studio;
+using FMODUnity; 
 public class NPCBaseController : MonoBehaviour, ITalkable
 {
     [SerializeField] private string npcName;
@@ -21,6 +23,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private GameObject player;
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
+    public EventReference soundToPlayOnInteract; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,11 +38,20 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     {
     }
 
-    public void PlayInteractSound() { }
+    public void PlayInteractSound() {
+    
+    
+        EventInstance  soundOnInteract = RuntimeManager.CreateInstance(soundToPlayOnInteract);
+        RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
+        soundOnInteract.start();
+        soundOnInteract.release();
+    
+    }
     public void Interact()
     {
         if (mainDialogue.Count > 0)
         {
+            PlayInteractSound();
             StartDialogue();
         }
     }
