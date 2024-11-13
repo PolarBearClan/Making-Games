@@ -3611,6 +3611,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: Use
+  soundAtInteractEvent:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
 --- !u!65 &712458789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3981,6 +3988,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: Use
+  soundAtInteractEvent:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
 --- !u!65 &778270128
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5354,6 +5368,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: Use
+  soundAtInteractEvent:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
 --- !u!65 &1077377816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9373,16 +9394,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToChangeTo: Inside_Environment
+  objectToSpawnAt: 
   actionName: Go Inside
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
-  eventToPlay:
+  eventToPlayAtSceneChange:
     Guid:
       Data1: -1890569026
       Data2: 1074264224
       Data3: -1639090809
       Data4: -1761232459
-    Path: event:/World/DoorIn
+    Path: event:/World/Doors/DoorIn
 --- !u!95 &1753690469
 Animator:
   serializedVersion: 7
@@ -10865,10 +10887,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToChangeTo: Underground
+  objectToSpawnAt: 
   actionName: Enter the hatch
   fadeToBlack: {fileID: 728843456}
   globalUiObject: {fileID: 2098379067}
-  eventToPlay:
+  eventToPlayAtSceneChange:
     Guid:
       Data1: 512469858
       Data2: 1105025480

@@ -1,4 +1,7 @@
 using UnityEngine;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
 
 public class QuestItemPress : MonoBehaviour, IInteractable
 {
@@ -8,7 +11,7 @@ public class QuestItemPress : MonoBehaviour, IInteractable
     private bool isActive = false;
     
     private PlayerController playerController;
-    
+    public EventReference soundAtInteractEvent; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,12 +24,22 @@ public class QuestItemPress : MonoBehaviour, IInteractable
     {
         
     }
-    public void PlayInteractSound() { }
+    public void PlayInteractSound() { 
+    
+    
+        EventInstance soundAtInteract = RuntimeManager.CreateInstance(soundAtInteractEvent);
+        RuntimeManager.AttachInstanceToGameObject(soundAtInteract, transform);
+        soundAtInteract.start();
+        soundAtInteract.release();
+    
+    }
     
     public void Interact()
     {
         print("Quest advanced");
-            
+
+        PlayInteractSound();
+        
         playerController.GetCurrentQuest().currentAmount++;
             
         Destroy(gameObject);
