@@ -16,8 +16,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     [SerializeField] private Quest quest;
     [Space]
     [SerializeField] private List<DialogueNode> dialogueAfterQuestAssigned;
-    
 
+    private EActivity activity;
     private GameObject player;
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
@@ -28,6 +28,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         player = GameObject.FindGameObjectWithTag("Player");
         firstPersonController = player.GetComponent<FirstPersonController>();
         playerController = player.GetComponent<PlayerController>();
+        activity = EActivity.IDLE;
     }
 
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     private void StartDialogue()
     {
+        activity = EActivity.TALKING;
         firstPersonController.DisableInput();
 
         float tweenDuration = playerController.CameraLookAtTweenDuration;
@@ -89,6 +91,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         
         firstPersonController.EnableInput(true);
         playerController.EnableInput();
+        activity = EActivity.IDLE;
     }
 
     private void AssignQuest()
@@ -102,4 +105,6 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     {
         mainDialogue = newDialogue;
     }
+    
+    public EActivity Activity => activity;
 }

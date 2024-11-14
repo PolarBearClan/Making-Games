@@ -285,14 +285,15 @@ public class PlayerController : MonoBehaviour
         
         interactionText.text = text;
     }
-    
+
     public void SetHidingStatus(bool desiredState)
     {
         hiding = desiredState;
     }
-    
+
     public Quest GetCurrentQuest() => currentQuest;
     public bool GetHidingStatus() => hiding;
+
     public GameObject DialogueBox => dialogueBox;
     public Image ProgressImage => progressImage;
     public ScreenNoteManager ScreenNoteManagerScript => screenNoteManager;
