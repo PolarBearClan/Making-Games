@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
-using NUnit.Framework;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -31,19 +27,20 @@ public class PlayerController : MonoBehaviour
     private Transform cameraTransform;
     private bool hiding = false;
     
-    private string[] inventory = Array.Empty<string>();
-
+    private List<string> inventory = new List<string>();
     
     // Quest related properties
     public delegate void ActivateQuestItems();
     public ActivateQuestItems ActivateQuestItemsCallback;
 
     private Quest currentQuest;
-    private GameObject currentlyCarriedItem = null;
+    private GameObject currentlyCarriedItem1 = null;
+    private GameObject currentlyCarriedItem2 = null;
     private bool carryingItem = false;
     
     [Header("Quest related")]
-    [SerializeField] private Transform carryParrent;
+    [SerializeField] private Transform carryParent1;
+    [SerializeField] private Transform carryParent2;
     
     private void Awake()
     {
@@ -73,6 +70,8 @@ public class PlayerController : MonoBehaviour
             GetComponent<FirstPersonController>().EnableInput();
         };
         cameraTransform = GetCamera().transform;
+        
+        // DontDestroyOnLoad(gameObject); TODO in the next iteration - needs more thought
     }
 
     // Update is called once per frame
@@ -93,7 +92,8 @@ public class PlayerController : MonoBehaviour
             if (deliveryArea != null)
             {
                 // This is a quest delivery area
-                if (!carryingItem) return;
+                if (GetCurrentQuest() == null || GetCurrentQuest().Completed) return;
+                if (deliveryArea.QuestItemType == QuestItemType.WoodLog && !carryingItem) return;
                 
                 TryDeactivateCurrentTarget();
                 currentTarget = newTarget;
@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void InteractMethod(InputAction.CallbackContext context)
+    private void InteractMethod(InputAction.CallbackContext context)
     {
         if (currentTarget == null || !canInteract) return;
         
@@ -191,13 +191,21 @@ public class PlayerController : MonoBehaviour
 
     public void AddToInventory(string item)
     {
-        Array.Resize(ref inventory, inventory.Length + 1);
-        inventory[^1] = item;
-
-        Debug.Log("Added " + item + " to inventory");
+        inventory.Add(item);
         Debug.Log("Inventory: " + string.Join(", ", inventory));
     }
 
+    public bool RemoveFromInventory(string item)
+    {
+        if (inventory.Contains(item))
+        {
+            inventory.Remove(item);
+            Debug.Log("Inventory: " + string.Join(", ", inventory));
+            return true;
+        }
+        return false;
+    }
+    
     public void AssignQuest(Quest q)
     {
         currentQuest = q;
@@ -210,50 +218,81 @@ public class PlayerController : MonoBehaviour
 
     public void StartCarryingItem(GameObject itemToCarry)
     {
-        currentlyCarriedItem = itemToCarry;
+        ref GameObject carriedItem = ref GetFreeItemGameObject();
+        Transform carryParent = GetFreeSpotParent();
+        
+        carriedItem = itemToCarry;
         carryingItem = true;
         interactionText.text = "";
         
-        currentlyCarriedItem.transform.SetParent(carryParrent);
-        currentlyCarriedItem.transform.localPosition = Vector3.zero;
+        carriedItem.transform.SetParent(carryParent);
+        carriedItem.transform.localPosition = Vector3.zero;
         
-        currentlyCarriedItem.GetComponent<QuestItemBase>().DeactivateItem(); // not available for further interaction
-        currentlyCarriedItem.GetComponent<Collider>().enabled = false;
+        carriedItem.GetComponent<QuestItemBase>().DeactivateItem(); // not available for further interaction
+        carriedItem.GetComponent<Collider>().enabled = false;
     }
 
-    public GameObject DropCarriedItem()
+    public GameObject StopCarryingItem()
     {
-        currentlyCarriedItem.transform.SetParent(null);
-
-        GameObject carriedItem = currentlyCarriedItem;
+        ref GameObject carriedItem = ref GetCarriedItemGameObject();
         
-        carryingItem = false;
-        currentlyCarriedItem = null;
+        carriedItem.transform.SetParent(null);
+        GameObject carriedItemRet = carriedItem;
+        carryingItem = GetCarriedItemsCount() != 1; // Only set this to false if I am carrying just 1 item
+        
+        carriedItem = null;
         interactionText.text = "";
-
-        return carriedItem;
+        return carriedItemRet;
     }
 
+    public bool HasFreeSpot() => currentlyCarriedItem1 == null || currentlyCarriedItem2 == null;
+    private Transform GetFreeSpotParent() => currentlyCarriedItem1 == null ? carryParent1 : carryParent2;
+
+    private ref GameObject GetFreeItemGameObject()
+    {
+        if (currentlyCarriedItem1 == null) return ref currentlyCarriedItem1;
+        return ref currentlyCarriedItem2;
+    }
+
+    private ref GameObject GetCarriedItemGameObject()
+    {
+        if (currentlyCarriedItem1 != null) return ref currentlyCarriedItem1;
+        return ref currentlyCarriedItem2;
+    }
+
+    public QuestItemType GetCarriedItemType()
+    {
+        return GetCarriedItemGameObject() != null
+            ? GetCarriedItemGameObject().GetComponent<QuestItemCarry>().QuestItemType
+            : QuestItemType.None;
+    }
+
+    private int GetCarriedItemsCount()
+    {
+        var c = 0;
+        if (currentlyCarriedItem1 != null) c++;
+        if (currentlyCarriedItem2 != null) c++;
+        return c;
+    }
+    
     private void ChangeText(string text, bool overridingPermission = false)
     {
-        if (overridingPermission || !carryingItem)
-            interactionText.text = text;
-    }
-
-    public Quest GetCurrentQuest()
-    {
-        return currentQuest;
-    }
-
-    public bool GetHidingStatus()
-    {
-        return hiding;
+        // TODO remove this if it is okay like this
+        // should players interaction be disabled if he is carrying 2 items?
+        // or even 1 item? - this probably no
+        // 
+        //if (overridingPermission || GetCarriedItemsCount() < 2)
+        
+        interactionText.text = text;
     }
 
     public void SetHidingStatus(bool desiredState)
     {
         hiding = desiredState;
     }
+
+    public Quest GetCurrentQuest() => currentQuest;
+    public bool GetHidingStatus() => hiding;
 
     public GameObject DialogueBox => dialogueBox;
     public Image ProgressImage => progressImage;
