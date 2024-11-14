@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour
             GetComponent<FirstPersonController>().EnableInput();
         };
         cameraTransform = GetCamera().transform;
+        
+        // DontDestroyOnLoad(gameObject); TODO in the next iteration - needs more thought
     }
 
     // Update is called once per frame
@@ -277,7 +279,7 @@ public class PlayerController : MonoBehaviour
     {
         // TODO remove this if it is okay like this
         // should players interaction be disabled if he is carrying 2 items?
-        // or even 1 item?
+        // or even 1 item? - this probably no
         // 
         //if (overridingPermission || GetCarriedItemsCount() < 2)
         
