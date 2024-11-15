@@ -30,7 +30,7 @@ public class StoryClue : Collectible
     {
         PlayOnInteract();
         if (OnStoryCluePickup != null) OnStoryCluePickup();
-        playerController.screenNoteManager.ShowNote(storyText);
+        playerController.ScreenNoteManagerScript.ShowNote(storyText);
         
         playerController.DisableInput();
         firstPersonController.DisableInput();

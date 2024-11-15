@@ -2,27 +2,21 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class QuestItemHold : MonoBehaviour, IInteractable
+public class QuestItemHold : QuestItemBase
 {
-    [SerializeField] private string itemName;
-    [SerializeField] private string actionName;
+    [Tooltip("Time in seconds")]
     [SerializeField] private float targetHoldTime;
-    
-    private bool isActive = false;
     
     private bool holdingKey = false;
     private float holdingTime;
     private Image progressImg;
     
-    private PlayerController playerController;
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        playerController.ActivateQuestItemsCallback += () => { isActive = true; };
+        base.Start();
         
-        progressImg = playerController.progressImage;
+        progressImg = playerController.ProgressImage;
     }
 
     // Update is called once per frame
@@ -46,24 +40,23 @@ public class QuestItemHold : MonoBehaviour, IInteractable
         UpdateUI();
     }
 
-    public void PlayInteractSound() { }
     private void UpdateUI()
     {
         progressImg.fillAmount = holdingTime / targetHoldTime;
     }
 
-    public void Interact()
+    public override void Interact()
     {
         // Start Hold interaction
         holdingKey = true;
     }
 
-    public void Activate()
+    public override void Activate()
     {
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
     
-    public void Deactivate()
+    public override void Deactivate()
     {
         GetComponent<MeshRenderer>().material.color = Color.red;
         
@@ -71,24 +64,9 @@ public class QuestItemHold : MonoBehaviour, IInteractable
         holdingTime = 0;
         UpdateUI();
     }
-
-    public string GetName()
-    {
-        return itemName;
-    }
-
-    public string GetActionName()
-    {
-        return actionName;
-    }
     
     public string GetActionType()
     {
         return "Hold";
-    }
-    
-    public bool IsInteractable()
-    {
-        return isActive;
     }
 }
