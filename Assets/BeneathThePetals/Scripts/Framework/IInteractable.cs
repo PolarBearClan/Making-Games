@@ -2,6 +2,7 @@ public interface IInteractable
 {
     void Interact();
 
+    void PlayInteractSound();
     bool IsInteractable()
     {
         return true;

@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,7 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInputActions playerInput;
     private InputAction interact;
-
+    public EventReference eventToPlayWhenBob;
+    public EventReference eventToPlayWhenJump;
     private GameObject currentTarget;
     private bool canInteract = true;
     private Transform cameraTransform;

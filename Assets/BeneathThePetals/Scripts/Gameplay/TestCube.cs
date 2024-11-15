@@ -14,6 +14,7 @@ public class TestCube : MonoBehaviour, IInteractable
     {
         
     }
+    public void PlayInteractSound() { }
 
     public void Interact()
     {

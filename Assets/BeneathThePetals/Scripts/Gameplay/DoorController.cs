@@ -1,6 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
-
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
 public class DoorController : MonoBehaviour, IInteractable
 {
     [SerializeField] private float rotationAngle = 90;
@@ -15,6 +17,8 @@ public class DoorController : MonoBehaviour, IInteractable
     private bool interactable = true;
     private BoxCollider doorCollider;
     
+    public EventReference eventToPlayWhenOpen;
+    public EventReference eventToPlayWhenClose;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -43,6 +47,7 @@ public class DoorController : MonoBehaviour, IInteractable
         {
             transform.DOComplete();
             
+            PlayInteractSound();
             var rotationChange = new Vector3(0, rotationAngle, 0);
             if (doorOpen) rotationChange *= -1;
             doorOpen = !doorOpen;
@@ -57,6 +62,27 @@ public class DoorController : MonoBehaviour, IInteractable
         }
     }
 
+    public void PlayInteractSound() {
+
+        if (!doorOpen) { 
+        
+        EventInstance soundWhenOpen = RuntimeManager.CreateInstance(eventToPlayWhenOpen);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenOpen, transform);
+        soundWhenOpen.start();
+        soundWhenOpen.release();
+        
+        }     
+        if (doorOpen) { 
+        
+        EventInstance soundWhenClose = RuntimeManager.CreateInstance(eventToPlayWhenClose);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenClose, transform);
+        soundWhenClose.start();
+        soundWhenClose.release();
+        
+        }     
+
+
+    }
     public void Activate()
     {
         //GetComponentInChildren<MeshRenderer>().material.color = Color.green;
