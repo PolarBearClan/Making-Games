@@ -11,7 +11,6 @@ using UnityEngine.UI;
 using FMOD;
 using FMODUnity;
 using FMOD.Studio;
-using UnityEngine.InputSystem.Android;
 
 
 
@@ -27,7 +26,7 @@ public class FirstPersonController : MonoBehaviour
     EventInstance soundWhenBob;
     EventInstance soundWhenJump;
     int soundCounter;
-    
+
     #region Camera Movement Variables
 
     public Camera playerCamera;
@@ -397,7 +396,7 @@ public class FirstPersonController : MonoBehaviour
             }
         }
         else {
-            soundTimer = 0; 
+            soundTimer = 0;
         }
 
     }
