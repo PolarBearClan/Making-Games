@@ -9,9 +9,9 @@ using FMOD.Studio;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("General")] 
+    [Header("General")]
     [SerializeField] private float interactionDistance;
-    
+
     [Tooltip("Time it takes for the camera to look at NPC when interaction is started.")]
     [SerializeField] private float cameraLookAtTweenDuration;
 
@@ -30,9 +30,9 @@ public class PlayerController : MonoBehaviour
     private bool canInteract = true;
     private Transform cameraTransform;
     private bool hiding = false;
-    
+
     private List<string> inventory = new List<string>();
-    
+
     // Quest related properties
     public delegate void ActivateQuestItems();
     public ActivateQuestItems ActivateQuestItemsCallback;
@@ -41,11 +41,11 @@ public class PlayerController : MonoBehaviour
     private GameObject currentlyCarriedItem1 = null;
     private GameObject currentlyCarriedItem2 = null;
     private bool carryingItem = false;
-    
+
     [Header("Quest related")]
     [SerializeField] private Transform carryParent1;
     [SerializeField] private Transform carryParent2;
-    
+
     private void Awake()
     {
         playerInput = new PlayerInputActions();
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<FirstPersonController>().EnableInput();
         };
         cameraTransform = GetCamera().transform;
-        
+
         // DontDestroyOnLoad(gameObject); TODO in the next iteration - needs more thought
     }
 
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForInteractables()
     {
-        
+
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance))
         {
             var newTarget = hit.collider.gameObject;
@@ -98,12 +98,12 @@ public class PlayerController : MonoBehaviour
                 // This is a quest delivery area
                 if (GetCurrentQuest() == null || GetCurrentQuest().Completed) return;
                 if (deliveryArea.QuestItemType == QuestItemType.WoodLog && !carryingItem) return;
-                
+
                 TryDeactivateCurrentTarget();
                 currentTarget = newTarget;
                 TryActivateCurrentTarget(true);
             }
-            
+
             if (currentTarget)
             {
                 if (newTarget != currentTarget)
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
         if (currentInteractable != null)
         {
             if (!currentInteractable.IsInteractable()) return;
-            
+
             currentInteractable.Activate();
             ChangeText(currentInteractable.GetActionType() + " E to " + currentInteractable.GetActionName() + " \n" +
                        currentInteractable.GetName(), aimingAtQuestItem);
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
     private void TryDeactivateCurrentTarget()
     {
         ChangeText("", true); // Do this regardless of having any target
-        
+
         if (!currentTarget) return;
 
         var currentInteractable = currentTarget.GetComponent<IInteractable>();
@@ -166,12 +166,12 @@ public class PlayerController : MonoBehaviour
     private void InteractMethod(InputAction.CallbackContext context)
     {
         if (currentTarget == null || !canInteract) return;
-        
+
         var interactable = currentTarget.GetComponent<IInteractable>();
         if (interactable != null)
         {
             if (!interactable.IsInteractable()) return;
-            
+
             interactable.Interact();
         }
     }
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
     public void AddToInventory(string item)
     {
         inventory.Add(item);
-        Debug.Log("Inventory: " + string.Join(", ", inventory));
+        UnityEngine.Debug.Log("Inventory: " + string.Join(", ", inventory));
     }
 
     public bool RemoveFromInventory(string item)
@@ -204,12 +204,12 @@ public class PlayerController : MonoBehaviour
         if (inventory.Contains(item))
         {
             inventory.Remove(item);
-            Debug.Log("Inventory: " + string.Join(", ", inventory));
+            UnityEngine.Debug.Log("Inventory: " + string.Join(", ", inventory));
             return true;
         }
         return false;
     }
-    
+
     public void AssignQuest(Quest q)
     {
         currentQuest = q;
@@ -224,14 +224,14 @@ public class PlayerController : MonoBehaviour
     {
         ref GameObject carriedItem = ref GetFreeItemGameObject();
         Transform carryParent = GetFreeSpotParent();
-        
+
         carriedItem = itemToCarry;
         carryingItem = true;
         interactionText.text = "";
-        
+
         carriedItem.transform.SetParent(carryParent);
         carriedItem.transform.localPosition = Vector3.zero;
-        
+
         carriedItem.GetComponent<QuestItemBase>().DeactivateItem(); // not available for further interaction
         carriedItem.GetComponent<Collider>().enabled = false;
     }
@@ -239,11 +239,11 @@ public class PlayerController : MonoBehaviour
     public GameObject StopCarryingItem()
     {
         ref GameObject carriedItem = ref GetCarriedItemGameObject();
-        
+
         carriedItem.transform.SetParent(null);
         GameObject carriedItemRet = carriedItem;
         carryingItem = GetCarriedItemsCount() != 1; // Only set this to false if I am carrying just 1 item
-        
+
         carriedItem = null;
         interactionText.text = "";
         return carriedItemRet;
@@ -278,15 +278,15 @@ public class PlayerController : MonoBehaviour
         if (currentlyCarriedItem2 != null) c++;
         return c;
     }
-    
+
     private void ChangeText(string text, bool overridingPermission = false)
     {
         // TODO remove this if it is okay like this
         // should players interaction be disabled if he is carrying 2 items?
         // or even 1 item? - this probably no
-        // 
+        //
         //if (overridingPermission || GetCarriedItemsCount() < 2)
-        
+
         interactionText.text = text;
     }
 

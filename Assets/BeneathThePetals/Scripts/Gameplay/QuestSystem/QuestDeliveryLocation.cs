@@ -10,10 +10,10 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
     [Tooltip("This object will accept only items of the following type.")]
     [SerializeField] private QuestItemType questItemType;
     [SerializeField] private GameObject flowerPotPrefab;
-    
+
     [Space]
     [SerializeField] private List<Transform> goalLoactions;
-    
+
     private PlayerController playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,13 +25,13 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Interact()
     {
         GameObject questItem = null;
-        
+
         switch (questItemType)
         {
             case QuestItemType.WoodLog:
@@ -60,17 +60,22 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
                 break;
             }
         }
-        
+
         if (questItem == null)
         {
             print("No quest item found!");
             return;
         }
-        
+
         // Place item
         var targetTransform = goalLoactions[playerController.GetCurrentQuest().currentAmount++];
         questItem.transform.position = targetTransform.position;
         questItem.transform.rotation = targetTransform.rotation;
+    }
+
+    public void PlayInteractSound()
+    {
+        throw new NotImplementedException();
     }
 
     public void Activate()
