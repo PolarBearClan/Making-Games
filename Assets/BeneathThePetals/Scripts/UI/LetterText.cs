@@ -15,7 +15,6 @@ public class LetterText : MonoBehaviour
     TextAnimator_TMP textanim;
 
     [Header("Typewriter")]
-    [SerializeField] private float waitTime = 1f;
     [SerializeField] private GameObject acceptInvitation;
     [SerializeField] private KeyCode inputKey = KeyCode.E;
 
