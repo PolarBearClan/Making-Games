@@ -6173,6 +6173,7 @@ MonoBehaviour:
   collectibleName: StoryClue
   moveSpeed: 3
   rotationAmount: 360
+  activeFromStart: 1
   noteText: {fileID: 87073246}
   storyText: Metal plate story clue!
   soundToPlayOnPickUp:
@@ -10538,6 +10539,7 @@ MonoBehaviour:
   collectibleName: StoryClue
   moveSpeed: 3
   rotationAmount: 360
+  activeFromStart: 1
   noteText: {fileID: 87073246}
   storyText: Key 2 story clue!
   soundToPlayOnPickUp:
@@ -11662,6 +11664,7 @@ MonoBehaviour:
   collectibleName: StoryClue
   moveSpeed: 3
   rotationAmount: 360
+  activeFromStart: 1
   noteText: {fileID: 87073246}
   storyText: Book story clue!
   soundToPlayOnPickUp:
@@ -18382,6 +18385,7 @@ MonoBehaviour:
   collectibleName: StoryClue
   moveSpeed: 3
   rotationAmount: 360
+  activeFromStart: 1
   noteText: {fileID: 87073246}
   storyText: Key 1 story clue!
   soundToPlayOnPickUp:
@@ -24238,6 +24242,10 @@ PrefabInstance:
     - target: {fileID: 7194348248082324894, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787977716170270024, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
