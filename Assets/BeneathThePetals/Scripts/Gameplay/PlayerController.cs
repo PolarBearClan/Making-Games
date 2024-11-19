@@ -197,8 +197,13 @@ public class PlayerController : MonoBehaviour
     {
         inventory.Add(item);
         UnityEngine.Debug.Log("Inventory: " + string.Join(", ", inventory));
-    }
+        Debug.Log("Added " + item + " to inventory");
+        Debug.Log("Inventory: " + string.Join(", ", inventory));
 
+        InventoryManager.Instance.AddItem(item);
+        FindAnyObjectByType<InventoryUI>().UpdateInventoryUI();
+    }
+    
     public bool RemoveFromInventory(string item)
     {
         if (inventory.Contains(item))
