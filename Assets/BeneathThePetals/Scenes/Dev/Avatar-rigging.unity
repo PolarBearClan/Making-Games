@@ -333,7 +333,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8950265562796933603, guid: 98e09db4e2eb8404d857e736095365d2, type: 3}
+  - {fileID: 2100000, guid: dbe80190c9adea34c8c8845ca4a17934, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1035,6 +1035,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsIdle: 1
   animator: {fileID: 607862622}
+  destination: {fileID: 0}
+  speed: 0
 --- !u!95 &607862622
 Animator:
   serializedVersion: 7
@@ -3070,14 +3072,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Height
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Center.y
-      value: 0.98
-      objectReference: {fileID: 0}
+    - target: {fileID: 759220735644641459, guid: 421c792e224ee4642bf90a7a7c74d7da, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c56fde8978e478246b808a5a397f685e, type: 2}
     - target: {fileID: 3228383341059847918, guid: 421c792e224ee4642bf90a7a7c74d7da, type: 3}
       propertyPath: m_Name
       value: TestModel
@@ -3236,6 +3234,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Woman_Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8948609074308874370, guid: bf10d2e407190604f86e4c1536ea4241, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948609074308874370, guid: bf10d2e407190604f86e4c1536ea4241, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 79f64ed6f5d6d374d91c3a0af4070258, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

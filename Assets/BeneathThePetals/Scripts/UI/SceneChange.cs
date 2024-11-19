@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
 public class SceneChange : MonoBehaviour, IInteractable
 {
     public string sceneToChangeTo;
@@ -10,6 +13,7 @@ public class SceneChange : MonoBehaviour, IInteractable
     public GameObject fadeToBlack;
     public GameObject globalUiObject;
 
+    public EventReference eventToPlayAtSceneChange;
     private Animator anim;
 
     public void ChangeScene()
@@ -25,6 +29,7 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        PlayInteractSound();
         if(GetComponent<Animator>() != null)
             GetComponent<Animator>().SetTrigger("OpenDoors");
         ChangeScene();
@@ -85,11 +90,19 @@ public class SceneChange : MonoBehaviour, IInteractable
             }
             else
             {
-                Debug.LogWarning("Object to spawn at not found: " + globalUiState.getObjectToSpawnAt());
+                UnityEngine.Debug.LogWarning("Object to spawn at not found: " + globalUiState.getObjectToSpawnAt());
             }
         }
 
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
+        UnityEngine.Debug.Log("OnSceneLoaded: " + scene.name);
+        UnityEngine.Debug.Log(mode);
+    }
+
+    public void PlayInteractSound() { 
+    
+        EventInstance soundWhenSceneChange = RuntimeManager.CreateInstance(eventToPlayAtSceneChange);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenSceneChange, transform);
+        soundWhenSceneChange.start();
+        soundWhenSceneChange.release();
     }
 }

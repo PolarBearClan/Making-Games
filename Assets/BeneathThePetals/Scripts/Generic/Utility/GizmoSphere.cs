@@ -4,6 +4,8 @@ using UnityEngine;
 public class GizmoSphere : MonoBehaviour
 {
     public float radius = 0.5f;
+    public Color color = Color.blue;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +20,7 @@ public class GizmoSphere : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = color;
         Gizmos.DrawSphere(transform.position, radius);
     }
 }
