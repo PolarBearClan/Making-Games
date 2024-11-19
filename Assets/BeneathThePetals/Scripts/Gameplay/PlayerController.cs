@@ -197,8 +197,8 @@ public class PlayerController : MonoBehaviour
     {
         inventory.Add(item);
         UnityEngine.Debug.Log("Inventory: " + string.Join(", ", inventory));
-        Debug.Log("Added " + item + " to inventory");
-        Debug.Log("Inventory: " + string.Join(", ", inventory));
+        UnityEngine.Debug.Log("Added " + item + " to inventory");
+        UnityEngine.Debug.Log("Inventory: " + string.Join(", ", inventory));
 
         InventoryManager.Instance.AddItem(item);
         FindAnyObjectByType<InventoryUI>().UpdateInventoryUI();
