@@ -9,6 +9,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 {
     [SerializeField] private string npcName;
     [SerializeField] private Transform pointToFace;
+    [SerializeField] private Transform targetPosition;
 
     [Space]
     [SerializeField] private List<DialogueNode> mainDialogue;
@@ -23,6 +24,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private GameObject player;
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
+    private Vector3 initialCameraPosition;
     public EventReference soundToPlayOnInteract; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -63,11 +65,26 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController.DisableInput();
 
         float tweenDuration = playerController.CameraLookAtTweenDuration;
-        
+
+        initialCameraPosition = firstPersonController.playerCamera.transform.position;
+
+
+        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+        directionToPlayer.y = 0;
+        Quaternion npcTargetRotation = Quaternion.LookRotation(directionToPlayer);
+
+        transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
+
+        //firstPersonController.playerCamera.transform.DOMove(targetPosition.position, tweenDuration);
+
         // Important to rotate them both
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
-        firstPersonController.transform.DOLookAt(pointToFace.position, tweenDuration);
-        
+
+        Vector3 directionToNPC = (pointToFace.position - firstPersonController.transform.position).normalized;
+        directionToNPC.y = 0;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToNPC);
+        firstPersonController.transform.DORotateQuaternion(targetRotation, tweenDuration);
+
         playerController.DisableInput();
 
         var dialogueBox = playerController.DialogueBox;
@@ -101,7 +118,10 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         // Finish tweens in case of a quick dialogue ending
         firstPersonController.playerCamera.transform.DOComplete();
         firstPersonController.transform.DOComplete();
-        
+
+        float tweenDuration = playerController.CameraLookAtTweenDuration;
+        //firstPersonController.playerCamera.transform.DOMove(initialCameraPosition, tweenDuration);
+
         firstPersonController.EnableInput(true);
         playerController.EnableInput();
         activity = EActivity.IDLE;

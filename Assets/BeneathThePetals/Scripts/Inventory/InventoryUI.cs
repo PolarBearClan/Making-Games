@@ -29,7 +29,6 @@ public class InventoryUI : MonoBehaviour
     private List<Quaternion> defaultRotations = new List<Quaternion>();
     private bool isRotating = false;
     private int currentSelected = 0;
-    private int nextAvailableSlot = 0;
 
     void Start()
     {

@@ -200,8 +200,10 @@ public class FirstPersonController : MonoBehaviour
             sprintBarWidth = screenWidth * sprintBarWidthPercent;
             sprintBarHeight = screenHeight * sprintBarHeightPercent;
 
+            /*
             sprintBarBG.rectTransform.sizeDelta = new Vector3(sprintBarWidth, sprintBarHeight, 0f);
             sprintBar.rectTransform.sizeDelta = new Vector3(sprintBarWidth - 2, sprintBarHeight - 2, 0f);
+            */
 
             if(hideBarWhenFull)
             {
@@ -336,8 +338,14 @@ public class FirstPersonController : MonoBehaviour
             if(useSprintBar && !unlimitedSprint)
             {
                 float sprintRemainingPercent = sprintRemaining / sprintDuration;
-                sprintBar.transform.localScale = new Vector3(sprintRemainingPercent, 1f, 1f);
+                sprintBar.fillAmount = sprintRemainingPercent;
+                //sprintBar.transform.localScale = new Vector3(sprintRemainingPercent, 1f, 1f);
             }
+
+            if (sprintRemaining < sprintDuration)
+                sprintBarCG.alpha = 1;
+            else
+                sprintBarCG.alpha = 0;
         }
 
         #endregion
