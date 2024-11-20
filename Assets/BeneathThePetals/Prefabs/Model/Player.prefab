@@ -1022,7 +1022,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4596355684682858243}
-
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6227394436040781233
 MonoBehaviour:
@@ -1037,6 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.14
+  color: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &2435162168368133285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1689,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 4459864851310106426}
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  eventToPlayWhenJump:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   fov: 60
   invertCamera: 0
   cameraCanMove: 1
@@ -1751,6 +1765,20 @@ MonoBehaviour:
   questManager: {fileID: 2224904569169807286}
   progressImage: {fileID: 287415097124567770}
   screenNoteManager: {fileID: 7421976499819998195}
+  eventToPlayWhenBob:
+    Guid:
+      Data1: -250649108
+      Data2: 1147043908
+      Data3: 733960639
+      Data4: -1139886336
+    Path: event:/Character/Footsteps
+  eventToPlayWhenJump:
+    Guid:
+      Data1: 359452346
+      Data2: 1259269203
+      Data3: -240982633
+      Data4: -1552387493
+    Path: event:/Character/Jump
   carryParent1: {fileID: 7171437442034883148}
   carryParent2: {fileID: 8778548127637290266}
 --- !u!1 &4459864850190357393
@@ -3067,6 +3095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.14
+  color: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &5201302094271255752
 GameObject:
   m_ObjectHideFlags: 0
