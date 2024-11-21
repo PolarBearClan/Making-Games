@@ -25,7 +25,9 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
     private Vector3 initialCameraPosition;
-    public EventReference soundToPlayOnInteract; 
+    private Animator anim;
+
+    public EventReference soundToPlayOnInteract;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +36,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController = player.GetComponent<FirstPersonController>();
         playerController = player.GetComponent<PlayerController>();
         activity = EActivity.IDLE;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -87,6 +90,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
         playerController.DisableInput();
 
+        anim.SetBool("isTalking", true);
+
         var dialogueBox = playerController.DialogueBox;
         var dialogueSystem = dialogueBox.GetComponent<DialogueSystem>();
         dialogueSystem.DialogueEndCallback = EndDialogue;
@@ -121,6 +126,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
         float tweenDuration = playerController.CameraLookAtTweenDuration;
         //firstPersonController.playerCamera.transform.DOMove(initialCameraPosition, tweenDuration);
+
+        anim.SetBool("isTalking", false);
 
         firstPersonController.EnableInput(true);
         playerController.EnableInput();
