@@ -71,7 +71,7 @@ public class InventoryUI : MonoBehaviour
 
     }
 
-    void ToggleCamera()
+    public void ToggleCamera()
     {
         mainCamera.enabled = !mainCamera.enabled;
         inventoryCamera.enabled = !inventoryCamera.enabled;

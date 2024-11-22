@@ -103,6 +103,8 @@ public class FirstPersonController : MonoBehaviour
     private bool isSprintCooldown = false;
     private float sprintCooldownReset;
 
+    private PauseMenu pauseMenu;
+
     #endregion
 
     #region Jump
@@ -166,6 +168,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        pauseMenu = GameObject.FindAnyObjectByType<PauseMenu>();
         eventToPlayWhenOpen = this.gameObject.GetComponent<PlayerController>().eventToPlayWhenBob;
         eventToPlayWhenJump = this.gameObject.GetComponent<PlayerController>().eventToPlayWhenJump;
         soundWhenBob = RuntimeManager.CreateInstance(eventToPlayWhenOpen);
@@ -225,6 +228,10 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        if(pauseMenu != null)
+            if (pauseMenu.isPaused)
+                return;
+
         #region Camera
 
         // Control camera movement

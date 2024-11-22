@@ -63,6 +63,9 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     private void StartDialogue()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         activity = EActivity.TALKING;
         firstPersonController.DisableInput();
 
@@ -87,7 +90,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
         playerController.DisableInput();
 
-        anim.SetBool("isTalking", true);
+        if(anim != null)
+            anim.SetBool("isTalking", true);
 
         var dialogueBox = playerController.DialogueBox;
         var dialogueSystem = dialogueBox.GetComponent<DialogueSystem>();
@@ -96,8 +100,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         dialogueSystem.PlayDialogue(mainDialogue);
 
         var animator = dialogueBox.GetComponent<Animator>();
-        //if (animator.gameObject.activeSelf)
-            //animator.SetBool("DialogueBars", true);
+        if (animator.gameObject.activeSelf)
+            animator.SetBool("DialogueBars", true);
     }
 
     public void Activate()
@@ -124,7 +128,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         float tweenDuration = playerController.CameraLookAtTweenDuration;
         //firstPersonController.transform.DOMove(initialPosition, tweenDuration);
 
-        anim.SetBool("isTalking", false);
+        if (anim != null)
+            anim.SetBool("isTalking", false);
 
         firstPersonController.EnableInput(true);
         playerController.EnableInput();
