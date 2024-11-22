@@ -68,6 +68,9 @@ public class FirstPersonController : MonoBehaviour
 
     public bool playerCanMove = true;
     public float walkSpeed = 5f;
+    //Nick's personal addition
+    private float originalWalkSpeed;
+
     public float maxVelocityChange = 10f;
 
     // Internal Variables
@@ -154,6 +157,8 @@ public class FirstPersonController : MonoBehaviour
         playerCamera.fieldOfView = fov;
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
+        // Nick's personal addition
+        originalWalkSpeed = walkSpeed;
 
         if (!unlimitedSprint)
         {
@@ -522,7 +527,7 @@ public class FirstPersonController : MonoBehaviour
         if(isCrouched)
         {
             transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
-            walkSpeed /= speedReduction;
+            walkSpeed = originalWalkSpeed;
 
             isCrouched = false;
         }
