@@ -24,7 +24,9 @@ public class AnimationTrigger : MonoBehaviour
             if(anim != null)
                 anim.SetTrigger("Open");
             if (npcBaseController != null)
+            {
                 npcBaseController.Interact();
+            }
 
             transform.gameObject.SetActive(false);
         }

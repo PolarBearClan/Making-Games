@@ -9,7 +9,6 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 {
     [SerializeField] private string npcName;
     [SerializeField] private Transform pointToFace;
-    [SerializeField] private Transform targetPosition;
 
     [Space]
     [SerializeField] private List<DialogueNode> mainDialogue;
@@ -24,7 +23,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private GameObject player;
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
-    private Vector3 initialCameraPosition;
+    private Vector3 initialPosition;
     private Animator anim;
 
     public EventReference soundToPlayOnInteract;
@@ -69,7 +68,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
         float tweenDuration = playerController.CameraLookAtTweenDuration;
 
-        initialCameraPosition = firstPersonController.playerCamera.transform.position;
+        initialPosition = firstPersonController.transform.position;
 
 
         Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
@@ -77,8 +76,6 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         Quaternion npcTargetRotation = Quaternion.LookRotation(directionToPlayer);
 
         transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
-
-        //firstPersonController.playerCamera.transform.DOMove(targetPosition.position, tweenDuration);
 
         // Important to rotate them both
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
@@ -99,8 +96,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         dialogueSystem.PlayDialogue(mainDialogue);
 
         var animator = dialogueBox.GetComponent<Animator>();
-        if (animator.gameObject.activeSelf)
-            animator.SetBool("DialogueBars", true);
+        //if (animator.gameObject.activeSelf)
+            //animator.SetBool("DialogueBars", true);
     }
 
     public void Activate()
@@ -125,7 +122,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController.transform.DOComplete();
 
         float tweenDuration = playerController.CameraLookAtTweenDuration;
-        //firstPersonController.playerCamera.transform.DOMove(initialCameraPosition, tweenDuration);
+        //firstPersonController.transform.DOMove(initialPosition, tweenDuration);
 
         anim.SetBool("isTalking", false);
 

@@ -1,21 +1,18 @@
-using Unity.VisualScripting;
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
-
-public class JumpscareTrigger : MonoBehaviour
+public class JumpscareInteract : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private Jumpscare _jumpscareObject;
-
-    [SerializeField]
-    private Transform _lookAtObject;
 
     [SerializeField]
     private float _duration;
 
     [SerializeField]
     private float _tweenDuration = .1f;
+
+    [SerializeField] private string actionName;
 
     private GameObject _player;
     private FirstPersonController _playerController;
@@ -24,10 +21,9 @@ public class JumpscareTrigger : MonoBehaviour
     private bool _triggered = false;
     private float _timeElapsed = 0;
 
-
+    
     void Start()
     {
-        GetComponent<MeshRenderer>().enabled = false;
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerController = _player.GetComponent<FirstPersonController>();
         _jumpscare = _jumpscareObject.GetComponent<Jumpscare>();
@@ -41,15 +37,15 @@ public class JumpscareTrigger : MonoBehaviour
             {
                 if (_jumpscare.GetType() != typeof(JumpscareSpawn))
                 {
-                    _playerController.playerCamera.transform.DOLookAt(_lookAtObject.transform.position, _tweenDuration);
-                    _playerController.transform.DOLookAt(_lookAtObject.transform.position, _tweenDuration);
+                    _playerController.playerCamera.transform.DOLookAt(_jumpscareObject.transform.position, _tweenDuration);
+                    _playerController.transform.DOLookAt(_jumpscareObject.transform.position, _tweenDuration);
                 }
             }
 
             if (_timeElapsed >= _tweenDuration)
             {
                 if (_jumpscare.GetType() != typeof(JumpscareSpawn))
-                    _playerController.playerCamera.transform.DOLookAt(_lookAtObject.transform.position, 0);
+                    _playerController.playerCamera.transform.DOLookAt(_jumpscareObject.transform.position, 0);
             }
 
             if (_timeElapsed > _duration)
@@ -62,11 +58,9 @@ public class JumpscareTrigger : MonoBehaviour
         }
     }
 
-
-
-    private void OnTriggerEnter(Collider other)
+    private void TriggerJumpscare()
     {
-        if ((other.gameObject == _player) && !_triggered)
+        if (!_triggered)
         {
             _triggered = true;
 
@@ -77,5 +71,36 @@ public class JumpscareTrigger : MonoBehaviour
             Debug.Log("Jumpscare!");
 
         }
+    }
+
+    public void Interact()
+    {
+        TriggerJumpscare();
+    }
+
+
+    public void Activate()
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public void Deactivate()
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public string GetActionName()
+    {
+        return actionName;
+    }
+
+    public string GetName()
+    {
+        return " ";
+    }
+
+    public void PlayInteractSound()
+    {
+        throw new System.NotImplementedException();
     }
 }
