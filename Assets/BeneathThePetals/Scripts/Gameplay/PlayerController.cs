@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     private GameObject currentTarget;
     private bool canInteract = true;
     private Transform cameraTransform;
-    private bool hiding = false;
 
     private List<string> inventory = new List<string>();
 
@@ -295,14 +294,7 @@ public class PlayerController : MonoBehaviour
         interactionText.text = text;
     }
 
-    public void SetHidingStatus(bool desiredState)
-    {
-        hiding = desiredState;
-    }
-
     public Quest GetCurrentQuest() => currentQuest;
-    public bool GetHidingStatus() => hiding;
-
     public GameObject DialogueBox => dialogueBox;
     public Image ProgressImage => progressImage;
     public ScreenNoteManager ScreenNoteManagerScript => screenNoteManager;

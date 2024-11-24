@@ -5660,6 +5660,13 @@ MonoBehaviour:
   actionName: Go outside the Village
   fadeToBlack: {fileID: 1515621986}
   globalUiObject: {fileID: 1176257998}
+  eventToPlayAtSceneChange:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &755572241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6281,6 +6288,13 @@ MonoBehaviour:
     goalAmount: 0
     dialogueAfterQuestCompleted: []
   dialogueAfterQuestAssigned: []
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &818204694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7969,6 +7983,60 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3935396574283352871, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
+--- !u!1 &1000854024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1000854025}
+  - component: {fileID: 1000854026}
+  m_Layer: 0
+  m_Name: NoiseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1000854025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000854024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.4966755, y: -49.063843, z: -57.54151}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1000854026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000854024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23702814ed3ec5343882d781e1a29530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseStep: 20
+  decayRate: 10
+  currentGlobalNoiseLevel: 100
+  noiseEvent:
+    Guid:
+      Data1: 775742214
+      Data2: 1299973990
+      Data3: 874120329
+      Data4: 922983955
+    Path: event:/World/UI/Noise
 --- !u!1001 &1001019930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9509,6 +9577,13 @@ MonoBehaviour:
     goalAmount: 0
     dialogueAfterQuestCompleted: []
   dialogueAfterQuestAssigned: []
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1162814143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
@@ -11673,6 +11748,13 @@ MonoBehaviour:
     goalAmount: 0
     dialogueAfterQuestCompleted: []
   dialogueAfterQuestAssigned: []
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &1395504522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13061,6 +13143,13 @@ MonoBehaviour:
     option2Text: 
     option2FollowUp: 
     givesQuest: 0
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1541383057 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f68d616d2228404498122f05c1fb1c35, type: 3}
@@ -13120,6 +13209,13 @@ MonoBehaviour:
     goalAmount: 0
     dialogueAfterQuestCompleted: []
   dialogueAfterQuestAssigned: []
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!136 &1541383061
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15424,6 +15520,13 @@ MonoBehaviour:
   actionName: Go Inside
   fadeToBlack: {fileID: 1515621986}
   globalUiObject: {fileID: 1176257998}
+  eventToPlayAtSceneChange:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!95 &1753690469
 Animator:
   serializedVersion: 7
@@ -18424,6 +18527,13 @@ MonoBehaviour:
   actionName: Enter the hatch
   fadeToBlack: {fileID: 1515621986}
   globalUiObject: {fileID: 1176257998}
+  eventToPlayAtSceneChange:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &2034290386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23503,3 +23613,4 @@ SceneRoots:
   - {fileID: 1115816836}
   - {fileID: 1211980493}
   - {fileID: 262441145}
+  - {fileID: 1000854025}
