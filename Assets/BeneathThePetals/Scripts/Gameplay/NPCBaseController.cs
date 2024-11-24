@@ -23,9 +23,10 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private GameObject player;
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
-    private Vector3 initialPosition;
     private Animator anim;
+    private NPCWalking npcWalking;
 
+    private Quaternion defaultRotation;
     public EventReference soundToPlayOnInteract;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,6 +37,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         playerController = player.GetComponent<PlayerController>();
         activity = EActivity.IDLE;
         anim = GetComponent<Animator>();
+        npcWalking = GetComponent<NPCWalking>();
     }
 
     // Update is called once per frame
@@ -66,13 +68,14 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        if(npcWalking != null)
+            npcWalking.canWalk = false;
+        defaultRotation = transform.rotation;
+
         activity = EActivity.TALKING;
         firstPersonController.DisableInput();
 
         float tweenDuration = playerController.CameraLookAtTweenDuration;
-
-        initialPosition = firstPersonController.transform.position;
-
 
         Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
         directionToPlayer.y = 0;
@@ -126,10 +129,13 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController.transform.DOComplete();
 
         float tweenDuration = playerController.CameraLookAtTweenDuration;
-        //firstPersonController.transform.DOMove(initialPosition, tweenDuration);
 
         if (anim != null)
             anim.SetBool("isTalking", false);
+
+        if (npcWalking != null)
+            npcWalking.canWalk = true;
+        transform.DORotateQuaternion(defaultRotation, tweenDuration);
 
         firstPersonController.EnableInput(true);
         playerController.EnableInput();

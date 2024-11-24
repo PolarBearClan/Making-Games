@@ -91,26 +91,23 @@ public class StoryClueImage : MonoBehaviour, IInteractable
     {
         if (storyclueUI != null && !isInteracting)
         {
-            playerController.DisableInput();
             UpdateUI();
 
-            int count = 0;
-            if (isLongTextClue)
-                foreach (Transform child in storyclueUI.transform)
-                {
-                    count++;
-                    if (count >= 5)
-                        child.gameObject.SetActive(true);
-                }
-            else
-                foreach (Transform child in storyclueUI.transform)
-                {
-                    count++;
-                    if(count <= 5)
-                        child.gameObject.SetActive(true);
-                }
+            int childCount = storyclueUI.transform.childCount;
+            for (int i = 0; i < childCount; i++)
+            {
+                Transform child = storyclueUI.transform.GetChild(i);
+
+                if (isLongTextClue && i >= 5)
+                    child.gameObject.SetActive(true);
+                else if (!isLongTextClue && i < 5)
+                    child.gameObject.SetActive(true);
+                else
+                    child.gameObject.SetActive(false);
+            }
 
             isInteracting = true;
+            playerController.DisableInput();
             firstPersonController.DisableInput();
 
             StartCoroutine(LockInputForDuration(0.2f));
