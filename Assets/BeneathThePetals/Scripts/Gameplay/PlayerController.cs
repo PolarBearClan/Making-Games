@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private Transform GetCamera()
+    public Transform GetCamera()
     {
         return transform.GetChild(0).GetChild(0);
     }
