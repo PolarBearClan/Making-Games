@@ -42,7 +42,6 @@ public class AIFollower : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        lookingForPlayer = true;
         pathingManager = GameObject.FindGameObjectWithTag("CirclePathingManager").GetComponent<PathingManager>();
         changeAfter = pathingManager.ChangeCirclesAfterPoints;
 
