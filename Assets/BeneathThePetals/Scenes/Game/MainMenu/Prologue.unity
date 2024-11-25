@@ -804,7 +804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 121, y: -7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &579928293
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Bus arrival sounds)
+  m_text: (Travel to the festival in a couple of weeks)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcb19c31f4249d043bafe83942bf51d4, type: 2}
   m_sharedMaterial: {fileID: -1560578324682730915, guid: fcb19c31f4249d043bafe83942bf51d4, type: 2}
@@ -1809,8 +1809,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 106}
-  m_SizeDelta: {x: 287.1042, y: 432.9114}
+  m_AnchoredPosition: {x: 0, y: 129}
+  m_SizeDelta: {x: 519.6099, y: 432.9114}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &863001221
 MonoBehaviour:
@@ -1897,11 +1897,37 @@ MonoBehaviour:
   typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
-  _text: "Hey lil cousin!\r\nI know it\u2019s been years since we last spoke, and
-    the silence between us has grown heavier than I ever imagined. But here in our
-    village, we believe in second chances - an opportunity to rebuild what\u2019s
-    been broken...\n\nThere\u2019s a room ready for you, and everyone here is eager
-    to welcome you with open arms. Come, cousin - it\u2019s time to come home."
+  _text: '<waitfor=1>Dear friend,
+
+    Let me start out by saying how much I regret
+    our falling-out years ago. I have done a lot of soul-searching, and I want to
+    make up for my mistakes back then.
+
+
+
+    For some time I have lived with a lovely
+    little community. They are a bunch of peace-love-and-harmony-loving hippie Christians.
+    I know it sounds weird, but they really get my life together.
+
+
+
+    I would
+    really love for you to meet everyone and for us to spend some time together -
+    like we used to do.
+
+
+
+    My community is having a festival in a couple of weeks.
+    It would mean the world for me to see you there.
+
+
+
+    Hope to see you soon,
+
+    Astrid
+
+
+'
   useDynamicScaling: 1
   referenceFontSize: 10
   isResettingTimeOnNewText: 1
@@ -1937,12 +1963,32 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<waitfor=1>Hey lil cousin!\nI know it\u2019s been years since we last
-    spoke, and the silence between us has grown heavier than I ever imagined. But
-    here in our village, we believe in second chances - an opportunity to rebuild
-    what\u2019s been broken.\n\nThere\u2019s a room ready for you, and everyone here
-    is eager to welcome you with open arms. Come, cousin - it\u2019s time to come
-    home.\r\n\n"
+  m_text: '<waitfor=1>Dear friend,
+
+    Let me start out by saying how much I regret
+    our falling-out years ago. I have done a lot of soul-searching, and I want to
+    make up for my mistakes back then.
+
+
+    For some time I have lived with a lovely
+    little community. They are a bunch of peace-love-and-harmony-loving hippie Christians.
+    I know it sounds weird, but they really get my life together.
+
+
+    I would really
+    love for you to meet everyone and for us to spend some time together - like we
+    used to do.
+
+
+    My community is having a festival in a couple of weeks. It
+    would mean the world for me to see you there.
+
+
+    Hope to see you soon,
+
+    Astrid
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcb19c31f4249d043bafe83942bf51d4, type: 2}
   m_sharedMaterial: {fileID: -1560578324682730915, guid: fcb19c31f4249d043bafe83942bf51d4, type: 2}
@@ -3298,7 +3344,7 @@ MonoBehaviour:
   m_text: Skip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d8303c5448406640b035c67971325a4, type: 2}
-  m_sharedMaterial: {fileID: -1560578324682730915, guid: fcb19c31f4249d043bafe83942bf51d4, type: 2}
+  m_sharedMaterial: {fileID: -4849437510147797977, guid: 3d8303c5448406640b035c67971325a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

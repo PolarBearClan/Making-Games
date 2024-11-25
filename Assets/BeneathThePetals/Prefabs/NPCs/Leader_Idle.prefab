@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7319736153525377445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1871210452925505212}
+  m_Layer: 0
+  m_Name: FacePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1871210452925505212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319736153525377445}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.00000004470348, z: -0, w: 1}
+  m_LocalPosition: {x: 0.005, y: 1.586, z: 0.114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4546086279815658337}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4079214664163859594
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -68.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.55
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.2155222
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.976499
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 204.892
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      propertyPath: m_Name
+      value: Leader_Idle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1871210452925505212}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 155908937321429298}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 638719295282020328}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8047588161566994853}
+  m_SourcePrefab: {fileID: 100100000, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+--- !u!1 &3773209232392856027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+  m_PrefabInstance: {fileID: 4079214664163859594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &155908937321429298
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773209232392856027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2860c5c87109b1144a9493590f94f185, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &638719295282020328
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773209232392856027}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.62
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.96, z: 0}
+--- !u!114 &8047588161566994853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773209232392856027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6ed371d29c04f4cbe248db82fcaa81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Leader Valgaris
+  pointToFace: {fileID: 1871210452925505212}
+  mainDialogue:
+  - mainText: Hello child, have you come to learn about our small community..?
+    isQuestion: 1
+    option1Text: Yes
+    option1FollowUp: Lovely, may your stay be filled with all that is good from our
+      savior.
+    option2Text: No
+    option2FollowUp: Get out before I pummel you!!!
+    givesQuest: 0
+  - mainText: If you are gonna stay, please help us gather wood, we have to stock
+      up before the seasons get colder
+    isQuestion: 0
+    option1Text: 
+    option1FollowUp: 
+    option2Text: 
+    option2FollowUp: 
+    givesQuest: 0
+  - mainText: 'If you could find... 3 Pieces of wood then we would be delighted... '
+    isQuestion: 0
+    option1Text: 
+    option1FollowUp: 
+    option2Text: 
+    option2FollowUp: 
+    givesQuest: 1
+  quest:
+    description: Find Wood
+    goalAmount: 3
+    dialogueAfterQuestCompleted:
+    - mainText: Ah, very good, thanks for getting us the wood. It will be very useful,
+        the nights get very dark and cold around here... now go, my child.
+      isQuestion: 0
+      option1Text: 
+      option1FollowUp: 
+      option2Text: 
+      option2FollowUp: 
+      givesQuest: 0
+  dialogueAfterQuestAssigned:
+  - mainText: Go, little one. Find me the wood.
+    isQuestion: 0
+    option1Text: 
+    option1FollowUp: 
+    option2Text: 
+    option2FollowUp: 
+    givesQuest: 0
+  soundToPlayOnInteract:
+    Guid:
+      Data1: -1037160976
+      Data2: 1200010173
+      Data3: 1889408163
+      Data4: 1638584986
+    Path: event:/World/NPCDialougeReactions/LeaderValgaris
+--- !u!4 &4546086279815658337 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 51d0a9d514b39ec45a332b74479db458, type: 3}
+  m_PrefabInstance: {fileID: 4079214664163859594}
+  m_PrefabAsset: {fileID: 0}

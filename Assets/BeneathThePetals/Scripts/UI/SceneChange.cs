@@ -15,6 +15,12 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public EventReference eventToPlayAtSceneChange;
     private Animator anim;
+    private PauseMenu pauseMenu;
+
+    private void Start()
+    {
+        pauseMenu = FindAnyObjectByType<PauseMenu>();
+    }
 
     public void ChangeScene()
     {
@@ -30,9 +36,11 @@ public class SceneChange : MonoBehaviour, IInteractable
     public void Interact()
     {
         PlayInteractSound();
-        if(GetComponent<Animator>() != null)
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
+        if (GetComponent<Animator>() != null)
             GetComponent<Animator>().SetTrigger("OpenDoors");
         ChangeScene();
+        pauseMenu.SetPause(true);
     }
 
     public void Activate()
@@ -59,7 +67,7 @@ public class SceneChange : MonoBehaviour, IInteractable
     {
 
         if (fadeToBlack.GetComponent<Image>().color.a >= 1) {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(5f);
             SceneManager.LoadScene("LoadingScreen");
         }
 
@@ -98,8 +106,8 @@ public class SceneChange : MonoBehaviour, IInteractable
         UnityEngine.Debug.Log(mode);
     }
 
-    public void PlayInteractSound() { 
-    
+    public void PlayInteractSound() {
+
         EventInstance soundWhenSceneChange = RuntimeManager.CreateInstance(eventToPlayAtSceneChange);
         RuntimeManager.AttachInstanceToGameObject(soundWhenSceneChange, transform);
         soundWhenSceneChange.start();

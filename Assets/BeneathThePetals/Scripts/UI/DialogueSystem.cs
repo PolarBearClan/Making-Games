@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Febucci.UI;
+using Febucci.UI.Core;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -23,12 +25,14 @@ public class DialogueSystem : MonoBehaviour
     private List<DialogueNode> dialogueNodes;
     private int currentDialogueNode = -1;
 
+    TypewriterCore typewriter;
 
     private void Awake()
     {
         mainText = mainTextGameObject.GetComponent<TMPro.TMP_Text>();
         button1Text = buttonChoice1.GetComponentInChildren<TMPro.TMP_Text>();
         button2Text = buttonChoice2.GetComponentInChildren<TMPro.TMP_Text>();
+        typewriter = GetComponent<TypewriterCore>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,6 +68,7 @@ public class DialogueSystem : MonoBehaviour
         if (idx >= dialogueNodes.Count)
         {
             print("Closing dialogue");
+            mainText.text = string.Empty;
             gameObject.SetActive(false);
             DialogueEndCallback();
             return;
