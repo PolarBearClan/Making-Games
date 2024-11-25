@@ -15,6 +15,12 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public EventReference eventToPlayAtSceneChange;
     private Animator anim;
+    private PauseMenu pauseMenu;
+
+    private void Start()
+    {
+        pauseMenu = FindAnyObjectByType<PauseMenu>();
+    }
 
     public void ChangeScene()
     {
@@ -33,6 +39,7 @@ public class SceneChange : MonoBehaviour, IInteractable
         if(GetComponent<Animator>() != null)
             GetComponent<Animator>().SetTrigger("OpenDoors");
         ChangeScene();
+        pauseMenu.SetPause(true);
     }
 
     public void Activate()
@@ -59,7 +66,7 @@ public class SceneChange : MonoBehaviour, IInteractable
     {
 
         if (fadeToBlack.GetComponent<Image>().color.a >= 1) {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(5f);
             SceneManager.LoadScene("LoadingScreen");
         }
 
