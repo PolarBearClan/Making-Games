@@ -24,6 +24,10 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private GameObject player;
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
+    private Animator anim;
+    private NPCWalking npcWalking;
+
+    private Quaternion defaultRotation;
     public EventReference soundToPlayOnInteract;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,6 +38,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         playerController = player.GetComponent<PlayerController>();
         activity = EActivity.IDLE;
         anim = GetComponent<Animator>();
+        npcWalking = GetComponent<NPCWalking>();
     }
 
     // Update is called once per frame
@@ -64,9 +69,20 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        if(npcWalking != null)
+            npcWalking.canWalk = false;
+        defaultRotation = transform.rotation;
+
         activity = EActivity.TALKING;
         
         firstPersonController.DisableInput();
+
+        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+        directionToPlayer.y = 0;
+        Quaternion npcTargetRotation = Quaternion.LookRotation(directionToPlayer);
+
+        transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
+
         playerController.DisableInput();
         Invoke("LookAtNPC", .5f);
         
@@ -102,6 +118,13 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController.playerCamera.transform.DOComplete();
         firstPersonController.transform.DOComplete();
 
+        if (anim != null)
+            anim.SetBool("isTalking", false);
+
+        if (npcWalking != null)
+            npcWalking.canWalk = true;
+        transform.DORotateQuaternion(defaultRotation, tweenDuration);
+        
         firstPersonController.EnableInput(true);
         playerController.EnableInput();
         activity = EActivity.IDLE;

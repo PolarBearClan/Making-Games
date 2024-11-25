@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4871335892636272289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.56984
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.56984
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.56984
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 135.644
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.737
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 248.123
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0012700747
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9999992
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 179.854
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      propertyPath: m_Name
+      value: DeadBird
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7398268876407559618}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 14811276539628234}
+  m_SourcePrefab: {fileID: 100100000, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+--- !u!1 &5718199330649619440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d7a2c471350f3f4cbb8718c712d511a, type: 3}
+  m_PrefabInstance: {fileID: 4871335892636272289}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7398268876407559618
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5718199330649619440}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7, y: 1, z: 0.24}
+  m_Center: {x: 0, y: 0.46, z: 0}
+--- !u!114 &14811276539628234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5718199330649619440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e26924cf5703e4499ced32a60d89b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyclueName: Crucified Bird
+  clueImage: {fileID: 21300000, guid: 34d77d0eefc88b7449623fd3fa2a0849, type: 3}
+  monologueText: What did they do?! Poor bird...
+  storyclueUI: {fileID: 0}

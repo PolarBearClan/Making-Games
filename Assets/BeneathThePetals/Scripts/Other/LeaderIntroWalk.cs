@@ -40,6 +40,7 @@ public class LeaderIntroWalk : MonoBehaviour
             canWalk = true;
             if(gatesAnim != null)
                 gatesAnim.SetTrigger("Open");
+            RotateTowardsDestination(walkPoints[currentPointIndex]);
         }
         if (canWalk && currentPointIndex < walkPoints.Length)
         {
