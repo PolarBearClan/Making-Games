@@ -28,6 +28,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private NPCWalking npcWalking;
 
     private Quaternion defaultRotation;
+    private int tweenDuration; 
     public EventReference soundToPlayOnInteract;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
