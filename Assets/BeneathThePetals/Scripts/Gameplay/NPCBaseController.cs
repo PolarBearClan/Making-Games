@@ -81,6 +81,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         directionToPlayer.y = 0;
         Quaternion npcTargetRotation = Quaternion.LookRotation(directionToPlayer);
 
+        float tweenDuration = playerController.CameraLookAtTweenDuration;
         transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
 
         playerController.DisableInput();
@@ -123,6 +124,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
         if (npcWalking != null)
             npcWalking.canWalk = true;
+        float tweenDuration = playerController.CameraLookAtTweenDuration;
         transform.DORotateQuaternion(defaultRotation, tweenDuration);
         
         firstPersonController.EnableInput(true);
