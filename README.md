@@ -22,7 +22,7 @@ Producer: Kristóf Lénárd - klen@itu.dk  \
 Design Lead: Simas Alaunė - simal@itu.dk \
 UX Lead: Asger Holmehøj Bach - asgba@itu.dk \
 Tech Lead: Nicholas Hansen - nicha@itu.dk \
-Programmer: Petr Simek - peci@itu.dk \
+Programmer: Petr Šimek - peci@itu.dk \
 Programmer: Eik Boelt Bagge-Petersen - eikb@itu.dk
 
 # Issue formatting

@@ -36,7 +36,8 @@ public class SceneChange : MonoBehaviour, IInteractable
     public void Interact()
     {
         PlayInteractSound();
-        if(GetComponent<Animator>() != null)
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
+        if (GetComponent<Animator>() != null)
             GetComponent<Animator>().SetTrigger("OpenDoors");
         ChangeScene();
         pauseMenu.SetPause(true);
@@ -105,8 +106,8 @@ public class SceneChange : MonoBehaviour, IInteractable
         UnityEngine.Debug.Log(mode);
     }
 
-    public void PlayInteractSound() { 
-    
+    public void PlayInteractSound() {
+
         EventInstance soundWhenSceneChange = RuntimeManager.CreateInstance(eventToPlayAtSceneChange);
         RuntimeManager.AttachInstanceToGameObject(soundWhenSceneChange, transform);
         soundWhenSceneChange.start();
