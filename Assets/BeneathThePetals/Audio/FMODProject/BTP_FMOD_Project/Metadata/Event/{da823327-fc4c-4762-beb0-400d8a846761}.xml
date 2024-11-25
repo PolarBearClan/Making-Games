@@ -5,7 +5,7 @@
 			<value>VillageGate</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{6179c70d-b117-412f-bb4c-a873e04048c2}</destination>
@@ -38,9 +38,6 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{c389a034-7bea-4597-95e3-d3a6860af60a}">
-		<relationship name="modules">
-			<destination>{6d01a54f-2e8b-4392-ae9d-fc4eb57582ff}</destination>
-		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{35aea924-5b79-4a73-ae96-c3fa671cf3ff}</destination>
 		</relationship>
@@ -58,11 +55,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{888be1fa-4c34-4d8d-85d3-b0b715283f6f}" />
 	<object class="MarkerTrack" id="{b0f339c4-868b-48e7-866e-07b91754b7d7}" />
-	<object class="Timeline" id="{bed21022-4fe1-4614-90f9-d3cce160032d}">
-		<relationship name="modules">
-			<destination>{6d01a54f-2e8b-4392-ae9d-fc4eb57582ff}</destination>
-		</relationship>
-	</object>
+	<object class="Timeline" id="{bed21022-4fe1-4614-90f9-d3cce160032d}" />
 	<object class="EventMixerMaster" id="{35aea924-5b79-4a73-ae96-c3fa671cf3ff}">
 		<relationship name="effectChain">
 			<destination>{17db00e4-2341-4ac5-9ea7-2e1d157c1224}</destination>
@@ -72,14 +65,6 @@
 		</relationship>
 		<relationship name="mixer">
 			<destination>{ebeab63d-c927-4dd7-8743-fe76f775ff5e}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{6d01a54f-2e8b-4392-ae9d-fc4eb57582ff}">
-		<property name="length">
-			<value>1.3600000000000001</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{033610aa-93e0-47d8-892f-d1c1a3945065}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{6b4f2fd2-b639-41f5-82f0-4c04ef1a9872}">

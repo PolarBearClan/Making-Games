@@ -1,5 +1,7 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 
 public class AIFollower : MonoBehaviour
@@ -19,7 +21,8 @@ public class AIFollower : MonoBehaviour
     private PathingManager pathingManager;
     private NavMeshAgent navMeshAgent;
     private GameObject playerGameObject;
-    private NoiseManager noiseManager;
+    public NoiseManager noiseManager;
+    private FirstPersonController playerMovementState;
 
     private bool foundPlayer = false;
     private EActivity activity;
@@ -28,15 +31,25 @@ public class AIFollower : MonoBehaviour
     private bool innerCircle = true;
     private int changeAfter = -1;
     private float findNextPointDistance = 1;
+    private bool followingPlayer;
+
+
+    public bool lookingForPlayer = true;
+    public float personalNoiseLevel = 0;
+    public float personalNoiseStep = 0;
+    public float personalNoiseDecrement = 0; 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pathingManager = GameObject.FindGameObjectWithTag("CirclePathingManager").GetComponent<PathingManager>();
         changeAfter = pathingManager.ChangeCirclesAfterPoints;
+
         
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        playerMovementState = playerGameObject.GetComponent<FirstPersonController>();
         
         currPoint = startingIndex;
         innerCircle = startingInner;
@@ -53,6 +66,7 @@ public class AIFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (foundPlayer)
         {
             // follow him no matter what
@@ -65,8 +79,31 @@ public class AIFollower : MonoBehaviour
             {
                 GoToNextPoint();
             }
+
         }
-        
+
+        if (personalNoiseLevel >= 50) { 
+            navMeshAgent.destination = playerGameObject.transform.position;
+            navMeshAgent.isStopped = false;
+            followingPlayer = true; 
+        }
+
+
+        if (personalNoiseLevel >= 100) {
+            noiseManager.IncreaseGlobalNoise();
+        }
+
+        if (personalNoiseLevel <= 0) {
+            if (navMeshAgent.remainingDistance <= findNextPointDistance)
+            {
+                GoToNextPoint();
+            }
+        }
+
+        if (personalNoiseLevel >= 0) {
+            personalNoiseLevel -= personalNoiseDecrement;
+        }
+
         if (IsPlayerCloseEnough())
         {
             // Game Over
@@ -106,6 +143,15 @@ public class AIFollower : MonoBehaviour
         
         navMeshAgent.isStopped = false;
     }
+
+    public void IncreaseLocalNoise() {
+        //If player is inside vision cone, increase noise meter by step
+            personalNoiseLevel += personalNoiseStep;
+    }
     
+    public void IncreaseLocalNoise(int overload) {
+        //If player is inside vision cone, increase noise meter by step
+            personalNoiseLevel += overload;
+    }
     public EActivity Activity => activity;
 }
