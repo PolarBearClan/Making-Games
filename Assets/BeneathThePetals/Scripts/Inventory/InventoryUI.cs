@@ -14,8 +14,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject InventoryUIObj;
 
     [Header("Text UI")]
-    [SerializeField] private TMP_Text objName;
-    [SerializeField] private TMP_Text objInfo;
+    [SerializeField] private TMP_Text itemName;
+    [SerializeField] private TMP_Text itemInfo;
 
     [Header("Inventory Settings")]
     [SerializeField] private Transform pivot;
@@ -29,7 +29,6 @@ public class InventoryUI : MonoBehaviour
     private List<Quaternion> defaultRotations = new List<Quaternion>();
     private bool isRotating = false;
     private int currentSelected = 0;
-    private int nextAvailableSlot = 0;
 
     void Start()
     {
@@ -72,7 +71,7 @@ public class InventoryUI : MonoBehaviour
 
     }
 
-    void ToggleCamera()
+    public void ToggleCamera()
     {
         mainCamera.enabled = !mainCamera.enabled;
         inventoryCamera.enabled = !inventoryCamera.enabled;
@@ -174,13 +173,13 @@ public class InventoryUI : MonoBehaviour
 
     void ChangeUIText(GameObject storyclue)
     {
-        objName.text = storyclue.GetComponent<StoryClueInfo>().ReturnName();
-        objInfo.text = storyclue.GetComponent<StoryClueInfo>().ReturnTextInfo();
+        itemName.text = storyclue.GetComponent<StoryClueInfo>().ReturnName();
+        itemInfo.text = storyclue.GetComponent<StoryClueInfo>().ReturnTextInfo();
     }
 
     void ShowInfoUI(bool show)
     {
-        objName.enabled = show;
-        objInfo.enabled = show;
+        itemName.enabled = show;
+        itemInfo.enabled = show;
     }
 }

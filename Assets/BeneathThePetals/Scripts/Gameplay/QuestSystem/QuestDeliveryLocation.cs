@@ -13,6 +13,7 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
 
     [Space]
     [SerializeField] private List<Transform> goalLoactions;
+    [SerializeField] private List<GameObject> finalLogs;
 
     private PlayerController playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +21,10 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         light.enabled = false;
+        foreach(GameObject obj in finalLogs)
+        {
+            obj.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -68,9 +73,11 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
         }
 
         // Place item
-        var targetTransform = goalLoactions[playerController.GetCurrentQuest().currentAmount++];
+        int logNumber = playerController.GetCurrentQuest().currentAmount++;
+        var targetTransform = goalLoactions[logNumber];
         questItem.transform.position = targetTransform.position;
         questItem.transform.rotation = targetTransform.rotation;
+        finalLogs[logNumber].SetActive(true);
     }
 
     public void PlayInteractSound()

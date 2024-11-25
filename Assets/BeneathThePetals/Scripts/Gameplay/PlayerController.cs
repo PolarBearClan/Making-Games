@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private GameObject currentlyCarriedItem1 = null;
     private GameObject currentlyCarriedItem2 = null;
     private bool carryingItem = false;
+    private PauseMenu pauseMenu;
 
     [Header("Quest related")]
     [SerializeField] private Transform carryParent1;
@@ -67,6 +68,8 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        pauseMenu = GameObject.FindAnyObjectByType<PauseMenu>();
+
         screenNoteManager.NoteEndCallback = () =>
         {
             EnableInput();
@@ -80,6 +83,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pauseMenu != null)
+            if(pauseMenu.isPaused)
+                return;
+
         CheckForInteractables();
     }
 
@@ -156,7 +163,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private Transform GetCamera()
+    public Transform GetCamera()
     {
         return transform.GetChild(0).GetChild(0);
     }
