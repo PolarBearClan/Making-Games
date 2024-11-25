@@ -77,7 +77,7 @@ public class FirstPersonController : MonoBehaviour
     public bool isHiding = false;
 
     // Internal Variables
-    private bool isWalking = false;
+    public bool isWalking = false;
 
     #region Sprint
 
@@ -415,7 +415,7 @@ public class FirstPersonController : MonoBehaviour
             {
                 soundTimer = 0;
                 soundWhenBob.start();
-                //soundWhenBob.release();
+               //soundWhenBob.release();
             }
         }
         else

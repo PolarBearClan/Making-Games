@@ -61,6 +61,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         {
             PlayInteractSound();
             StartDialogue();
+            firstPersonController.isWalking = false;
         }
     }
 
