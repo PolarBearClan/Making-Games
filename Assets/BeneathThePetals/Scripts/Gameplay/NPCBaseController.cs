@@ -33,6 +33,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController = player.GetComponent<FirstPersonController>();
         playerController = player.GetComponent<PlayerController>();
         activity = EActivity.IDLE;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -60,13 +61,15 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     private void StartDialogue()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         activity = EActivity.TALKING;
+        
         firstPersonController.DisableInput();
-
         playerController.DisableInput();
-
         Invoke("LookAtNPC", .5f);
-
+        
         var dialogueBox = playerController.DialogueBox;
         var dialogueSystem = dialogueBox.GetComponent<DialogueSystem>();
         dialogueSystem.DialogueEndCallback = EndDialogue;
