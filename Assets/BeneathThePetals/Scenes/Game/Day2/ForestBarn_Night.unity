@@ -5477,6 +5477,13 @@ MonoBehaviour:
   actionName: Enter the hatch
   fadeToBlack: {fileID: 382257283}
   globalUiObject: {fileID: 134067155}
+  eventToPlayAtSceneChange:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &1550946703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6433,6 +6440,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
   m_PrefabInstance: {fileID: 1695337960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1721071304
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 146.7015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14980838
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 248.17459
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.19269918
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9812579
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -22.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816288470594893615, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_Name
+      value: BloodNapkin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
 --- !u!1001 &1731352040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8179,6 +8243,13 @@ MonoBehaviour:
   actionName: Go back to Village
   fadeToBlack: {fileID: 382257283}
   globalUiObject: {fileID: 134067155}
+  eventToPlayAtSceneChange:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -8191,3 +8262,4 @@ SceneRoots:
   - {fileID: 336274256}
   - {fileID: 1736622388}
   - {fileID: 1550946699}
+  - {fileID: 1721071304}
