@@ -19,6 +19,10 @@ public class DoorController : MonoBehaviour, IInteractable
     
     public EventReference eventToPlayWhenOpen;
     public EventReference eventToPlayWhenClose;
+    public EventReference eventToPlayWhenLocked;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +45,7 @@ public class DoorController : MonoBehaviour, IInteractable
         {
             // Play locked sound effect
             // Animation too ? 
+            PlayLockedSound();
             print("Door is locked");
         }
         else
@@ -79,9 +84,20 @@ public class DoorController : MonoBehaviour, IInteractable
         soundWhenClose.start();
         soundWhenClose.release();
         
-        }     
+        }
 
 
+
+    }
+
+    public void PlayLockedSound () { 
+    
+        EventInstance soundWhenLocked = RuntimeManager.CreateInstance(eventToPlayWhenLocked);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenLocked, transform);
+        soundWhenLocked.start();
+        soundWhenLocked.release();
+        
+    
     }
     public void Activate()
     {
