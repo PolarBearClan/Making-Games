@@ -17,7 +17,9 @@ public class StoryClue : Collectible
     new void Start()
     {
         base.Start();
-        noteText.text = storyText;
+
+        if(noteText != null)
+            noteText.text = storyText;
     }
 
     // Update is called once per frame

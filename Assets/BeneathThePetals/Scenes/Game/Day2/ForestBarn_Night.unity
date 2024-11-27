@@ -8248,7 +8248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ff50a261030748a2b59c163348a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 2034161821}
+  anim: {fileID: 0}
   npcBaseController: {fileID: 0}
 --- !u!23 &1071796713
 MeshRenderer:
@@ -8999,7 +8999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64cf896e4e61a12498c31428d543e9ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -42.74846
+      value: -41.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64cf896e4e61a12498c31428d543e9ec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9007,7 +9007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64cf896e4e61a12498c31428d543e9ec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.9276276
+      value: -2.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64cf896e4e61a12498c31428d543e9ec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9853,7 +9853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToChangeTo: Underground
+  sceneToChangeTo: Underground_Final
   objectToSpawnAt: 
   actionName: Open Hatch Doors
   fadeToBlack: {fileID: 382257283}
@@ -14813,7 +14813,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2034161820}
-  - component: {fileID: 2034161821}
   m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
@@ -14838,28 +14837,6 @@ Transform:
   - {fileID: 8891972661049727968}
   m_Father: {fileID: 543450652065819564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2034161821
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034161819}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 94ade146773587f40b7c7770638313e6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2046336882
 GameObject:
   m_ObjectHideFlags: 0
@@ -16772,13 +16749,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5083182285801637378}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.0014348623, z: -0, w: 0.999999}
+  m_LocalRotation: {x: -0, y: 0.106642164, z: -0, w: 0.99429744}
   m_LocalPosition: {x: 36.480015, y: 2.3565707, z: 0.77999496}
   m_LocalScale: {x: 8.921243, y: 5.329726, z: 8.768839}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2034161820}
-  m_LocalEulerAnglesHint: {x: 0, y: 0.164, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 12.244, z: 0}
 --- !u!1 &5398694364767276140
 GameObject:
   m_ObjectHideFlags: 0
@@ -17471,13 +17448,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8215767664346451483}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.00998038, z: -0, w: 0.99995023}
+  m_LocalRotation: {x: -0, y: -0.46335536, z: -0, w: 0.88617265}
   m_LocalPosition: {x: 30.28696, y: 2.3565705, z: 0.7337303}
   m_LocalScale: {x: 8.829139, y: 5.329726, z: 8.768839}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2034161820}
-  m_LocalEulerAnglesHint: {x: 0, y: -1.144, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -55.208, z: 0}
 --- !u!4 &8893063630675500484
 Transform:
   m_ObjectHideFlags: 0

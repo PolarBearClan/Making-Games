@@ -12,10 +12,12 @@ public class LeaderUndergroundTrigger : MonoBehaviour
     private PlayerController playerController;
     private FirstPersonController playerControls;
     private Animator anim;
+    private JumpscareTrigger undergroundJumpscare;
 
     private bool dialogueHasStarted = false;
-
+    private bool coroutineStarted = false;
     private bool isRotating = false;
+    private bool isLooking = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +25,10 @@ public class LeaderUndergroundTrigger : MonoBehaviour
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerControls = playerController.transform.GetComponent<FirstPersonController>();
         anim = GetComponent<Animator>();
+        undergroundJumpscare = FindAnyObjectByType<JumpscareTrigger>();
+
+        if(undergroundJumpscare != null)
+            undergroundJumpscare.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,13 +44,12 @@ public class LeaderUndergroundTrigger : MonoBehaviour
             dialogueHasStarted = false;
         }
 
-        /*
-        if(!hidingInteractable.isHiding)
+        
+        if(!hidingInteractable.isHiding && !coroutineStarted && isLooking)
         {
             director.Stop();
             StartCoroutine(StartGameOver());
         }
-        */
     }
     private void RotateTowardsDestination(Transform point)
     {
@@ -60,6 +65,8 @@ public class LeaderUndergroundTrigger : MonoBehaviour
 
     private IEnumerator StartGameOver()
     {
+        coroutineStarted = true;
+
         RotateTowardsDestination(playerController.transform);
         anim.SetBool("isWalking", true);
         yield return new WaitForSeconds(1f);
@@ -70,15 +77,19 @@ public class LeaderUndergroundTrigger : MonoBehaviour
         yield return new WaitForSeconds(7f);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void StartLooking(bool setLooking)
     {
-        if (!hidingInteractable.isHiding)
-        {
-            director.Stop();
-            StartCoroutine(StartGameOver());
-        }
+        isLooking = setLooking;
+    }
+
+    public void EnableUndergroundJumpscare()
+    {
+        if (transform.GetComponent<LeaderUndergroundTrigger>() != null)
+            transform.GetComponent<LeaderUndergroundTrigger>().enabled = false;
+
+        if(undergroundJumpscare != null)
+            undergroundJumpscare.gameObject.SetActive(true);
     }
 }
