@@ -149,6 +149,7 @@ public class InventoryUI : MonoBehaviour
 
     }
 
+    // STORY CLUE "COLLECTIBLE NAME" == PREFAB STORY CLUE INFO "STORY CLUE NAME"
     public void UpdateInventoryUI()
     {
         for (int i = 0; i < InventoryManager.Instance.inventoryItems.Count; i++)
@@ -160,6 +161,7 @@ public class InventoryUI : MonoBehaviour
                 if (itemModel.GetComponent<StoryClueInfo>().ReturnName() == itemName)
                 {
                     Destroy(objects[i]);
+                    defaultRotations[i] = itemModel.transform.rotation;
                     objects[i] = Instantiate(itemModel, positions[i], defaultRotations[i], pivot.parent);
                     break;
                 }

@@ -33,13 +33,13 @@ public class QuestManager : MonoBehaviour
             gameObject.SetActive(true);
             if (q.Completed)
             {
-                description.text = q.Description;
-                progress.text = "Completed!";
+                description.text = "Completed!";
+                //progress.text = "Completed!";
             }
             else
             {        
-                description.text = q.Description;
-                progress.text = q.currentAmount + "/" + q.GoalAmount;
+                description.text = description.text = q.Description + ": " + q.currentAmount + "/" + q.GoalAmount;
+                //progress.text = q.currentAmount + "/" + q.GoalAmount;
             }
         }
         else

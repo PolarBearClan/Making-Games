@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     [HideInInspector]
     public bool isPaused = false;
 
+    private GameObject gameOverMenu;
     private InventoryUI inventoryUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,11 +16,13 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = false;
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        gameOverMenu = GameObject.Find("GameOverMenu");
     }
 
     void Start()
     {
         pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
         inventoryUI = GameObject.FindAnyObjectByType<InventoryUI>();
     }
 
@@ -73,5 +76,10 @@ public class PauseMenu : MonoBehaviour
     public void SetPause(bool setPause)
     {
         isPaused = setPause;
+    }
+
+    public void StartGameOver()
+    {
+        gameOverMenu.SetActive(true);
     }
 }

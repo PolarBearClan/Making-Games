@@ -53,12 +53,12 @@ public class QuestItemHold : QuestItemBase
 
     public override void Activate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        //GetComponent<MeshRenderer>().material.color = Color.green;
     }
     
     public override void Deactivate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        //GetComponent<MeshRenderer>().material.color = Color.red;
         
         holdingKey = false;
         holdingTime = 0;

@@ -1,22 +1,23 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class JumpscareInteract : MonoBehaviour, IInteractable
 {
-    [SerializeField]
-    private Jumpscare _jumpscareObject;
+    [Header("Jumpscare Type")]
+    [SerializeField] private bool barnGates = false;
+    [SerializeField] private bool leaderRoom = false;
 
-    [SerializeField]
-    private float _duration;
-
-    [SerializeField]
-    private float _tweenDuration = .1f;
-
+    [Header("Jumpscare Variables")]
+    [SerializeField] private Jumpscare _jumpscareObject;
+    [SerializeField] private float _durationUntilTalk;
+    [SerializeField] private float _tweenDuration = .1f;
     [SerializeField] private string actionName;
 
     private GameObject _player;
     private FirstPersonController _playerController;
     private Jumpscare _jumpscare;
+    private Transform _jumpscareFacePoint;
 
     private bool _triggered = false;
     private float _timeElapsed = 0;
@@ -27,35 +28,12 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerController = _player.GetComponent<FirstPersonController>();
         _jumpscare = _jumpscareObject.GetComponent<Jumpscare>();
+        _jumpscareFacePoint = _jumpscare.transform.Find("FacePoint");
     }
 
     void Update()
     {
-        if (_triggered)
-        {
-            if (_timeElapsed == 0)
-            {
-                if (_jumpscare.GetType() != typeof(JumpscareSpawn))
-                {
-                    _playerController.playerCamera.transform.DOLookAt(_jumpscareObject.transform.position, _tweenDuration);
-                    _playerController.transform.DOLookAt(_jumpscareObject.transform.position, _tweenDuration);
-                }
-            }
-
-            if (_timeElapsed >= _tweenDuration)
-            {
-                if (_jumpscare.GetType() != typeof(JumpscareSpawn))
-                    _playerController.playerCamera.transform.DOLookAt(_jumpscareObject.transform.position, 0);
-            }
-
-            if (_timeElapsed > _duration)
-            {
-                if (_jumpscare.GetType() != typeof(JumpscareSpawn))
-                    _playerController.EnableInput();
-                Destroy(gameObject);
-            }
-            _timeElapsed += Time.deltaTime;
-        }
+        
     }
 
     private void TriggerJumpscare()
@@ -63,10 +41,10 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
         if (!_triggered)
         {
             _triggered = true;
-
             _playerController.DisableInput();
-
             _jumpscare.Scare();
+
+            StartCoroutine(StartJumpscare());
 
             Debug.Log("Jumpscare!");
 
@@ -75,7 +53,40 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        TriggerJumpscare();
+        if (leaderRoom && InventoryManager.Instance.inventoryItems.Contains("Leader Room Key"))
+        {
+            TriggerJumpscare();
+        }
+        else if (barnGates)
+        {
+            TriggerJumpscare();
+        }
+    }
+
+    private IEnumerator StartJumpscare()
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (_jumpscare.GetComponent<JumpscareSpawn>()._isPlaced)
+        {
+            if (_jumpscare.GetType() == typeof(JumpscareSpawn))
+            {
+                _jumpscare.transform.GetComponent<CapsuleCollider>().enabled = false;
+                Vector3 lookDirection = (_jumpscareFacePoint.position - _playerController.transform.position).normalized;
+                lookDirection.y = 0;
+                Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+                _playerController.transform.DORotateQuaternion(targetRotation, _tweenDuration);
+
+                Vector3 cameraLookDirection = (_jumpscareFacePoint.position - _playerController.playerCamera.transform.position).normalized;
+                cameraLookDirection.y = 0;
+                Quaternion cameraTargetRotation = Quaternion.LookRotation(cameraLookDirection);
+                _playerController.playerCamera.transform.DORotateQuaternion(cameraTargetRotation, _tweenDuration);
+            }
+
+            yield return new WaitForSeconds(_durationUntilTalk);
+            _jumpscare.transform.GetComponent<CapsuleCollider>().enabled = true;
+            _jumpscare.transform.GetComponent<NPCBaseController>().Interact();
+            yield return 0;
+        }
     }
 
 

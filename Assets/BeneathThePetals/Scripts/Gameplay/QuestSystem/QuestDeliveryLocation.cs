@@ -52,10 +52,11 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
 
             case QuestItemType.FlowerPot:
             {
-                if (playerController.RemoveFromInventory("Flower Pot"))
+                if (playerController.RemoveFromInventory("Flowers"))
                 {
                     questItem = Instantiate(flowerPotPrefab);
                     questItem.GetComponent<BoxCollider>().enabled = false;
+                    questItem.SetActive(false);
                 }
                 else
                 {
@@ -87,12 +88,12 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
 
     public void Activate()
     {
-        light.enabled = true;
+        //light.enabled = true;
     }
 
     public void Deactivate()
     {
-        light.enabled = false;
+        //light.enabled = false;
     }
 
     public string GetName() => itemName;
