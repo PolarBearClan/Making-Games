@@ -7,15 +7,14 @@ using TMPro;
 public class InventoryUI : MonoBehaviour
 {
     [Header("Objects")]
-    [SerializeField] private Camera mainCamera;
+    private Camera mainCamera;
     [SerializeField] private Camera inventoryCamera;
+    private GameObject MainUIObj;
+    private GameObject InventoryUIObj;
 
-    [SerializeField] private GameObject MainUIObj;
-    [SerializeField] private GameObject InventoryUIObj;
-
-    [Header("Text UI")]
-    [SerializeField] private TMP_Text itemName;
-    [SerializeField] private TMP_Text itemInfo;
+    //[Header("Text UI")]
+    private TMP_Text itemName;
+    private TMP_Text itemInfo;
 
     [Header("Inventory Settings")]
     [SerializeField] private Transform pivot;
@@ -181,5 +180,17 @@ public class InventoryUI : MonoBehaviour
     {
         itemName.enabled = show;
         itemInfo.enabled = show;
+    }
+
+    public void LoadGameObjects(Transform playerCamera, GameObject uiGameObject, GameObject inventoryUIGameObject,
+        TMP_Text itemTextName, TMP_Text itemTextInfo)
+    {
+        mainCamera = playerCamera.GetComponent<Camera>();
+        MainUIObj = uiGameObject;
+        InventoryUIObj = inventoryUIGameObject;
+        itemName = itemTextName;
+        itemInfo = itemTextInfo;
+        
+        InventoryUIObj.SetActive(false);
     }
 }

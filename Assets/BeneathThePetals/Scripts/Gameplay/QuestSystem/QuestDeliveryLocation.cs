@@ -26,7 +26,7 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
             obj.SetActive(false);
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {

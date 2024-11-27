@@ -2088,6 +2088,7 @@ GameObject:
   - component: {fileID: 7348500313245750856}
   - component: {fileID: 6551571818797983486}
   - component: {fileID: 7421976499819998195}
+  - component: {fileID: 428191960706335253}
   m_Layer: 6
   m_Name: ScreenNote
   m_TagString: Untagged
@@ -2207,6 +2208,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainText: {fileID: 1073196557724430580}
+  continueButton: {fileID: 7093708112158565317}
+--- !u!225 &428191960706335253
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604110440489675400}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1648429722620348518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4703,7 +4717,6 @@ GameObject:
   - component: {fileID: 4459864850019384741}
   - component: {fileID: 4459864850019384740}
   - component: {fileID: 3209359190295644116}
-  - component: {fileID: 1356913321813734772}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -4818,7 +4831,7 @@ MonoBehaviour:
   invertCamera: 0
   cameraCanMove: 1
   mouseSensitivity: 2
-  maxLookAngle: 50
+  maxLookAngle: 85
   lockCursor: 1
   crosshair: 1
   crosshairImage: {fileID: 21300000, guid: be4ce60e2c9768c44b9b10b9c5258045, type: 3}
@@ -4872,7 +4885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a71e380bf6658f49924a1e6f91aeff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 2.5
+  interactionDistance: 3.5
   cameraLookAtTweenDuration: 1.5
   interactionText: {fileID: 6531058121843798893}
   dialogueBox: {fileID: 8394669529811350344}
@@ -4895,19 +4908,10 @@ MonoBehaviour:
     Path: event:/Character/Jump
   carryParent1: {fileID: 847580727829505332}
   carryParent2: {fileID: 7391266850283089140}
---- !u!114 &1356913321813734772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459864850019384750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84e20b128a5be0d4dac8f5acb2e4534d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryItems: []
+  uiGameObject: {fileID: 4459864851551516604}
+  inventoryUIGameObject: {fileID: 1413420008511154353}
+  itemName: {fileID: 6691364303030053556}
+  itemInfo: {fileID: 6720334204861958153}
 --- !u!1 &4459864850190357393
 GameObject:
   m_ObjectHideFlags: 0
