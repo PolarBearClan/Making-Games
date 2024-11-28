@@ -18,8 +18,8 @@ public class StoryClue : Collectible
     {
         base.Start();
 
-        if(noteText != null)
-            noteText.text = storyText;
+        if (noteText != null) noteText.text = storyText;
+
     }
 
     // Update is called once per frame

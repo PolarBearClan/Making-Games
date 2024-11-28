@@ -45,10 +45,17 @@ public class PlayerController : MonoBehaviour
     [Header("Quest related")]
     [SerializeField] private Transform carryParent1;
     [SerializeField] private Transform carryParent2;
+    
+    [Space] [Header("Inventory related")]
+    [SerializeField] private GameObject uiGameObject;
+    [SerializeField] private GameObject inventoryUIGameObject;
+    [SerializeField] private TMP_Text itemName;
+    [SerializeField] private TMP_Text itemInfo;
 
     private void Awake()
     {
         playerInput = new PlayerInputActions();
+        InitInventoryObject();
     }
 
     private void OnEnable()
@@ -68,6 +75,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //InitInventoryObject();
         pauseMenu = GameObject.FindAnyObjectByType<PauseMenu>();
 
         screenNoteManager.NoteEndCallback = () =>
@@ -76,8 +84,14 @@ public class PlayerController : MonoBehaviour
             GetComponent<FirstPersonController>().EnableInput();
         };
         cameraTransform = GetCamera().transform;
+    }
 
-        // DontDestroyOnLoad(gameObject); TODO in the next iteration - needs more thought
+    private void InitInventoryObject()
+    {
+        FindAnyObjectByType<InventoryUI>().LoadGameObjects(GetCamera(), uiGameObject, inventoryUIGameObject, itemName, itemInfo);
+        
+        // Load inventory
+        inventory = FindAnyObjectByType<InventoryManager>().inventoryItems;
     }
 
     // Update is called once per frame
@@ -92,7 +106,6 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForInteractables()
     {
-
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance))
         {
             var newTarget = hit.collider.gameObject;
@@ -108,6 +121,14 @@ public class PlayerController : MonoBehaviour
                 TryDeactivateCurrentTarget();
                 currentTarget = newTarget;
                 TryActivateCurrentTarget(true);
+            }
+            
+            // Check if this is a scene changer -> if carrying at least 1 log -> disable this interaction
+            var sceneChanger = newTarget.GetComponent<SceneChange>();
+            if (sceneChanger != null)
+            {
+                // this is a scene changer
+                if (GetCarriedItemsCount() > 0) return;
             }
 
             if (currentTarget)
@@ -125,6 +146,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentTarget = newTarget;
                 TryActivateCurrentTarget();
+                
             }
         }
         else
@@ -184,8 +206,19 @@ public class PlayerController : MonoBehaviour
 
     private void StopInteractionMethod(InputAction.CallbackContext context)
     {
+        if (AimingAtDoor()) return;
+
         TryDeactivateCurrentTarget();
         TryActivateCurrentTarget();
+    }
+
+    private bool AimingAtDoor()
+    {
+        if (currentTarget == null) return true; // optimization
+        
+        var doorController = currentTarget.GetComponent<DoorController>();
+
+        return doorController != null;
     }
 
     public void DisableInput()
@@ -294,11 +327,16 @@ public class PlayerController : MonoBehaviour
     {
         // TODO remove this if it is okay like this
         // should players interaction be disabled if he is carrying 2 items?
-        // or even 1 item? - this probably no
+        // or even 1 item? - this probably no 
         //
         //if (overridingPermission || GetCarriedItemsCount() < 2)
 
         interactionText.text = text;
+    }
+
+    public void LockedDoorText()
+    {
+        ChangeText("Locked.");
     }
 
     public Quest GetCurrentQuest() => currentQuest;

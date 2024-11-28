@@ -1,6 +1,9 @@
 using DG.Tweening;
 using System.Drawing;
 using UnityEngine;
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
 
 public class LeaderIntroWalk : MonoBehaviour
 {
@@ -8,23 +11,29 @@ public class LeaderIntroWalk : MonoBehaviour
     [SerializeField] private float[] lerpDurations;
 
     [SerializeField] private Animator gatesAnim;
+    [SerializeField] private EventReference gateEvent;
+    [SerializeField] private EventInstance gateSound;
 
     private PlayerController playerController;
-    private Animator anim;
+    public Animator anim;
 
     private bool dialogueHasStarted = false;
-    private bool canWalk = false;
+    public bool canWalk = false;
 
     private int currentPointIndex = 0;
     private float timeElapsed = 0f;
     private Vector3 startPosition;
     private bool isRotating = false;
+    bool gateSoundPlayed = false;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
+        gateSound = RuntimeManager.CreateInstance(gateEvent); 
+        RuntimeManager.AttachInstanceToGameObject(gateSound, transform);
         startPosition = transform.position;
     }
 
@@ -38,8 +47,16 @@ public class LeaderIntroWalk : MonoBehaviour
         if(dialogueHasStarted && !playerController.DialogueBox.activeSelf)
         {
             canWalk = true;
-            if(gatesAnim != null)
+            if (gatesAnim != null)
+            {
                 gatesAnim.SetTrigger("Open");
+
+                if (!gateSoundPlayed) {
+                    PlayGateSound();
+                    gateSoundPlayed = true;
+                }
+
+            }
             RotateTowardsDestination(walkPoints[currentPointIndex]);
         }
         if (canWalk && currentPointIndex < walkPoints.Length)
@@ -47,6 +64,13 @@ public class LeaderIntroWalk : MonoBehaviour
             WalkToNextPoint();
             transform.GetComponent<NPCBaseController>().enabled = false;
         }
+    }
+
+    void PlayGateSound() { 
+    
+                gateSound.start();
+                gateSound.release();
+    
     }
     private void WalkToNextPoint()
     {
@@ -84,7 +108,7 @@ public class LeaderIntroWalk : MonoBehaviour
         }
     }
 
-    private void RotateTowardsDestination(Transform point)
+    public void RotateTowardsDestination(Transform point)
     {
         Vector3 direction = (point.position - transform.position).normalized;
         direction.y = 0;

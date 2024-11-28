@@ -13,15 +13,23 @@ public class DoorController : MonoBehaviour, IInteractable
     [SerializeField] private bool doorLocked = false;
     [SerializeField] private StoryClue requiredStoryClue;
     
-    private bool doorOpen = false;
+    public bool doorOpen = false;
     private bool interactable = true;
     private BoxCollider doorCollider;
     
+    private PlayerController playerController;
+    
     public EventReference eventToPlayWhenOpen;
     public EventReference eventToPlayWhenClose;
+    public EventReference eventToPlayWhenLocked;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        
         doorCollider = GetComponent<BoxCollider>();
         
         if (requiredStoryClue) requiredStoryClue.OnStoryCluePickup += () => { doorLocked = false; };
@@ -39,8 +47,8 @@ public class DoorController : MonoBehaviour, IInteractable
         
         if (doorLocked)
         {
-            // Play locked sound effect
-            // Animation too ? 
+            PlayLockedSound();
+            playerController.LockedDoorText();
             print("Door is locked");
         }
         else
@@ -79,9 +87,20 @@ public class DoorController : MonoBehaviour, IInteractable
         soundWhenClose.start();
         soundWhenClose.release();
         
-        }     
+        }
 
 
+
+    }
+
+    public void PlayLockedSound () { 
+    
+        EventInstance soundWhenLocked = RuntimeManager.CreateInstance(eventToPlayWhenLocked);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenLocked, transform);
+        soundWhenLocked.start();
+        soundWhenLocked.release();
+        
+    
     }
     public void Activate()
     {

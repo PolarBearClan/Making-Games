@@ -58,7 +58,8 @@ public class HidingInteractable : MonoBehaviour, IInteractable
         {
             return "Hide";
         }
-        else {
+        else
+        {
 
             return "Stop hiding";
 
@@ -74,13 +75,26 @@ public class HidingInteractable : MonoBehaviour, IInteractable
     {
         if (!playerControls.isHiding)
         {
-            HideInCloset();
-            isHiding = true;
+            previousSpot = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+            playerControls.DisableInput();
+            playerControls.cameraCanMove = true;
+            playerControls.lockCursor = true;
+            playerControls.isWalking = false;
+            playerControls.isHiding = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            player.GetComponent<Rigidbody>().useGravity = false;
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            player.GetComponent<Transform>().LookAt(lookAt.transform);
+            player.transform.position = new Vector3(transform.position.x, transform.position.y - hidingHeight, transform.position.z);
         }
-        else
-        {
-            StopHiding();
-            isHiding = false;
+        else {
+            var playerControls = player.GetComponent<FirstPersonController>();
+            playerControls.EnableInput();
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            player.GetComponent<Rigidbody>().useGravity = true;
+            playerControls.isHiding = false;
+            playerControls.enableCrouch = true;
+            player.transform.position = new Vector3(previousSpot.x, previousSpot.y, previousSpot.z); 
         }
     }
 
