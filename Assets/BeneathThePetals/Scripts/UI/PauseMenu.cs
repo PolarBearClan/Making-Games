@@ -59,6 +59,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void OpenInventory()
     {
         inventoryUI.ToggleCamera();

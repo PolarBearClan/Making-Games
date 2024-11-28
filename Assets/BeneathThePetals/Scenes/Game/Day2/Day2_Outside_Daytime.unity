@@ -21837,11 +21837,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: quest.description
-      value: Put flowers on the sacrificial circle
+      value: Pick 5 flower bundles
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: soundToPlayOnInteract.Path
@@ -21865,12 +21865,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[0].mainText
-      value: Hello child, have you come to learn about our small community..?
+      value: Ah good morning! Today we are preparing for the upcoming festival by
+        decorating the festival grounds with flowers, and we would all love for you
+        to be a part of it.
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[1].mainText
-      value: If you are gonna stay, please help us gather wood, we have to stock
-        up before the seasons get colder
+      value: You will find beautiful, pink flowers all over the farm. Oh, don't go
+        through the gate to the forest looking for flowers. It is so easy to get
+        lost in the forest.
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[2].mainText
@@ -21881,28 +21884,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
+      propertyPath: mainDialogue.Array.data[0].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
+      propertyPath: mainDialogue.Array.data[1].givesQuest
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[2].givesQuest
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[0].option1Text
-      value: Yes
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[0].option2Text
-      value: No
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[0].option1FollowUp
-      value: Lovely, may your stay be filled with all that is good from our savior.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[0].option2FollowUp
-      value: Get out before I pummel you!!!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: quest.dialogueAfterQuestCompleted.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: dialogueAfterQuestAssigned.Array.data[0].mainText
@@ -21910,8 +21921,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: quest.dialogueAfterQuestCompleted.Array.data[0].mainText
-      value: Ah, very good, thanks for getting us the flowers. It will be very useful,
-        the nights get very dark and cold around here... now go, my child.
+      value: These flowers are beautiful and will adorn the festival grounds. Well
+        done!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
+      propertyPath: quest.dialogueAfterQuestCompleted.Array.data[1].mainText
+      value: 'By
+
+        the way, I just heard that Astrid won''t be back until
+        tomorrow, but she is very
+
+        happy to hear you are here, and she is
+        looking so much forward to see you at
+
+        the festival tomorrow.'
       objectReference: {fileID: 0}
     - target: {fileID: 6361645030067534319, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: m_Avatar
