@@ -13,7 +13,7 @@ public class DoorController : MonoBehaviour, IInteractable
     [SerializeField] private bool doorLocked = false;
     [SerializeField] private StoryClue requiredStoryClue;
     
-    private bool doorOpen = false;
+    public bool doorOpen = false;
     private bool interactable = true;
     private BoxCollider doorCollider;
     
