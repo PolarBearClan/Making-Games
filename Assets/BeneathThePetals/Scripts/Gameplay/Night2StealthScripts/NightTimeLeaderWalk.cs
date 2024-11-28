@@ -5,14 +5,10 @@ using FMOD;
 using FMOD.Studio;
 using FMODUnity;
 
-public class LeaderIntroWalk : MonoBehaviour
+public class NightTimeLeaderWalk : MonoBehaviour
 {
     [SerializeField] Transform[] walkPoints;
     [SerializeField] private float[] lerpDurations;
-
-    [SerializeField] private Animator gatesAnim;
-    [SerializeField] private EventReference gateEvent;
-    [SerializeField] private EventInstance gateSound;
 
     private PlayerController playerController;
     public Animator anim;
@@ -24,17 +20,19 @@ public class LeaderIntroWalk : MonoBehaviour
     private float timeElapsed = 0f;
     private Vector3 startPosition;
     private bool isRotating = false;
-    bool gateSoundPlayed = false;
-    
+
+    public GameObject killbox0;
+    public GameObject killbox1;
+    public GameObject killbox2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
-        gateSound = RuntimeManager.CreateInstance(gateEvent); 
-        RuntimeManager.AttachInstanceToGameObject(gateSound, transform);
         startPosition = transform.position;
+        anim.SetBool("isWalking", true);
+        dialogueHasStarted = true;
     }
 
     // Update is called once per frame
@@ -47,31 +45,42 @@ public class LeaderIntroWalk : MonoBehaviour
         if(dialogueHasStarted && !playerController.DialogueBox.activeSelf)
         {
             canWalk = true;
-            if (gatesAnim != null)
-            {
-                gatesAnim.SetTrigger("Open");
-
-                if (!gateSoundPlayed) {
-                    PlayGateSound();
-                    gateSoundPlayed = true;
-                }
-
-            }
             RotateTowardsDestination(walkPoints[currentPointIndex]);
         }
         if (canWalk && currentPointIndex < walkPoints.Length)
         {
             WalkToNextPoint();
-            transform.GetComponent<NPCBaseController>().enabled = false;
+        }
+
+        if (currentPointIndex >= 1 && currentPointIndex < 4)
+        {
+            killbox0.gameObject.SetActive(false);
+            killbox1.gameObject.SetActive(true);
+            killbox2.gameObject.SetActive(false);
+        }
+        else 
+        if (currentPointIndex >= 5 && currentPointIndex < 20) {
+            killbox0.gameObject.SetActive(false);
+            killbox1.gameObject.SetActive(false);
+            killbox2.gameObject.SetActive(true);
+
+        }
+        else 
+        if (currentPointIndex >= 20 && currentPointIndex < 24) {
+            killbox0.gameObject.SetActive(false);
+            killbox1.gameObject.SetActive(true);
+            killbox2.gameObject.SetActive(false);
+
+        }
+        else 
+        if (currentPointIndex >= 24 && currentPointIndex < 40) {
+            killbox0.gameObject.SetActive(true);
+            killbox1.gameObject.SetActive(false);
+            killbox2.gameObject.SetActive(false);
+
         }
     }
 
-    void PlayGateSound() { 
-    
-                gateSound.start();
-                gateSound.release();
-    
-    }
     private void WalkToNextPoint()
     {
         anim.SetBool("isWalking", true);
@@ -104,6 +113,7 @@ public class LeaderIntroWalk : MonoBehaviour
                 canWalk = false;
                 anim.SetBool("isWalking", false);
                 RotateTowardsDestination(playerController.gameObject.transform);
+                currentPointIndex = 0;
             }
         }
     }
