@@ -45,7 +45,7 @@ public class LeaderUndergroundTrigger : MonoBehaviour
         }
 
         
-        if(!hidingInteractable.isHiding && !coroutineStarted && isLooking)
+        if(!hidingInteractable.GetController().isHiding && !coroutineStarted && isLooking)
         {
             director.Stop();
             StartCoroutine(StartGameOver());
