@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 using FMOD;
 using FMODUnity;
 using FMOD.Studio;
+using Debug = FMOD.Debug;
 
 public class PlayerController : MonoBehaviour
 {
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
     [Header("Quest related")]
     [SerializeField] private Transform carryParent1;
     [SerializeField] private Transform carryParent2;
-    
+
     [Space] [Header("Inventory related")]
     [SerializeField] private GameObject uiGameObject;
     [SerializeField] private GameObject inventoryUIGameObject;
@@ -89,7 +91,7 @@ public class PlayerController : MonoBehaviour
     private void InitInventoryObject()
     {
         FindAnyObjectByType<InventoryUI>().LoadGameObjects(GetCamera(), uiGameObject, inventoryUIGameObject, itemName, itemInfo);
-        
+
         // Load inventory
         inventory = FindAnyObjectByType<InventoryManager>().inventoryItems;
     }
@@ -106,8 +108,9 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForInteractables()
     {
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance))
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance, ~LayerMask.GetMask("Player")))
         {
+
             var newTarget = hit.collider.gameObject;
 
             // Check if this is a quest delivery area -> only able to interact with this when carryingItem
@@ -122,7 +125,7 @@ public class PlayerController : MonoBehaviour
                 currentTarget = newTarget;
                 TryActivateCurrentTarget(true);
             }
-            
+
             // Check if this is a scene changer -> if carrying at least 1 log -> disable this interaction
             var sceneChanger = newTarget.GetComponent<SceneChange>();
             if (sceneChanger != null)
@@ -146,7 +149,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentTarget = newTarget;
                 TryActivateCurrentTarget();
-                
+
             }
         }
         else
@@ -215,7 +218,7 @@ public class PlayerController : MonoBehaviour
     private bool AimingAtDoor()
     {
         if (currentTarget == null) return true; // optimization
-        
+
         var doorController = currentTarget.GetComponent<DoorController>();
 
         return doorController != null;
@@ -242,7 +245,7 @@ public class PlayerController : MonoBehaviour
         InventoryManager.Instance.AddItem(item);
         FindAnyObjectByType<InventoryUI>().UpdateInventoryUI();
     }
-    
+
     public bool RemoveFromInventory(string item)
     {
         if (inventory.Contains(item))
@@ -327,7 +330,7 @@ public class PlayerController : MonoBehaviour
     {
         // TODO remove this if it is okay like this
         // should players interaction be disabled if he is carrying 2 items?
-        // or even 1 item? - this probably no 
+        // or even 1 item? - this probably no
         //
         //if (overridingPermission || GetCarriedItemsCount() < 2)
 
@@ -344,4 +347,10 @@ public class PlayerController : MonoBehaviour
     public Image ProgressImage => progressImage;
     public ScreenNoteManager ScreenNoteManagerScript => screenNoteManager;
     public float CameraLookAtTweenDuration => cameraLookAtTweenDuration;
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(cameraTransform.position, cameraTransform.forward * interactionDistance);
+    }
 }
