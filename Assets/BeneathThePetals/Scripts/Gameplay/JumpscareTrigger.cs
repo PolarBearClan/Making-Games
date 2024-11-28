@@ -27,7 +27,8 @@ public class JumpscareTrigger : MonoBehaviour
 
     void Start()
     {
-        GetComponent<MeshRenderer>().enabled = false;
+        if(GetComponent<MeshRenderer>() != null)
+            GetComponent<MeshRenderer>().enabled = false;
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerController = _player.GetComponent<FirstPersonController>();
         _jumpscare = _jumpscareObject.GetComponent<Jumpscare>();
@@ -54,7 +55,7 @@ public class JumpscareTrigger : MonoBehaviour
 
             if (_timeElapsed > _duration)
             {
-                if (_jumpscare.GetType() != typeof(JumpscareSpawn))
+                if (_jumpscare.GetType() != typeof(JumpscareSpawn) && _jumpscare.GetType() != typeof(UndergroundJumpscare))
                     _playerController.EnableInput();
                 Destroy(gameObject);
             }

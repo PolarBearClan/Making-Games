@@ -622,6 +622,25 @@ public class FirstPersonController : MonoBehaviour
 
         if (resetPitch) pitch = 0; // is this the correct solution ?
     }
+    public void DisableMovement()
+    {
+        playerCanMove = false;
+        enableJump = false;
+        enableCrouch = false;
+        enableHeadBob = false;
+
+        // Stop the player
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
+    public void EnableMovement()
+    {
+        playerCanMove = true;
+        enableJump = true;
+        enableCrouch = true;
+        enableHeadBob = true;
+    }
 }
 
 

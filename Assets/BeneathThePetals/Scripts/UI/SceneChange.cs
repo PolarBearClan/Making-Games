@@ -7,11 +7,16 @@ using FMODUnity;
 using FMOD.Studio;
 public class SceneChange : MonoBehaviour, IInteractable
 {
-    public string sceneToChangeTo;
-    public string objectToSpawnAt;
-    public string actionName;
-    public GameObject fadeToBlack;
-    public GameObject globalUiObject;
+    [Header("Lock/Unlock")]
+    [SerializeField] private bool itemRequired = false;
+    [SerializeField] private string itemName;
+
+    [Header("Scene variables")]
+    [SerializeField] private string sceneToChangeTo;
+    [SerializeField] private string objectToSpawnAt;
+    [SerializeField] private string actionName;
+    [SerializeField] private GameObject fadeToBlack;
+    [SerializeField] private GameObject globalUiObject;
 
     public EventReference eventToPlayAtSceneChange;
     private Animator anim;
@@ -35,12 +40,27 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        PlayInteractSound();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
-        if (GetComponent<Animator>() != null)
-            GetComponent<Animator>().SetTrigger("OpenDoors");
-        ChangeScene();
-        pauseMenu.SetPause(true);
+        if(itemRequired)
+        {
+            if (InventoryManager.Instance.inventoryItems.Contains(itemName))
+            {
+                PlayInteractSound();
+                GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
+                if (GetComponent<Animator>() != null)
+                    GetComponent<Animator>().SetTrigger("OpenDoors");
+                ChangeScene();
+                pauseMenu.SetPause(true);
+            }
+        }
+        else
+        {
+            PlayInteractSound();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
+            if (GetComponent<Animator>() != null)
+                GetComponent<Animator>().SetTrigger("OpenDoors");
+            ChangeScene();
+            pauseMenu.SetPause(true);
+        }
     }
 
     public void Activate()

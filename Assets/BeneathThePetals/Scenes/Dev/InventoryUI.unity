@@ -2057,7 +2057,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
+  m_MaterialTemplate: {fileID: 2100000, guid: 54f7ebccd70cec8449196f1e693498ea, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -2526,8 +2526,16 @@ MonoBehaviour:
   collectibleName: Golden Key
   moveSpeed: 3
   rotationAmount: 360
+  activeFromStart: 1
   noteText: {fileID: 317282451}
   storyText: Key 2 story clue!
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &578958692
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3785,8 +3793,16 @@ MonoBehaviour:
   collectibleName: Rustic Key
   moveSpeed: 3
   rotationAmount: 360
+  activeFromStart: 1
   noteText: {fileID: 317282451}
   storyText: Key 1 story clue!
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &710651537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4286,17 +4302,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83fa8f410d249ab4ca587234e61eaa4f, type: 3}
   m_PrefabInstance: {fileID: 778270125}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &787768134 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6691364303030053556, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-  m_PrefabInstance: {fileID: 8765489994903951804}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &804962045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4465,6 +4470,13 @@ MonoBehaviour:
     goalAmount: 0
     dialogueAfterQuestCompleted: []
   dialogueAfterQuestAssigned: []
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &817349447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6488,6 +6500,13 @@ MonoBehaviour:
     goalAmount: 0
     dialogueAfterQuestCompleted: []
   dialogueAfterQuestAssigned: []
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1162814143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
@@ -6820,8 +6839,16 @@ MonoBehaviour:
   collectibleName: Metal Plate
   moveSpeed: 3
   rotationAmount: 360
+  activeFromStart: 1
   noteText: {fileID: 317282451}
   storyText: Metal plate story clue!
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &1241079221
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7634,6 +7661,13 @@ MonoBehaviour:
     goalAmount: 0
     dialogueAfterQuestCompleted: []
   dialogueAfterQuestAssigned: []
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1397649149 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
@@ -8544,17 +8578,13 @@ MonoBehaviour:
     option2Text: 
     option2FollowUp: 
     givesQuest: 0
---- !u!114 &1539831936 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6720334204861958153, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-  m_PrefabInstance: {fileID: 8765489994903951804}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1541383057 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f68d616d2228404498122f05c1fb1c35, type: 3}
@@ -8614,6 +8644,13 @@ MonoBehaviour:
     goalAmount: 0
     dialogueAfterQuestCompleted: []
   dialogueAfterQuestAssigned: []
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!136 &1541383061
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9364,8 +9401,16 @@ MonoBehaviour:
   collectibleName: Diary
   moveSpeed: 3
   rotationAmount: 360
+  activeFromStart: 1
   noteText: {fileID: 317282451}
   storyText: Book story clue!
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &1674922689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10132,6 +10177,13 @@ MonoBehaviour:
   actionName: Go Inside
   fadeToBlack: {fileID: 1515621986}
   globalUiObject: {fileID: 1176257998}
+  eventToPlayAtSceneChange:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!95 &1753690469
 Animator:
   serializedVersion: 7
@@ -11032,6 +11084,13 @@ MonoBehaviour:
     option2Text: 
     option2FollowUp: 
     givesQuest: 0
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!136 &1971798889
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11532,6 +11591,13 @@ MonoBehaviour:
   actionName: Enter the hatch
   fadeToBlack: {fileID: 1515621986}
   globalUiObject: {fileID: 1176257998}
+  eventToPlayAtSceneChange:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &2034290386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11650,8 +11716,8 @@ MonoBehaviour:
   inventoryCamera: {fileID: 1058537274}
   MainUIObj: {fileID: 18320626}
   InventoryUIObj: {fileID: 1695404574}
-  objName: {fileID: 787768134}
-  objInfo: {fileID: 1539831936}
+  itemName: {fileID: 0}
+  itemInfo: {fileID: 0}
   pivot: {fileID: 1728125680}
   objects:
   - {fileID: 1005259149}
@@ -18527,8 +18593,8 @@ SceneRoots:
   - {fileID: 1840969188}
   - {fileID: 1214589637}
   - {fileID: 2060514030}
-  - {fileID: 710651534}
   - {fileID: 701260488}
+  - {fileID: 710651534}
   - {fileID: 1674922686}
   - {fileID: 578958689}
   - {fileID: 1241079218}

@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class PulsingLight : MonoBehaviour
 {
+    [SerializeField] private float scaleUp = 1.5f;
+    [SerializeField] private float scaleDown = 0.5f;
+
     private RectTransform rectTransform;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,13 +22,13 @@ public class PulsingLight : MonoBehaviour
     private void PulseUp()
     {
         // Example of pulsing
-        rectTransform.DOScale(Vector3.one * 2, 0.5f).OnComplete(() => { Invoke(nameof(PulseDown), 0.5f); });
+        rectTransform.DOScale(Vector3.one * scaleUp, 0.5f).OnComplete(() => { Invoke(nameof(PulseDown), 0.5f); });
     }
 
     private void PulseDown()
     {
         // Example of pulsing
-        rectTransform.DOScale(Vector3.one, 0.5f).OnComplete(() => { Invoke(nameof(PulseUp), 0.5f); });
+        rectTransform.DOScale(Vector3.one * scaleDown, 0.5f).OnComplete(() => { Invoke(nameof(PulseUp), 0.5f); });
     }
 
 }

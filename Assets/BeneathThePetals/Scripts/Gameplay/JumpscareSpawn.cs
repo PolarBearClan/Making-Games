@@ -3,6 +3,7 @@ using System.Timers;
 using UnityEngine;
 using DG.Tweening;
 using UnityEditor;
+using System.Collections;
 
 public class JumpscareSpawn : Jumpscare
 {
@@ -10,16 +11,19 @@ public class JumpscareSpawn : Jumpscare
     private float _distanceFromPlayer;
 
     private NPCBaseController _dialogue;
-
-    private bool _triggered = false;
-    private bool _isPlaced = false;
-
     private GameObject _player;
+    private FirstPersonController _playerController;
+
+    [HideInInspector]
+    public bool _isPlaced = false;
+    private bool _triggered = false;
+
 
     void Start()
     {
         gameObject.SetActive(false);
         _player = GameObject.FindGameObjectWithTag("Player");
+        _playerController = _player.GetComponent<FirstPersonController>();
         _dialogue = gameObject.GetComponent<NPCBaseController>();
     }
 
@@ -46,7 +50,7 @@ public class JumpscareSpawn : Jumpscare
             directionToTaget.y = 0;
             gameObject.transform.rotation = Quaternion.LookRotation(directionToTaget);
 
-            _dialogue.Interact();
+            //_dialogue.Interact();
             _isPlaced = true;
         }
     }

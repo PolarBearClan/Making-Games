@@ -47,6 +47,11 @@ public class HidingInteractable : MonoBehaviour, IInteractable
         return "";
     }
 
+    public FirstPersonController GetController()
+    {
+        return playerControls;
+    }
+
     public void Interact()
     {
         if (!playerControls.isHiding)
