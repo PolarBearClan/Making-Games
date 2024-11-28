@@ -13009,6 +13009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: ForestBarn_Night
   objectToSpawnAt: 
   actionName: Go outside the Village
@@ -13016,11 +13018,11 @@ MonoBehaviour:
   globalUiObject: {fileID: 1292171596}
   eventToPlayAtSceneChange:
     Guid:
-      Data1: -629001433
-      Data2: 1197669452
-      Data3: 222343358
-      Data4: 1634174090
-    Path: event:/World/Doors/VillageGate
+      Data1: -773024383
+      Data2: 1169492531
+      Data3: -818604658
+      Data4: 1997248774
+    Path: event:/World/Doors/DoorOut
 --- !u!65 &1535907196
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18374,6 +18376,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1413420008511154353, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 146.72

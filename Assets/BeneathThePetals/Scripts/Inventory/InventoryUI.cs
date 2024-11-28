@@ -31,6 +31,7 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mainCamera.enabled = true;
         inventoryCamera.enabled = false;
 

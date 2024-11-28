@@ -17,15 +17,19 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = false;
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        /*
         gameOverMenu = GameObject.Find("GameOverMenu");
         killMenu = GameObject.Find("KillMenu");
+         */
     }
 
     void Start()
     {
         pauseMenu.SetActive(false);
+        /*
         gameOverMenu.SetActive(false);
         killMenu.SetActive(false);
+        */
         inventoryUI = GameObject.FindAnyObjectByType<InventoryUI>();
     }
 
@@ -88,11 +92,11 @@ public class PauseMenu : MonoBehaviour
 
     public void StartGameOver()
     {
-        gameOverMenu.SetActive(true);
+        //gameOverMenu.SetActive(true);
     }
 
     public void StartKillTransition()
     {
-        killMenu.SetActive(true);
+        //killMenu.SetActive(true);
     }
 }
