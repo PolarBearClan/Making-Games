@@ -837,6 +837,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   itemType: 0
 --- !u!65 &91059587
 BoxCollider:
@@ -2837,6 +2844,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!65 &270634175
 BoxCollider:
@@ -5493,6 +5507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: ForestBarn_Night
   objectToSpawnAt: 
   actionName: Go outside the Village
@@ -5985,6 +6001,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!65 &540377977
 BoxCollider:
@@ -8148,6 +8171,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!1 &712788206
 GameObject:
@@ -9240,6 +9270,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!1001 &786961699
 PrefabInstance:
@@ -9344,6 +9381,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   itemType: 0
 --- !u!65 &786961703
 BoxCollider:
@@ -11487,6 +11531,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!65 &993420707
 BoxCollider:
@@ -11849,6 +11900,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!1001 &1006498299
 PrefabInstance:
@@ -11969,6 +12027,30 @@ PrefabInstance:
     - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: itemType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: actionName
+      value: Carry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Path
+      value: event:/World/QuestItems/WoodPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data1
+      value: 128399053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data2
+      value: 1086907019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data3
+      value: -1722368358
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data4
+      value: 1887147568
       objectReference: {fileID: 0}
     - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_Name
@@ -12396,6 +12478,26 @@ PrefabInstance:
       propertyPath: 'finalLogs.Array.data[4]'
       value: 
       objectReference: {fileID: 771124190}
+    - target: {fileID: 6564912679619965083, guid: 7cf570c20dfc0bd469a9f97b8a2c2def, type: 3}
+      propertyPath: soundToPlayOnDelivery.Path
+      value: event:/World/QuestItems/WoodPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564912679619965083, guid: 7cf570c20dfc0bd469a9f97b8a2c2def, type: 3}
+      propertyPath: soundToPlayOnDelivery.Guid.Data1
+      value: 128399053
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564912679619965083, guid: 7cf570c20dfc0bd469a9f97b8a2c2def, type: 3}
+      propertyPath: soundToPlayOnDelivery.Guid.Data2
+      value: 1086907019
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564912679619965083, guid: 7cf570c20dfc0bd469a9f97b8a2c2def, type: 3}
+      propertyPath: soundToPlayOnDelivery.Guid.Data3
+      value: -1722368358
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564912679619965083, guid: 7cf570c20dfc0bd469a9f97b8a2c2def, type: 3}
+      propertyPath: soundToPlayOnDelivery.Guid.Data4
+      value: 1887147568
+      objectReference: {fileID: 0}
     - target: {fileID: 7370658729000933936, guid: 7cf570c20dfc0bd469a9f97b8a2c2def, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -13010,6 +13112,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!1 &1084706395
 GameObject:
@@ -13984,6 +14093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceFromPlayer: 1.5
+  _isPlaced: 0
 --- !u!114 &1147827561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14425,6 +14535,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1799127346}
     m_Modifications:
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: actionName
+      value: Carry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Path
+      value: event:/World/QuestItems/WoodPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data1
+      value: 128399053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data2
+      value: 1086907019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data3
+      value: -1722368358
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data4
+      value: 1887147568
+      objectReference: {fileID: 0}
     - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_Name
       value: QuestItemCarry (1)
@@ -18473,6 +18607,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   itemType: 0
 --- !u!65 &1563801024
 BoxCollider:
@@ -18586,8 +18727,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7ed16cca700bb49abe3275f284c02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barnGates: 0
+  leaderRoom: 0
   _jumpscareObject: {fileID: 1147827560}
-  _duration: 1
+  _durationUntilTalk: 0
   _tweenDuration: 1
   actionName: Go outside the Village
 --- !u!65 &1566941799
@@ -18749,6 +18892,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   itemType: 0
 --- !u!65 &1585496862
 BoxCollider:
@@ -19312,6 +19462,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1799127346}
     m_Modifications:
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: actionName
+      value: Carry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Path
+      value: event:/World/QuestItems/WoodPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data1
+      value: 128399053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data2
+      value: 1086907019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data3
+      value: -1722368358
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data4
+      value: 1887147568
+      objectReference: {fileID: 0}
     - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_Name
       value: QuestItemCarry (3)
@@ -20242,6 +20416,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1799127346}
     m_Modifications:
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: actionName
+      value: Carry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Path
+      value: event:/World/QuestItems/WoodPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data1
+      value: 128399053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data2
+      value: 1086907019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data3
+      value: -1722368358
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data4
+      value: 1887147568
+      objectReference: {fileID: 0}
     - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_Name
       value: QuestItemCarry (2)
@@ -23261,6 +23459,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!1001 &1856674660
 PrefabInstance:
@@ -23860,6 +24065,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   itemType: 0
 --- !u!65 &1892032025
 BoxCollider:
@@ -25226,6 +25438,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1799127346}
     m_Modifications:
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: actionName
+      value: Carry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Path
+      value: event:/World/QuestItems/WoodPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data1
+      value: 128399053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data2
+      value: 1086907019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data3
+      value: -1722368358
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266709452478854867, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: soundToPlayOnPickUp.Guid.Data4
+      value: 1887147568
+      objectReference: {fileID: 0}
     - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_Name
       value: QuestItemCarry (4)
@@ -26875,6 +27111,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Log
   actionName: carry
+  soundToPlayOnPickUp:
+    Guid:
+      Data1: 128399053
+      Data2: 1086907019
+      Data3: -1722368358
+      Data4: 1887147568
+    Path: event:/World/QuestItems/WoodPickUp
   itemType: 0
 --- !u!65 &2112488678
 BoxCollider:

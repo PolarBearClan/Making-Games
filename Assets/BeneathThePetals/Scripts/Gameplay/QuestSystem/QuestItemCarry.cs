@@ -19,6 +19,7 @@ public class QuestItemCarry : QuestItemBase
     
     public override void Interact()
     {
+        this.PlayInteractSound();
         if (playerController.HasFreeSpot()) playerController.StartCarryingItem(gameObject);
         else
         {
