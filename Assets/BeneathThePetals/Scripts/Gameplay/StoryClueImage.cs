@@ -89,6 +89,7 @@ public class StoryClueImage : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        firstPersonController.isWalking = false;
         if (storyclueUI != null && !isInteracting)
         {
             UpdateUI();

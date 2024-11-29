@@ -72,6 +72,8 @@ public class InventoryUI : MonoBehaviour
 
     public void ToggleCamera()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled =
+            !GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled;
         mainCamera.enabled = !mainCamera.enabled;
         inventoryCamera.enabled = !inventoryCamera.enabled;
 
@@ -87,7 +89,7 @@ public class InventoryUI : MonoBehaviour
             InventoryUIObj.SetActive(false);
             Time.timeScale = 1;
         }
-    } 
+    }
 
     void ArrangeObjectsInCircle()
     {
@@ -190,7 +192,7 @@ public class InventoryUI : MonoBehaviour
         InventoryUIObj = inventoryUIGameObject;
         itemName = itemTextName;
         itemInfo = itemTextInfo;
-        
+
         InventoryUIObj.SetActive(false);
     }
 }
