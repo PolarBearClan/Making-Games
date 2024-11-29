@@ -91,8 +91,8 @@ public class PauseMenu : MonoBehaviour
         gameOverMenu.SetActive(true);
     }
 
-    public void StartKillTransition()
+    public void SetKillTransition(bool setBool)
     {
-        killMenu.SetActive(true);
+        killMenu.SetActive(setBool);
     }
 }

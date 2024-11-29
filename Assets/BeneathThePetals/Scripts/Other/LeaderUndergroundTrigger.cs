@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 public class LeaderUndergroundTrigger : MonoBehaviour
 {
     [SerializeField] private PlayableDirector director;
-    [SerializeField] private HidingInteractable hidingInteractable;
+    [SerializeField] private UndergroundCloset hidingInteractable;
 
     private PlayerController playerController;
     private FirstPersonController playerControls;
@@ -45,7 +45,7 @@ public class LeaderUndergroundTrigger : MonoBehaviour
         }
 
         
-        if(!hidingInteractable.GetController().isHiding && !coroutineStarted && isLooking)
+        if(!hidingInteractable.isHiding && !coroutineStarted && isLooking)
         {
             director.Stop();
             StartCoroutine(StartGameOver());
