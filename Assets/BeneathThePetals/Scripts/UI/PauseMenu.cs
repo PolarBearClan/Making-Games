@@ -23,9 +23,10 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
-        killMenu.SetActive(false);
+        SetActiveIfNotNull(pauseMenu, false);
+        SetActiveIfNotNull(gameOverMenu, false);
+        SetActiveIfNotNull(killMenu, false);
+
         inventoryUI = GameObject.FindAnyObjectByType<InventoryUI>();
     }
 
@@ -94,5 +95,12 @@ public class PauseMenu : MonoBehaviour
     public void SetKillTransition(bool setBool)
     {
         killMenu.SetActive(setBool);
+    }
+    private void SetActiveIfNotNull(GameObject obj, bool isActive)
+    {
+        if (obj != null)
+        {
+            obj.SetActive(isActive);
+        }
     }
 }
