@@ -1,6 +1,9 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
 
 public class JumpscareInteract : MonoBehaviour, IInteractable
 {
@@ -12,12 +15,15 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
     [SerializeField] private Jumpscare _jumpscareObject;
     [SerializeField] private float _durationUntilTalk;
     [SerializeField] private float _tweenDuration = .1f;
+    [SerializeField] private GameObject Monolouge;
     [SerializeField] private string actionName;
-
+    public EventReference jumpscareSound;
+    private bool _hasActivatedJumpscare;
     private GameObject _player;
     private FirstPersonController _playerController;
     private Jumpscare _jumpscare;
     private Transform _jumpscareFacePoint;
+    
 
     private bool _triggered = false;
     private float _timeElapsed = 0;
@@ -29,6 +35,8 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
         _playerController = _player.GetComponent<FirstPersonController>();
         _jumpscare = _jumpscareObject.GetComponent<Jumpscare>();
         _jumpscareFacePoint = _jumpscare.transform.Find("FacePoint");
+        _hasActivatedJumpscare = _player.GetComponentInChildren<StaticStateManager>().getHasActivatedGateJumpsscare();
+
     }
 
     void Update()
@@ -40,13 +48,14 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
     {
         if (!_triggered)
         {
+            PlayInteractSound();
             _triggered = true;
             _playerController.DisableInput();
             _jumpscare.Scare();
 
             StartCoroutine(StartJumpscare());
 
-            Debug.Log("Jumpscare!");
+            UnityEngine.Debug.Log("Jumpscare!");
 
         }
     }
@@ -57,10 +66,17 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
         {
             TriggerJumpscare();
         }
-        else if (barnGates)
+        else if (barnGates && !_hasActivatedJumpscare)
         {
+            _player.GetComponentInChildren<StaticStateManager>().setHasActivatedGateJumpsscare(true);
+            _hasActivatedJumpscare = true;
             TriggerJumpscare();
         }
+        else if (barnGates && _hasActivatedJumpscare)
+        {
+            Monolouge.GetComponent<LookScript>().Interact();   
+        }
+        
     }
 
     private IEnumerator StartJumpscare()
@@ -112,6 +128,9 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
 
     public void PlayInteractSound()
     {
-        throw new System.NotImplementedException();
+        EventInstance jumpscareSoundInstance = RuntimeManager.CreateInstance(jumpscareSound);
+        RuntimeManager.AttachInstanceToGameObject(jumpscareSoundInstance, transform);
+        jumpscareSoundInstance.start();
+        jumpscareSoundInstance.release();
     }
 }

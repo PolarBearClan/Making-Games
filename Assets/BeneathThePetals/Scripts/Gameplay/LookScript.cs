@@ -54,6 +54,9 @@ public class LookScript : MonoBehaviour, ITalkable
         firstPersonController.DisableInput();
 
         float tweenDuration = playerController.CameraLookAtTweenDuration;
+        firstPersonController.transform.localScale = new Vector3(firstPersonController.originalScale.x, firstPersonController.originalScale.y, firstPersonController.originalScale.z);
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        
         
         // Important to rotate them both
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
@@ -91,6 +94,7 @@ public class LookScript : MonoBehaviour, ITalkable
         // Finish tweens in case of a quick dialogue ending
         firstPersonController.playerCamera.transform.DOComplete();
         firstPersonController.transform.DOComplete();
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         
         firstPersonController.EnableInput(true);
         playerController.EnableInput();
