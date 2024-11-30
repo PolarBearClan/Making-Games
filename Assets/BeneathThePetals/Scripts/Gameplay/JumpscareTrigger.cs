@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
+using FMOD.Studio;
+using FMODUnity;
 
 
 public class JumpscareTrigger : MonoBehaviour
@@ -20,6 +22,7 @@ public class JumpscareTrigger : MonoBehaviour
     private GameObject _player;
     private FirstPersonController _playerController;
     private Jumpscare _jumpscare;
+    public EventReference jumpscareSound;
 
     private bool _triggered = false;
     private float _timeElapsed = 0;
@@ -55,8 +58,13 @@ public class JumpscareTrigger : MonoBehaviour
 
             if (_timeElapsed > _duration)
             {
-                if (_jumpscare.GetType() != typeof(JumpscareSpawn) && _jumpscare.GetType() != typeof(UndergroundJumpscare))
+                if (_jumpscare.GetType() != typeof(JumpscareSpawn) &&
+                    _jumpscare.GetType() != typeof(UndergroundJumpscare))
+                {
                     _playerController.EnableInput();
+                    _player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                }
+
                 Destroy(gameObject);
             }
             _timeElapsed += Time.deltaTime;
@@ -69,6 +77,8 @@ public class JumpscareTrigger : MonoBehaviour
     {
         if ((other.gameObject == _player) && !_triggered)
         {
+            onJumpscareSound();
+            _playerController.isWalking = false;
             _triggered = true;
 
             _playerController.DisableInput();
@@ -78,5 +88,13 @@ public class JumpscareTrigger : MonoBehaviour
             Debug.Log("Jumpscare!");
 
         }
+    }
+
+    private void onJumpscareSound()
+    {
+        EventInstance  soundOnInteract = RuntimeManager.CreateInstance(jumpscareSound);
+        RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
+        soundOnInteract.start();
+        soundOnInteract.release();
     }
 }

@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,6 @@ public class UndergroundJumpscare : Jumpscare
     private PlayerController playerController;
     private FirstPersonController firstPersonController;
     private Animator anim;
-
     private bool isSmashing = false;
     private bool dialogueHasStarted = false;
     private bool triggered = false;
@@ -86,6 +86,7 @@ public class UndergroundJumpscare : Jumpscare
 
     public override void Scare()
     {
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         gameObject.SetActive(true);
         StartCoroutine(StartJumpscare());
     }
@@ -131,6 +132,7 @@ public class UndergroundJumpscare : Jumpscare
 
         playerController.GetComponentInChildren<PauseMenu>().SetKillTransition(true);
         yield return new WaitForSeconds(6f);
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         playerController.GetComponentInChildren<PauseMenu>().SetKillTransition(false);
         anim.SetTrigger("Dead");
 
