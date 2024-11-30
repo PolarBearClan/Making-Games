@@ -40,12 +40,16 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        this.gameObject.layer = 13;
         if(itemRequired)
         {
             if (InventoryManager.Instance.inventoryItems.Contains(itemName))
             {
                 PlayInteractSound();
                 GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isCurrentlyChangingScenes = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints =
+                    RigidbodyConstraints.FreezeAll;
                 if (GetComponent<Animator>() != null)
                     GetComponent<Animator>().SetTrigger("OpenDoors");
                 ChangeScene();
@@ -56,6 +60,9 @@ public class SceneChange : MonoBehaviour, IInteractable
         {
             PlayInteractSound();
             GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isCurrentlyChangingScenes = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints =
+                RigidbodyConstraints.FreezeAll;
             if (GetComponent<Animator>() != null)
                 GetComponent<Animator>().SetTrigger("OpenDoors");
             ChangeScene();
