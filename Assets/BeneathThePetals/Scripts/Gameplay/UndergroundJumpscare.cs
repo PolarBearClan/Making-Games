@@ -9,11 +9,11 @@ public class UndergroundJumpscare : Jumpscare
     [SerializeField] private float durationUntilTalk;
 
     [Header("Smash Mechanic Settings")]
-    [SerializeField] private GameObject smashMenu;
     [SerializeField] private Image smashBar;
     [SerializeField] private float barDecreaseRate = 0.5f;
     [SerializeField] private float barIncreaseAmount = 0.2f;
-
+    
+    private GameObject smashMenu;
     private GameObject player;
     private PlayerController playerController;
     private FirstPersonController firstPersonController;
@@ -21,10 +21,12 @@ public class UndergroundJumpscare : Jumpscare
 
     private bool isSmashing = false;
     private bool dialogueHasStarted = false;
+    private bool triggered = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        smashMenu = smashBar.transform.parent.gameObject;
         SetSmashMenu(false);
         gameObject.SetActive(false);
 
@@ -41,7 +43,7 @@ public class UndergroundJumpscare : Jumpscare
         {
             dialogueHasStarted = true;
         }
-        if (dialogueHasStarted && !playerController.DialogueBox.activeSelf)
+        if (dialogueHasStarted && !playerController.DialogueBox.activeSelf && !triggered)
         {
             if(InventoryManager.Instance.inventoryItems.Contains("Knife"))
                 StartSmashMechanic();
@@ -72,6 +74,8 @@ public class UndergroundJumpscare : Jumpscare
 
                 if (smashBar.fillAmount >= 1)
                 {
+                    isSmashing = false;
+                    smashBar.fillAmount = 1;
                     StartCoroutine(StartKillTransition());
                 }
             }
@@ -101,6 +105,7 @@ public class UndergroundJumpscare : Jumpscare
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        triggered = true;
         isSmashing = true;
     }
     private void RotateTowardsDestination(Transform player)
@@ -122,19 +127,17 @@ public class UndergroundJumpscare : Jumpscare
 
     private IEnumerator StartKillTransition()
     {
-        isSmashing = false;
         SetSmashMenu(false);
-        smashBar.fillAmount = 1;
 
-        playerController.GetComponentInChildren<PauseMenu>().StartKillTransition();
-        yield return new WaitForSeconds(7f);
+        playerController.GetComponentInChildren<PauseMenu>().SetKillTransition(true);
+        yield return new WaitForSeconds(6f);
+        playerController.GetComponentInChildren<PauseMenu>().SetKillTransition(false);
         anim.SetTrigger("Dead");
 
         float moveDuration = 2f;
         Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y - 1.3f, transform.position.z);
         transform.DOMove(targetPosition, moveDuration).SetEase(Ease.OutCubic);
 
-        yield return new WaitForSeconds(moveDuration);
         firstPersonController.EnableInput();
 
     }
