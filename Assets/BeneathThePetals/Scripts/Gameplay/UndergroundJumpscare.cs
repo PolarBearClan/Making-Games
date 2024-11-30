@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,6 @@ public class UndergroundJumpscare : Jumpscare
     private PlayerController playerController;
     private FirstPersonController firstPersonController;
     private Animator anim;
-
     private bool isSmashing = false;
     private bool dialogueHasStarted = false;
     private bool triggered = false;
