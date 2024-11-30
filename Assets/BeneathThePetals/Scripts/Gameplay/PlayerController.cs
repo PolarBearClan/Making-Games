@@ -360,7 +360,8 @@ public class PlayerController : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawRay(cameraTransform.position, cameraTransform.forward * interactionDistance);
+        cameraTransform = GetCamera().transform;
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(cameraTransform.position, cameraTransform.forward * interactionDistance);
     }
 }
