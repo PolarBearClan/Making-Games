@@ -86,6 +86,7 @@ public class UndergroundJumpscare : Jumpscare
 
     public override void Scare()
     {
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         gameObject.SetActive(true);
         StartCoroutine(StartJumpscare());
     }
@@ -131,6 +132,7 @@ public class UndergroundJumpscare : Jumpscare
 
         playerController.GetComponentInChildren<PauseMenu>().SetKillTransition(true);
         yield return new WaitForSeconds(6f);
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         playerController.GetComponentInChildren<PauseMenu>().SetKillTransition(false);
         anim.SetTrigger("Dead");
 

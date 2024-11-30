@@ -1269,7 +1269,7 @@ GameObject:
   - component: {fileID: 85765833}
   - component: {fileID: 85765832}
   - component: {fileID: 85765831}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1983,7 +1983,7 @@ GameObject:
   - component: {fileID: 151025882}
   - component: {fileID: 151025881}
   - component: {fileID: 151025880}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2977,7 +2977,7 @@ GameObject:
   - component: {fileID: 193091342}
   - component: {fileID: 193091341}
   - component: {fileID: 193091340}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8841,7 +8841,7 @@ GameObject:
   - component: {fileID: 774889321}
   - component: {fileID: 774889320}
   - component: {fileID: 774889319}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9884,7 +9884,7 @@ GameObject:
   - component: {fileID: 838871288}
   - component: {fileID: 838871287}
   - component: {fileID: 838871286}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10740,7 +10740,7 @@ GameObject:
   - component: {fileID: 915901657}
   - component: {fileID: 915901656}
   - component: {fileID: 915901655}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11647,7 +11647,15 @@ MonoBehaviour:
   _jumpscareObject: {fileID: 1450180885}
   _durationUntilTalk: 2
   _tweenDuration: 0.1
+  Monolouge: {fileID: 0}
   actionName: Enter Leader's Room
+  jumpscareSound:
+    Guid:
+      Data1: 1395900100
+      Data2: 1258995628
+      Data3: 1623148214
+      Data4: 941121657
+    Path: event:/Jumpscare_1
 --- !u!65 &967282210
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14542,7 +14550,7 @@ GameObject:
   - component: {fileID: 1250968168}
   - component: {fileID: 1250968167}
   - component: {fileID: 1250968166}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15866,9 +15874,16 @@ MonoBehaviour:
   npcName: Leader Valgaris
   pointToFace: {fileID: 1819867853}
   mainDialogue:
-  - mainText: Are you looking for something, child? I assure you, you won't find
-      it in there. It is my private chamber, and I ask everyone to stay out, as even
-      the slightest disturbance interferes with my connection to God.
+  - mainText: Are you looking for something, child?
+    isQuestion: 0
+    option1Text: 
+    option1FollowUp: 
+    option2Text: 
+    option2FollowUp: 
+    givesQuest: 0
+  - mainText: I assure you, you won't find it in there. It is my private chamber,
+      and I ask everyone to stay out, as even the slightest disturbance interferes
+      with my connection to God.
     isQuestion: 0
     option1Text: 
     option1FollowUp: 
@@ -16622,12 +16637,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15, y: 0.14, z: 0.17}
-  m_Center: {x: 0.013526015, y: 0, z: 0.0012603385}
+  m_Size: {x: 0.19106442, y: 0.48093536, z: 0.47223637}
+  m_Center: {x: 0.034058042, y: 0.17046769, z: 0.048852336}
 --- !u!4 &1561564020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 726d6895f9c27624488c3d4754b157f8, type: 3}
@@ -16925,7 +16940,7 @@ GameObject:
   - component: {fileID: 1576988452}
   - component: {fileID: 1576988451}
   - component: {fileID: 1576988450}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17170,7 +17185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1580037896}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SoundTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17330,7 +17345,7 @@ GameObject:
   - component: {fileID: 1619270278}
   - component: {fileID: 1619270277}
   - component: {fileID: 1619270276}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18188,7 +18203,7 @@ GameObject:
   - component: {fileID: 1712567177}
   - component: {fileID: 1712567176}
   - component: {fileID: 1712567175}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18693,7 +18708,7 @@ GameObject:
   - component: {fileID: 1770690984}
   - component: {fileID: 1770690983}
   - component: {fileID: 1770690982}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18834,7 +18849,7 @@ GameObject:
   - component: {fileID: 1791498384}
   - component: {fileID: 1791498383}
   - component: {fileID: 1791498382}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SetIndoorWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19593,16 +19608,17 @@ MonoBehaviour:
   itemName: 
   sceneToChangeTo: ForestBarn_Day
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go outside the Village
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
   eventToPlayAtSceneChange:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1395900100
+      Data2: 1258995628
+      Data3: 1623148214
+      Data4: 941121657
+    Path: event:/Jumpscare_1
 --- !u!1 &1851816391
 GameObject:
   m_ObjectHideFlags: 0
@@ -20575,6 +20591,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5371943726957026699, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381072811520803852, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5588903115325488265, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
       propertyPath: lightType
       value: 1
@@ -20631,9 +20655,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7863350022245162957, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 9066862771441633838, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
       propertyPath: m_Name
       value: InteractableLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066862771441633838, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 647835762328098682, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
@@ -21163,7 +21195,7 @@ GameObject:
   - component: {fileID: 1947426904}
   - component: {fileID: 1947426903}
   - component: {fileID: 1947426902}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22934,7 +22966,7 @@ GameObject:
   - component: {fileID: 2119990021}
   - component: {fileID: 2119990020}
   - component: {fileID: 2119990019}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bed (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22991,8 +23023,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9681274, y: 1, z: 0.9044111}
+  m_Center: {x: -0.01593628, y: 0, z: 0.047794532}
 --- !u!23 &2119990021
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23199,7 +23231,7 @@ GameObject:
   - component: {fileID: 2129181308}
   - component: {fileID: 2129181307}
   - component: {fileID: 2129181306}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23432,7 +23464,7 @@ GameObject:
   - component: {fileID: 2142273922}
   - component: {fileID: 2142273921}
   - component: {fileID: 2142273920}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23747,7 +23779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 159.01
+      value: 133.293
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23784,6 +23816,10 @@ PrefabInstance:
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: unlimitedSprint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name

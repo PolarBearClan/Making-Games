@@ -66,6 +66,8 @@ public class LeaderUndergroundTrigger : MonoBehaviour
     private IEnumerator StartGameOver()
     {
         coroutineStarted = true;
+        GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<Rigidbody>().constraints =
+            RigidbodyConstraints.FreezeAll;
 
         RotateTowardsDestination(playerController.transform);
         anim.SetBool("isWalking", true);

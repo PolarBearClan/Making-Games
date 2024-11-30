@@ -1023,6 +1023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: unlimitedSprint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2598,7 +2602,7 @@ GameObject:
   - component: {fileID: 285318105}
   - component: {fileID: 285318104}
   - component: {fileID: 285318103}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9268,15 +9272,16 @@ MonoBehaviour:
   itemName: 
   sceneToChangeTo: Day2_Outside_Nighttime
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go back to Village
   fadeToBlack: {fileID: 382257283}
   globalUiObject: {fileID: 134067155}
   eventToPlayAtSceneChange:
     Guid:
-      Data1: -629001433
-      Data2: 1197669452
-      Data3: 222343358
-      Data4: 1634174090
+      Data1: 1286327692
+      Data2: 1108467554
+      Data3: 484755850
+      Data4: -1936251733
     Path: event:/World/Doors/VillageGate
 --- !u!4 &1196711796 stripped
 Transform:
@@ -9893,6 +9898,7 @@ MonoBehaviour:
   itemName: 
   sceneToChangeTo: Underground_Final
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Open Hatch Doors
   fadeToBlack: {fileID: 382257283}
   globalUiObject: {fileID: 134067155}
@@ -11242,7 +11248,7 @@ GameObject:
   - component: {fileID: 1595545349}
   - component: {fileID: 1595545348}
   - component: {fileID: 1595545347}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

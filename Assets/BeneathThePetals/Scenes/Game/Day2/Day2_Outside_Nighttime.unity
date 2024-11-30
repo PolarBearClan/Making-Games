@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 120195203}
   - component: {fileID: 120195202}
   - component: {fileID: 120195201}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BonfireWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3256,7 +3256,7 @@ GameObject:
   - component: {fileID: 431676220}
   - component: {fileID: 431676219}
   - component: {fileID: 431676218}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4364,6 +4364,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
   m_PrefabInstance: {fileID: 526439304}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &545443217
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.19269918
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9812579
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -22.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816288470594893615, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: m_Name
+      value: BloodNapkin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
 --- !u!1001 &559489517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4562,7 +4619,7 @@ GameObject:
   - component: {fileID: 573195044}
   - component: {fileID: 573195043}
   - component: {fileID: 573195042}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5610,7 +5667,7 @@ GameObject:
   - component: {fileID: 710186245}
   - component: {fileID: 710186244}
   - component: {fileID: 710186243}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9827,7 +9884,7 @@ GameObject:
   - component: {fileID: 1147524201}
   - component: {fileID: 1147524200}
   - component: {fileID: 1147524199}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10019,7 +10076,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd2d617b0e3dcbe4b80913cff94ea49a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1832558119}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd2d617b0e3dcbe4b80913cff94ea49a, type: 3}
 --- !u!4 &1149214012 stripped
@@ -11068,7 +11128,7 @@ GameObject:
   - component: {fileID: 1216612905}
   - component: {fileID: 1216612904}
   - component: {fileID: 1216612903}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11428,7 +11488,7 @@ GameObject:
   - component: {fileID: 1251454329}
   - component: {fileID: 1251454328}
   - component: {fileID: 1251454327}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14038,15 +14098,16 @@ MonoBehaviour:
   itemName: 
   sceneToChangeTo: ForestBarn_Night
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go outside the Village
   fadeToBlack: {fileID: 1582934633}
   globalUiObject: {fileID: 1292171596}
   eventToPlayAtSceneChange:
     Guid:
-      Data1: -629001433
-      Data2: 1197669452
-      Data3: 222343358
-      Data4: 1634174090
+      Data1: 1286327692
+      Data2: 1108467554
+      Data3: 484755850
+      Data4: -1936251733
     Path: event:/World/Doors/VillageGate
 --- !u!65 &1535907196
 BoxCollider:
@@ -15617,7 +15678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1725359931}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SoundTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16297,7 +16358,7 @@ GameObject:
   - component: {fileID: 1829121866}
   - component: {fileID: 1829121865}
   - component: {fileID: 1829121864}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16527,6 +16588,115 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3935396574283352871, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
+--- !u!1 &1832558118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1832558119}
+  - component: {fileID: 1832558122}
+  - component: {fileID: 1832558121}
+  - component: {fileID: 1832558120}
+  m_Layer: 13
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1832558119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832558118}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.20239806, y: -1.11, z: 0.4212036}
+  m_LocalScale: {x: 50, y: 3, z: 50}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1149214012}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1832558120
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832558118}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1832558121
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832558118}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0ac9aba1beafeb24997cc30de6fbd9bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1832558122
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832558118}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1833374769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18001,7 +18171,7 @@ GameObject:
   - component: {fileID: 1953840888}
   - component: {fileID: 1953840887}
   - component: {fileID: 1953840886}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19765,6 +19935,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: unlimitedSprint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name
       value: Player
@@ -19792,3 +19966,4 @@ SceneRoots:
   - {fileID: 1211980493}
   - {fileID: 262441145}
   - {fileID: 1725359931}
+  - {fileID: 545443217}

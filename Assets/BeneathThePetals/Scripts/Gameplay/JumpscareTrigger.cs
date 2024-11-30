@@ -55,8 +55,13 @@ public class JumpscareTrigger : MonoBehaviour
 
             if (_timeElapsed > _duration)
             {
-                if (_jumpscare.GetType() != typeof(JumpscareSpawn) && _jumpscare.GetType() != typeof(UndergroundJumpscare))
+                if (_jumpscare.GetType() != typeof(JumpscareSpawn) &&
+                    _jumpscare.GetType() != typeof(UndergroundJumpscare))
+                {
                     _playerController.EnableInput();
+                    _player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                }
+
                 Destroy(gameObject);
             }
             _timeElapsed += Time.deltaTime;
@@ -69,6 +74,7 @@ public class JumpscareTrigger : MonoBehaviour
     {
         if ((other.gameObject == _player) && !_triggered)
         {
+            _playerController.isWalking = false;
             _triggered = true;
 
             _playerController.DisableInput();
