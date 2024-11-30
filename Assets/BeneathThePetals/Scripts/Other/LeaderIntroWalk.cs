@@ -57,7 +57,12 @@ public class LeaderIntroWalk : MonoBehaviour
                 }
 
             }
-            RotateTowardsDestination(walkPoints[currentPointIndex]);
+
+            if (!(currentPointIndex >= walkPoints.Length)){
+                RotateTowardsDestination(walkPoints[currentPointIndex]);
+            }
+
+            
         }
         if (canWalk && currentPointIndex < walkPoints.Length)
         {

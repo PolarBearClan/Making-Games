@@ -132,7 +132,7 @@ public class FirstPersonController : MonoBehaviour
 
     // Internal Variables
     public bool isCrouched = false;
-    private Vector3 originalScale;
+    public Vector3 originalScale;
 
     #endregion
     #endregion

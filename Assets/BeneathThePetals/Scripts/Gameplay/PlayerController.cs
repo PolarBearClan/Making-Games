@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraLookAtTweenDuration;
 
     [Header("UI")]
-    [SerializeField] private TMP_Text interactionText;
+    [SerializeField] public TMP_Text interactionText;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private QuestManager questManager;
     [SerializeField] private Image progressImage;
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private GameObject currentlyCarriedItem2 = null;
     private bool carryingItem = false;
     private PauseMenu pauseMenu;
+    public bool isCurrentlyChangingScenes = false;
 
     [Header("Quest related")]
     [SerializeField] private Transform carryParent1;
@@ -99,17 +100,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pauseMenu != null)
-            if(pauseMenu.isPaused)
-                return;
+        if (!isCurrentlyChangingScenes)
+        {
+            if (pauseMenu != null)
+                if(pauseMenu.isPaused)
+                    return;
 
-        CheckForInteractables();
+            CheckForInteractables();
+        } else {
+            DisableInput();
+            interactionText.SetText("");
+        }
+
+
     }
 
     private void CheckForInteractables()
     {
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance, ~LayerMask.GetMask("Player")))
-        {
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance, ~LayerMask.GetMask("Player", "SoundTrigger", "UselessColliders")) && !isCurrentlyChangingScenes) {
 
             var newTarget = hit.collider.gameObject;
 
@@ -151,9 +159,7 @@ public class PlayerController : MonoBehaviour
                 TryActivateCurrentTarget();
 
             }
-        }
-        else
-        {
+        }  else {
             TryDeactivateCurrentTarget();
             currentTarget = null;
         }
@@ -333,8 +339,12 @@ public class PlayerController : MonoBehaviour
         // or even 1 item? - this probably no
         //
         //if (overridingPermission || GetCarriedItemsCount() < 2)
+        if (!isCurrentlyChangingScenes)
+        {
+            interactionText.text = text;
+        }
 
-        interactionText.text = text;
+
     }
 
     public void LockedDoorText()
@@ -350,7 +360,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(cameraTransform.position, cameraTransform.forward * interactionDistance);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawRay(cameraTransform.position, cameraTransform.forward * interactionDistance);
     }
 }
