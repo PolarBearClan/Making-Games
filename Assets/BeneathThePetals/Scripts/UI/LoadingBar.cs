@@ -6,40 +6,21 @@ using Unity.VisualScripting;
 public class LoadingBar : MonoBehaviour
 {
     public GameObject globalUiObject;
+    private float timeToLoad; 
+    
     string sceneToChangeTo;
     void Start()
     {
-        var globalUiState = globalUiObject.GetComponent<GlobalUIState>();
+        var globalUiState = globalUiObject.GetComponent<StaticStateManager>();
         sceneToChangeTo = globalUiState.getSceneToChangeTo();
+        timeToLoad = globalUiState.getTimeToLoad();
 
-
-        StartCoroutine(MetaProgress(0.2f));
-    }
-    private IEnumerator MetaProgress(float waitTime)
-    {
-
-        if (transform.localScale.x >= 10) {
-
-            yield return new WaitForSeconds(1.5f);
-            SceneManager.LoadScene(sceneToChangeTo);
-        }
-
-        if (transform.localScale.x == 1) {
-            yield return new WaitForSeconds(2);
-        }
-
-        StartCoroutine(Progress(Random.Range(0.05f, 0.3f)));
-        yield return null;
+        StartCoroutine(LoadScene(timeToLoad));
     }
 
-    private IEnumerator Progress(float waitTime)
+    private IEnumerator LoadScene(float waitTime)
     {
-        if (transform.localScale.x <= 10) { 
-            var randomProgress = Random.Range(1, 3);
-            transform.localScale = new Vector3(transform.localScale.x+randomProgress, 0.5f, 1);
-        }
-        Debug.Log(waitTime);
         yield return new WaitForSeconds(waitTime);
-        StartCoroutine(MetaProgress(waitTime));
+        SceneManager.LoadScene(sceneToChangeTo);
     }
 }

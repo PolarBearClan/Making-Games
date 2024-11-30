@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
             if (deliveryArea != null)
             {
                 // This is a quest delivery area
-                if (GetCurrentQuest() == null || GetCurrentQuest().Completed) return;
+                if (GetCurrentQuest() == null) return;
                 if (deliveryArea.QuestItemType == QuestItemType.WoodLog && !carryingItem) return;
 
                 TryDeactivateCurrentTarget();

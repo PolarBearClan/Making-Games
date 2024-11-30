@@ -14,6 +14,7 @@ public class SceneChange : MonoBehaviour, IInteractable
     [Header("Scene variables")]
     [SerializeField] private string sceneToChangeTo;
     [SerializeField] private string objectToSpawnAt;
+    [SerializeField] private float timeToLoad = 1;
     [SerializeField] private string actionName;
     [SerializeField] private GameObject fadeToBlack;
     [SerializeField] private GameObject globalUiObject;
@@ -29,9 +30,10 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public void ChangeScene()
     {
-        var globalUiState = globalUiObject.GetComponent<GlobalUIState>();
+        var globalUiState = globalUiObject.GetComponent<StaticStateManager>();
         globalUiState.setSceneToChangeTo(sceneToChangeTo);
         globalUiState.setObjectToSpawnAt(objectToSpawnAt);
+        globalUiState.setTimeToLoad(timeToLoad);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
 
@@ -116,7 +118,7 @@ public class SceneChange : MonoBehaviour, IInteractable
         if (scene.name != "LoadingScreen")
         {
             GameObject _player = GameObject.FindGameObjectWithTag("Player");
-            var globalUiState = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GlobalUIState>();
+            var globalUiState = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<StaticStateManager>();
 
             if (GameObject.Find(globalUiState.getObjectToSpawnAt()) != null)
             {
