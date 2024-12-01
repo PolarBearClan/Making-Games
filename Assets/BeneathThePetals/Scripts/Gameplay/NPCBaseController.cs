@@ -142,14 +142,19 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     private void AssignQuest()
     {
-        quest.OnQuestFinished = ChangeDialogueAfterQuest;
+        quest.OnQuestFinished = QuestComplete;
         playerController.AssignQuest(quest);
         mainDialogue = dialogueAfterQuestAssigned;
     }
 
-    private void ChangeDialogueAfterQuest(List<DialogueNode> newDialogue)
+    private void QuestComplete(List<DialogueNode> newDialogue)
     {
         mainDialogue = newDialogue;
+        
+        if (quest.ShouldNotify)
+            playerController.ScreenNoteManagerScript.ShowNoteNotification(quest.NotificationText, quest.NotificationDuration);
+        
+        playerController.ResetInteractionTarget();
     }
 
     private void LookAtNPC()

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
+using UnityEngine.Serialization;
+
 public class QuestDeliveryLocation : MonoBehaviour, IInteractable
 {
     [SerializeField] private string itemName;
@@ -13,9 +15,7 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
     [SerializeField] private GameObject flowerPotPrefab;
 
     [Space]
-    [SerializeField] private List<Transform> goalLoactions;
-    [SerializeField] private List<GameObject> finalLogs;
-
+    [SerializeField] private List<Transform> goalLocations;
     [SerializeField] protected EventReference soundToPlayOnDelivery;
 
     private PlayerController playerController;
@@ -24,10 +24,6 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         light.enabled = false;
-        foreach(GameObject obj in finalLogs)
-        {
-            obj.SetActive(false);
-        }
     }
     
     // Update is called once per frame
@@ -80,11 +76,9 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
         }
 
         // Place item
-        int logNumber = playerController.GetCurrentQuest().currentAmount++;
-        var targetTransform = goalLoactions[logNumber];
+        var targetTransform = goalLocations[playerController.GetCurrentQuest().currentAmount++];
         questItem.transform.position = targetTransform.position;
         questItem.transform.rotation = targetTransform.rotation;
-        finalLogs[logNumber].SetActive(true);
     }
 
     public void PlayInteractSound()
