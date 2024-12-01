@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
             if (deliveryArea != null)
             {
                 // This is a quest delivery area
-                if (GetCurrentQuest() == null) return;
+                if (currentQuest == null || currentQuest.Completed) return;
                 if (deliveryArea.QuestItemType == QuestItemType.WoodLog && !carryingItem) return;
 
                 TryDeactivateCurrentTarget();
@@ -239,6 +239,12 @@ public class PlayerController : MonoBehaviour
     public void EnableInput()
     {
         canInteract = true;
+    }
+
+    public void ResetInteractionTarget()
+    {
+        TryDeactivateCurrentTarget();
+        currentTarget = null;
     }
 
     public void AddToInventory(string item)

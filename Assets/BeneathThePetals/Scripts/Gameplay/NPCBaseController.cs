@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Serialization;
 using FMOD;
 using FMOD.Studio;
 using FMODUnity;
+
 public class NPCBaseController : MonoBehaviour, ITalkable
 {
     [SerializeField] private string npcName;
@@ -19,6 +21,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     [SerializeField] private Quest quest;
     [Space]
     [SerializeField] private List<DialogueNode> dialogueAfterQuestAssigned;
+
+    private List<SceneChange> sceneChangers;    // Scene changers requiring quest completion
 
     private EActivity activity;
     private GameObject player;
@@ -40,6 +44,13 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         activity = EActivity.IDLE;
         anim = GetComponent<Animator>();
         npcWalking = GetComponent<NPCWalking>();
+
+        if (quest != null)
+        {
+            sceneChangers = FindObjectsByType<SceneChange>(FindObjectsSortMode.None)
+                .Where(sceneChanger => sceneChanger.UnlockRequirement == UnlockRequirementType.QuestCompletionRequired)
+                .ToList();
+        }
     }
 
     // Update is called once per frame
@@ -142,14 +153,25 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     private void AssignQuest()
     {
-        quest.OnQuestFinished = ChangeDialogueAfterQuest;
+        quest.OnQuestFinished = QuestComplete;
         playerController.AssignQuest(quest);
         mainDialogue = dialogueAfterQuestAssigned;
     }
 
-    private void ChangeDialogueAfterQuest(List<DialogueNode> newDialogue)
+    private void QuestComplete(List<DialogueNode> newDialogue)
     {
         mainDialogue = newDialogue;
+        
+        if (quest.ShouldNotify)
+            playerController.ScreenNoteManagerScript.ShowNoteNotification(quest.NotificationText, quest.NotificationDuration);
+        
+        playerController.ResetInteractionTarget();
+        
+        // unlock all scene changers that require quest completion
+        foreach (var s in sceneChangers)
+        {
+            s.OnQuestCompleted();
+        }
     }
 
     private void LookAtNPC()

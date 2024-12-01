@@ -7,10 +7,6 @@ using FMODUnity;
 using FMOD.Studio;
 public class SceneChange : MonoBehaviour, IInteractable
 {
-    [Header("Lock/Unlock")]
-    [SerializeField] private bool itemRequired = false;
-    [SerializeField] private string itemName;
-
     [Header("Scene variables")]
     [SerializeField] private string sceneToChangeTo;
     [SerializeField] private string objectToSpawnAt;
@@ -19,13 +15,26 @@ public class SceneChange : MonoBehaviour, IInteractable
     [SerializeField] private GameObject fadeToBlack;
     [SerializeField] private GameObject globalUiObject;
 
+    [Header("Lock/Unlock")]
+    [SerializeField] private UnlockRequirementType unlockRequirement;
+    [SerializeField] private StoryClue requiredStoryClue;
+    [SerializeField] private int notificationDuration;
+    [SerializeField] [TextArea] private string notificationText;
+    private bool canUse;
+
     public EventReference eventToPlayAtSceneChange;
     private Animator anim;
     private PauseMenu pauseMenu;
+    private PlayerController playerController;
 
     private void Start()
     {
+        canUse = unlockRequirement == UnlockRequirementType.NoRequirement;
         pauseMenu = FindAnyObjectByType<PauseMenu>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        if (unlockRequirement == UnlockRequirementType.ItemRequired && requiredStoryClue)
+            requiredStoryClue.OnStoryCluePickup += () => { canUse = true; };
     }
 
     public void ChangeScene()
@@ -42,33 +51,26 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        this.gameObject.layer = 13;
-        if(itemRequired)
+        if (canUse)
         {
-            if (InventoryManager.Instance.inventoryItems.Contains(itemName))
-            {
-                PlayInteractSound();
-                GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isCurrentlyChangingScenes = true;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints =
-                    RigidbodyConstraints.FreezeAll;
-                if (GetComponent<Animator>() != null)
-                    GetComponent<Animator>().SetTrigger("OpenDoors");
-                ChangeScene();
-                pauseMenu.SetPause(true);
-            }
-        }
-        else
-        {
+            //use
+            this.gameObject.layer = 13; // disabling collider (I guess ?)
+            
             PlayInteractSound();
             GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isCurrentlyChangingScenes = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isCurrentlyChangingScenes =
+                true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
             if (GetComponent<Animator>() != null)
                 GetComponent<Animator>().SetTrigger("OpenDoors");
             ChangeScene();
             pauseMenu.SetPause(true);
+        }
+        else
+        {
+            // show notification
+            playerController.ScreenNoteManagerScript.ShowNoteNotification(notificationText, notificationDuration);
         }
     }
 
@@ -142,4 +144,18 @@ public class SceneChange : MonoBehaviour, IInteractable
         soundWhenSceneChange.start();
         soundWhenSceneChange.release();
     }
+
+    public void OnQuestCompleted()
+    {
+        canUse = true;
+    }
+    
+    public UnlockRequirementType UnlockRequirement => unlockRequirement;
+}
+
+public enum UnlockRequirementType
+{
+    NoRequirement,
+    ItemRequired,
+    QuestCompletionRequired
 }
