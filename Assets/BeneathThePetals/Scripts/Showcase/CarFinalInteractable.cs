@@ -1,16 +1,18 @@
 using DG.Tweening;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 public class CarFinalInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] private NoiseManager noiseManager;
 
-    [SerializeField] private BoxCollider carCollider;
-    private PlayerController playerController;
+    [SerializeField] protected string itemName;
+    [SerializeField] protected string actionName;
+    [SerializeField] protected EventReference soundToPlayOnInteract;
 
     void Start()
     {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     public void Activate()
@@ -21,25 +23,23 @@ public class CarFinalInteractable : MonoBehaviour, IInteractable
     {
     }
 
-    public string GetActionName()
-    {
-        return "Start";
-    }
-
-    public string GetName()
-    {
-        return "Car";
-    }
+    public virtual string GetName() => itemName;
+    public virtual string GetActionName() => actionName;
 
     public void Interact()
     {
-        transform.DOComplete();
-
         noiseManager.TriggerNPCs();
         Debug.Log("NPCs alerted by car");
     }
 
     public void PlayInteractSound()
     {
+        if (!soundToPlayOnInteract.Equals(null))
+        {
+            EventInstance sound = RuntimeManager.CreateInstance(soundToPlayOnInteract);
+            RuntimeManager.AttachInstanceToGameObject(sound, transform);
+            sound.start();
+            sound.release();
+        }
     }
 }
