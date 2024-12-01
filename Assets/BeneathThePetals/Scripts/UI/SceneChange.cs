@@ -7,11 +7,17 @@ using FMODUnity;
 using FMOD.Studio;
 public class SceneChange : MonoBehaviour, IInteractable
 {
-    public string sceneToChangeTo;
-    public string objectToSpawnAt;
-    public string actionName;
-    public GameObject fadeToBlack;
-    public GameObject globalUiObject;
+    [Header("Lock/Unlock")]
+    [SerializeField] private bool itemRequired = false;
+    [SerializeField] private string itemName;
+
+    [Header("Scene variables")]
+    [SerializeField] private string sceneToChangeTo;
+    [SerializeField] private string objectToSpawnAt;
+    [SerializeField] private float timeToLoad = 1;
+    [SerializeField] private string actionName;
+    [SerializeField] private GameObject fadeToBlack;
+    [SerializeField] private GameObject globalUiObject;
 
     public EventReference eventToPlayAtSceneChange;
     private Animator anim;
@@ -24,9 +30,10 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public void ChangeScene()
     {
-        var globalUiState = globalUiObject.GetComponent<GlobalUIState>();
+        var globalUiState = globalUiObject.GetComponent<StaticStateManager>();
         globalUiState.setSceneToChangeTo(sceneToChangeTo);
         globalUiState.setObjectToSpawnAt(objectToSpawnAt);
+        globalUiState.setTimeToLoad(timeToLoad);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
 
@@ -35,12 +42,34 @@ public class SceneChange : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        PlayInteractSound();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
-        if (GetComponent<Animator>() != null)
-            GetComponent<Animator>().SetTrigger("OpenDoors");
-        ChangeScene();
-        pauseMenu.SetPause(true);
+        this.gameObject.layer = 13;
+        if(itemRequired)
+        {
+            if (InventoryManager.Instance.inventoryItems.Contains(itemName))
+            {
+                PlayInteractSound();
+                GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isCurrentlyChangingScenes = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints =
+                    RigidbodyConstraints.FreezeAll;
+                if (GetComponent<Animator>() != null)
+                    GetComponent<Animator>().SetTrigger("OpenDoors");
+                ChangeScene();
+                pauseMenu.SetPause(true);
+            }
+        }
+        else
+        {
+            PlayInteractSound();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().enabled = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isCurrentlyChangingScenes = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints =
+                RigidbodyConstraints.FreezeAll;
+            if (GetComponent<Animator>() != null)
+                GetComponent<Animator>().SetTrigger("OpenDoors");
+            ChangeScene();
+            pauseMenu.SetPause(true);
+        }
     }
 
     public void Activate()
@@ -89,7 +118,7 @@ public class SceneChange : MonoBehaviour, IInteractable
         if (scene.name != "LoadingScreen")
         {
             GameObject _player = GameObject.FindGameObjectWithTag("Player");
-            var globalUiState = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GlobalUIState>();
+            var globalUiState = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<StaticStateManager>();
 
             if (GameObject.Find(globalUiState.getObjectToSpawnAt()) != null)
             {

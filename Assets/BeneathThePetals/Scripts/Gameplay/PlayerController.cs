@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 using FMOD;
 using FMODUnity;
 using FMOD.Studio;
+using Debug = FMOD.Debug;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraLookAtTweenDuration;
 
     [Header("UI")]
-    [SerializeField] private TMP_Text interactionText;
+    [SerializeField] public TMP_Text interactionText;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private QuestManager questManager;
     [SerializeField] private Image progressImage;
@@ -41,11 +43,12 @@ public class PlayerController : MonoBehaviour
     private GameObject currentlyCarriedItem2 = null;
     private bool carryingItem = false;
     private PauseMenu pauseMenu;
+    public bool isCurrentlyChangingScenes = false;
 
     [Header("Quest related")]
     [SerializeField] private Transform carryParent1;
     [SerializeField] private Transform carryParent2;
-    
+
     [Space] [Header("Inventory related")]
     [SerializeField] private GameObject uiGameObject;
     [SerializeField] private GameObject inventoryUIGameObject;
@@ -89,7 +92,7 @@ public class PlayerController : MonoBehaviour
     private void InitInventoryObject()
     {
         FindAnyObjectByType<InventoryUI>().LoadGameObjects(GetCamera(), uiGameObject, inventoryUIGameObject, itemName, itemInfo);
-        
+
         // Load inventory
         inventory = FindAnyObjectByType<InventoryManager>().inventoryItems;
     }
@@ -97,17 +100,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pauseMenu != null)
-            if(pauseMenu.isPaused)
-                return;
+        if (!isCurrentlyChangingScenes)
+        {
+            if (pauseMenu != null)
+                if(pauseMenu.isPaused)
+                    return;
 
-        CheckForInteractables();
+            CheckForInteractables();
+        } else {
+            DisableInput();
+            interactionText.SetText("");
+        }
+
+
     }
 
     private void CheckForInteractables()
     {
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance))
-        {
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance, ~LayerMask.GetMask("Player", "SoundTrigger", "UselessColliders")) && !isCurrentlyChangingScenes) {
+
             var newTarget = hit.collider.gameObject;
 
             // Check if this is a quest delivery area -> only able to interact with this when carryingItem
@@ -115,14 +126,14 @@ public class PlayerController : MonoBehaviour
             if (deliveryArea != null)
             {
                 // This is a quest delivery area
-                if (GetCurrentQuest() == null || GetCurrentQuest().Completed) return;
+                if (GetCurrentQuest() == null) return;
                 if (deliveryArea.QuestItemType == QuestItemType.WoodLog && !carryingItem) return;
 
                 TryDeactivateCurrentTarget();
                 currentTarget = newTarget;
                 TryActivateCurrentTarget(true);
             }
-            
+
             // Check if this is a scene changer -> if carrying at least 1 log -> disable this interaction
             var sceneChanger = newTarget.GetComponent<SceneChange>();
             if (sceneChanger != null)
@@ -146,11 +157,9 @@ public class PlayerController : MonoBehaviour
             {
                 currentTarget = newTarget;
                 TryActivateCurrentTarget();
-                
+
             }
-        }
-        else
-        {
+        }  else {
             TryDeactivateCurrentTarget();
             currentTarget = null;
         }
@@ -215,7 +224,7 @@ public class PlayerController : MonoBehaviour
     private bool AimingAtDoor()
     {
         if (currentTarget == null) return true; // optimization
-        
+
         var doorController = currentTarget.GetComponent<DoorController>();
 
         return doorController != null;
@@ -242,7 +251,7 @@ public class PlayerController : MonoBehaviour
         InventoryManager.Instance.AddItem(item);
         FindAnyObjectByType<InventoryUI>().UpdateInventoryUI();
     }
-    
+
     public bool RemoveFromInventory(string item)
     {
         if (inventory.Contains(item))
@@ -327,11 +336,15 @@ public class PlayerController : MonoBehaviour
     {
         // TODO remove this if it is okay like this
         // should players interaction be disabled if he is carrying 2 items?
-        // or even 1 item? - this probably no 
+        // or even 1 item? - this probably no
         //
         //if (overridingPermission || GetCarriedItemsCount() < 2)
+        if (!isCurrentlyChangingScenes)
+        {
+            interactionText.text = text;
+        }
 
-        interactionText.text = text;
+
     }
 
     public void LockedDoorText()
@@ -344,4 +357,11 @@ public class PlayerController : MonoBehaviour
     public Image ProgressImage => progressImage;
     public ScreenNoteManager ScreenNoteManagerScript => screenNoteManager;
     public float CameraLookAtTweenDuration => cameraLookAtTweenDuration;
+
+    void OnDrawGizmos()
+    {
+        cameraTransform = GetCamera().transform;
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(cameraTransform.position, cameraTransform.forward * interactionDistance);
+    }
 }

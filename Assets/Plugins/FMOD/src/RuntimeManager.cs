@@ -1187,10 +1187,12 @@ retry:
         {
             try
             {
+                UnityEngine.Debug.Log("CreateInstance: " + eventReference.Guid);
                 return CreateInstance(eventReference.Guid);
             }
             catch (EventNotFoundException)
             {
+                return CreateInstance(new FMOD.GUID(new Guid("{13f2b60a-82ba-4933-8313-7c9ab6b83a37}")));
                 throw new EventNotFoundException(eventReference);
             }
         }

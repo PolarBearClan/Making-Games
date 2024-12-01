@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 46523066}
   - component: {fileID: 46523065}
   - component: {fileID: 46523064}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 59111895}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SoundTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3117,7 +3117,7 @@ GameObject:
   - component: {fileID: 218768484}
   - component: {fileID: 218768483}
   - component: {fileID: 218768482}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SetIndoorWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3988,7 +3988,7 @@ GameObject:
   - component: {fileID: 325252061}
   - component: {fileID: 325252060}
   - component: {fileID: 325252059}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6357,7 +6357,7 @@ GameObject:
   - component: {fileID: 579141025}
   - component: {fileID: 579141024}
   - component: {fileID: 579141023}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6627,18 +6627,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: Day2_Inside_Daytime
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go To Sleep
   fadeToBlack: {fileID: 325551802}
   globalUiObject: {fileID: 495642999}
   eventToPlayAtSceneChange:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1644380125
+      Data2: 1281144171
+      Data3: 399873980
+      Data4: -1837293744
+    Path: event:/World/QuestItems/BookPickUp
 --- !u!1001 &602912450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7854,7 +7857,7 @@ GameObject:
   - component: {fileID: 671613118}
   - component: {fileID: 671613117}
   - component: {fileID: 671613116}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7980,7 +7983,7 @@ GameObject:
   - component: {fileID: 671737422}
   - component: {fileID: 671737421}
   - component: {fileID: 671737420}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9069,7 +9072,7 @@ GameObject:
   - component: {fileID: 745587418}
   - component: {fileID: 745587417}
   - component: {fileID: 745587416}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLeader (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11224,7 +11227,7 @@ GameObject:
   - component: {fileID: 915210229}
   - component: {fileID: 915210228}
   - component: {fileID: 915210227}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12283,7 +12286,7 @@ GameObject:
   - component: {fileID: 961206427}
   - component: {fileID: 961206426}
   - component: {fileID: 961206425}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLeader (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13406,6 +13409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProtagonistRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 6198549744905392715, guid: 34347d17fdf6e074b8f87a779c7bc9be, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -13931,7 +13938,7 @@ GameObject:
   - component: {fileID: 1089224229}
   - component: {fileID: 1089224228}
   - component: {fileID: 1089224227}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14169,7 +14176,7 @@ GameObject:
   - component: {fileID: 1111549239}
   - component: {fileID: 1111549238}
   - component: {fileID: 1111549237}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLeader (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14499,7 +14506,7 @@ GameObject:
   - component: {fileID: 1133732481}
   - component: {fileID: 1133732480}
   - component: {fileID: 1133732479}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15813,7 +15820,7 @@ GameObject:
   - component: {fileID: 1269036067}
   - component: {fileID: 1269036066}
   - component: {fileID: 1269036065}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17639,7 +17646,7 @@ GameObject:
   - component: {fileID: 1513747150}
   - component: {fileID: 1513747149}
   - component: {fileID: 1513747148}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18635,7 +18642,7 @@ GameObject:
   - component: {fileID: 1607767228}
   - component: {fileID: 1607767227}
   - component: {fileID: 1607767226}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19018,8 +19025,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: Underground
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Enter the hatch
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
@@ -20318,7 +20328,7 @@ GameObject:
   - component: {fileID: 1839464953}
   - component: {fileID: 1839464952}
   - component: {fileID: 1839464951}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20699,8 +20709,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: ForestBarn_Day
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go outside the Village
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
@@ -20724,7 +20737,7 @@ GameObject:
   - component: {fileID: 1851062480}
   - component: {fileID: 1851062479}
   - component: {fileID: 1851062478}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bed (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21127,7 +21140,7 @@ GameObject:
   - component: {fileID: 1869901072}
   - component: {fileID: 1869901071}
   - component: {fileID: 1869901070}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22645,7 +22658,7 @@ GameObject:
   - component: {fileID: 1961374652}
   - component: {fileID: 1961374651}
   - component: {fileID: 1961374650}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22894,7 +22907,7 @@ GameObject:
   - component: {fileID: 1985215560}
   - component: {fileID: 1985215559}
   - component: {fileID: 1985215558}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24802,6 +24815,10 @@ PrefabInstance:
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: unlimitedSprint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name

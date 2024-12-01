@@ -5662,6 +5662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: ScreenNotes2
   objectToSpawnAt: 
   actionName: Go to other scene
@@ -7035,7 +7037,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.size
-      value: 4
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: soundToPlayOnInteract.Path
+      value: event:/Character/Jump
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: dialogue.Array.data[0].mainText
@@ -7054,6 +7060,22 @@ PrefabInstance:
       value: 'This is quest!
 
         Go and claim 5 red cubes'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: soundToPlayOnInteract.Guid.Data1
+      value: 359452346
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: soundToPlayOnInteract.Guid.Data2
+      value: 1259269203
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: soundToPlayOnInteract.Guid.Data3
+      value: -240982633
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: soundToPlayOnInteract.Guid.Data4
+      value: -1552387493
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: dialogue.Array.data[0].isQuestion
@@ -7085,10 +7107,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[2].mainText
-      value: I think you are bored
+      value: How are you doing? - this is a question
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[3].mainText
+      value: How are you doing? - this is a question
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[4].mainText
+      value: How are you doing? - this is a question
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[5].mainText
+      value: How are you doing? - this is a question
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[6].mainText
+      value: How are you doing? - this is a question
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[7].mainText
+      value: How are you doing? - this is a question
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[8].mainText
+      value: I think you are bored
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[9].mainText
+      value: I think you are bored
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[10].mainText
+      value: I think you are bored
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[11].mainText
       value: Go and get 5 red cubes!
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
@@ -7100,12 +7154,52 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
-      propertyPath: mainDialogue.Array.data[2].isQuestion
+      propertyPath: mainDialogue.Array.data[2].givesQuest
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
-      propertyPath: mainDialogue.Array.data[3].givesQuest
+      propertyPath: mainDialogue.Array.data[2].isQuestion
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[3].givesQuest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[3].isQuestion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[4].isQuestion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[5].isQuestion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[6].isQuestion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[7].isQuestion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[8].givesQuest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[8].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[9].givesQuest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[9].isQuestion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: dialogue.Array.data[0].option1FollowUp
@@ -7114,6 +7208,14 @@ PrefabInstance:
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: dialogue.Array.data[0].option2FollowUp
       value: Hmm. We need to work on that
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[10].givesQuest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[11].givesQuest
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[1].option1Text
@@ -7125,10 +7227,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[2].option1Text
-      value: 
+      value: Good
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[2].option2Text
+      value: Bad
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[3].option1Text
+      value: Good
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[3].option2Text
+      value: Bad
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[4].option1Text
+      value: Good
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[4].option2Text
+      value: Bad
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[5].option1Text
+      value: Good
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[5].option2Text
+      value: Bad
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[6].option1Text
+      value: Good
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[6].option2Text
+      value: Bad
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[7].option1Text
+      value: Good
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[7].option2Text
+      value: Bad
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[8].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[8].option2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[9].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[9].option2Text
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
@@ -7149,10 +7307,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[2].option1FollowUp
-      value: 
+      value: Nice to hear
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[2].option2FollowUp
+      value: Oh no, sorry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[3].option1FollowUp
+      value: Nice to hear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[3].option2FollowUp
+      value: Oh no, sorry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[4].option1FollowUp
+      value: Nice to hear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[4].option2FollowUp
+      value: Oh no, sorry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[5].option1FollowUp
+      value: Nice to hear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[5].option2FollowUp
+      value: Oh no, sorry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[6].option1FollowUp
+      value: Nice to hear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[6].option2FollowUp
+      value: Oh no, sorry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[7].option1FollowUp
+      value: Nice to hear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[7].option2FollowUp
+      value: Oh no, sorry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[8].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[8].option2FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[9].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: mainDialogue.Array.data[9].option2FollowUp
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
@@ -11213,6 +11427,66 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585488358831207942, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11256,6 +11530,126 @@ PrefabInstance:
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358797875557243489, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675609559699536567, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6792921645986549687, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_IsActive

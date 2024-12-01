@@ -26,6 +26,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     private PlayerController playerController;
     private Animator anim;
     private NPCWalking npcWalking;
+    public bool undergroundScareConvo = false;
 
     private Quaternion defaultRotation;
     public EventReference soundToPlayOnInteract;
@@ -61,6 +62,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         {
             PlayInteractSound();
             StartDialogue();
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             firstPersonController.isWalking = false;
         }
     }
@@ -69,13 +71,14 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        firstPersonController.transform.localScale = new Vector3(firstPersonController.originalScale.x, firstPersonController.originalScale.y, firstPersonController.originalScale.z);
 
         if(npcWalking != null)
             npcWalking.canWalk = false;
         defaultRotation = transform.rotation;
 
         activity = EActivity.TALKING;
-        
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         firstPersonController.DisableInput();
 
         Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
@@ -119,6 +122,10 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         // Finish tweens in case of a quick dialogue ending
         firstPersonController.playerCamera.transform.DOComplete();
         firstPersonController.transform.DOComplete();
+        if (!undergroundScareConvo)
+        {
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;   
+        }
 
         if (anim != null)
             anim.SetBool("isTalking", false);

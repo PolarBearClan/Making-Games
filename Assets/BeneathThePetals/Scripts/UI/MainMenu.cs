@@ -5,6 +5,11 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Animator transition;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     public void LoadScene(string name)
     {
         StartCoroutine(StartScene(name));

@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using FMOD.Studio;
+using FMODUnity;
 public class QuestDeliveryLocation : MonoBehaviour, IInteractable
 {
     [SerializeField] private string itemName;
@@ -14,6 +15,8 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
     [Space]
     [SerializeField] private List<Transform> goalLoactions;
     [SerializeField] private List<GameObject> finalLogs;
+
+    [SerializeField] protected EventReference soundToPlayOnDelivery;
 
     private PlayerController playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,6 +40,10 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
     {
         GameObject questItem = null;
 
+        if (!soundToPlayOnDelivery.Equals(null)) {
+            PlayInteractSound();
+        
+        }
         switch (questItemType)
         {
             case QuestItemType.WoodLog:
@@ -82,7 +89,10 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
 
     public void PlayInteractSound()
     {
-        throw new NotImplementedException();
+            EventInstance sound = RuntimeManager.CreateInstance(soundToPlayOnDelivery);
+            RuntimeManager.AttachInstanceToGameObject(sound, transform);
+            sound.start();
+            sound.release();
     }
 
     public void Activate()

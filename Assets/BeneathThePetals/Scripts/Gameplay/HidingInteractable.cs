@@ -47,10 +47,16 @@ public class HidingInteractable : MonoBehaviour, IInteractable
         return "";
     }
 
+    public FirstPersonController GetController()
+    {
+        return playerControls;
+    }
+
     public void Interact()
     {
         if (!playerControls.isHiding)
         {
+            playerControls.transform.localScale = new Vector3(playerControls.originalScale.x, playerControls.originalScale.y, playerControls.originalScale.z);
             previousSpot = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
             playerControls.DisableInput();
             playerControls.cameraCanMove = true;

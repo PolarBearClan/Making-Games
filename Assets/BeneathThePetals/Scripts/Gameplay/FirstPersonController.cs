@@ -132,7 +132,7 @@ public class FirstPersonController : MonoBehaviour
 
     // Internal Variables
     public bool isCrouched = false;
-    private Vector3 originalScale;
+    public Vector3 originalScale;
 
     #endregion
     #endregion
@@ -621,6 +621,25 @@ public class FirstPersonController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         if (resetPitch) pitch = 0; // is this the correct solution ?
+    }
+    public void DisableMovement()
+    {
+        playerCanMove = false;
+        enableJump = false;
+        enableCrouch = false;
+        enableHeadBob = false;
+
+        // Stop the player
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
+    public void EnableMovement()
+    {
+        playerCanMove = true;
+        enableJump = true;
+        enableCrouch = true;
+        enableHeadBob = true;
     }
 }
 

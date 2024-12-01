@@ -1,9 +1,12 @@
+using FMODUnity;
+using FMOD.Studio;
 using UnityEngine;
 
 public abstract class QuestItemBase : MonoBehaviour, IInteractable
 {
     [SerializeField] protected string itemName;
     [SerializeField] protected string actionName;
+    [SerializeField] protected EventReference soundToPlayOnPickUp;
 
     protected bool isActive = false;
 
@@ -19,7 +22,13 @@ public abstract class QuestItemBase : MonoBehaviour, IInteractable
     public abstract void Interact();
     public void PlayInteractSound()
     {
-        throw new System.NotImplementedException();
+        if (!soundToPlayOnPickUp.Equals(null)) { 
+            EventInstance sound = RuntimeManager.CreateInstance(soundToPlayOnPickUp);
+            RuntimeManager.AttachInstanceToGameObject(sound, transform);
+            sound.start();
+            sound.release();
+         
+        }
     }
 
     public abstract void Activate();
