@@ -117,9 +117,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForInteractables()
     {
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance,
-                ~LayerMask.GetMask("Player", "SoundTrigger", "UselessColliders")) && !isCurrentlyChangingScenes)
-        {
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hit, interactionDistance, ~LayerMask.GetMask("Player", "SoundTrigger", "UselessColliders")) && !isCurrentlyChangingScenes) {
 
             var newTarget = hit.collider.gameObject;
 
