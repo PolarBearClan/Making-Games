@@ -62,10 +62,10 @@ MonoBehaviour:
   active: 1
   isFrameLimitEnabled:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   frameLimit:
     m_OverrideState: 1
-    m_Value: 24
+    m_Value: 60
   aspectMode:
     m_OverrideState: 1
     m_Value: 3
@@ -74,7 +74,7 @@ MonoBehaviour:
     m_Value: 512
   targetRasterizationResolutionHeight:
     m_OverrideState: 1
-    m_Value: 256
+    m_Value: 448
   isDepthBufferEnabled:
     m_OverrideState: 1
     m_Value: 1
@@ -406,13 +406,13 @@ MonoBehaviour:
   active: 1
   isEnabled:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   weight:
     m_OverrideState: 1
-    m_Value: 0.33
+    m_Value: 0.35
   accuracy:
     m_OverrideState: 1
-    m_Value: 0.792
+    m_Value: 0.75
   mode:
     m_OverrideState: 1
     m_Value: 0

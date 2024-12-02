@@ -19,12 +19,14 @@ public class CultistOutsideRun : MonoBehaviour
     private GameObject player;
     private Animator anim;
     private PauseMenu pauseMenu;
+    private PlayerController playerController;
     private NavMeshAgent navMeshAgent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
         pauseMenu = FindAnyObjectByType<PauseMenu>();
         if (isRunning) SetupNavMeshAgent();
 
@@ -50,7 +52,7 @@ public class CultistOutsideRun : MonoBehaviour
 
     void Update()
     {
-        if (pauseMenu.isPaused)
+        if (pauseMenu.isPaused || playerController.DialogueBox.activeSelf)
             return;
 
         if (isLeader)
@@ -65,7 +67,7 @@ public class CultistOutsideRun : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (pauseMenu.isPaused)
+        if (pauseMenu.isPaused || playerController.DialogueBox.activeSelf)
             return;
 
         if (isRunning)
