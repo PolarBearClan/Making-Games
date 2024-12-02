@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -6,6 +7,7 @@ using FMOD;
 using FMOD.Studio;
 using FMODUnity;
 using Unity.VisualScripting;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.SceneManagement;
 public class StealthKillBox : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class StealthKillBox : MonoBehaviour
     public EventReference soundToPlayOnInteract;
     public NightTimeLeaderWalk leaderLookingToKill;
     public NPCBaseController leader;
+    public EventReference killSounds;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,8 +65,10 @@ public class StealthKillBox : MonoBehaviour
 
     private void StartDialogue()
     {
+        leaderLookingToKill.enabled = false;
         firstPersonController.DisableInput();
         PlayInteractSound();
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         leaderLookingToKill.canWalk = false;
         leaderLookingToKill.anim.SetBool("isWalking", false);
         leaderLookingToKill.RotateTowardsDestination(transform);
@@ -106,10 +112,28 @@ public class StealthKillBox : MonoBehaviour
         firstPersonController.playerCamera.transform.DOComplete();
         firstPersonController.transform.DOComplete();
         
-        firstPersonController.EnableInput(true);
-        playerController.EnableInput();
+        //firstPersonController.EnableInput(true);
+        StartCoroutine(StartKillTransition());
+        //SceneManager.LoadScene("Day2_Inside_Nighttime");
+    }
 
-        SceneManager.LoadScene("Day2_Inside_Nighttime");
+    private IEnumerator StartKillTransition()
+    {
+        
+        
+        playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
+        yield return new WaitForSeconds(4f);
+        playKillSound();
+        yield return new WaitForSeconds(2f);
+        
+    }
+    
+    private void playKillSound()
+    {
+        EventInstance  soundOnKill = RuntimeManager.CreateInstance(killSounds);
+        RuntimeManager.AttachInstanceToGameObject(soundOnKill, transform);
+        soundOnKill.start();
+        soundOnKill.release();
     }
 
 }

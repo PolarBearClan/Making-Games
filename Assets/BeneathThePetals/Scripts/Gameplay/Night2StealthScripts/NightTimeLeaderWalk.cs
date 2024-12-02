@@ -24,6 +24,9 @@ public class NightTimeLeaderWalk : MonoBehaviour
     public GameObject killbox0;
     public GameObject killbox1;
     public GameObject killbox2;
+    public EventReference soundToPlayCarpet;
+    public EventReference soundToPlayWood;
+    public EventReference soundToPlayStair;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,7 +55,7 @@ public class NightTimeLeaderWalk : MonoBehaviour
             WalkToNextPoint();
         }
 
-        if (currentPointIndex >= 1 && currentPointIndex < 4)
+        if (currentPointIndex >= 1 && currentPointIndex < 5)
         {
             killbox0.gameObject.SetActive(false);
             killbox1.gameObject.SetActive(true);
@@ -117,7 +120,7 @@ public class NightTimeLeaderWalk : MonoBehaviour
             }
         }
     }
-
+    
     public void RotateTowardsDestination(Transform point)
     {
         Vector3 direction = (point.position - transform.position).normalized;

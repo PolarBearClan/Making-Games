@@ -1160,33 +1160,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationAngle: -90
+  rotationAngle: 90
   rotationDuration: 1
-  rotationEase: 30
+  rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
   doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
-      Data1: 1120767857
-      Data2: 1245769916
-      Data3: -164239720
-      Data4: -2146569077
-    Path: event:/World/Doors/DoorInsideOpen
+      Data1: 61737581
+      Data2: 1323432142
+      Data3: 769083033
+      Data4: 1240919734
+    Path: event:/World/Doors/DoorUndergroundOpen
   eventToPlayWhenClose:
     Guid:
-      Data1: 269432825
-      Data2: 1282793455
-      Data3: 22451885
-      Data4: -300424452
-    Path: event:/World/Doors/DoorInsideClose
+      Data1: -1712468798
+      Data2: 1074354245
+      Data3: 1016453049
+      Data4: 1016287675
+    Path: event:/World/Doors/DoorUndergroundClose
   eventToPlayWhenLocked:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 290096632
+      Data2: 1161471823
+      Data3: -1350153537
+      Data4: -1171317161
+    Path: event:/World/Doors/LockedDoorInside
 --- !u!23 &208483099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1475,14 +1475,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemRequired: 0
-  itemName: 
   sceneToChangeTo: ForestBarn_Night 1
   objectToSpawnAt: BarnHatch
   timeToLoad: 1
   actionName: Get outside
   fadeToBlack: {fileID: 8765489994903951806}
   globalUiObject: {fileID: 8765489994903951805}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: 512469858
@@ -4378,7 +4380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1161547853}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &736086195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4412,33 +4414,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationAngle: 90
+  rotationAngle: -90
   rotationDuration: 1
-  rotationEase: 30
+  rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
   doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
-      Data1: 1120767857
-      Data2: 1245769916
-      Data3: -164239720
-      Data4: -2146569077
-    Path: event:/World/Doors/DoorInsideOpen
+      Data1: 61737581
+      Data2: 1323432142
+      Data3: 769083033
+      Data4: 1240919734
+    Path: event:/World/Doors/DoorUndergroundOpen
   eventToPlayWhenClose:
     Guid:
-      Data1: 269432825
-      Data2: 1282793455
-      Data3: 22451885
-      Data4: -300424452
-    Path: event:/World/Doors/DoorInsideClose
+      Data1: -1712468798
+      Data2: 1074354245
+      Data3: 1016453049
+      Data4: 1016287675
+    Path: event:/World/Doors/DoorUndergroundClose
   eventToPlayWhenLocked:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 290096632
+      Data2: 1161471823
+      Data3: -1350153537
+      Data4: -1171317161
+    Path: event:/World/Doors/LockedDoorInside
 --- !u!23 &736086197
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6175,6 +6177,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 752436aa5d4d6aa4b8b773d0baa0f4b9, type: 2}
     - {fileID: 11400000, guid: 8b71001cfbd20934f972150bb1992212, type: 2}
     - {fileID: 11400000, guid: 94d072db36f10444190166387027cb54, type: 2}
+    - {fileID: 11400000, guid: 75fac3375deaed449bd0489a0f6f412e, type: 2}
+    - {fileID: 11400000, guid: a8d6db2964984054badb757dcb8f1790, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6190,12 +6194,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1642070779}
+          m_TargetAssemblyTypeName: UndergroundSoundForLeader, Assembly-CSharp
+          m_MethodName: PlayLeaderSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 4546086279615097142}
           m_TargetAssemblyTypeName: ChangeAnimation, Assembly-CSharp
           m_MethodName: SetWalking
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1642070779}
+          m_TargetAssemblyTypeName: UndergroundSoundForLeader, Assembly-CSharp
+          m_MethodName: PlayLeaderSound
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6237,6 +6265,34 @@ MonoBehaviour:
         - m_Target: {fileID: 4546086279615097143}
           m_TargetAssemblyTypeName: LeaderUndergroundTrigger, Assembly-CSharp
           m_MethodName: EnableUndergroundJumpscare
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1642070779}
+          m_TargetAssemblyTypeName: UndergroundSoundForLeader, Assembly-CSharp
+          m_MethodName: PlayDoorOpenSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1642070779}
+          m_TargetAssemblyTypeName: UndergroundSoundForLeader, Assembly-CSharp
+          m_MethodName: PlayDoorCloseSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6879,6 +6935,20 @@ MonoBehaviour:
   smashBar: {fileID: 353885654}
   barDecreaseRate: 0.15
   barIncreaseAmount: 0.1
+  killSounds:
+    Guid:
+      Data1: 1784357633
+      Data2: 1150125613
+      Data3: 139882644
+      Data4: -357861493
+    Path: event:/World/Underground/KillSound
+  DeathSound:
+    Guid:
+      Data1: -156455962
+      Data2: 1195992595
+      Data3: 1558378421
+      Data4: 614936856
+    Path: event:/World/Underground/DeathSound
 --- !u!136 &1231997998
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6938,6 +7008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Leader Valgaris
   pointToFace: {fileID: 341206350}
+  facePlayerOnInteraction: 1
   mainDialogue:
   - mainText: Oh you thought you could get away?
     isQuestion: 1
@@ -6950,6 +7021,9 @@ MonoBehaviour:
     description: 
     goalAmount: 0
     dialogueAfterQuestCompleted: []
+    notificationAfterQuestCompleted: 0
+    notificationDuration: 0
+    notificationText: 
   dialogueAfterQuestAssigned: []
   undergroundScareConvo: 1
   soundToPlayOnInteract:
@@ -9265,6 +9339,78 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6013855251516484362, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 8765489994903951804}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1642070777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642070778}
+  - component: {fileID: 1642070779}
+  m_Layer: 0
+  m_Name: CutSceneSounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642070778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642070777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071069, z: -0, w: -0.70710677}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.66666615, y: 0.6666667, z: 0.66666615}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4546086279615097141}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1642070779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642070777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90615568e0a86754e81fbadda1b9b9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundToPlayLeader:
+    Guid:
+      Data1: -632243020
+      Data2: 1287817226
+      Data3: -1103978850
+      Data4: 64237178
+    Path: event:/World/NPCDialougeReactions/LeaderValgaris3D
+  soundToPlayDoorOpen:
+    Guid:
+      Data1: -1346722358
+      Data2: 1127324409
+      Data3: 971700927
+      Data4: -1491847419
+    Path: event:/World/Doors/DoorUndergroundOpen3D
+  soundToPlayDoorClose:
+    Guid:
+      Data1: -1596871280
+      Data2: 1193298404
+      Data3: -873788497
+      Data4: -1426964150
+    Path: event:/World/Doors/DoorUndergroundClose3D
+  soundToPlayFootstep:
+    Guid:
+      Data1: -250649108
+      Data2: 1147043908
+      Data3: 733960639
+      Data4: -1139886336
+    Path: event:/Character/Footsteps
 --- !u!1 &1649773296
 GameObject:
   m_ObjectHideFlags: 0
@@ -10711,6 +10857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Astrid
   pointToFace: {fileID: 691441722}
+  facePlayerOnInteraction: 1
   mainDialogue:
   - mainText: me dead
     isQuestion: 1
@@ -10723,6 +10870,9 @@ MonoBehaviour:
     description: 
     goalAmount: 0
     dialogueAfterQuestCompleted: []
+    notificationAfterQuestCompleted: 0
+    notificationDuration: 0
+    notificationText: 
   dialogueAfterQuestAssigned: []
   undergroundScareConvo: 0
   soundToPlayOnInteract:
@@ -12126,6 +12276,7 @@ Transform:
   - {fileID: 6999426729712713748}
   - {fileID: 2799244415038095184}
   - {fileID: 8306506531213560225}
+  - {fileID: 1642070778}
   m_Father: {fileID: 983157289}
   m_LocalEulerAnglesHint: {x: 0, y: 0.2238141, z: 0}
 --- !u!114 &4546086279615097142
@@ -12154,6 +12305,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 1132200545}
   hidingInteractable: {fileID: 1444115535}
+  killSounds:
+    Guid:
+      Data1: 1784357633
+      Data2: 1150125613
+      Data3: 139882644
+      Data4: -357861493
+    Path: event:/World/Underground/KillSound
 --- !u!136 &4546086279615097144
 CapsuleCollider:
   m_ObjectHideFlags: 0

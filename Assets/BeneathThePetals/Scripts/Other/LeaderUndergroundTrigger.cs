@@ -2,6 +2,9 @@ using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
 using UnityEngine.Playables;
 
 public class LeaderUndergroundTrigger : MonoBehaviour
@@ -18,6 +21,7 @@ public class LeaderUndergroundTrigger : MonoBehaviour
     private bool coroutineStarted = false;
     private bool isRotating = false;
     private bool isLooking = false;
+    public EventReference killSounds;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -74,6 +78,8 @@ public class LeaderUndergroundTrigger : MonoBehaviour
         yield return new WaitForSeconds(1f);
         playerControls.DisableInput();
         playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
+        yield return new WaitForSeconds(4f);
+        playKillSound();
 
         transform.DOMove(playerController.transform.position, 10f).SetEase(Ease.Linear);
         yield return new WaitForSeconds(7f);
@@ -84,6 +90,14 @@ public class LeaderUndergroundTrigger : MonoBehaviour
     public void StartLooking(bool setLooking)
     {
         isLooking = setLooking;
+    }
+    
+    private void playKillSound()
+    {
+        EventInstance  soundOnKill = RuntimeManager.CreateInstance(killSounds);
+        RuntimeManager.AttachInstanceToGameObject(soundOnKill, transform);
+        soundOnKill.start();
+        soundOnKill.release();
     }
 
     public void EnableUndergroundJumpscare()
