@@ -1686,7 +1686,7 @@ MonoBehaviour:
   typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
-  _text: 
+  _text: <shake a=0.5 d=2>PLEASE, HELP ME!
   useDynamicScaling: 1
   referenceFontSize: 10
   isResettingTimeOnNewText: 1
@@ -6085,7 +6085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5202387557298965676, guid: 0c940362d0207fa429332051e71f0706, type: 3}
       propertyPath: notificationText
-      value: <shake a = 0.5>PLEASE, HELP ME!
+      value: <shake a=0.5>PLEASE, HELP ME!
       objectReference: {fileID: 0}
     - target: {fileID: 5202387557298965676, guid: 0c940362d0207fa429332051e71f0706, type: 3}
       propertyPath: notificationDuration
@@ -24520,7 +24520,11 @@ MonoBehaviour:
     description: 
     goalAmount: 0
     dialogueAfterQuestCompleted: []
+    notificationAfterQuestCompleted: 0
+    notificationDuration: 0
+    notificationText: 
   dialogueAfterQuestAssigned: []
+  undergroundScareConvo: 0
   soundToPlayOnInteract:
     Guid:
       Data1: 745219594
@@ -24579,7 +24583,7 @@ MonoBehaviour:
       Data3: 484755850
       Data4: -1936251733
     Path: event:/World/Doors/VillageGate
-  isPoliceOfficer: 1
+  isPoliceOfficer: 0
   anim: {fileID: 0}
   canWalk: 0
 --- !u!1001 &1988425261
