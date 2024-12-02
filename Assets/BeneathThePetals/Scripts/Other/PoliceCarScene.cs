@@ -75,4 +75,9 @@ public class PoliceCarScene : MonoBehaviour, IInteractable
     {
         playerControls.transform.GetComponentInChildren<PauseMenu>().ShowRestartMenu();
     }
+    public string GetActionType()
+    {
+        return " ";
+    }
+
 }
