@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -7,6 +8,8 @@ using FMOD;
 using FMOD.Studio;
 using FMODUnity;
 using Unity.VisualScripting;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
+
 public class LookScriptUsingTrigger : MonoBehaviour
 {
     [SerializeField] private Transform pointToFace;
@@ -18,6 +21,7 @@ public class LookScriptUsingTrigger : MonoBehaviour
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
     public EventReference soundToPlayOnInteract;
+    public EventInstance soundOnInteract;
     public GameObject jumpScareCollection;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,7 +40,7 @@ public class LookScriptUsingTrigger : MonoBehaviour
     public void PlayInteractSound() {
     
     
-        EventInstance  soundOnInteract = RuntimeManager.CreateInstance(soundToPlayOnInteract);
+        soundOnInteract = RuntimeManager.CreateInstance(soundToPlayOnInteract);
         RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
         soundOnInteract.start();
         soundOnInteract.release();
@@ -91,6 +95,11 @@ public class LookScriptUsingTrigger : MonoBehaviour
         //GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
+    private void OnDestroy()
+    {
+        soundOnInteract.stop(STOP_MODE.IMMEDIATE);
+    }
+
     public string GetName()
     {
         return "";
@@ -108,7 +117,7 @@ public class LookScriptUsingTrigger : MonoBehaviour
         jumpScareCollection.SetActive(true);
 
 
-        Destroy(this);
+        gameObject.SetActive(false);
     }
 
 }

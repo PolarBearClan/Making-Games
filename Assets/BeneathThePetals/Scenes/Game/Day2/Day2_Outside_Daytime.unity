@@ -4388,6 +4388,66 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1837815919}
   m_SourcePrefab: {fileID: 100100000, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
+--- !u!1 &300370921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300370922}
+  - component: {fileID: 300370923}
+  m_Layer: 0
+  m_Name: Monolouge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300370922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300370921}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000007450579, y: 0.000000014901158, z: 0.000000014901158, w: 1}
+  m_LocalPosition: {x: 0, y: 0.000015264399, z: -0.000032908367}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654166902}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &300370923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300370921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45d047d562070f4cb9ceb6548375c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointToFace: {fileID: 654166902}
+  mainDialogue:
+  - mainText: I should not anger leader vargas.
+    isQuestion: 0
+    option1Text: 
+    option1FollowUp: 
+    option2Text: 
+    option2FollowUp: 
+    givesQuest: 0
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 1409385096
+      Data2: 1228517639
+      Data3: 1202085294
+      Data4: -1004336434
+    Path: event:/World/NPCDialougeReactions/Hjalmar
 --- !u!1001 &314946153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5686,6 +5746,115 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404972883}
   m_Mesh: {fileID: 9209069298514159395, guid: a858bc0f40d04f34ca2ed4fab4528abb, type: 3}
+--- !u!1 &407458892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407458893}
+  - component: {fileID: 407458896}
+  - component: {fileID: 407458895}
+  - component: {fileID: 407458894}
+  m_Layer: 13
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407458893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407458892}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.20239806, y: -1.11, z: 0.4212036}
+  m_LocalScale: {x: 50, y: 3, z: 50}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1149214012}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &407458894
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407458892}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &407458895
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407458892}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0ac9aba1beafeb24997cc30de6fbd9bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &407458896
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407458892}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &410776645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5989,7 +6158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 414352639}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SoundTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7234,7 +7403,7 @@ GameObject:
   - component: {fileID: 529534908}
   - component: {fileID: 529534907}
   - component: {fileID: 529534906}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7626,7 +7795,7 @@ GameObject:
   - component: {fileID: 569504014}
   - component: {fileID: 569504013}
   - component: {fileID: 569504012}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BonfireWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8998,6 +9167,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 865a0cd350ef5934c88f446384ba980d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1031240154}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 865a0cd350ef5934c88f446384ba980d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300370922}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 865a0cd350ef5934c88f446384ba980d, type: 3}
       insertIndex: -1
@@ -9005,9 +9177,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 865a0cd350ef5934c88f446384ba980d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 654166905}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 865a0cd350ef5934c88f446384ba980d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 654166904}
   m_SourcePrefab: {fileID: 100100000, guid: 865a0cd350ef5934c88f446384ba980d, type: 3}
 --- !u!4 &654166902 stripped
 Transform:
@@ -9019,37 +9188,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 865a0cd350ef5934c88f446384ba980d, type: 3}
   m_PrefabInstance: {fileID: 654166901}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &654166904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654166903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  EventReference:
-    Guid:
-      Data1: 1395900100
-      Data2: 1258995628
-      Data3: 1623148214
-      Data4: 941121657
-    Path: event:/Jumpscare_1
-  Event: 
-  EventPlayTrigger: 3
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &654166905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9067,7 +9205,15 @@ MonoBehaviour:
   _jumpscareObject: {fileID: 1031240155}
   _durationUntilTalk: 2
   _tweenDuration: 0.1
+  Monolouge: {fileID: 300370921}
   actionName: Go outside the Village
+  jumpscareSound:
+    Guid:
+      Data1: 1395900100
+      Data2: 1258995628
+      Data3: 1623148214
+      Data4: 941121657
+    Path: event:/Jumpscare_1
 --- !u!65 &654166906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15373,7 +15519,7 @@ GameObject:
   - component: {fileID: 1031528623}
   - component: {fileID: 1031528622}
   - component: {fileID: 1031528621}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15953,7 +16099,7 @@ GameObject:
   - component: {fileID: 1048827057}
   - component: {fileID: 1048827056}
   - component: {fileID: 1048827055}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17521,7 +17667,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd2d617b0e3dcbe4b80913cff94ea49a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 407458893}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd2d617b0e3dcbe4b80913cff94ea49a, type: 3}
 --- !u!4 &1149214012 stripped
@@ -22721,7 +22870,7 @@ GameObject:
   - component: {fileID: 1440925440}
   - component: {fileID: 1440925439}
   - component: {fileID: 1440925438}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23611,7 +23760,7 @@ GameObject:
   - component: {fileID: 1509633101}
   - component: {fileID: 1509633100}
   - component: {fileID: 1509633099}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29153,7 +29302,7 @@ GameObject:
   - component: {fileID: 1831138199}
   - component: {fileID: 1831138198}
   - component: {fileID: 1831138197}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33299,7 +33448,7 @@ GameObject:
   - component: {fileID: 2106378845}
   - component: {fileID: 2106378844}
   - component: {fileID: 2106378843}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DirtCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33443,7 +33592,7 @@ GameObject:
   - component: {fileID: 2106931401}
   - component: {fileID: 2106931400}
   - component: {fileID: 2106931399}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34527,6 +34676,10 @@ PrefabInstance:
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: unlimitedSprint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name

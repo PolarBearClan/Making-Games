@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 3213009}
   - component: {fileID: 3213008}
   - component: {fileID: 3213007}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 30851372}
   - component: {fileID: 30851371}
   - component: {fileID: 30851370}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1316,7 +1316,7 @@ GameObject:
   - component: {fileID: 94920838}
   - component: {fileID: 94920837}
   - component: {fileID: 94920836}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLeader (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2413,7 +2413,7 @@ GameObject:
   - component: {fileID: 172766294}
   - component: {fileID: 172766293}
   - component: {fileID: 172766292}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLeader (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3903,7 +3903,7 @@ GameObject:
   - component: {fileID: 322458558}
   - component: {fileID: 322458557}
   - component: {fileID: 322458556}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5559,7 +5559,7 @@ GameObject:
   - component: {fileID: 492323892}
   - component: {fileID: 492323891}
   - component: {fileID: 492323890}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9126,7 +9126,7 @@ GameObject:
   - component: {fileID: 772352537}
   - component: {fileID: 772352536}
   - component: {fileID: 772352535}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10864,7 +10864,7 @@ GameObject:
   - component: {fileID: 897824676}
   - component: {fileID: 897824675}
   - component: {fileID: 897824674}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11240,7 +11240,7 @@ GameObject:
   - component: {fileID: 928602215}
   - component: {fileID: 928602214}
   - component: {fileID: 928602213}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13250,7 +13250,7 @@ GameObject:
   - component: {fileID: 1153560825}
   - component: {fileID: 1153560824}
   - component: {fileID: 1153560823}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLeader (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15589,7 +15589,7 @@ GameObject:
   - component: {fileID: 1285986443}
   - component: {fileID: 1285986442}
   - component: {fileID: 1285986441}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15771,7 +15771,7 @@ GameObject:
   - component: {fileID: 1286372256}
   - component: {fileID: 1286372255}
   - component: {fileID: 1286372254}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bed (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16464,7 +16464,7 @@ GameObject:
   - component: {fileID: 1357354275}
   - component: {fileID: 1357354274}
   - component: {fileID: 1357354273}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17459,7 +17459,7 @@ GameObject:
   - component: {fileID: 1512789490}
   - component: {fileID: 1512789489}
   - component: {fileID: 1512789488}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WoodLeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17778,7 +17778,7 @@ GameObject:
   - component: {fileID: 1565795237}
   - component: {fileID: 1565795236}
   - component: {fileID: 1565795235}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SetIndoorWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18606,8 +18606,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: Underground
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Enter the hatch
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
@@ -19027,7 +19030,7 @@ GameObject:
   - component: {fileID: 1661438150}
   - component: {fileID: 1661438149}
   - component: {fileID: 1661438148}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19173,7 +19176,7 @@ GameObject:
   - component: {fileID: 1689262088}
   - component: {fileID: 1689262087}
   - component: {fileID: 1689262086}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19359,7 +19362,7 @@ GameObject:
   - component: {fileID: 1698862528}
   - component: {fileID: 1698862527}
   - component: {fileID: 1698862526}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19925,7 +19928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771060560}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SoundTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20516,8 +20519,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: ForestBarn_Day
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go outside the Village
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
@@ -21454,7 +21460,7 @@ GameObject:
   - component: {fileID: 1898938917}
   - component: {fileID: 1898938916}
   - component: {fileID: 1898938915}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carpet (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22890,7 +22896,7 @@ GameObject:
   - component: {fileID: 2066379737}
   - component: {fileID: 2066379736}
   - component: {fileID: 2066379735}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: wood2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24010,6 +24016,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -24048,6 +24055,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -24773,6 +24781,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -25633,6 +25642,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -27036,6 +27046,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -27894,8 +27905,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemRequired: 0
+  itemName: 
   sceneToChangeTo: Day1_Outside_Daytime
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go Outside
   fadeToBlack: {fileID: 8765489994903951806}
   globalUiObject: {fileID: 8765489994903951805}
@@ -28290,6 +28304,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -28737,6 +28752,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -29076,6 +29092,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -30236,8 +30253,9 @@ MonoBehaviour:
   rotationAngle: -90
   rotationDuration: 1
   rotationEase: 3
-  doorLocked: 0
+  doorLocked: 1
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -30254,11 +30272,11 @@ MonoBehaviour:
     Path: event:/World/Doors/DoorInsideClose
   eventToPlayWhenLocked:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 290096632
+      Data2: 1161471823
+      Data3: -1350153537
+      Data4: -1171317161
+    Path: event:/World/Doors/LockedDoorInside
 --- !u!23 &6826659049762222425
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31948,6 +31966,10 @@ PrefabInstance:
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: unlimitedSprint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name

@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.2
+  color: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &2706735320706639636
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.2
+  color: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &3669197622055701111
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,12 +285,21 @@ MonoBehaviour:
   itemName: Fire pit
   actionName: Use
   light: {fileID: 1518322101627094007}
-  goalLoactions:
+  questItemType: 0
+  flowerPotPrefab: {fileID: 0}
+  goalLocations:
   - {fileID: 679973222704737723}
   - {fileID: 9063725587523914651}
   - {fileID: 8365350379444040850}
   - {fileID: 2362018722572809244}
   - {fileID: 5910362108044069503}
+  soundToPlayOnDelivery:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &4080505342591879283
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.2
+  color: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &5265977371137559279
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.2
+  color: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &5527523061817504618
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,3 +678,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.2
+  color: {r: 0, g: 0, b: 1, a: 1}

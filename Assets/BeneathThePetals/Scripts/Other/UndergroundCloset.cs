@@ -57,6 +57,8 @@ public class UndergroundCloset : MonoBehaviour, IInteractable
     {
         if (!playerControls.isHiding)
         {
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            playerControls.isWalking = false;
             HideInCloset();
             isHiding = true;
         }
@@ -88,7 +90,7 @@ public class UndergroundCloset : MonoBehaviour, IInteractable
     {
         closet.enabled = true;
         closetInside.SetActive(false);
-
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         playerControls.EnableMovement();
         playerControls.isHiding = false;
 
