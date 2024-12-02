@@ -180,6 +180,11 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
         firstPersonController.transform.DOLookAt(pointToFace.position, tweenDuration);
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 
     public EActivity Activity => activity;
 }

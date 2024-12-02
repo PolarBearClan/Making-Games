@@ -98,6 +98,11 @@ public class QuestDeliveryLocation : MonoBehaviour, IInteractable
     {
         light.enabled = false;
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 
     public string GetName() => itemName;
     public string GetActionName() => actionName;
