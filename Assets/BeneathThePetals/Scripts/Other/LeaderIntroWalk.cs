@@ -4,6 +4,7 @@ using UnityEngine;
 using FMOD;
 using FMOD.Studio;
 using FMODUnity;
+using Unity.VisualScripting;
 
 public class LeaderIntroWalk : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class LeaderIntroWalk : MonoBehaviour
     [SerializeField] private Animator gatesAnim;
     [SerializeField] private EventReference gateEvent;
     [SerializeField] private EventInstance gateSound;
+    [SerializeField] private bool isPoliceOfficer = false;
 
     private PlayerController playerController;
     public Animator anim;
@@ -62,15 +64,18 @@ public class LeaderIntroWalk : MonoBehaviour
         if (canWalk && currentPointIndex < walkPoints.Length)
         {
             WalkToNextPoint();
-            transform.GetComponent<NPCBaseController>().enabled = false;
+            if(transform.GetComponent<Collider>() != null)
+                transform.GetComponent<Collider>().enabled = false;
         }
     }
 
-    void PlayGateSound() { 
-    
-                gateSound.start();
-                gateSound.release();
-    
+    void PlayGateSound()
+    { 
+        if(gateSound.isValid())
+        {
+            gateSound.start();
+            gateSound.release();
+        }
     }
     private void WalkToNextPoint()
     {
@@ -103,7 +108,14 @@ public class LeaderIntroWalk : MonoBehaviour
             {
                 canWalk = false;
                 anim.SetBool("isWalking", false);
-                RotateTowardsDestination(playerController.gameObject.transform);
+                if (!isPoliceOfficer)
+                {
+                    RotateTowardsDestination(playerController.gameObject.transform);
+                }
+                else
+                {
+                    transform.gameObject.SetActive(false);
+                }
             }
         }
     }
