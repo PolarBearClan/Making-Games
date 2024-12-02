@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //InitInventoryObject();
         pauseMenu = GameObject.FindAnyObjectByType<PauseMenu>();
 
         screenNoteManager.NoteEndCallback = () =>
@@ -91,10 +90,14 @@ public class PlayerController : MonoBehaviour
 
     private void InitInventoryObject()
     {
-        FindAnyObjectByType<InventoryUI>().LoadGameObjects(GetCamera(), uiGameObject, inventoryUIGameObject, itemName, itemInfo);
+        var inventoryRoom = FindAnyObjectByType<InventoryUI>();
+        if (inventoryRoom != null)
+            inventoryRoom.LoadGameObjects(GetCamera(), uiGameObject, inventoryUIGameObject, itemName, itemInfo);
 
         // Load inventory
-        inventory = FindAnyObjectByType<InventoryManager>().inventoryItems;
+        var inventoryManager = FindAnyObjectByType<InventoryManager>();
+        if (inventoryManager != null)
+            inventory = FindAnyObjectByType<InventoryManager>().inventoryItems;
     }
 
     // Update is called once per frame
