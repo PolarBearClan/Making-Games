@@ -139,4 +139,9 @@ public class StoryClueImage : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(duration);
         inputLocked = false;
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 }

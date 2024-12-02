@@ -93,6 +93,11 @@ public class SceneChange : MonoBehaviour, IInteractable
     {
         return actionName;
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 
     private IEnumerator MetaFade(float waitTime)
     {

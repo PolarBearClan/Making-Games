@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Rendering;
 
 public class CultistOutsideRun : MonoBehaviour
@@ -16,10 +17,10 @@ public class CultistOutsideRun : MonoBehaviour
     [SerializeField] private Volume globalVolumeBase;
 
     private GameObject player;
-    private Rigidbody rb;
     private Animator anim;
     private PauseMenu pauseMenu;
     private PlayerController playerController;
+    private NavMeshAgent navMeshAgent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +28,7 @@ public class CultistOutsideRun : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         pauseMenu = FindAnyObjectByType<PauseMenu>();
-        rb = GetComponent<Rigidbody>();
+        if (isRunning) SetupNavMeshAgent();
 
         anim = GetComponentInChildren<Animator>();
         if (anim != null)
@@ -40,6 +41,13 @@ public class CultistOutsideRun : MonoBehaviour
         }
         else
             anim.SetBool("isWalking", true);
+    }
+
+    private void SetupNavMeshAgent()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = runSpeed;
+        navMeshAgent.stoppingDistance = stoppingDistance;
     }
 
     void Update()
@@ -63,26 +71,9 @@ public class CultistOutsideRun : MonoBehaviour
             return;
 
         if (isRunning)
-            ChasePlayer();
+            navMeshAgent.SetDestination(player.transform.position);
     }
-
-    private void ChasePlayer()
-    {
-        if (player == null) return;
-
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-        if (distanceToPlayer > stoppingDistance)
-        {
-            rb.MovePosition(transform.position + direction * runSpeed * Time.fixedDeltaTime);
-
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 5f);
-        }
-    }
-
+    
     private void RandomizeAnimation()
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
