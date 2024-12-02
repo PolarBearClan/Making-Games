@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3460449692865927787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3103621179799239632}
+  - component: {fileID: 7831955072853696283}
+  - component: {fileID: 1715879913137762273}
+  m_Layer: 0
+  m_Name: CultistTorchIdle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3103621179799239632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3460449692865927787}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.45430106, z: -0, w: 0.8908482}
+  m_LocalPosition: {x: 124.45, y: 0.05, z: 269.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5165415680356149154}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 54.04, z: 0}
+--- !u!136 &7831955072853696283
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3460449692865927787}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.82
+  m_Height: 3.21
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.55, z: 0}
+--- !u!114 &1715879913137762273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3460449692865927787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c79b2691932e94e897265a20aa6acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 3.25
+  stoppingDistance: 0.5
+  isRunning: 0
+  isLeader: 0
+  distanceBetween: 10
+  globalVolumeBase: {fileID: 0}
+--- !u!1001 &4622249356918063177
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3103621179799239632}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98180765
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.18987858
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 21.891
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8066341551389775102, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_Name
+      value: CultistTorchRun
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 79e152b0030f99c499904986bc3b720b, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+--- !u!4 &5165415680356149154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2218303bc6ba360419935fc6a2a8e1c6, type: 3}
+  m_PrefabInstance: {fileID: 4622249356918063177}
+  m_PrefabAsset: {fileID: 0}

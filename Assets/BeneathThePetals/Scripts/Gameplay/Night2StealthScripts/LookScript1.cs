@@ -109,5 +109,10 @@ public class LookScript1 : MonoBehaviour, IInteractable
 
         Destroy(this);
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 
 }

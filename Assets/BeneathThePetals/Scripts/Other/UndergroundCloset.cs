@@ -115,5 +115,11 @@ public class UndergroundCloset : MonoBehaviour, IInteractable
     {
         return "";
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
+    
     public void PlayInteractSound() { }
 }

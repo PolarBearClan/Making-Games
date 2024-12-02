@@ -10,6 +10,8 @@ public class QuestItemHold : QuestItemBase
     private bool holdingKey = false;
     private float holdingTime;
     private Image progressImg;
+
+    private FirstPersonController firstPersonController;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +19,8 @@ public class QuestItemHold : QuestItemBase
         base.Start();
         
         progressImg = playerController.ProgressImage;
+        
+        firstPersonController = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
     }
 
     // Update is called once per frame
@@ -28,12 +32,14 @@ public class QuestItemHold : QuestItemBase
 
         if (holdingTime >= targetHoldTime)
         {
-            print("Quest advanced");
+            //print("Quest advanced");
 
             playerController.GetCurrentQuest().currentAmount++;
                 
             holdingTime = 0;
             UpdateUI();
+            
+            firstPersonController.EnableInput();
                 
             Destroy(gameObject);
         }
@@ -49,6 +55,7 @@ public class QuestItemHold : QuestItemBase
     {
         // Start Hold interaction
         holdingKey = true;
+        firstPersonController.DisableInput(false);
     }
 
     public override void Activate()
@@ -60,12 +67,13 @@ public class QuestItemHold : QuestItemBase
     {
         //GetComponent<MeshRenderer>().material.color = Color.red;
         
+        firstPersonController.EnableInput();
         holdingKey = false;
         holdingTime = 0;
         UpdateUI();
     }
     
-    public string GetActionType()
+    public override string GetActionType()
     {
         return "Hold";
     }

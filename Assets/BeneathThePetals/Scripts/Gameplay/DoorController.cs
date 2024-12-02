@@ -121,4 +121,9 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         return doorOpen ? "close" : "open";
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 }

@@ -99,5 +99,9 @@ public class LookScript : MonoBehaviour, ITalkable
         firstPersonController.EnableInput(true);
         playerController.EnableInput();
     }
-
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 }
