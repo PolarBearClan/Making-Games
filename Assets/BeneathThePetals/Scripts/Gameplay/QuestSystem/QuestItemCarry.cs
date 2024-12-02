@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class QuestItemCarry : QuestItemBase
 {
-    [Space]
-    [SerializeField] private QuestItemType itemType;
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,13 +38,5 @@ public class QuestItemCarry : QuestItemBase
     {
         GetComponent<MeshRenderer>().material.color = Color.red;
     }
-    
-    public QuestItemType QuestItemType => itemType;
 }
 
-public enum QuestItemType
-{
-    WoodLog,
-    FlowerPot,
-    None
-}

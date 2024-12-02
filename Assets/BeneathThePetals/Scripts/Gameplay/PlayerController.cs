@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
             {
                 // This is a quest delivery area
                 if (currentQuest == null || currentQuest.Completed) return;
-                if (deliveryArea.QuestItemType == QuestItemType.WoodLog && !carryingItem) return;
+                if (!carryingItem) return;
 
                 TryDeactivateCurrentTarget();
                 currentTarget = newTarget;
@@ -335,13 +335,6 @@ public class PlayerController : MonoBehaviour
     {
         if (currentlyCarriedItem1 != null) return ref currentlyCarriedItem1;
         return ref currentlyCarriedItem2;
-    }
-
-    public QuestItemType GetCarriedItemType()
-    {
-        return GetCarriedItemGameObject() != null
-            ? GetCarriedItemGameObject().GetComponent<QuestItemCarry>().QuestItemType
-            : QuestItemType.None;
     }
 
     private int GetCarriedItemsCount()
