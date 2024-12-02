@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -20,6 +21,8 @@ public class StealthKillBoxForPreGaming : MonoBehaviour
     public EventReference soundToPlayOnInteract;
     public LeaderIntroWalk leaderLookingToKill;
     public NPCBaseController leader;
+    public EventReference killSounds;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -106,10 +109,28 @@ public class StealthKillBoxForPreGaming : MonoBehaviour
         firstPersonController.playerCamera.transform.DOComplete();
         firstPersonController.transform.DOComplete();
         
-        firstPersonController.EnableInput(true);
-        playerController.EnableInput();
+        //firstPersonController.EnableInput(true);
+        StartCoroutine(StartKillTransition());
+        //SceneManager.LoadScene("Day2_Inside_Nighttime");
+    }
 
-        SceneManager.LoadScene("Day2_Inside_Nighttime");
+    private IEnumerator StartKillTransition()
+    {
+        
+        
+        playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
+        yield return new WaitForSeconds(4f);
+        playKillSound();
+        yield return new WaitForSeconds(2f);
+        
+    }
+    
+    private void playKillSound()
+    {
+        EventInstance  soundOnKill = RuntimeManager.CreateInstance(killSounds);
+        RuntimeManager.AttachInstanceToGameObject(soundOnKill, transform);
+        soundOnKill.start();
+        soundOnKill.release();
     }
 
 }
