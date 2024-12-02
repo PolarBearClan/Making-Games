@@ -79,5 +79,10 @@ public class HidingInteractable : MonoBehaviour, IInteractable
             player.transform.position = new Vector3(previousSpot.x, previousSpot.y, previousSpot.z); 
         }
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 
 }
