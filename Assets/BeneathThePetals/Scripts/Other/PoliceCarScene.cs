@@ -21,7 +21,7 @@ public class PoliceCarScene : MonoBehaviour, IInteractable
 
     void Update()
     {
-        if(!policeOfficer.transform.gameObject.activeSelf)
+        //if(!policeOfficer.transform.gameObject.activeSelf)
         {
             canInteract = true;
             carCollider.enabled = true;
