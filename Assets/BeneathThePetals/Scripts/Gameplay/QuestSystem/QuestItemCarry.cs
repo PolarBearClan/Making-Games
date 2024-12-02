@@ -19,16 +19,15 @@ public class QuestItemCarry : QuestItemBase
     
     public override void Interact()
     {
+        if (!playerController.CanPickUpItem()) return;
 
         if (playerController.HasFreeSpot())
         {
             playerController.StartCarryingItem(gameObject);         
             this.PlayInteractSound();
         }
-        
         else
         {
-            // TODO possible screen note
             print("Player can only carry 2 items at a time!");
         }
     }
