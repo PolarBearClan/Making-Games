@@ -12,6 +12,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 {
     [SerializeField] private string npcName;
     [SerializeField] private Transform pointToFace;
+    [SerializeField] private bool facePlayerOnInteraction = true;
 
     [Space]
     [SerializeField] private List<DialogueNode> mainDialogue;
@@ -92,12 +93,15 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         firstPersonController.DisableInput();
 
-        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
-        directionToPlayer.y = 0;
-        Quaternion npcTargetRotation = Quaternion.LookRotation(directionToPlayer);
+        if (facePlayerOnInteraction)
+        {
+            Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+            directionToPlayer.y = 0;
+            Quaternion npcTargetRotation = Quaternion.LookRotation(directionToPlayer);
 
-        float tweenDuration = playerController.CameraLookAtTweenDuration;
-        transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
+            float tweenDuration = playerController.CameraLookAtTweenDuration;
+            transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
+        }
 
         playerController.DisableInput();
         Invoke("LookAtNPC", .5f);
