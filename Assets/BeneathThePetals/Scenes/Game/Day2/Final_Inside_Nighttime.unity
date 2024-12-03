@@ -7320,14 +7320,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemRequired: 0
-  itemName: 
   sceneToChangeTo: Day2_Inside_Nighttime_Later
   objectToSpawnAt: 
   timeToLoad: 1
   actionName: Go To Sleep
   fadeToBlack: {fileID: 325551802}
   globalUiObject: {fileID: 495642999}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: 0
@@ -14413,14 +14415,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemRequired: 1
-  itemName: Bus Key
   sceneToChangeTo: Final_Outside_Nighttime
   objectToSpawnAt: 
   timeToLoad: 1
   actionName: Break Window
   fadeToBlack: {fileID: 325551802}
   globalUiObject: {fileID: 495642999}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: -1757844149
@@ -15171,6 +15175,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164573859}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1171957643
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 147.962
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.565
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 257.431
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+      propertyPath: m_Name
+      value: Candles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 71049415789249916, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+    - {fileID: 5774768810653788489, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+    - {fileID: 4914358967491844025, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b588660d7dd4ac24f8a75fe075b85f27, type: 3}
 --- !u!1001 &1176816948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16814,7 +16878,11 @@ PrefabInstance:
       value: EntranceHallway
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -8536812581196974080, guid: d274f746de4c1a74f8c1fe6b57288978, type: 3}
+    - {fileID: -3767136719003956818, guid: d274f746de4c1a74f8c1fe6b57288978, type: 3}
+    - {fileID: 7089371171924758415, guid: d274f746de4c1a74f8c1fe6b57288978, type: 3}
+    - {fileID: -6070900075407532760, guid: d274f746de4c1a74f8c1fe6b57288978, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d274f746de4c1a74f8c1fe6b57288978, type: 3}
@@ -20672,14 +20740,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemRequired: 0
-  itemName: 
   sceneToChangeTo: ForestBarn_Day
   objectToSpawnAt: 
   timeToLoad: 1
   actionName: Go outside the Village
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: 0
@@ -24188,3 +24258,4 @@ SceneRoots:
   - {fileID: 1218737834}
   - {fileID: 486312295}
   - {fileID: 2024340286}
+  - {fileID: 1171957643}

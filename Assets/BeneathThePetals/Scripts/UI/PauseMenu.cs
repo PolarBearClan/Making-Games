@@ -11,7 +11,9 @@ public class PauseMenu : MonoBehaviour
     private GameObject gameOverMenu;
     private GameObject killMenu;
     private GameObject restartMenu;
+    private GameObject settingsMenu;
     private InventoryUI inventoryUI;
+    private PlayerController playerController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -21,6 +23,8 @@ public class PauseMenu : MonoBehaviour
         gameOverMenu = GameObject.Find("GameOverMenu");
         killMenu = GameObject.Find("KillMenu");
         restartMenu = GameObject.Find("RestartMenu");
+        settingsMenu = GameObject.Find("SettingsMenu");
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void Start()
@@ -29,6 +33,7 @@ public class PauseMenu : MonoBehaviour
         SetActiveIfNotNull(ref gameOverMenu, false);
         SetActiveIfNotNull(ref killMenu, false);
         SetActiveIfNotNull(ref restartMenu, false);
+        SetActiveIfNotNull(ref settingsMenu, false);
 
         inventoryUI = GameObject.FindAnyObjectByType<InventoryUI>();
     }
@@ -38,9 +43,10 @@ public class PauseMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!isPaused && !restartMenu.activeSelf && !gameOverMenu.activeSelf && !killMenu.activeSelf)
+            if(!isPaused && !restartMenu.activeSelf && !gameOverMenu.activeSelf && 
+                !killMenu.activeSelf && !settingsMenu.activeSelf && !playerController.DialogueBox.activeSelf)
                 PauseGame();
-            else if(isPaused)
+            else if(isPaused && pauseMenu.activeSelf)
                 ResumeGame();
         }
     }

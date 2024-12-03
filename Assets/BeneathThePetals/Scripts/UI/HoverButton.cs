@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
-public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
 {
     [SerializeField] private float scaleFactor = 1.2f;
     [SerializeField] private float animationDuration = 0.3f;
@@ -35,11 +35,32 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    void Update()
-    {
-
-    }
     public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShowHoverEffects();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HideHoverEffects();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        //
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        ShowHoverEffects();
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        HideHoverEffects();
+    }
+
+    private void ShowHoverEffects()
     {
         foreach (var image in images)
         {
@@ -52,7 +73,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void HideHoverEffects()
     {
         foreach (var image in images)
         {
@@ -62,19 +83,6 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         foreach (var text in textComponents)
         {
             text.transform.DOScale(originalScale, animationDuration).SetEase(exitEase);
-        }
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        foreach (var image in images)
-        {
-            image.enabled = false;
-        }
-
-        foreach (var text in textComponents)
-        {
-            text.transform.DOScale(originalScale, animationDuration).SetEase(Ease.InBack);
         }
     }
 }

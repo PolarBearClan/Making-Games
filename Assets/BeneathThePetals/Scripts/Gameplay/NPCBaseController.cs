@@ -103,6 +103,9 @@ public class NPCBaseController : MonoBehaviour, ITalkable
             transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
         }
 
+        if (anim != null)
+            anim.SetBool("isTalking", true);
+
         playerController.DisableInput();
         Invoke("LookAtNPC", .5f);
         
@@ -113,7 +116,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         dialogueSystem.PlayDialogue(mainDialogue);
 
         var animator = dialogueBox.GetComponent<Animator>();
-        if (animator.gameObject.activeSelf)
+        if (animator.transform.gameObject.activeSelf)
             animator.SetBool("DialogueBars", true);
     }
 
