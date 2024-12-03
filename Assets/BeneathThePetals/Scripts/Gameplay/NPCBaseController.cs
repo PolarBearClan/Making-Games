@@ -185,10 +185,11 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController.transform.DOLookAt(pointToFace.position, tweenDuration);
     }
     
+    
     public string GetActionType()
     {
         return "Press";
     }
 
-    public EActivity Activity => activity;
+    public EActivity Activity {get; set;}
 }
