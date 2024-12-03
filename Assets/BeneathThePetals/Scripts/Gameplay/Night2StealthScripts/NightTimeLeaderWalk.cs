@@ -24,10 +24,8 @@ public class NightTimeLeaderWalk : MonoBehaviour
     public GameObject killbox0;
     public GameObject killbox1;
     public GameObject killbox2;
-    public EventReference soundToPlayCarpet;
-    public EventReference soundToPlayWood;
-    public EventReference soundToPlayStair;
 
+    public NPCBaseController AI; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +34,8 @@ public class NightTimeLeaderWalk : MonoBehaviour
         startPosition = transform.position;
         anim.SetBool("isWalking", true);
         dialogueHasStarted = true;
+        AI.Activity = EActivity.WALKING;
+
     }
 
     // Update is called once per frame
@@ -44,6 +44,7 @@ public class NightTimeLeaderWalk : MonoBehaviour
         if (playerController.DialogueBox.activeSelf)
         {
             dialogueHasStarted = true;
+
         }
         if(dialogueHasStarted && !playerController.DialogueBox.activeSelf)
         {
