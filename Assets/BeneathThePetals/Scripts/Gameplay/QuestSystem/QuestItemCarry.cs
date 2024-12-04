@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class QuestItemCarry : QuestItemBase
 {
-    [Space]
-    [SerializeField] private QuestItemType itemType;
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,16 +16,15 @@ public class QuestItemCarry : QuestItemBase
     
     public override void Interact()
     {
+        if (!playerController.CanPickUpItem()) return;
 
         if (playerController.HasFreeSpot())
         {
             playerController.StartCarryingItem(gameObject);         
             this.PlayInteractSound();
         }
-        
         else
         {
-            // TODO possible screen note
             print("Player can only carry 2 items at a time!");
         }
     }
@@ -42,13 +38,5 @@ public class QuestItemCarry : QuestItemBase
     {
         GetComponent<MeshRenderer>().material.color = Color.red;
     }
-    
-    public QuestItemType QuestItemType => itemType;
 }
 
-public enum QuestItemType
-{
-    WoodLog,
-    FlowerPot,
-    None
-}

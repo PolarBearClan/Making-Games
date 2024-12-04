@@ -47,24 +47,18 @@ public class StealthKillBox : MonoBehaviour
         soundOnInteract.release();
     
     }
-    public void Interact()
-    {
-        if (mainDialogue.Count > 0)
-        {
-            PlayInteractSound();
-            StartDialogue();
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!firstPersonController.isHiding && other.name == "Player") {
             StartDialogue();
+
         }
     }
 
     private void StartDialogue()
     {
+        leaderLookingToKill.AI.Activity = EActivity.TALKING;
         leaderLookingToKill.enabled = false;
         firstPersonController.DisableInput();
         PlayInteractSound();

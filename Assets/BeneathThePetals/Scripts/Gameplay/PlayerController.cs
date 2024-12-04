@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private bool carryingItem = false;
     private PauseMenu pauseMenu;
     public bool isCurrentlyChangingScenes = false;
+    private int pickedUpItems = 0;
 
     [Header("Quest related")]
     [SerializeField] private Transform carryParent1;
@@ -131,7 +132,7 @@ public class PlayerController : MonoBehaviour
             {
                 // This is a quest delivery area
                 if (currentQuest == null || currentQuest.Completed) return;
-                if (deliveryArea.QuestItemType == QuestItemType.WoodLog && !carryingItem) return;
+                if (!carryingItem) return;
 
                 TryDeactivateCurrentTarget();
                 currentTarget = newTarget;
@@ -144,6 +145,14 @@ public class PlayerController : MonoBehaviour
             {
                 // this is a scene changer
                 if (GetCarriedItemsCount() > 0) return;
+            }
+            
+            // check if it is a QuestItemCarry
+            var questItemCarry = newTarget.GetComponent<QuestItemCarry>();
+            if (questItemCarry != null)
+            {
+                // it is a quest item carry -> only show text if player can carry more items
+                if (!CanPickUpItem()) return;
             }
 
             if (currentTarget)
@@ -297,6 +306,8 @@ public class PlayerController : MonoBehaviour
 
         carriedItem.GetComponent<QuestItemBase>().DeactivateItem(); // not available for further interaction
         carriedItem.GetComponent<Collider>().enabled = false;
+
+        pickedUpItems++;
     }
 
     public GameObject StopCarryingItem()
@@ -325,13 +336,6 @@ public class PlayerController : MonoBehaviour
     {
         if (currentlyCarriedItem1 != null) return ref currentlyCarriedItem1;
         return ref currentlyCarriedItem2;
-    }
-
-    public QuestItemType GetCarriedItemType()
-    {
-        return GetCarriedItemGameObject() != null
-            ? GetCarriedItemGameObject().GetComponent<QuestItemCarry>().QuestItemType
-            : QuestItemType.None;
     }
 
     private int GetCarriedItemsCount()
@@ -373,5 +377,10 @@ public class PlayerController : MonoBehaviour
         cameraTransform = GetCamera().transform;
         Gizmos.color = Color.red;
         Gizmos.DrawRay(cameraTransform.position, cameraTransform.forward * interactionDistance);
+    }
+
+    public bool CanPickUpItem()
+    {
+        return pickedUpItems < currentQuest.GoalAmount;
     }
 }
