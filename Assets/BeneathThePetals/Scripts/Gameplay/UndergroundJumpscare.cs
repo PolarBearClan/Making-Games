@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Collections;
 using FMODUnity;
+using FMOD.Studio;
+using FMOD;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +24,8 @@ public class UndergroundJumpscare : Jumpscare
     private bool isSmashing = false;
     private bool dialogueHasStarted = false;
     private bool triggered = false;
+    public EventReference killSounds;
+    public EventReference DeathSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,8 +53,8 @@ public class UndergroundJumpscare : Jumpscare
                 StartSmashMechanic();
             else
             {
-                playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
-                firstPersonController.DisableInput();
+                StartCoroutine(GameOverTransition());
+                
             }
             dialogueHasStarted = false;
         }
@@ -61,8 +65,7 @@ public class UndergroundJumpscare : Jumpscare
 
             if (smashBar.fillAmount <= 0)
             {
-                playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
-
+                StartCoroutine(GameOverTransition());
                 isSmashing = false;
                 SetSmashMenu(false);
             }
@@ -131,16 +134,46 @@ public class UndergroundJumpscare : Jumpscare
         SetSmashMenu(false);
 
         playerController.GetComponentInChildren<PauseMenu>().SetKillTransition(true);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
+        playKillSound();
+        yield return new WaitForSeconds(2f);
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         playerController.GetComponentInChildren<PauseMenu>().SetKillTransition(false);
         anim.SetTrigger("Dead");
+        playDeathSound();
 
         float moveDuration = 2f;
-        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y - 1.3f, transform.position.z);
+        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z);
         transform.DOMove(targetPosition, moveDuration).SetEase(Ease.OutCubic);
 
         firstPersonController.EnableInput();
 
     }
+    
+    private IEnumerator GameOverTransition()
+    {
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
+        firstPersonController.DisableInput();
+        yield return new WaitForSeconds(4f);
+        playKillSound();
+        yield return new WaitForSeconds(2f);
+    }
+
+
+    private void playKillSound()
+    {
+        EventInstance  soundOnKill = RuntimeManager.CreateInstance(killSounds);
+        RuntimeManager.AttachInstanceToGameObject(soundOnKill, transform);
+        soundOnKill.start();
+        soundOnKill.release();
+    }
+    private void playDeathSound()
+    {
+        EventInstance  soundOnDeath = RuntimeManager.CreateInstance(DeathSound);
+        RuntimeManager.AttachInstanceToGameObject(soundOnDeath, transform);
+        soundOnDeath.start();
+        soundOnDeath.release();
+    }
+    
 }

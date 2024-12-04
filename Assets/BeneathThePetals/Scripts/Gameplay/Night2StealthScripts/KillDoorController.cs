@@ -123,4 +123,9 @@ public class KillDoorController : MonoBehaviour, IInteractable
     {
         return doorOpen ? "close" : "open";
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 }

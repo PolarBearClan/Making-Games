@@ -40,4 +40,9 @@ public class TestCube : MonoBehaviour, IInteractable
     {
         return "interact with";
     }
+
+    public string GetActionType()
+    {
+        return "Press";
+    }
 }

@@ -3063,6 +3063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestItemCarry (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9065867654232068351, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.98
@@ -4998,6 +5002,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestItemCarry (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9065867654232068351, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.98
@@ -5666,6 +5674,7 @@ MonoBehaviour:
   itemName: 
   sceneToChangeTo: ScreenNotes2
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go to other scene
   fadeToBlack: {fileID: 8765489994903951810}
   globalUiObject: {fileID: 8765489994903951809}
@@ -6206,6 +6215,10 @@ PrefabInstance:
     - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_Name
       value: QuestItemCarry (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9065867654232068351, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7036,8 +7049,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: quest.notificationText
+      value: quest done notification
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.size
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: quest.notificationDuration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: soundToPlayOnInteract.Path
@@ -7200,6 +7221,10 @@ PrefabInstance:
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[9].isQuestion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: quest.notificationAfterQuestCompleted
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: dialogue.Array.data[0].option1FollowUp
@@ -9585,6 +9610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestItemCarry (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9065867654232068351, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.98
@@ -10243,8 +10272,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: quest.notificationText
+      value: gj
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: quest.notificationDuration
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: soundToPlayOnInteract.Path
@@ -10339,6 +10376,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
       propertyPath: mainDialogue.Array.data[3].givesQuest
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
+      propertyPath: quest.notificationAfterQuestCompleted
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3688806567447989972, guid: 369ecddab934cf841bf843ca98e166fb, type: 3}
@@ -11177,6 +11218,10 @@ PrefabInstance:
     - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_Name
       value: QuestItemCarry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476827958855589170, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9065867654232068351, guid: 46be02d42279dbe4ca891377d6df3fe4, type: 3}
       propertyPath: m_LocalPosition.x

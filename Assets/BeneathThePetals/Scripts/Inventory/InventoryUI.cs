@@ -7,14 +7,15 @@ using TMPro;
 public class InventoryUI : MonoBehaviour
 {
     [Header("Objects")]
-    private Camera mainCamera;
+    [SerializeField] private Camera mainCamera;
     [SerializeField] private Camera inventoryCamera;
-    private GameObject MainUIObj;
-    private GameObject InventoryUIObj;
+    [SerializeField] private GameObject MainUIObj;
+    [SerializeField] private GameObject InventoryUIObj;
 
-    //[Header("Text UI")]
-    private TMP_Text itemName;
-    private TMP_Text itemInfo;
+    [Header("Text UI")]
+    [SerializeField] private TMP_Text itemName;
+    [SerializeField] private TMP_Text itemInfo;
+    [SerializeField] private GameObject textPanel;
 
     [Header("Inventory Settings")]
     [SerializeField] private Transform pivot;
@@ -31,6 +32,7 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mainCamera.enabled = true;
         inventoryCamera.enabled = false;
 
@@ -52,11 +54,11 @@ public class InventoryUI : MonoBehaviour
             ToggleCamera();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isRotating)
+        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && !isRotating)
         {
             StartCoroutine(RotateInventory(-1)); // Move to the right in the circle
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isRotating)
+        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && !isRotating)
         {
             StartCoroutine(RotateInventory(1)); // Move to the left in the circle
         }
@@ -161,6 +163,7 @@ public class InventoryUI : MonoBehaviour
                 if (itemModel.GetComponent<StoryClueInfo>().ReturnName() == itemName)
                 {
                     Destroy(objects[i]);
+                    defaultRotations[i] = itemModel.transform.rotation;
                     objects[i] = Instantiate(itemModel, positions[i], defaultRotations[i], pivot.parent);
                     break;
                 }
@@ -182,17 +185,9 @@ public class InventoryUI : MonoBehaviour
     {
         itemName.enabled = show;
         itemInfo.enabled = show;
-    }
-
-    public void LoadGameObjects(Transform playerCamera, GameObject uiGameObject, GameObject inventoryUIGameObject,
-        TMP_Text itemTextName, TMP_Text itemTextInfo)
-    {
-        mainCamera = playerCamera.GetComponent<Camera>();
-        MainUIObj = uiGameObject;
-        InventoryUIObj = inventoryUIGameObject;
-        itemName = itemTextName;
-        itemInfo = itemTextInfo;
-
-        InventoryUIObj.SetActive(false);
+        if (itemName.text == "None")
+            textPanel.SetActive(false);
+        else
+            textPanel.SetActive(true);
     }
 }

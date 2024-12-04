@@ -344,6 +344,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -358,6 +359,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1599206520465442521
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +492,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -498,6 +507,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1763186999199779838
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +749,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -747,6 +764,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1915313371751328895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,6 +2412,114 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7860663910981750377, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+--- !u!1 &4097396491095625826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3474925840013970747}
+  - component: {fileID: 2728017910644225487}
+  - component: {fileID: 8308343092153127746}
+  - component: {fileID: 3176674922822429954}
+  m_Layer: 0
+  m_Name: StairCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3474925840013970747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097396491095625826}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.21643952, w: 0.97629607}
+  m_LocalPosition: {x: 0.25, y: -0.53999996, z: -0.80999756}
+  m_LocalScale: {x: 10, y: 1, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4608812836126816860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25}
+--- !u!33 &2728017910644225487
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097396491095625826}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8308343092153127746
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097396491095625826}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0ac9aba1beafeb24997cc30de6fbd9bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3176674922822429954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097396491095625826}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4098031067287195065
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,9 +3533,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToChangeTo: Day1_Outside_Daytime
   objectToSpawnAt: 
+  timeToLoad: 1
   actionName: Go Outside
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: -1890569026
@@ -3646,6 +3783,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -3660,6 +3798,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &4846867227600910435
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,6 +4150,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -4019,6 +4165,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &5251065122816684762
 GameObject:
   m_ObjectHideFlags: 0
@@ -4145,6 +4298,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -4159,6 +4313,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &5559463565416112699
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,6 +4664,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -4517,6 +4679,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &5748040929136828518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4862,6 +5031,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -4876,6 +5046,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &6274482464824805836
 GameObject:
   m_ObjectHideFlags: 0
@@ -5541,7 +5718,7 @@ GameObject:
   - component: {fileID: 2776989834442293496}
   - component: {fileID: 7269875415074323256}
   - component: {fileID: 4968722323516600518}
-  - component: {fileID: 4761048467436193626}
+  - component: {fileID: 7944687808474605628}
   m_Layer: 0
   m_Name: OutsideWoodDecorations3
   m_TagString: Untagged
@@ -5619,8 +5796,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4761048467436193626
-MeshCollider:
+--- !u!65 &7944687808474605628
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5637,10 +5814,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 739851355323275148, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 107.85824, y: 67.8, z: 4.017554}
+  m_Center: {x: -0.07971763, y: 7.5, z: 0.0086369505}
 --- !u!1 &7190858748180404670
 GameObject:
   m_ObjectHideFlags: 0
@@ -5890,7 +6066,8 @@ Transform:
   m_LocalPosition: {x: -42.33441, y: 2.8202236, z: -16.696198}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3474925840013970747}
   m_Father: {fileID: 2849619626269519708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6400096126056106749
@@ -6750,6 +6927,7 @@ MonoBehaviour:
   rotationEase: 3
   doorLocked: 0
   requiredStoryClue: {fileID: 0}
+  doorOpen: 0
   eventToPlayWhenOpen:
     Guid:
       Data1: 1120767857
@@ -6764,6 +6942,13 @@ MonoBehaviour:
       Data3: 22451885
       Data4: -300424452
     Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &8010582479625129915
 GameObject:
   m_ObjectHideFlags: 0
@@ -8089,7 +8274,7 @@ GameObject:
   - component: {fileID: 4289172689374036790}
   - component: {fileID: 6888924417112710858}
   - component: {fileID: 1447351266701052936}
-  - component: {fileID: 610629893749856684}
+  - component: {fileID: 5244125618217096896}
   m_Layer: 0
   m_Name: Cube.041
   m_TagString: Untagged
@@ -8165,8 +8350,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &610629893749856684
-MeshCollider:
+--- !u!65 &5244125618217096896
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8183,10 +8368,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -745928167409971724, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 27.911695, y: 1.7823675, z: 131.98}
+  m_Center: {x: -9.599928, y: 22.706802, z: -48.92244}
 --- !u!1 &9188383401530841880
 GameObject:
   m_ObjectHideFlags: 0

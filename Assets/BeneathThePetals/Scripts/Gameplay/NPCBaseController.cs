@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Serialization;
 using FMOD;
 using FMOD.Studio;
 using FMODUnity;
+
 public class NPCBaseController : MonoBehaviour, ITalkable
 {
     [SerializeField] private string npcName;
     [SerializeField] private Transform pointToFace;
+    [SerializeField] private bool facePlayerOnInteraction = true;
 
     [Space]
     [SerializeField] private List<DialogueNode> mainDialogue;
@@ -19,6 +22,8 @@ public class NPCBaseController : MonoBehaviour, ITalkable
     [SerializeField] private Quest quest;
     [Space]
     [SerializeField] private List<DialogueNode> dialogueAfterQuestAssigned;
+
+    private List<SceneChange> sceneChangers;    // Scene changers requiring quest completion
 
     private EActivity activity;
     private GameObject player;
@@ -40,6 +45,13 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         activity = EActivity.IDLE;
         anim = GetComponent<Animator>();
         npcWalking = GetComponent<NPCWalking>();
+
+        if (quest != null)
+        {
+            sceneChangers = FindObjectsByType<SceneChange>(FindObjectsSortMode.None)
+                .Where(sceneChanger => sceneChanger.UnlockRequirement == UnlockRequirementType.QuestCompletionRequired)
+                .ToList();
+        }
     }
 
     // Update is called once per frame
@@ -81,12 +93,18 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         firstPersonController.DisableInput();
 
-        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
-        directionToPlayer.y = 0;
-        Quaternion npcTargetRotation = Quaternion.LookRotation(directionToPlayer);
+        if (facePlayerOnInteraction)
+        {
+            Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+            directionToPlayer.y = 0;
+            Quaternion npcTargetRotation = Quaternion.LookRotation(directionToPlayer);
 
-        float tweenDuration = playerController.CameraLookAtTweenDuration;
-        transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
+            float tweenDuration = playerController.CameraLookAtTweenDuration;
+            transform.DORotateQuaternion(npcTargetRotation, tweenDuration);
+        }
+
+        if (anim != null)
+            anim.SetBool("isTalking", true);
 
         playerController.DisableInput();
         Invoke("LookAtNPC", .5f);
@@ -98,7 +116,7 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         dialogueSystem.PlayDialogue(mainDialogue);
 
         var animator = dialogueBox.GetComponent<Animator>();
-        if (animator.gameObject.activeSelf)
+        if (animator.transform.gameObject.activeSelf)
             animator.SetBool("DialogueBars", true);
     }
 
@@ -142,14 +160,25 @@ public class NPCBaseController : MonoBehaviour, ITalkable
 
     private void AssignQuest()
     {
-        quest.OnQuestFinished = ChangeDialogueAfterQuest;
+        quest.OnQuestFinished = QuestComplete;
         playerController.AssignQuest(quest);
         mainDialogue = dialogueAfterQuestAssigned;
     }
 
-    private void ChangeDialogueAfterQuest(List<DialogueNode> newDialogue)
+    private void QuestComplete(List<DialogueNode> newDialogue)
     {
         mainDialogue = newDialogue;
+        
+        if (quest.ShouldNotify)
+            playerController.ScreenNoteManagerScript.ShowNoteNotification(quest.NotificationText, quest.NotificationDuration);
+        
+        playerController.ResetInteractionTarget();
+        
+        // unlock all scene changers that require quest completion
+        foreach (var s in sceneChangers)
+        {
+            s.OnQuestCompleted();
+        }
     }
 
     private void LookAtNPC()
@@ -158,6 +187,12 @@ public class NPCBaseController : MonoBehaviour, ITalkable
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
         firstPersonController.transform.DOLookAt(pointToFace.position, tweenDuration);
     }
+    
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 
-    public EActivity Activity => activity;
+    public EActivity Activity {get; set;}
 }

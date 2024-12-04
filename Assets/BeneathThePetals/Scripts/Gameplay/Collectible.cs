@@ -87,4 +87,9 @@ public class Collectible : MonoBehaviour, IInteractable
     {
         return activeFromStart;
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 }

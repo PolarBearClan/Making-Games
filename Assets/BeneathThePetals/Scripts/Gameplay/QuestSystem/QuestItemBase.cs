@@ -36,7 +36,12 @@ public abstract class QuestItemBase : MonoBehaviour, IInteractable
 
     public virtual string GetName() => itemName;
     public virtual string GetActionName() => actionName;
-    public virtual bool IsInteractable() => isActive;
+    public virtual string GetActionType()
+    {
+        return "Press";
+    }
 
+    public virtual bool IsInteractable() => isActive;
     public void DeactivateItem() => isActive = false;
+    
 }

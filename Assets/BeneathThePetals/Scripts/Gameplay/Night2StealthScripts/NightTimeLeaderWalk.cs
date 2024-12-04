@@ -25,6 +25,7 @@ public class NightTimeLeaderWalk : MonoBehaviour
     public GameObject killbox1;
     public GameObject killbox2;
 
+    public NPCBaseController AI; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +34,8 @@ public class NightTimeLeaderWalk : MonoBehaviour
         startPosition = transform.position;
         anim.SetBool("isWalking", true);
         dialogueHasStarted = true;
+        AI.Activity = EActivity.WALKING;
+
     }
 
     // Update is called once per frame
@@ -41,6 +44,7 @@ public class NightTimeLeaderWalk : MonoBehaviour
         if (playerController.DialogueBox.activeSelf)
         {
             dialogueHasStarted = true;
+
         }
         if(dialogueHasStarted && !playerController.DialogueBox.activeSelf)
         {
@@ -52,7 +56,7 @@ public class NightTimeLeaderWalk : MonoBehaviour
             WalkToNextPoint();
         }
 
-        if (currentPointIndex >= 1 && currentPointIndex < 4)
+        if (currentPointIndex >= 1 && currentPointIndex < 5)
         {
             killbox0.gameObject.SetActive(false);
             killbox1.gameObject.SetActive(true);
@@ -66,14 +70,14 @@ public class NightTimeLeaderWalk : MonoBehaviour
 
         }
         else 
-        if (currentPointIndex >= 20 && currentPointIndex < 24) {
+        if (currentPointIndex >= 20 && currentPointIndex < 25) {
             killbox0.gameObject.SetActive(false);
             killbox1.gameObject.SetActive(true);
             killbox2.gameObject.SetActive(false);
 
         }
         else 
-        if (currentPointIndex >= 24 && currentPointIndex < 40) {
+        if (currentPointIndex >= 25 && currentPointIndex < 40) {
             killbox0.gameObject.SetActive(true);
             killbox1.gameObject.SetActive(false);
             killbox2.gameObject.SetActive(false);
@@ -117,7 +121,7 @@ public class NightTimeLeaderWalk : MonoBehaviour
             }
         }
     }
-
+    
     public void RotateTowardsDestination(Transform point)
     {
         Vector3 direction = (point.position - transform.position).normalized;

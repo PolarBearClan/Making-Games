@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class UndergroundCloset : MonoBehaviour, IInteractable
 {
@@ -8,15 +10,24 @@ public class UndergroundCloset : MonoBehaviour, IInteractable
     [SerializeField] private Transform faceToPoint;
     [SerializeField] private Transform afterHide;
 
+    [Header("Dialogue Variables")]
+    [SerializeField] private int[] notificationDuration;
+    [SerializeField, TextArea] private string[] notificationText;
+    [SerializeField] private TMP_Text nameText;
+
     [HideInInspector]
     public bool isHiding = false;
 
     private MeshRenderer closet;
     private GameObject player;
     private FirstPersonController playerControls;
+    private InteractableLight interactableLight;
+    private PlayerController playerController;
 
     private float playerFOV;
     private float playerClipping;
+    private int currentText = 0;
+    private bool coroutineStarted = false;
 
 
     private void Start()
@@ -24,6 +35,8 @@ public class UndergroundCloset : MonoBehaviour, IInteractable
         closet = GetComponent<MeshRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerControls = player.GetComponent<FirstPersonController>();
+        playerController = player.GetComponent<PlayerController>();
+        interactableLight = GetComponentInChildren<InteractableLight>();
         closetInside.SetActive(false);
 
 
@@ -84,6 +97,9 @@ public class UndergroundCloset : MonoBehaviour, IInteractable
         player.GetComponentInChildren<Camera>().nearClipPlane = 0.01f;
         player.GetComponent<Transform>().LookAt(faceToPoint);
         player.transform.position = placeToSit.position;
+
+        interactableLight.transform.gameObject.SetActive(false);
+
     }
 
     private void StopHiding()
@@ -100,6 +116,31 @@ public class UndergroundCloset : MonoBehaviour, IInteractable
         player.GetComponentInChildren<Camera>().fieldOfView = playerFOV;
         player.GetComponentInChildren<Camera>().nearClipPlane = playerClipping;
         player.transform.position = afterHide.position;
+
+        interactableLight.transform.gameObject.SetActive(true);
+        playerController.ScreenNoteManagerScript.CloseNote();
+        StopAllCoroutines();
+    }
+
+    private IEnumerator NextDialogue()
+    {
+        while (currentText < notificationText.Length)
+        {
+            if (currentText > 0)
+                nameText.text = "Leader Valgaris:";
+            coroutineStarted = true;
+            playerController.ScreenNoteManagerScript.ShowNoteNotification(notificationText[currentText], notificationDuration[currentText]);
+            yield return new WaitForSeconds(notificationDuration[currentText] + 1);
+            currentText++;
+        }
+
+        coroutineStarted = false;
+    }
+
+    public void StartDialogue()
+    {
+        if(!coroutineStarted)
+            StartCoroutine(NextDialogue());
     }
 
     public void Activate()
@@ -115,5 +156,11 @@ public class UndergroundCloset : MonoBehaviour, IInteractable
     {
         return "";
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
+    
     public void PlayInteractSound() { }
 }

@@ -10,7 +10,10 @@ public class PauseMenu : MonoBehaviour
 
     private GameObject gameOverMenu;
     private GameObject killMenu;
+    private GameObject restartMenu;
+    private GameObject settingsMenu;
     private InventoryUI inventoryUI;
+    private PlayerController playerController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -19,13 +22,18 @@ public class PauseMenu : MonoBehaviour
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         gameOverMenu = GameObject.Find("GameOverMenu");
         killMenu = GameObject.Find("KillMenu");
+        restartMenu = GameObject.Find("RestartMenu");
+        settingsMenu = GameObject.Find("SettingsMenu");
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void Start()
     {
-        SetActiveIfNotNull(pauseMenu, false);
-        SetActiveIfNotNull(gameOverMenu, false);
-        SetActiveIfNotNull(killMenu, false);
+        SetActiveIfNotNull(ref pauseMenu, false);
+        SetActiveIfNotNull(ref gameOverMenu, false);
+        SetActiveIfNotNull(ref killMenu, false);
+        SetActiveIfNotNull(ref restartMenu, false);
+        SetActiveIfNotNull(ref settingsMenu, false);
 
         inventoryUI = GameObject.FindAnyObjectByType<InventoryUI>();
     }
@@ -35,9 +43,10 @@ public class PauseMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!isPaused)
+            if(!isPaused && !restartMenu.activeSelf && !gameOverMenu.activeSelf && 
+                !killMenu.activeSelf && !settingsMenu.activeSelf && !playerController.DialogueBox.activeSelf)
                 PauseGame();
-            else 
+            else if(isPaused && pauseMenu.activeSelf)
                 ResumeGame();
         }
     }
@@ -89,18 +98,29 @@ public class PauseMenu : MonoBehaviour
 
     public void StartGameOver()
     {
-        gameOverMenu.SetActive(true);
+        SetActiveIfNotNull(ref gameOverMenu, true);
+    }
+    public void ShowRestartMenu()
+    {
+        restartMenu.GetComponent<CanvasGroup>().alpha = 0f;
+        SetActiveIfNotNull(ref restartMenu, true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void SetKillTransition(bool setBool)
     {
         killMenu.SetActive(setBool);
     }
-    private void SetActiveIfNotNull(GameObject obj, bool isActive)
+    private void SetActiveIfNotNull(ref GameObject obj, bool isActive)
     {
         if (obj != null)
         {
             obj.SetActive(isActive);
+        }
+        else
+        {
+            obj = pauseMenu;
         }
     }
 }

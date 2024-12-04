@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Rendering;
 
 public class CultistOutsideRun : MonoBehaviour
@@ -16,33 +17,31 @@ public class CultistOutsideRun : MonoBehaviour
     [SerializeField] private Volume globalVolumeBase;
 
     private GameObject player;
-    private Rigidbody rb;
-    private Animator anim;
     private PauseMenu pauseMenu;
+    private PlayerController playerController;
+    private NavMeshAgent navMeshAgent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
         pauseMenu = FindAnyObjectByType<PauseMenu>();
-        rb = GetComponent<Rigidbody>();
+        if (isRunning) SetupNavMeshAgent();
 
-        anim = GetComponentInChildren<Animator>();
-        if (anim != null)
-        {
-            RandomizeAnimation();
-        }
-        if(!isRunning)
-        {
-            anim.SetBool("isWalking", false);
-        }
-        else
-            anim.SetBool("isWalking", true);
+        RandomizeAnimation();
+    }
+
+    private void SetupNavMeshAgent()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = runSpeed;
+        navMeshAgent.stoppingDistance = stoppingDistance;
     }
 
     void Update()
     {
-        if (pauseMenu.isPaused)
+        if (pauseMenu.isPaused || playerController.DialogueBox.activeSelf)
             return;
 
         if (isLeader)
@@ -57,34 +56,24 @@ public class CultistOutsideRun : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (pauseMenu.isPaused)
+        if (pauseMenu.isPaused || playerController.DialogueBox.activeSelf)
             return;
 
         if (isRunning)
-            ChasePlayer();
+            navMeshAgent.SetDestination(player.transform.position);
     }
-
-    private void ChasePlayer()
-    {
-        if (player == null) return;
-
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-        if (distanceToPlayer > stoppingDistance)
-        {
-            rb.MovePosition(transform.position + direction * runSpeed * Time.fixedDeltaTime);
-
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 5f);
-        }
-    }
-
+    
     private void RandomizeAnimation()
     {
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        anim.Play(stateInfo.fullPathHash, -1, Random.Range(0f, 1f));
+        Animation anim = GetComponentInChildren<Animation>();
+
+        if (anim != null && anim.clip != null)
+        {
+            anim[anim.clip.name].time = Random.Range(0f, anim.clip.length);
+
+            anim.Sample();
+            anim.Play();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -6,7 +7,10 @@ using FMOD;
 using FMOD.Studio;
 using FMODUnity;
 using Unity.VisualScripting;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
+
 public class StealthKillBox : MonoBehaviour
 {
     [SerializeField] private Transform pointToFace;
@@ -20,10 +24,17 @@ public class StealthKillBox : MonoBehaviour
     public EventReference soundToPlayOnInteract;
     public NightTimeLeaderWalk leaderLookingToKill;
     public NPCBaseController leader;
+    public EventReference killSounds;
+    public StoryClueImage objectToDestroy;
+    public StoryClueImage objectToDestroy2;
+    private GameObject storyClueUI;
+    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        storyClueUI = GameObject.FindGameObjectWithTag("StoryClueUI");
         player = GameObject.FindGameObjectWithTag("Player");
         firstPersonController = player.GetComponent<FirstPersonController>();
         playerController = player.GetComponent<PlayerController>();
@@ -43,30 +54,35 @@ public class StealthKillBox : MonoBehaviour
         soundOnInteract.release();
     
     }
-    public void Interact()
-    {
-        if (mainDialogue.Count > 0)
-        {
-            PlayInteractSound();
-            StartDialogue();
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (!firstPersonController.isHiding && other.name == "Player") {
+            foreach (Transform child in storyClueUI.transform)
+            {
+               Destroy(child.gameObject);
+            }
+            
             StartDialogue();
+            
+
         }
     }
 
     private void StartDialogue()
     {
+        leaderLookingToKill.GetComponentInChildren<BoxCollider>().enabled = false;
+        leaderLookingToKill.AI.Activity = EActivity.TALKING;
+        leaderLookingToKill.enabled = false;
         firstPersonController.DisableInput();
         PlayInteractSound();
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         leaderLookingToKill.canWalk = false;
         leaderLookingToKill.anim.SetBool("isWalking", false);
         leaderLookingToKill.RotateTowardsDestination(transform);
         float tweenDuration = playerController.CameraLookAtTweenDuration;
+     
         
         // Important to rotate them both
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
@@ -106,10 +122,28 @@ public class StealthKillBox : MonoBehaviour
         firstPersonController.playerCamera.transform.DOComplete();
         firstPersonController.transform.DOComplete();
         
-        firstPersonController.EnableInput(true);
-        playerController.EnableInput();
+        //firstPersonController.EnableInput(true);
+        StartCoroutine(StartKillTransition());
+        //SceneManager.LoadScene("Day2_Inside_Nighttime");
+    }
 
-        SceneManager.LoadScene("Day2_Inside_Nighttime");
+    private IEnumerator StartKillTransition()
+    {
+        
+        
+        playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
+        yield return new WaitForSeconds(4f);
+        playKillSound();
+        yield return new WaitForSeconds(2f);
+        
+    }
+    
+    private void playKillSound()
+    {
+        EventInstance  soundOnKill = RuntimeManager.CreateInstance(killSounds);
+        RuntimeManager.AttachInstanceToGameObject(soundOnKill, transform);
+        soundOnKill.start();
+        soundOnKill.release();
     }
 
 }

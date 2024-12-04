@@ -591,7 +591,7 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
-    public void DisableInput()
+    public void DisableInput(bool unlockMouse = true)
     {
         playerCanMove = false;
         cameraCanMove = false;
@@ -604,6 +604,8 @@ public class FirstPersonController : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
+        if (!unlockMouse) return;
+        
         lockCursor = false;
         Cursor.lockState = CursorLockMode.None;
     }

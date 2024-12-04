@@ -72,12 +72,17 @@ public class HidingInteractable : MonoBehaviour, IInteractable
         else {
             var playerControls = player.GetComponent<FirstPersonController>();
             playerControls.EnableInput();
-            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             player.GetComponent<Rigidbody>().useGravity = true;
             playerControls.isHiding = false;
             playerControls.enableCrouch = true;
             player.transform.position = new Vector3(previousSpot.x, previousSpot.y, previousSpot.z); 
         }
+    }
+    
+    public string GetActionType()
+    {
+        return "Press";
     }
 
 }

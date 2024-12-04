@@ -134,4 +134,9 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
         jumpscareSoundInstance.start();
         jumpscareSoundInstance.release();
     }
+    
+    public string GetActionType()
+    {
+        return "Press";
+    }
 }
