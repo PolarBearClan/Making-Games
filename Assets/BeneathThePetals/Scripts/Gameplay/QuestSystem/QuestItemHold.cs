@@ -28,7 +28,7 @@ public class QuestItemHold : QuestItemBase
     void Update()
     {
         if (!holdingKey) return;
-        
+        firstPersonController.isWalking = false;
         holdingTime += Time.deltaTime;
 
         if (holdingTime >= targetHoldTime)

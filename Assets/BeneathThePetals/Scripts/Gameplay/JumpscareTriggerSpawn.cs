@@ -40,6 +40,7 @@ public class JumpscareTriggerSpawn : MonoBehaviour
     {
         if ((other.gameObject == _player) && !_triggered)
         {
+            _playerController.isWalking = false;
             TriggerJumpscare();
             OnJumpscareSound();
             transform.GetComponent<Collider>().enabled = false;

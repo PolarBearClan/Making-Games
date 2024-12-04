@@ -177,6 +177,7 @@ public class FirstDayQuest : MonoBehaviour, ITalkable
         float tweenDuration = playerController.CameraLookAtTweenDuration;
         transform.DORotateQuaternion(defaultRotation, tweenDuration);
 
+
         firstPersonController.EnableInput(true);
         playerController.EnableInput();
         activity = EActivity.IDLE;
