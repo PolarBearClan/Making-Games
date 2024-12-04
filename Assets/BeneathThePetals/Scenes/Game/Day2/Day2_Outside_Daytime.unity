@@ -703,7 +703,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &65615663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2550,7 +2549,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  itemType: 0
 --- !u!65 &202171852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3076,7 +3074,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  itemType: 0
 --- !u!65 &276130118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4085,7 +4082,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &356185153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7314,6 +7310,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8765489994903951808}
     - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: textPanel
+      value: 
+      objectReference: {fileID: 616929947}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 8765489994903951809}
@@ -7452,6 +7452,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.816257, y: 2.9876146, z: 1.5695522}
   m_Center: {x: -0.0000076293945, y: 0.4853658, z: -0.002062082}
+--- !u!1 &616929947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5955205708251837863, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 8765489994903951804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &624428673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10639,7 +10644,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &896926283
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13301,7 +13305,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &1052302549
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13768,7 +13771,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &1102096448
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16676,7 +16678,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &1280730162
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19527,7 +19528,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &1494226089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24762,7 +24762,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &1861002553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25381,7 +25380,6 @@ MonoBehaviour:
       Data3: -1722368358
       Data4: 1887147568
     Path: event:/World/QuestItems/WoodPickUp
-  itemType: 0
 --- !u!65 &1902784713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27049,7 +27047,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  itemType: 0
 --- !u!65 &2004757809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27681,7 +27678,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  itemType: 0
 --- !u!65 &2037284472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28035,7 +28031,6 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  itemType: 0
 --- !u!65 &2067590181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30017,8 +30012,8 @@ SceneRoots:
   - {fileID: 1211980493}
   - {fileID: 262441145}
   - {fileID: 686448568}
-  - {fileID: 607742216}
   - {fileID: 414352639}
   - {fileID: 1879174618}
   - {fileID: 109603116}
   - {fileID: 1614804792}
+  - {fileID: 607742216}

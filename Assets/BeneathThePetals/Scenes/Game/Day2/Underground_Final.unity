@@ -5238,6 +5238,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryUIRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: itemInfo
+      value: 
+      objectReference: {fileID: 1468577480}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: itemName
+      value: 
+      objectReference: {fileID: 246359380}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: MainUIObj
+      value: 
+      objectReference: {fileID: 1850914335}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: textPanel
+      value: 
+      objectReference: {fileID: 8765489994903951809}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 8765489994903951808}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: InventoryUIObj
+      value: 
+      objectReference: {fileID: 1008550314}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14251,6 +14275,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 8765489994903951804}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &8765489994903951808 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4459864851310106426, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 8765489994903951804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8765489994903951809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5955205708251837863, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 8765489994903951804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8882059567743181718
 GameObject:
   m_ObjectHideFlags: 0
@@ -14345,6 +14379,6 @@ SceneRoots:
   - {fileID: 841781652}
   - {fileID: 898913564}
   - {fileID: 1603472556713949525}
-  - {fileID: 1080798482}
   - {fileID: 983157289}
   - {fileID: 685148066}
+  - {fileID: 1080798482}
