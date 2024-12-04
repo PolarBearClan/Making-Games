@@ -15,6 +15,11 @@ public class CarFinalInteractable : MonoBehaviour, IInteractable
     {
     }
 
+    public string GetActionType()
+    {
+        return "";
+    }
+
     public void Activate()
     {
     }
