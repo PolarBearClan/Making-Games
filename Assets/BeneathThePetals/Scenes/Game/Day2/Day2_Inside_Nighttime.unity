@@ -3712,7 +3712,7 @@ GameObject:
   - component: {fileID: 254854444}
   - component: {fileID: 254854443}
   - component: {fileID: 254854447}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Killbox (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6453,7 +6453,7 @@ GameObject:
   - component: {fileID: 447558326}
   - component: {fileID: 447558325}
   - component: {fileID: 447558329}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Killbox (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6801,7 +6801,7 @@ GameObject:
   - component: {fileID: 485024731}
   - component: {fileID: 485024730}
   - component: {fileID: 485024734}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Killbox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10271,27 +10271,7 @@ MonoBehaviour:
   killbox0: {fileID: 1695121439}
   killbox1: {fileID: 485024729}
   killbox2: {fileID: 254854442}
-  soundToPlayCarpet:
-    Guid:
-      Data1: -931444028
-      Data2: 1336710423
-      Data3: -1207308369
-      Data4: 1319919518
-    Path: event:/World/NightWalk/CarpetFootstep3D
-  soundToPlayWood:
-    Guid:
-      Data1: 1710966679
-      Data2: 1119738543
-      Data3: 1851044488
-      Data4: -1697261340
-    Path: event:/World/NightWalk/WoodFootstep3D
-  soundToPlayStair:
-    Guid:
-      Data1: 1830101443
-      Data2: 1149086157
-      Data3: 455785112
-      Data4: -1771541571
-    Path: event:/World/NightWalk/StairFootstep3D
+  AI: {fileID: 720503191}
 --- !u!4 &720503190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4546086279815658337, guid: 959ee7c10b8958a4e9fe118d76e27945, type: 3}
@@ -15188,6 +15168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   npcBaseController: {fileID: 1346745522}
+  firstDayQuest: {fileID: 0}
 --- !u!23 &1009813715
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22886,7 +22867,7 @@ GameObject:
   - component: {fileID: 1695121441}
   - component: {fileID: 1695121440}
   - component: {fileID: 1695121444}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Killbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23374,7 +23355,7 @@ GameObject:
   - component: {fileID: 1714413748}
   - component: {fileID: 1714413747}
   - component: {fileID: 1714413746}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Killbox (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
