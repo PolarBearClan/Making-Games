@@ -70,14 +70,14 @@ public class NightTimeLeaderWalk : MonoBehaviour
 
         }
         else 
-        if (currentPointIndex >= 20 && currentPointIndex < 24) {
+        if (currentPointIndex >= 20 && currentPointIndex < 25) {
             killbox0.gameObject.SetActive(false);
             killbox1.gameObject.SetActive(true);
             killbox2.gameObject.SetActive(false);
 
         }
         else 
-        if (currentPointIndex >= 24 && currentPointIndex < 40) {
+        if (currentPointIndex >= 25 && currentPointIndex < 40) {
             killbox0.gameObject.SetActive(true);
             killbox1.gameObject.SetActive(false);
             killbox2.gameObject.SetActive(false);

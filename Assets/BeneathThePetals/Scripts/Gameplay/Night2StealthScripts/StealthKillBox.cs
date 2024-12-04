@@ -9,6 +9,8 @@ using FMODUnity;
 using Unity.VisualScripting;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
+
 public class StealthKillBox : MonoBehaviour
 {
     [SerializeField] private Transform pointToFace;
@@ -23,11 +25,16 @@ public class StealthKillBox : MonoBehaviour
     public NightTimeLeaderWalk leaderLookingToKill;
     public NPCBaseController leader;
     public EventReference killSounds;
+    public StoryClueImage objectToDestroy;
+    public StoryClueImage objectToDestroy2;
+    private GameObject storyClueUI;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        storyClueUI = GameObject.FindGameObjectWithTag("StoryClueUI");
         player = GameObject.FindGameObjectWithTag("Player");
         firstPersonController = player.GetComponent<FirstPersonController>();
         playerController = player.GetComponent<PlayerController>();
@@ -50,14 +57,22 @@ public class StealthKillBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (!firstPersonController.isHiding && other.name == "Player") {
+            foreach (Transform child in storyClueUI.transform)
+            {
+               Destroy(child.gameObject);
+            }
+            
             StartDialogue();
+            
 
         }
     }
 
     private void StartDialogue()
     {
+        leaderLookingToKill.GetComponentInChildren<BoxCollider>().enabled = false;
         leaderLookingToKill.AI.Activity = EActivity.TALKING;
         leaderLookingToKill.enabled = false;
         firstPersonController.DisableInput();
@@ -67,6 +82,7 @@ public class StealthKillBox : MonoBehaviour
         leaderLookingToKill.anim.SetBool("isWalking", false);
         leaderLookingToKill.RotateTowardsDestination(transform);
         float tweenDuration = playerController.CameraLookAtTweenDuration;
+     
         
         // Important to rotate them both
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);
