@@ -76,4 +76,9 @@ public class NoiseManager : MonoBehaviour
     }
     public float CurrentGlobalNoiseLevel => currentGlobalNoiseLevel;
 
+    public void TriggerNPCs()
+    {
+        currentGlobalNoiseLevel = (maxValue + 1);
+        IncreaseGlobalNoise();
+    }
 }
