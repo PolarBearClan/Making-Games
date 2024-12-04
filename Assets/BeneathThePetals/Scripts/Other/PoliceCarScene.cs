@@ -77,7 +77,7 @@ public class PoliceCarScene : MonoBehaviour, IInteractable
     }
     public string GetActionType()
     {
-        return " ";
+        return "Press";
     }
 
 }

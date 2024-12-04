@@ -17,7 +17,6 @@ public class CultistOutsideRun : MonoBehaviour
     [SerializeField] private Volume globalVolumeBase;
 
     private GameObject player;
-    private Animator anim;
     private PauseMenu pauseMenu;
     private PlayerController playerController;
     private NavMeshAgent navMeshAgent;
@@ -30,17 +29,7 @@ public class CultistOutsideRun : MonoBehaviour
         pauseMenu = FindAnyObjectByType<PauseMenu>();
         if (isRunning) SetupNavMeshAgent();
 
-        anim = GetComponentInChildren<Animator>();
-        if (anim != null)
-        {
-            RandomizeAnimation();
-        }
-        if(!isRunning)
-        {
-            anim.SetBool("isWalking", false);
-        }
-        else
-            anim.SetBool("isWalking", true);
+        RandomizeAnimation();
     }
 
     private void SetupNavMeshAgent()
@@ -76,8 +65,15 @@ public class CultistOutsideRun : MonoBehaviour
     
     private void RandomizeAnimation()
     {
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        anim.Play(stateInfo.fullPathHash, -1, Random.Range(0f, 1f));
+        Animation anim = GetComponentInChildren<Animation>();
+
+        if (anim != null && anim.clip != null)
+        {
+            anim[anim.clip.name].time = Random.Range(0f, anim.clip.length);
+
+            anim.Sample();
+            anim.Play();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

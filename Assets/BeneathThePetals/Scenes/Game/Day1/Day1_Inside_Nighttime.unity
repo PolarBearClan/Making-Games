@@ -16880,11 +16880,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3935396574283352871, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
---- !u!1 &1471039981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8394669529811350344, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-  m_PrefabInstance: {fileID: 8765489994903951804}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1473064964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18257,6 +18252,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6496085628517407429, guid: 672b4efe0a6b69842a9bcff8fa6c8126, type: 3}
   m_PrefabInstance: {fileID: 1639188116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1645566061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3154484951303063989, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 8765489994903951804}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1650352922
 PrefabInstance:
@@ -24451,14 +24451,14 @@ PrefabInstance:
     - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: dialogueBox
       value: 
-      objectReference: {fileID: 1471039981}
+      objectReference: {fileID: 1645566061}
     - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: cameraTweenDuration
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: interactionDistance
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3446591339369498453, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_RenderPostProcessing

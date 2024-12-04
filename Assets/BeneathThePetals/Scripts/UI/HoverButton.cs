@@ -47,7 +47,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //
+        HideHoverEffects();
     }
 
     public void OnSelect(BaseEventData eventData)

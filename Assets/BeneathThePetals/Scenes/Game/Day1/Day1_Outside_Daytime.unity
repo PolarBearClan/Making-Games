@@ -407,7 +407,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 488462761}
   - {fileID: 551808839}
   - {fileID: 292331294}
   - {fileID: 1795728864}
@@ -2742,7 +2741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointToFace: {fileID: 1566941796}
   mainDialogue:
-  - mainText: I should not anger leader vargas.
+  - mainText: I bet those keys are in Leader Valgaris' room.
     isQuestion: 0
     option1Text: 
     option1FollowUp: 
@@ -3510,6 +3509,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 25385779}
     m_Modifications:
+    - target: {fileID: 4048420157260517881, guid: 89f948d3926cecf4bb3064bedd9ea9d3, type: 3}
+      propertyPath: mainDialogue.Array.data[0].mainText
+      value: I am so glad you are here. You are playing a very important role.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048420157260517881, guid: 89f948d3926cecf4bb3064bedd9ea9d3, type: 3}
+      propertyPath: mainDialogue.Array.data[0].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048420157260517881, guid: 89f948d3926cecf4bb3064bedd9ea9d3, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048420157260517881, guid: 89f948d3926cecf4bb3064bedd9ea9d3, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048420157260517881, guid: 89f948d3926cecf4bb3064bedd9ea9d3, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048420157260517881, guid: 89f948d3926cecf4bb3064bedd9ea9d3, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2FollowUp
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7090640221751234016, guid: 89f948d3926cecf4bb3064bedd9ea9d3, type: 3}
       propertyPath: m_Name
       value: Woman1_Idle
@@ -6725,68 +6748,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4253784664826151652, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
   m_PrefabInstance: {fileID: 7250787080284673697}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &488462760
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 25385779}
-    m_Modifications:
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -27.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.86875844
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.49523613
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -59.371
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7864733354278607293, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-      propertyPath: m_Name
-      value: Man1_Idle
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
---- !u!4 &488462761 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7381107308702532359, guid: d7678b1ef262eab449c3ea06b7dcef4c, type: 3}
-  m_PrefabInstance: {fileID: 488462760}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &488608824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7861,11 +7822,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: quest.description
-      value: Pick 5 flower bundles
+      value: Pick flower bundles
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: quest.notificationText
-      value: Nice! Gotta go to Hjalmar now.
+      value: I should head back to Hjalmar now and let him know I've finished collecting
+        the flowers.
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.size
@@ -7898,14 +7860,14 @@ PrefabInstance:
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[0].mainText
       value: Ah good morning! Today we are preparing for the upcoming festival by
-        decorating the festival grounds with flowers, and we would all love for you
-        to be a part of it.
+        decorating the festival grounds with flowers, and we would all love you to
+        be a part of it.
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[1].mainText
-      value: You will find beautiful, pink flowers all over the farm. Oh, don't go
-        through the gate to the forest looking for flowers. It is so easy to get
-        lost in the forest.
+      value: Pick 5 bundles of flowers. You will find beautiful pink flowers all
+        over the farm. Oh, don't go through the gate to the forest looking for flowers.
+        It is so easy to get lost in the forest.
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: mainDialogue.Array.data[2].mainText
@@ -7958,19 +7920,12 @@ PrefabInstance:
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: quest.dialogueAfterQuestCompleted.Array.data[0].mainText
       value: These flowers are beautiful and will adorn the festival grounds. Well
-        done!
+        done! You can go rest now.
       objectReference: {fileID: 0}
     - target: {fileID: 4959272005748905065, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: quest.dialogueAfterQuestCompleted.Array.data[1].mainText
-      value: 'By
-
-        the way, I just heard that Astrid won''t be back until
-        tomorrow, but she is very
-
-        happy to hear you are here, and she is
-        looking so much forward to see you at
-
-        the festival tomorrow.'
+      value: By the way, I just heard that Astrid won't be back until tomorrow. She
+        is looking so much forward to seeing you soon.
       objectReference: {fileID: 0}
     - target: {fileID: 6361645030067534319, guid: 8bb5c15fa69e06c42a0179fbf73c86d7, type: 3}
       propertyPath: m_Avatar
@@ -9590,6 +9545,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
+      propertyPath: timeToLoad
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
       propertyPath: fadeToBlack
       value: 
       objectReference: {fileID: 1515621986}
@@ -9600,6 +9559,18 @@ PrefabInstance:
     - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
       propertyPath: sceneToChangeTo
       value: Day1_Inside_Nighttime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
+      propertyPath: notificationText
+      value: I need to finish the quest first.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
+      propertyPath: unlockRequirement
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
+      propertyPath: notificationDuration
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21473,7 +21444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2347605642834828859, guid: 7cf570c20dfc0bd469a9f97b8a2c2def, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2362018722572809244, guid: 7cf570c20dfc0bd469a9f97b8a2c2def, type: 3}
       propertyPath: m_LocalScale.x
@@ -33138,6 +33109,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Man6_Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 7343167820959920613, guid: 2dca4b157ec850b4eac67cccf19c84e6, type: 3}
+      propertyPath: facePlayerOnInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343167820959920613, guid: 2dca4b157ec850b4eac67cccf19c84e6, type: 3}
+      propertyPath: mainDialogue.Array.data[0].mainText
+      value: "I am sure you will love the festival. It\u2019s a once-in-a-lifetime
+        experience."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343167820959920613, guid: 2dca4b157ec850b4eac67cccf19c84e6, type: 3}
+      propertyPath: mainDialogue.Array.data[0].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343167820959920613, guid: 2dca4b157ec850b4eac67cccf19c84e6, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343167820959920613, guid: 2dca4b157ec850b4eac67cccf19c84e6, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343167820959920613, guid: 2dca4b157ec850b4eac67cccf19c84e6, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343167820959920613, guid: 2dca4b157ec850b4eac67cccf19c84e6, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2FollowUp
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33194,6 +33194,30 @@ PrefabInstance:
     - target: {fileID: 2039711434589521550, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
       propertyPath: m_Name
       value: Man3_Walking
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
+      propertyPath: mainDialogue.Array.data[0].mainText
+      value: Astrid has told me so much about you. I feel like I know you already.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
+      propertyPath: mainDialogue.Array.data[0].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2FollowUp
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
       propertyPath: 'walkPoints.Array.data[0]'
@@ -33284,6 +33308,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Man5_Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
+      propertyPath: mainDialogue.Array.data[0].mainText
+      value: Astrid has told me so much about you. I feel like I know you already.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
+      propertyPath: mainDialogue.Array.data[0].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2FollowUp
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33321,6 +33369,30 @@ PrefabInstance:
       propertyPath: 'walkPoints.Array.data[5]'
       value: 
       objectReference: {fileID: 876122109}
+    - target: {fileID: 5145772195290835713, guid: c7645272fc99fa44d8954d21fd4180e8, type: 3}
+      propertyPath: mainDialogue.Array.data[0].mainText
+      value: I am so glad you are here. You are playing a very important role.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145772195290835713, guid: c7645272fc99fa44d8954d21fd4180e8, type: 3}
+      propertyPath: mainDialogue.Array.data[0].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145772195290835713, guid: c7645272fc99fa44d8954d21fd4180e8, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145772195290835713, guid: c7645272fc99fa44d8954d21fd4180e8, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145772195290835713, guid: c7645272fc99fa44d8954d21fd4180e8, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145772195290835713, guid: c7645272fc99fa44d8954d21fd4180e8, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2FollowUp
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7371917253970772592, guid: c7645272fc99fa44d8954d21fd4180e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.880005
@@ -33378,6 +33450,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 25385779}
     m_Modifications:
+    - target: {fileID: 2909858830113488845, guid: 41e936e78f43ff94d8e6b1fdb5e07253, type: 3}
+      propertyPath: mainDialogue.Array.data[0].mainText
+      value: I am so glad you are here. You are playing a very important role.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909858830113488845, guid: 41e936e78f43ff94d8e6b1fdb5e07253, type: 3}
+      propertyPath: mainDialogue.Array.data[0].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909858830113488845, guid: 41e936e78f43ff94d8e6b1fdb5e07253, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909858830113488845, guid: 41e936e78f43ff94d8e6b1fdb5e07253, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909858830113488845, guid: 41e936e78f43ff94d8e6b1fdb5e07253, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909858830113488845, guid: 41e936e78f43ff94d8e6b1fdb5e07253, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2FollowUp
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6620470815241389992, guid: 41e936e78f43ff94d8e6b1fdb5e07253, type: 3}
       propertyPath: 'walkPoints.Array.data[0]'
       value: 
@@ -33555,6 +33651,34 @@ PrefabInstance:
     - target: {fileID: 3214140011562553416, guid: 986300e853dce364ebb8c6f2162d4e7a, type: 3}
       propertyPath: m_Name
       value: Man4_Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149092762755622964, guid: 986300e853dce364ebb8c6f2162d4e7a, type: 3}
+      propertyPath: facePlayerOnInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149092762755622964, guid: 986300e853dce364ebb8c6f2162d4e7a, type: 3}
+      propertyPath: mainDialogue.Array.data[0].mainText
+      value: Here on this land, you are never alone. We are one big family.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149092762755622964, guid: 986300e853dce364ebb8c6f2162d4e7a, type: 3}
+      propertyPath: mainDialogue.Array.data[0].isQuestion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149092762755622964, guid: 986300e853dce364ebb8c6f2162d4e7a, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149092762755622964, guid: 986300e853dce364ebb8c6f2162d4e7a, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149092762755622964, guid: 986300e853dce364ebb8c6f2162d4e7a, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option1FollowUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149092762755622964, guid: 986300e853dce364ebb8c6f2162d4e7a, type: 3}
+      propertyPath: mainDialogue.Array.data[0].option2FollowUp
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject inventoryUIGameObject;
     [SerializeField] private TMP_Text itemName;
     [SerializeField] private TMP_Text itemInfo;
+    [SerializeField] private GameObject textPanel;
 
     private void Awake()
     {
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
     {
         var inventoryRoom = FindAnyObjectByType<InventoryUI>();
         if (inventoryRoom != null)
-            inventoryRoom.LoadGameObjects(GetCamera(), uiGameObject, inventoryUIGameObject, itemName, itemInfo);
+            inventoryRoom.LoadGameObjects(GetCamera(), uiGameObject, inventoryUIGameObject, itemName, itemInfo, textPanel);
 
         // Load inventory
         var inventoryManager = FindAnyObjectByType<InventoryManager>();

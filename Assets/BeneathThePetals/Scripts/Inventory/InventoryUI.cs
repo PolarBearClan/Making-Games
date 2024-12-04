@@ -15,6 +15,7 @@ public class InventoryUI : MonoBehaviour
     //[Header("Text UI")]
     private TMP_Text itemName;
     private TMP_Text itemInfo;
+    private GameObject textPanel;
 
     [Header("Inventory Settings")]
     [SerializeField] private Transform pivot;
@@ -53,11 +54,11 @@ public class InventoryUI : MonoBehaviour
             ToggleCamera();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isRotating)
+        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && !isRotating)
         {
             StartCoroutine(RotateInventory(-1)); // Move to the right in the circle
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isRotating)
+        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && !isRotating)
         {
             StartCoroutine(RotateInventory(1)); // Move to the left in the circle
         }
@@ -162,6 +163,7 @@ public class InventoryUI : MonoBehaviour
                 if (itemModel.GetComponent<StoryClueInfo>().ReturnName() == itemName)
                 {
                     Destroy(objects[i]);
+                    defaultRotations[i] = itemModel.transform.rotation;
                     objects[i] = Instantiate(itemModel, positions[i], defaultRotations[i], pivot.parent);
                     break;
                 }
@@ -183,16 +185,21 @@ public class InventoryUI : MonoBehaviour
     {
         itemName.enabled = show;
         itemInfo.enabled = show;
+        if (itemName.text == "None")
+            textPanel.SetActive(false);
+        else
+            textPanel.SetActive(true);
     }
 
     public void LoadGameObjects(Transform playerCamera, GameObject uiGameObject, GameObject inventoryUIGameObject,
-        TMP_Text itemTextName, TMP_Text itemTextInfo)
+        TMP_Text itemTextName, TMP_Text itemTextInfo, GameObject textPanelImage)
     {
         mainCamera = playerCamera.GetComponent<Camera>();
         MainUIObj = uiGameObject;
         InventoryUIObj = inventoryUIGameObject;
         itemName = itemTextName;
         itemInfo = itemTextInfo;
+        textPanel = textPanelImage;
 
         InventoryUIObj.SetActive(false);
     }

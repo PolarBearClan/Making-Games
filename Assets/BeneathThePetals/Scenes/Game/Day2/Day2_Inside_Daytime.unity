@@ -8798,6 +8798,10 @@ PrefabInstance:
       value: Inside_Building 1
       objectReference: {fileID: 0}
     - target: {fileID: 7125699114866944766, guid: 5a2234b51621bb64898ad9abec3b5eb5, type: 3}
+      propertyPath: timeToLoad
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125699114866944766, guid: 5a2234b51621bb64898ad9abec3b5eb5, type: 3}
       propertyPath: fadeToBlack
       value: 
       objectReference: {fileID: 1931450605}
@@ -16675,11 +16679,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3935396574283352871, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
---- !u!1 &1471039981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8394669529811350344, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-  m_PrefabInstance: {fileID: 8765489994903951804}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1473064964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18155,23 +18154,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: quest.description
-      value: Bring festival clothes
+      value: Bring traditional robes
       objectReference: {fileID: 0}
     - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: quest.notificationText
-      value: Nice! Now I can go outside.
+      value: I should let Olga know I've found the robes.
       objectReference: {fileID: 0}
     - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: quest.notificationDuration
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: mainDialogue.Array.data[0].mainText
-      value: 'Hello sweetheart! I am so forgetful. I have forgotten the festival
-        robes for
-
-        tomorrow somewhere in the house. Will you help me find
-        them, love?'
+      value: "Hello sweetheart! I am so forgetful. I have left the traditional robes
+        for tomorrow\u2019s festival somewhere in the house. Will you help me find
+        them?"
       objectReference: {fileID: 0}
     - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: dialogueAfterQuestAssigned.Array.size
@@ -18207,7 +18204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: quest.dialogueAfterQuestCompleted.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: dialogueAfterQuestAssigned.Array.data[0].mainText
@@ -18215,10 +18212,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: quest.dialogueAfterQuestCompleted.Array.data[0].mainText
-      value: 'Thank you, love! You have been a great help. I see why Astrid brought
-        you
-
-        here.'
+      value: Thank you, sweetheart! You have been a great help. I see why Astrid
+        brought you here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052893858572193829, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
+      propertyPath: quest.dialogueAfterQuestCompleted.Array.data[1].mainText
+      value: I think Hjalmer could use some help with the firewood outside. You should
+        go and talk to him.
       objectReference: {fileID: 0}
     - target: {fileID: 3477810468503410782, guid: ed5cc1cdcabf4054793752c62c44f506, type: 3}
       propertyPath: m_Name
@@ -24467,26 +24467,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 1471039981}
-    - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: cameraTweenDuration
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: interactionDistance
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3446591339369498453, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864850019384737, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_Radius
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 133.293
@@ -24527,25 +24507,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: unlimitedSprint
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864851310106426, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: near clip plane
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037497076042440347, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_fontSize
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037497076042440347, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

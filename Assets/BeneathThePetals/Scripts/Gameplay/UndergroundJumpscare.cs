@@ -143,7 +143,7 @@ public class UndergroundJumpscare : Jumpscare
         playDeathSound();
 
         float moveDuration = 2f;
-        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y - 1.3f, transform.position.z);
+        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z);
         transform.DOMove(targetPosition, moveDuration).SetEase(Ease.OutCubic);
 
         firstPersonController.EnableInput();
