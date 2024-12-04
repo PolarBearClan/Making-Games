@@ -4,7 +4,6 @@ public class AnimationTrigger : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField] private NPCBaseController npcBaseController;
-    [SerializeField] private FirstDayQuest firstDayQuest;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,8 +25,6 @@ public class AnimationTrigger : MonoBehaviour
                 anim.SetTrigger("Open");
             if (npcBaseController != null)
                 npcBaseController.Interact();
-            if (firstDayQuest != null)
-                firstDayQuest.Interact();
             transform.gameObject.SetActive(false);
         }
     }
