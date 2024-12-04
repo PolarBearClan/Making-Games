@@ -25,6 +25,10 @@ public class CarFinalInteractable : MonoBehaviour, IInteractable
 
     public virtual string GetName() => itemName;
     public virtual string GetActionName() => actionName;
+    public string GetActionType()
+    {
+        return " ";
+    }
 
     public void Interact()
     {
