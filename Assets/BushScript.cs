@@ -9,7 +9,8 @@ public class BushScript : MonoBehaviour
     {
         if (collider.gameObject.name == "Player" && collider.gameObject.GetComponent<FirstPersonController>().isCrouched)
         {
-            collider.gameObject.GetComponent<FirstPersonController>().isHiding = true; 
+            collider.gameObject.GetComponent<FirstPersonController>().isHiding = true;
+            collider.gameObject.GetComponentInChildren<PauseMenu>().ShowBushVignette(true);
         } 
     }
 
@@ -19,6 +20,7 @@ public class BushScript : MonoBehaviour
         if (collider.gameObject.name == "Player" && collider.gameObject.GetComponent<FirstPersonController>().isCrouched)
         {
             collider.gameObject.GetComponent<FirstPersonController>().isHiding = true;
+            collider.gameObject.GetComponentInChildren<PauseMenu>().ShowBushVignette(true);
         }
         else if (collider.gameObject.name == "Player" && !collider.gameObject.GetComponent<FirstPersonController>().isCrouched) 
         { 
@@ -32,7 +34,8 @@ public class BushScript : MonoBehaviour
     { 
         if (collider.gameObject.name == "Player")
         {
-            collider.gameObject.GetComponent<FirstPersonController>().isHiding = false; 
+            collider.gameObject.GetComponent<FirstPersonController>().isHiding = false;
+            collider.gameObject.GetComponentInChildren<PauseMenu>().ShowBushVignette(false);
         } 
     
     }
