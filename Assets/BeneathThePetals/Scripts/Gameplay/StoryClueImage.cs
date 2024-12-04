@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using FMOD.Studio;
 using FMODUnity;
 using System.Collections;
+using Febucci.UI;
+using Febucci.UI.Core;
 
 public class StoryClueImage : MonoBehaviour, IInteractable
 {
@@ -26,6 +28,7 @@ public class StoryClueImage : MonoBehaviour, IInteractable
 
     private PlayerController playerController;
     private FirstPersonController firstPersonController;
+    private TypewriterCore typewriterCore;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,6 +50,8 @@ public class StoryClueImage : MonoBehaviour, IInteractable
             {
                 child.gameObject.SetActive(false);
             }
+
+            typewriterCore = monologueTextArea2.transform.GetComponent<TypewriterCore>();
         }
     }
 
@@ -64,6 +69,10 @@ public class StoryClueImage : MonoBehaviour, IInteractable
                 isInteracting = false;
                 playerController.EnableInput();
                 firstPersonController.EnableInput();
+            }
+            if(storyclueUI.activeSelf && isLongTextClue && Input.GetKeyDown(KeyCode.Space))
+            {
+                typewriterCore.SkipTypewriter();
             }
         }
     }
@@ -99,7 +108,7 @@ public class StoryClueImage : MonoBehaviour, IInteractable
             {
                 Transform child = storyclueUI.transform.GetChild(i);
 
-                if (isLongTextClue && i >= 5)
+                if (isLongTextClue && i >= 4)
                     child.gameObject.SetActive(true);
                 else if (!isLongTextClue && i < 5)
                     child.gameObject.SetActive(true);

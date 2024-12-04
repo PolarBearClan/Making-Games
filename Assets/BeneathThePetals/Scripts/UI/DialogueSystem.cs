@@ -37,7 +37,7 @@ public class DialogueSystem : MonoBehaviour
         mainText = mainTextGameObject.GetComponent<TMPro.TMP_Text>();
         button1Text = buttonChoice1.GetComponentInChildren<TMPro.TMP_Text>();
         button2Text = buttonChoice2.GetComponentInChildren<TMPro.TMP_Text>();
-        typewriter = GetComponent<TypewriterCore>();
+        typewriter = GetComponentInChildren<TypewriterCore>();
         
         navigateAction = GetComponent<PlayerInput>().actions["navigate"];
     }
@@ -51,6 +51,11 @@ public class DialogueSystem : MonoBehaviour
     void Update()
     {
         CheckForInput();
+
+        if(Input.GetKeyDown(KeyCode.Space) && mainTextGameObject.activeSelf)
+        {
+            typewriter.SkipTypewriter();
+        }
     }
 
     private void CheckForInput()

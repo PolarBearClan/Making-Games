@@ -39,7 +39,7 @@ public class ScreenNoteManager : MonoBehaviour
         continueButton.SetActive(false);
         gameObject.SetActive(true);
 
-        mainText.text = string.Empty;
+        mainText.SetText(string.Empty);
         mainText.text = notificationText;
         
         gameObject.GetComponent<CanvasGroup>().alpha = 0;

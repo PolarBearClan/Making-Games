@@ -22,12 +22,12 @@ public class AISound : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        soundToPlayCarpet = EventReference.Find("event:/World/NPCWalk/CarpetFootstep3D");
-        soundToPlayDirt = EventReference.Find("event:/World/NPCWalk/DirtFootstep3D");
-        soundToPlayWoodInside = EventReference.Find("event:/World/NPCWalk/WoodFootstep3D");
-        soundToPlayWoodOutside = EventReference.Find("event:/World/NPCWalk/WoodOutside3D");
-        soundToPlayStairs = EventReference.Find("event:/World/NPCWalk/StairFootstep3D");
-        soundToPlayGrass = EventReference.Find("event:/World/NPCWalk/GrassFootstep3D");
+        soundToPlayCarpet = FMODUnity.RuntimeManager.PathToEventReference("event:/World/NPCWalk/CarpetFootstep3D");
+        soundToPlayDirt = FMODUnity.RuntimeManager.PathToEventReference("event:/World/NPCWalk/DirtFootstep3D");
+        soundToPlayWoodInside = FMODUnity.RuntimeManager.PathToEventReference("event:/World/NPCWalk/WoodFootstep3D");
+        soundToPlayWoodOutside = FMODUnity.RuntimeManager.PathToEventReference("event:/World/NPCWalk/WoodOutside3D");
+        soundToPlayStairs = FMODUnity.RuntimeManager.PathToEventReference("event:/World/NPCWalk/StairFootstep3D");
+        soundToPlayGrass = FMODUnity.RuntimeManager.PathToEventReference("event:/World/NPCWalk/GrassFootstep3D");
     }
 
     // Update is called once per frame
