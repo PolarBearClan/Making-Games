@@ -129,6 +129,7 @@ public class LookScriptInsideDay1 : MonoBehaviour, ITalkable
 
         firstPersonController.EnableInput(true);
         triggerToEnable.SetActive(true);
+        Destroy(gameObject);
 
     }
 
