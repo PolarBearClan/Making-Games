@@ -50,17 +50,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform carryParent1;
     [SerializeField] private Transform carryParent2;
 
+    /*
     [Space] [Header("Inventory related")]
     [SerializeField] private GameObject uiGameObject;
     [SerializeField] private GameObject inventoryUIGameObject;
     [SerializeField] private TMP_Text itemName;
     [SerializeField] private TMP_Text itemInfo;
     [SerializeField] private GameObject textPanel;
-
+    */
+    
     private void Awake()
     {
         playerInput = new PlayerInputActions();
-        InitInventoryObject();
     }
 
     private void OnEnable()
@@ -88,18 +89,23 @@ public class PlayerController : MonoBehaviour
             GetComponent<FirstPersonController>().EnableInput();
         };
         cameraTransform = GetCamera().transform;
+        
+        InitInventoryObject();
     }
 
     private void InitInventoryObject()
     {
-        var inventoryRoom = FindAnyObjectByType<InventoryUI>();
-        if (inventoryRoom != null)
-            inventoryRoom.LoadGameObjects(GetCamera(), uiGameObject, inventoryUIGameObject, itemName, itemInfo, textPanel);
-
         // Load inventory
         var inventoryManager = FindAnyObjectByType<InventoryManager>();
         if (inventoryManager != null)
-            inventory = FindAnyObjectByType<InventoryManager>().inventoryItems;
+        {
+            inventory = inventoryManager.inventoryItems;
+            print("Inventory loaded successfully");
+        }
+        else
+        {
+            UnityEngine.Debug.LogError("Inventory Manager not found! Could not load inventory!");
+        }
     }
 
     // Update is called once per frame

@@ -1744,7 +1744,6 @@ MonoBehaviour:
       Data3: -74340454
       Data4: 829775408
     Path: event:/World/QuestItems/FlowerPickUp
-  itemType: 0
 --- !u!65 &140698874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4239,7 +4238,6 @@ MonoBehaviour:
       Data3: -74340454
       Data4: 829775408
     Path: event:/World/QuestItems/FlowerPickUp
-  itemType: 0
 --- !u!65 &338785982
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8476,7 +8474,6 @@ MonoBehaviour:
       Data3: -74340454
       Data4: 829775408
     Path: event:/World/QuestItems/FlowerPickUp
-  itemType: 0
 --- !u!65 &566278539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13434,6 +13431,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8765489994903951808}
     - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: textPanel
+      value: 
+      objectReference: {fileID: 1538798550}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 8765489994903951809}
@@ -13812,7 +13813,6 @@ MonoBehaviour:
       Data3: -74340454
       Data4: 829775408
     Path: event:/World/QuestItems/FlowerPickUp
-  itemType: 0
 --- !u!65 &911215601
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15962,7 +15962,6 @@ MonoBehaviour:
       Data3: -74340454
       Data4: 829775408
     Path: event:/World/QuestItems/FlowerPickUp
-  itemType: 0
 --- !u!65 &1054576551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16372,7 +16371,6 @@ MonoBehaviour:
       Data3: -74340454
       Data4: 829775408
     Path: event:/World/QuestItems/FlowerPickUp
-  itemType: 0
 --- !u!65 &1097585153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22974,6 +22972,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 17.643797, y: 33.86, z: 1.2690015}
   m_Center: {x: -8.187522, y: 16.99, z: 0.00012268435}
+--- !u!1 &1538798550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5955205708251837863, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 8765489994903951804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1546669295
 GameObject:
   m_ObjectHideFlags: 0
@@ -26174,7 +26177,6 @@ MonoBehaviour:
       Data3: -74340454
       Data4: 829775408
     Path: event:/World/QuestItems/FlowerPickUp
-  itemType: 0
 --- !u!65 &1707300058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30965,7 +30967,6 @@ MonoBehaviour:
       Data3: -74340454
       Data4: 829775408
     Path: event:/World/QuestItems/FlowerPickUp
-  itemType: 0
 --- !u!65 &1982332135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33801,8 +33802,8 @@ SceneRoots:
   - {fileID: 841781652}
   - {fileID: 1211980493}
   - {fileID: 262441145}
-  - {fileID: 895441568}
   - {fileID: 285085931}
   - {fileID: 738639392}
   - {fileID: 151933393}
   - {fileID: 1216195174}
+  - {fileID: 895441568}
