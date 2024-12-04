@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using FMOD.Studio;
 using FMODUnity;
@@ -13,6 +14,11 @@ public class CarFinalInteractable : MonoBehaviour, IInteractable
 
     void Start()
     {
+    }
+
+    public string GetActionType()
+    {
+        return "";
     }
 
     public void Activate()
