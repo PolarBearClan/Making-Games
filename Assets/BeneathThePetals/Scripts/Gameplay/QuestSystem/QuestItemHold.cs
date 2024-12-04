@@ -6,6 +6,7 @@ public class QuestItemHold : QuestItemBase
 {
     [Tooltip("Time in seconds")]
     [SerializeField] private float targetHoldTime;
+    [SerializeField] private bool isClothes = true;
     
     private bool holdingKey = false;
     private float holdingTime;
@@ -40,8 +41,14 @@ public class QuestItemHold : QuestItemBase
             UpdateUI();
             
             firstPersonController.EnableInput();
-                
-            Destroy(gameObject);
+            
+            if(isClothes)
+                Destroy(gameObject);
+            else if(GetComponentInChildren<ParticleSystem>() != null)
+            {
+                GetComponentInChildren<ParticleSystem>().Play();
+                ItemCompleted();
+            }
         }
         UpdateUI();
     }
@@ -76,5 +83,11 @@ public class QuestItemHold : QuestItemBase
     public override string GetActionType()
     {
         return "Hold";
+    }
+
+    private void ItemCompleted()
+    {
+        GetComponent<Collider>().enabled = false;
+        GetComponentInChildren<InteractableLight>().transform.gameObject.SetActive(false);
     }
 }

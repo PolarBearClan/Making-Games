@@ -10,7 +10,8 @@ public class SceneChange : MonoBehaviour, IInteractable
     [Header("Scene variables")]
     [SerializeField] private string sceneToChangeTo;
     [SerializeField] private string objectToSpawnAt;
-    [SerializeField] private float timeToLoad = 1;
+    [SerializeField] private float timeToLoad = 1f;
+    [SerializeField] private float fadeInSpeed = 1f;
     [SerializeField] private string actionName;
     [SerializeField] private GameObject fadeToBlack;
     [SerializeField] private GameObject globalUiObject;
@@ -103,7 +104,7 @@ public class SceneChange : MonoBehaviour, IInteractable
     {
 
         if (fadeToBlack.GetComponent<Image>().color.a >= 1) {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(fadeInSpeed);
             SceneManager.LoadScene("LoadingScreen");
         }
 
