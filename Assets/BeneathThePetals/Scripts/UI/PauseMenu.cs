@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     private GameObject killMenu;
     private GameObject restartMenu;
     private GameObject settingsMenu;
+    private GameObject bushVignette;
     private InventoryUI inventoryUI;
     private PlayerController playerController;
 
@@ -24,6 +25,7 @@ public class PauseMenu : MonoBehaviour
         killMenu = GameObject.Find("KillMenu");
         restartMenu = GameObject.Find("RestartMenu");
         settingsMenu = GameObject.Find("SettingsMenu");
+        bushVignette = GameObject.Find("BushVignette");
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
@@ -34,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         SetActiveIfNotNull(ref killMenu, false);
         SetActiveIfNotNull(ref restartMenu, false);
         SetActiveIfNotNull(ref settingsMenu, false);
+        SetActiveIfNotNull(ref bushVignette, false);
 
         inventoryUI = GameObject.FindAnyObjectByType<InventoryUI>();
     }
@@ -106,6 +109,11 @@ public class PauseMenu : MonoBehaviour
         SetActiveIfNotNull(ref restartMenu, true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void ShowBushVignette(bool setActive)
+    {
+        bushVignette.SetActive(setActive);
     }
 
     public void SetKillTransition(bool setBool)
