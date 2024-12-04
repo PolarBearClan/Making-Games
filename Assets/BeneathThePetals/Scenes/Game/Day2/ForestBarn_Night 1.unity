@@ -9268,14 +9268,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemRequired: 0
-  itemName: 
-  sceneToChangeTo: Final_Outside_Nighttime
-  objectToSpawnAt: Fence5
-  timeToLoad: 1
+  sceneToChangeTo: Final_Inside_Nighttime
+  objectToSpawnAt: 
+  timeToLoad: 2
+  fadeInSpeed: 1
   actionName: Go back to Village
   fadeToBlack: {fileID: 382257283}
   globalUiObject: {fileID: 134067155}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: 1286327692
@@ -9894,14 +9897,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemRequired: 0
-  itemName: 
   sceneToChangeTo: Underground_Final
   objectToSpawnAt: 
   timeToLoad: 1
+  fadeInSpeed: 1
   actionName: Open Hatch Doors
   fadeToBlack: {fileID: 382257283}
   globalUiObject: {fileID: 134067155}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: 512469858

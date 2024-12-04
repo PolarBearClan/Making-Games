@@ -3116,6 +3116,130 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3935396574283352871, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
+--- !u!1 &218618545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218618550}
+  - component: {fileID: 218618549}
+  - component: {fileID: 218618548}
+  - component: {fileID: 218618547}
+  - component: {fileID: 218618546}
+  m_Layer: 0
+  m_Name: NPCQuestTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &218618546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218618545}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.61, y: 1.94, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &218618547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218618545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863ff50a261030748a2b59c163348a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  npcBaseController: {fileID: 0}
+  firstDayQuest: {fileID: 863235060}
+--- !u!23 &218618548
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218618545}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0ac9aba1beafeb24997cc30de6fbd9bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &218618549
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218618545}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &218618550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218618545}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 137.964, y: 5.969, z: 251.037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &239392575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3821,6 +3945,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9000000, guid: d7519d2a8b8540c44b4531a52d8cf878, type: 3}
     - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       propertyPath: quest.goalAmount
       value: 4
       objectReference: {fileID: 0}
@@ -3834,7 +3962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       propertyPath: mainDialogue.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       propertyPath: quest.notificationDuration
@@ -3842,13 +3970,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       propertyPath: mainDialogue.Array.data[0].mainText
-      value: Hello sweetheart! Please, put these clothes on. You're finally one of
-        us!
+      value: 'It is tradition that we light all the incense in the house the days
+        before the festival. The light gives us hope and guides us through darkness. '
       objectReference: {fileID: 0}
     - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       propertyPath: mainDialogue.Array.data[1].mainText
-      value: 'It is tradition that we light all the incense in the house the days
-        before the festival. The light gives us hope and guides us through darkness. '
+      value: Will you help me light the incense around the house?
       objectReference: {fileID: 0}
     - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       propertyPath: mainDialogue.Array.data[2].mainText
@@ -3868,7 +3995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       propertyPath: mainDialogue.Array.data[1].givesQuest
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6199225850213015080, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       propertyPath: mainDialogue.Array.data[2].givesQuest
@@ -3922,8 +4049,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 891318463674443909, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1275191786}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 510395251886633535, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 863235060}
   m_SourcePrefab: {fileID: 100100000, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
+--- !u!4 &312144204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2059437605149796083, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
+  m_PrefabInstance: {fileID: 312144202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &312144205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 510395251886633535, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
+  m_PrefabInstance: {fileID: 312144202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &322458554
 GameObject:
   m_ObjectHideFlags: 0
@@ -10517,6 +10657,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 891318463674443909, guid: d603f4e0cedde8349830ee5e77831251, type: 3}
   m_PrefabInstance: {fileID: 312144202}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &863235060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312144205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1082aaa08ad7f2b4aa26be0687db2204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Hedda
+  pointToFace: {fileID: 312144204}
+  facePlayerOnInteraction: 1
+  mainDialogue:
+  - mainText: Hello sweetheart! Please, put these clothes on. You're finally one
+      of us!
+    isQuestion: 0
+    option1Text: 
+    option1FollowUp: 
+    option2Text: 
+    option2FollowUp: 
+    givesQuest: 0
+  quest:
+    description: 
+    goalAmount: 0
+    dialogueAfterQuestCompleted: []
+    notificationAfterQuestCompleted: 0
+    notificationDuration: 0
+    notificationText: 
+  dialogueAfterQuestAssigned: []
+  fadeToBlack: {fileID: 8765489994903951805}
+  clothes: {fileID: 1279077644}
+  undergroundScareConvo: 0
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 465210419
+      Data2: 1255137336
+      Data3: -1606861691
+      Data4: -407813615
+    Path: event:/World/NPCDialougeReactions/Hedda
 --- !u!1001 &871257299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15149,6 +15331,11 @@ PrefabInstance:
 --- !u!4 &1275191786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 114d383e01a06e24b9c41c6a40c1dd08, type: 3}
+  m_PrefabInstance: {fileID: 1275191785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1279077644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 114d383e01a06e24b9c41c6a40c1dd08, type: 3}
   m_PrefabInstance: {fileID: 1275191785}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1279522619
@@ -23939,3 +24126,4 @@ SceneRoots:
   - {fileID: 1018832}
   - {fileID: 1468091785}
   - {fileID: 1771060560}
+  - {fileID: 218618550}
