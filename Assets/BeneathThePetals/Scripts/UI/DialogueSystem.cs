@@ -108,7 +108,7 @@ public class DialogueSystem : MonoBehaviour
         button2Text.text = dialogueNode.option2Text;
         buttonContinue.SetActive(!dialogueNode.isQuestion);
 
-        EventSystem.current.SetSelectedGameObject(null);
+        Invoke(dialogueNode.isQuestion ? nameof(SelectChoice1Button) : nameof(SelectContinueButton), 0.01f);
         
         currentDialogueNodeIdx = idx;
     }
@@ -122,6 +122,16 @@ public class DialogueSystem : MonoBehaviour
         buttonChoice2.SetActive(false);
         buttonContinue.SetActive(true);
         
-        EventSystem.current.SetSelectedGameObject(null);
+        Invoke(nameof(SelectContinueButton), 0.01f);
+    }
+
+    private void SelectContinueButton()
+    {
+        EventSystem.current.SetSelectedGameObject(buttonContinue);
+    }
+    
+    private void SelectChoice1Button()
+    {
+        EventSystem.current.SetSelectedGameObject(buttonChoice1);
     }
 }
