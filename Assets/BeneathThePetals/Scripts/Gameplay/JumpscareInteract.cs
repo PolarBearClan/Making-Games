@@ -46,9 +46,9 @@ public class JumpscareInteract : MonoBehaviour, IInteractable
 
     private void TriggerJumpscare()
     {
-        _player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         if (!_triggered)
         {
+            _player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             PlayInteractSound();
             _triggered = true;
             _playerController.DisableInput();
