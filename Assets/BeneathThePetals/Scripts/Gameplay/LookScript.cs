@@ -52,7 +52,7 @@ public class LookScript : MonoBehaviour, ITalkable
     private void StartDialogue()
     {
         firstPersonController.DisableInput();
-
+        firstPersonController.isWalking = false;
         float tweenDuration = playerController.CameraLookAtTweenDuration;
         firstPersonController.transform.localScale = new Vector3(firstPersonController.originalScale.x, firstPersonController.originalScale.y, firstPersonController.originalScale.z);
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;

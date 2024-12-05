@@ -8284,7 +8284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5202387557298965676, guid: 0c940362d0207fa429332051e71f0706, type: 3}
       propertyPath: notificationText
-      value: I need to find a light source.
+      value: I will need light when I get to the forest. I should take this lantern.
       objectReference: {fileID: 0}
     - target: {fileID: 5202387557298965676, guid: 0c940362d0207fa429332051e71f0706, type: 3}
       propertyPath: notificationDuration
@@ -11398,6 +11398,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5371943726957026699, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381072811520803852, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5588903115325488265, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
       propertyPath: lightType
       value: 1
@@ -11454,9 +11462,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7863350022245162957, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 9066862771441633838, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
       propertyPath: m_Name
       value: InteractableLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066862771441633838, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 647835762328098682, guid: 84611ddaf1b3dcf48a2b06a3fe9aa5cf, type: 3}

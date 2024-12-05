@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
+using System.Collections;
 
 public class AIFollower : MonoBehaviour
 {
@@ -24,6 +28,7 @@ public class AIFollower : MonoBehaviour
     private PauseMenu pauseMenu;
     public NoiseManager noiseManager;
     private FirstPersonController playerMovementState;
+    public EventReference killSounds;
 
     private bool foundPlayer = false;
     private EActivity activity;
@@ -112,6 +117,7 @@ public class AIFollower : MonoBehaviour
         {
             if(pauseMenu != null)
             {
+                StartCoroutine(GameOverTransition());
                 pauseMenu.StartGameOver();
             }
 
@@ -150,6 +156,9 @@ public class AIFollower : MonoBehaviour
         navMeshAgent.isStopped = false;
     }
 
+
+
+
     public void IncreaseLocalNoise() {
         //If player is inside vision cone, increase noise meter by step
             personalNoiseLevel += personalNoiseStep;
@@ -173,4 +182,26 @@ public class AIFollower : MonoBehaviour
             anim.Play();
         }
     }
+    
+    public void PlayKillSound()
+    {
+        EventInstance jumpscareSoundInstance = RuntimeManager.CreateInstance(killSounds);
+        RuntimeManager.AttachInstanceToGameObject(jumpscareSoundInstance, transform);
+        jumpscareSoundInstance.start();
+        jumpscareSoundInstance.release();
+    }
+
+
+    private IEnumerator GameOverTransition()
+    {
+        playerMovementState.isWalking = false;
+        playerGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        playerMovementState.GetComponentInChildren<PauseMenu>().StartGameOver();
+        playerMovementState.DisableInput();
+        yield return new WaitForSeconds(4f);
+        PlayKillSound();
+        yield return new WaitForSeconds(2f);
+    }
+
+    
 }
