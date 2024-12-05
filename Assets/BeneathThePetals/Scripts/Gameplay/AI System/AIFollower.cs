@@ -21,6 +21,7 @@ public class AIFollower : MonoBehaviour
     private PathingManager pathingManager;
     private NavMeshAgent navMeshAgent;
     private GameObject playerGameObject;
+    private PauseMenu pauseMenu;
     public NoiseManager noiseManager;
     private FirstPersonController playerMovementState;
 
@@ -47,6 +48,7 @@ public class AIFollower : MonoBehaviour
 
         
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        pauseMenu = playerGameObject.GetComponentInChildren<PauseMenu>();
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         playerMovementState = playerGameObject.GetComponent<FirstPersonController>();
@@ -61,6 +63,8 @@ public class AIFollower : MonoBehaviour
         // get next point
         GoToNextPoint();
         activity = EActivity.WALKING;
+
+        RandomizeAnimation();
     }
 
     // Update is called once per frame
@@ -106,9 +110,11 @@ public class AIFollower : MonoBehaviour
 
         if (IsPlayerCloseEnough())
         {
-            // Game Over
-            
-            // TODO game over screen
+            if(pauseMenu != null)
+            {
+                pauseMenu.StartGameOver();
+            }
+
             print("Game Over!");
             
             enabled = false;
@@ -154,4 +160,17 @@ public class AIFollower : MonoBehaviour
             personalNoiseLevel += overload;
     }
     public EActivity Activity => activity;
+
+    private void RandomizeAnimation()
+    {
+        Animation anim = GetComponentInChildren<Animation>();
+
+        if (anim != null && anim.clip != null)
+        {
+            anim[anim.clip.name].time = UnityEngine.Random.Range(0f, anim.clip.length);
+
+            anim.Sample();
+            anim.Play();
+        }
+    }
 }
