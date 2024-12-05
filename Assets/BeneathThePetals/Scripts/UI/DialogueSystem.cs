@@ -1,6 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Febucci.UI;
+using Febucci.UI.Core;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -21,38 +26,62 @@ public class DialogueSystem : MonoBehaviour
     private TMPro.TMP_Text button2Text;
 
     private List<DialogueNode> dialogueNodes;
-    private int currentDialogueNode = -1;
+    private int currentDialogueNodeIdx = -1;
 
+    TypewriterCore typewriter;
 
+    private InputAction navigateAction;
+    
     private void Awake()
     {
         mainText = mainTextGameObject.GetComponent<TMPro.TMP_Text>();
         button1Text = buttonChoice1.GetComponentInChildren<TMPro.TMP_Text>();
         button2Text = buttonChoice2.GetComponentInChildren<TMPro.TMP_Text>();
+        typewriter = GetComponentInChildren<TypewriterCore>();
+        
+        navigateAction = GetComponent<PlayerInput>().actions["navigate"];
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        CheckForInput();
 
+        if(Input.GetKeyDown(KeyCode.Space) && mainTextGameObject.activeSelf)
+        {
+            typewriter.SkipTypewriter();
+        }
+    }
+
+    private void CheckForInput()
+    {
+        if (navigateAction.WasPressedThisFrame() && EventSystem.current.currentSelectedGameObject == null)
+            EventSystem.current.SetSelectedGameObject(buttonContinue.activeSelf ? buttonContinue : buttonChoice1);
+        
+        if (Input.GetKeyDown(KeyCode.E) && EventSystem.current.currentSelectedGameObject != null)
+            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
     }
 
     public void NextText()
     {
-        if (dialogueNodes[currentDialogueNode].givesQuest)
+        if (dialogueNodes[currentDialogueNodeIdx].givesQuest)
             QuestFromDialogueCallback();
-        LoadDialogueNode(currentDialogueNode + 1);
+        LoadDialogueNode(currentDialogueNodeIdx + 1);
     }
 
     public void PlayDialogue(List<DialogueNode> dialogueFromNpc)
     {
         dialogueNodes = dialogueFromNpc;
+        Invoke(nameof(DelayedStart), .1f);
+    }
+
+    private void DelayedStart()
+    {
         gameObject.SetActive(true);
 
         LoadDialogueNode(0);
@@ -64,6 +93,10 @@ public class DialogueSystem : MonoBehaviour
         if (idx >= dialogueNodes.Count)
         {
             print("Closing dialogue");
+            mainText.text = string.Empty;
+            
+            EventSystem.current.SetSelectedGameObject(null);
+            
             gameObject.SetActive(false);
             DialogueEndCallback();
             return;
@@ -78,21 +111,30 @@ public class DialogueSystem : MonoBehaviour
         button2Text.text = dialogueNode.option2Text;
         buttonContinue.SetActive(!dialogueNode.isQuestion);
 
-        currentDialogueNode = idx;
+        Invoke(dialogueNode.isQuestion ? nameof(SelectChoice1Button) : nameof(SelectContinueButton), 0.01f);
+        
+        currentDialogueNodeIdx = idx;
     }
 
     public void ChooseDialogueOption(int option)
     {
-        if (option == 1)
-        {
-            mainText.text = dialogueNodes[currentDialogueNode].option1FollowUp;
-        }
-        else
-        {
-            mainText.text = dialogueNodes[currentDialogueNode].option2FollowUp;
-        }
+        if (option == 1) mainText.text = dialogueNodes[currentDialogueNodeIdx].option1FollowUp;
+        else mainText.text = dialogueNodes[currentDialogueNodeIdx].option2FollowUp;
+        
         buttonChoice1.SetActive(false);
         buttonChoice2.SetActive(false);
         buttonContinue.SetActive(true);
+        
+        Invoke(nameof(SelectContinueButton), 0.01f);
+    }
+
+    private void SelectContinueButton()
+    {
+        EventSystem.current.SetSelectedGameObject(buttonContinue);
+    }
+    
+    private void SelectChoice1Button()
+    {
+        EventSystem.current.SetSelectedGameObject(buttonChoice1);
     }
 }

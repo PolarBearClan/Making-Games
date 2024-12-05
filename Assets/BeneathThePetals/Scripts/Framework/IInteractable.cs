@@ -2,6 +2,7 @@ public interface IInteractable
 {
     void Interact();
 
+    void PlayInteractSound();
     bool IsInteractable()
     {
         return true;
@@ -10,9 +11,5 @@ public interface IInteractable
     void Deactivate();
     string GetName();
     string GetActionName();
-
-    string GetActionType()
-    {
-        return "Press";
-    }
+    string GetActionType();
 }

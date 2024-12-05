@@ -1,5 +1,7 @@
 using UnityEngine;
-
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
 public class StoryClue : Collectible
 {
     [Space]
@@ -7,15 +9,17 @@ public class StoryClue : Collectible
     [TextArea]
     [SerializeField] private string storyText;
     
-    
     public delegate void StoryCluePickup();
     public StoryCluePickup OnStoryCluePickup;
+    public EventReference soundToPlayOnPickUp;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     new void Start()
     {
         base.Start();
-        noteText.text = storyText;
+
+        if (noteText != null) noteText.text = storyText;
+
     }
 
     // Update is called once per frame
@@ -26,14 +30,26 @@ public class StoryClue : Collectible
 
     public override void Interact()
     {
+        PlayOnInteract();
+        firstPersonController.isWalking = false;
         if (OnStoryCluePickup != null) OnStoryCluePickup();
-        playerController.screenNoteManager.ShowNote(storyText);
+        //playerController.ScreenNoteManagerScript.ShowNote(storyText);
         
-        playerController.DisableInput();
-        firstPersonController.DisableInput();
+        //playerController.DisableInput();
+        //firstPersonController.DisableInput();
 
-        shouldEnableInput = false;
+        //shouldEnableInput = false;
         base.Interact();
+    }
+
+    public void PlayOnInteract() { 
+    
+        
+        EventInstance soundOnPickUp = RuntimeManager.CreateInstance(soundToPlayOnPickUp);
+        RuntimeManager.AttachInstanceToGameObject(soundOnPickUp, transform);
+        soundOnPickUp.start();
+        soundOnPickUp.release();
+    
     }
 
     public override void Activate()

@@ -1,6 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
-
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
 public class DoorController : MonoBehaviour, IInteractable
 {
     [SerializeField] private float rotationAngle = 90;
@@ -11,13 +13,23 @@ public class DoorController : MonoBehaviour, IInteractable
     [SerializeField] private bool doorLocked = false;
     [SerializeField] private StoryClue requiredStoryClue;
     
-    private bool doorOpen = false;
+    public bool doorOpen = false;
     private bool interactable = true;
     private BoxCollider doorCollider;
     
+    private PlayerController playerController;
+    
+    public EventReference eventToPlayWhenOpen;
+    public EventReference eventToPlayWhenClose;
+    public EventReference eventToPlayWhenLocked;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        
         doorCollider = GetComponent<BoxCollider>();
         
         if (requiredStoryClue) requiredStoryClue.OnStoryCluePickup += () => { doorLocked = false; };
@@ -35,14 +47,15 @@ public class DoorController : MonoBehaviour, IInteractable
         
         if (doorLocked)
         {
-            // Play locked sound effect
-            // Animation too ? 
+            PlayLockedSound();
+            playerController.LockedDoorText();
             print("Door is locked");
         }
         else
         {
             transform.DOComplete();
             
+            PlayInteractSound();
             var rotationChange = new Vector3(0, rotationAngle, 0);
             if (doorOpen) rotationChange *= -1;
             doorOpen = !doorOpen;
@@ -57,6 +70,38 @@ public class DoorController : MonoBehaviour, IInteractable
         }
     }
 
+    public void PlayInteractSound() {
+
+        if (!doorOpen) { 
+        
+        EventInstance soundWhenOpen = RuntimeManager.CreateInstance(eventToPlayWhenOpen);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenOpen, transform);
+        soundWhenOpen.start();
+        soundWhenOpen.release();
+        
+        }     
+        if (doorOpen) { 
+        
+        EventInstance soundWhenClose = RuntimeManager.CreateInstance(eventToPlayWhenClose);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenClose, transform);
+        soundWhenClose.start();
+        soundWhenClose.release();
+        
+        }
+
+
+
+    }
+
+    public void PlayLockedSound () { 
+    
+        EventInstance soundWhenLocked = RuntimeManager.CreateInstance(eventToPlayWhenLocked);
+        RuntimeManager.AttachInstanceToGameObject(soundWhenLocked, transform);
+        soundWhenLocked.start();
+        soundWhenLocked.release();
+        
+    
+    }
     public void Activate()
     {
         //GetComponentInChildren<MeshRenderer>().material.color = Color.green;
@@ -75,5 +120,10 @@ public class DoorController : MonoBehaviour, IInteractable
     public string GetActionName()
     {
         return doorOpen ? "close" : "open";
+    }
+    
+    public string GetActionType()
+    {
+        return "Press";
     }
 }

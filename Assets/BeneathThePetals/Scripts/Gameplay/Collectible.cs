@@ -10,6 +10,9 @@ public class Collectible : MonoBehaviour, IInteractable
 
     [SerializeField]
     private float rotationAmount = 360f;
+    
+    [SerializeField]
+    private bool activeFromStart = true;
 
     private bool isCollected = false;
 
@@ -24,6 +27,7 @@ public class Collectible : MonoBehaviour, IInteractable
         player = GameObject.FindGameObjectWithTag("Player");
         firstPersonController = player.GetComponent<FirstPersonController>();
         playerController = player.GetComponent<PlayerController>();
+        playerController.ActivateQuestItemsCallback += () => { activeFromStart = true; };
     }
 
     // Update is called once per frame
@@ -50,17 +54,19 @@ public class Collectible : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
+        firstPersonController.isWalking = false;
         isCollected = true;
     }
+    public void PlayInteractSound() { }
 
     public virtual void Activate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        //GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     public virtual void Deactivate()
     {
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        //GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
     public string GetName()
@@ -76,5 +82,15 @@ public class Collectible : MonoBehaviour, IInteractable
     protected void DisableInputEnabling()
     {
         shouldEnableInput = false;
+    }
+
+    public bool IsInteractable()
+    {
+        return activeFromStart;
+    }
+    
+    public string GetActionType()
+    {
+        return "Press";
     }
 }

@@ -1,0 +1,883 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3382343397822299182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7271139380311900107}
+  - component: {fileID: 3350251071463921396}
+  - component: {fileID: 8647463392847968399}
+  - component: {fileID: 7429460513800444376}
+  m_Layer: 0
+  m_Name: StairCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7271139380311900107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382343397822299182}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.21643952, w: 0.97629607}
+  m_LocalPosition: {x: 0.30000305, y: -0.53999996, z: -0.80999756}
+  m_LocalScale: {x: 10, y: 1, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4679609015861015661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25}
+--- !u!33 &3350251071463921396
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382343397822299182}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8647463392847968399
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382343397822299182}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0ac9aba1beafeb24997cc30de6fbd9bd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7429460513800444376
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382343397822299182}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &4633640978575963814
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -37.28
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      propertyPath: m_Name
+      value: Inside_Building
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8234022461956294895, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: 7598528731096603747, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: 5711117467397760520, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: 8012871733952630631, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: -6978277437460525577, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: 2295206652293754831, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: -1171761609625801950, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: -3367144094279540974, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: -5233223480444827956, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: -1001422657466004809, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    - {fileID: 2781683533396895945, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 53111293769073355, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7271139380311900107}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -4133703932355585839, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9161385747492110815}
+    - targetCorrespondingSourceObject: {fileID: 4436816207525363623, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7649768277573332468}
+    - targetCorrespondingSourceObject: {fileID: 4436816207525363623, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 866206027447021349}
+    - targetCorrespondingSourceObject: {fileID: 2904660644173734501, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5277569280139380050}
+    - targetCorrespondingSourceObject: {fileID: 2904660644173734501, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5410215335562104174}
+    - targetCorrespondingSourceObject: {fileID: -5756509183071096617, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5052959215168514150}
+    - targetCorrespondingSourceObject: {fileID: -5756509183071096617, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 58232738635688084}
+    - targetCorrespondingSourceObject: {fileID: 1577499496322983599, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4554455357690451548}
+    - targetCorrespondingSourceObject: {fileID: 1577499496322983599, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1992936847418369897}
+    - targetCorrespondingSourceObject: {fileID: 4894207674015136932, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7561095882694664850}
+    - targetCorrespondingSourceObject: {fileID: 4894207674015136932, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4715955259293734138}
+    - targetCorrespondingSourceObject: {fileID: -7111314421580578977, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7883113288894805321}
+    - targetCorrespondingSourceObject: {fileID: -7111314421580578977, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6781968506514397713}
+    - targetCorrespondingSourceObject: {fileID: -441632722480802633, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4763673813607172911}
+    - targetCorrespondingSourceObject: {fileID: -441632722480802633, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 32360806749915190}
+    - targetCorrespondingSourceObject: {fileID: -1259203669185221749, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7728077769652805682}
+    - targetCorrespondingSourceObject: {fileID: -1259203669185221749, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5144598353482416339}
+    - targetCorrespondingSourceObject: {fileID: 3355433961326048342, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7919267252874338341}
+    - targetCorrespondingSourceObject: {fileID: 3355433961326048342, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3295115446695391478}
+    - targetCorrespondingSourceObject: {fileID: 1674188480752987758, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3812429042747669276}
+  m_SourcePrefab: {fileID: 100100000, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+--- !u!1 &262976902239554050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4894207674015136932, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7561095882694664850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262976902239554050}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.3602915, y: 21.07662, z: 1.072834}
+  m_Center: {x: 4.9236503, y: 1.1402262, z: -0.00012886524}
+--- !u!114 &4715955259293734138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262976902239554050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!1 &499861931536543351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4133703932355585839, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &9161385747492110815
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499861931536543351}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 27.911695, y: 1.7823675, z: 133.94}
+  m_Center: {x: -9.599928, y: 22.706802, z: -48.92244}
+--- !u!1 &3371954792521669933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1259203669185221749, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7728077769652805682
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371954792521669933}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.3602915, y: 21.07662, z: 1.072834}
+  m_Center: {x: 4.9237723, y: 1.1402262, z: 0.000054240227}
+--- !u!114 &5144598353482416339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371954792521669933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!1 &4148658081726816785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -441632722480802633, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4763673813607172911
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148658081726816785}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.3602915, y: 21.07662, z: 1.072834}
+  m_Center: {x: 4.923589, y: 1.1402262, z: -0.00012886524}
+--- !u!114 &32360806749915190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148658081726816785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!4 &4679609015861015661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 53111293769073355, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6172632459524886537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1577499496322983599, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4554455357690451548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172632459524886537}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.3602915, y: 21.07662, z: 1.072834}
+  m_Center: {x: 4.9236503, y: 1.1402262, z: -0.000006794929}
+--- !u!114 &1992936847418369897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172632459524886537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!1 &6302249356210968776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1674188480752987758, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3812429042747669276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6302249356210968776}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 107.85824, y: 58.52, z: 4.017554}
+  m_Center: {x: -0.079719536, y: 5.3, z: 0.0086369505}
+--- !u!1 &6702049893468670457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7111314421580578977, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7883113288894805321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702049893468670457}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.3602915, y: 21.07662, z: 1.072834}
+  m_Center: {x: 4.9236503, y: 1.1402262, z: -0.00012886524}
+--- !u!114 &6781968506514397713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702049893468670457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!1 &7494713932397860035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2904660644173734501, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5277569280139380050
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494713932397860035}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.3602915, y: 21.07662, z: 1.072834}
+  m_Center: {x: 4.9236503, y: 1.1402262, z: -0.00012886524}
+--- !u!114 &5410215335562104174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494713932397860035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!1 &7988570465925350128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3355433961326048342, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7919267252874338341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988570465925350128}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.360292, y: 21.07662, z: 1.0728341}
+  m_Center: {x: 4.9235287, y: 1.1402262, z: -0.00012886409}
+--- !u!114 &3295115446695391478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988570465925350128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!1 &8093314387801228913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5756509183071096617, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5052959215168514150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093314387801228913}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.36029, y: 21.07662, z: 1.0728339}
+  m_Center: {x: 4.92365, y: 1.1402262, z: -0.000067830086}
+--- !u!114 &58232738635688084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093314387801228913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!1 &9070042111864736001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4436816207525363623, guid: bc0ce8eb98bf04c48b82afaa3f968e02, type: 3}
+  m_PrefabInstance: {fileID: 4633640978575963814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7649768277573332468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070042111864736001}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.36029, y: 21.07662, z: 1.0728339}
+  m_Center: {x: 4.92365, y: 1.1402262, z: -0.0000067949277}
+--- !u!114 &866206027447021349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070042111864736001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e0318236be9a442ad674a20621664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAngle: -90
+  rotationDuration: 1
+  rotationEase: 3
+  doorLocked: 0
+  requiredStoryClue: {fileID: 0}
+  doorOpen: 0
+  eventToPlayWhenOpen:
+    Guid:
+      Data1: 1120767857
+      Data2: 1245769916
+      Data3: -164239720
+      Data4: -2146569077
+    Path: event:/World/Doors/DoorInsideOpen
+  eventToPlayWhenClose:
+    Guid:
+      Data1: 269432825
+      Data2: 1282793455
+      Data3: 22451885
+      Data4: -300424452
+    Path: event:/World/Doors/DoorInsideClose
+  eventToPlayWhenLocked:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 

@@ -20,6 +20,11 @@ public class Quest
     [Space]
     [SerializeField] private List<DialogueNode> dialogueAfterQuestCompleted;
     
+    [Space]
+    [SerializeField] private bool notificationAfterQuestCompleted = false;
+    [SerializeField] private int notificationDuration = 2;
+    [SerializeField] [TextArea] private string notificationText;
+    
     public int currentAmount
     {
         get => _currentAmount;
@@ -60,4 +65,7 @@ public class Quest
     public string Description => description;
 
     public int GoalAmount => goalAmount;
+    public bool ShouldNotify => notificationAfterQuestCompleted;
+    public string NotificationText => notificationText;
+    public int NotificationDuration => notificationDuration;
 }

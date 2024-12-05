@@ -14,6 +14,7 @@ public class TestCube : MonoBehaviour, IInteractable
     {
         
     }
+    public void PlayInteractSound() { }
 
     public void Interact()
     {
@@ -38,5 +39,10 @@ public class TestCube : MonoBehaviour, IInteractable
     public string GetActionName()
     {
         return "interact with";
+    }
+
+    public string GetActionType()
+    {
+        return "Press";
     }
 }
