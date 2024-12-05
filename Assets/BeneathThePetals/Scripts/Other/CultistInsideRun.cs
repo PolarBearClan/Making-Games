@@ -1,5 +1,7 @@
 using DG.Tweening;
 using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -22,6 +24,8 @@ public class CultistInsideRun : MonoBehaviour
     private float timeElapsed = 0f;
     private Vector3 startPosition;
     private bool isRotating = false;
+    public EventReference killSounds;
+
     private bool coroutineStarted = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -112,6 +116,8 @@ public class CultistInsideRun : MonoBehaviour
         anim.SetBool("isWalking", false);
         RotateTowardsDestination(playerController.transform);
         playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
+        yield return new WaitForSeconds(4f);
+        playKillSound();
 
         yield return new WaitForSeconds(2f);
         anim.SetBool("isWalking", true);
@@ -120,5 +126,13 @@ public class CultistInsideRun : MonoBehaviour
         yield return new WaitForSeconds(7f);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+    
+    private void playKillSound()
+    {
+        EventInstance  soundOnKill = RuntimeManager.CreateInstance(killSounds);
+        RuntimeManager.AttachInstanceToGameObject(soundOnKill, transform);
+        soundOnKill.start();
+        soundOnKill.release();
     }
 }

@@ -21,9 +21,12 @@ public class LookScriptInsideDay1 : MonoBehaviour, ITalkable
     private FirstPersonController firstPersonController;
     private PlayerController playerController;
     public EventReference soundToPlayOnInteract;
+    public EventReference soundToPlayOnClothes;
     public GameObject clothes;
     public GameObject triggerToEnable;
+    public GameObject wallOfNonInteraction;
     public GameObject fadeToBlack;
+    public Animator aiAnimator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,6 +54,16 @@ public class LookScriptInsideDay1 : MonoBehaviour, ITalkable
         RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
         soundOnInteract.start();
         soundOnInteract.release();
+    
+    }
+    
+    public void PlayClothesSound() {
+    
+    
+        EventInstance  soundOnClothes = RuntimeManager.CreateInstance(soundToPlayOnClothes);
+        RuntimeManager.AttachInstanceToGameObject(soundOnClothes, transform);
+        soundOnClothes.start();
+        soundOnClothes.release();
     
     }
     public void Interact()
@@ -121,15 +134,18 @@ public class LookScriptInsideDay1 : MonoBehaviour, ITalkable
         firstPersonController.DisableInput();
 
         yield return StartCoroutine(Fade(0f, 1f, 1f));
-
-        yield return new WaitForSeconds(1f);
+        PlayClothesSound();
+        yield return new WaitForSeconds(3f);
         clothes.SetActive(false);
-
+        aiAnimator.Play("Woman2_Idle");
         yield return StartCoroutine(Fade(1f, 0f, 1f));
 
         firstPersonController.EnableInput(true);
         triggerToEnable.SetActive(true);
+        
         Destroy(gameObject);
+        Destroy(wallOfNonInteraction);
+
 
     }
 

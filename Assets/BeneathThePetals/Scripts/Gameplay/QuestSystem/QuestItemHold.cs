@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -36,6 +38,7 @@ public class QuestItemHold : QuestItemBase
             //print("Quest advanced");
 
             playerController.GetCurrentQuest().currentAmount++;
+            PlayInteractSound();
                 
             holdingTime = 0;
             UpdateUI();
@@ -89,5 +92,13 @@ public class QuestItemHold : QuestItemBase
     {
         GetComponent<Collider>().enabled = false;
         GetComponentInChildren<InteractableLight>().transform.gameObject.SetActive(false);
+    }
+    
+    private void PlayInteractSound()
+    {
+        EventInstance soundOnInteract = RuntimeManager.CreateInstance(soundToPlayOnPickUp);
+        RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
+        soundOnInteract.start();
+        soundOnInteract.release();
     }
 }

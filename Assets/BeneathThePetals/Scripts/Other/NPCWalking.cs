@@ -16,10 +16,12 @@ public class NPCWalking : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 targetPosition;
     private bool isRotating = false;
+    public NPCBaseController AI;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        AI.Activity = EActivity.WALKING;
         startPosition = transform.position;
         targetPosition = walkPoints[currentPointIndex].position;
         canWalk = true;

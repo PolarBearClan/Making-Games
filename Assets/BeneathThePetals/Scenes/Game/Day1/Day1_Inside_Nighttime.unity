@@ -1313,6 +1313,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1175423742}
     m_Modifications:
+    - target: {fileID: 510192088693345045, guid: fa8f2ebb617f37541b810a76247611b5, type: 3}
+      propertyPath: eventToPlay.Path
+      value: event:/World/QuestItems/BookPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 510192088693345045, guid: fa8f2ebb617f37541b810a76247611b5, type: 3}
+      propertyPath: eventToPlay.Guid.Data1
+      value: -1644380125
+      objectReference: {fileID: 0}
+    - target: {fileID: 510192088693345045, guid: fa8f2ebb617f37541b810a76247611b5, type: 3}
+      propertyPath: eventToPlay.Guid.Data2
+      value: 1281144171
+      objectReference: {fileID: 0}
+    - target: {fileID: 510192088693345045, guid: fa8f2ebb617f37541b810a76247611b5, type: 3}
+      propertyPath: eventToPlay.Guid.Data3
+      value: 399873980
+      objectReference: {fileID: 0}
+    - target: {fileID: 510192088693345045, guid: fa8f2ebb617f37541b810a76247611b5, type: 3}
+      propertyPath: eventToPlay.Guid.Data4
+      value: -1837293744
+      objectReference: {fileID: 0}
     - target: {fileID: 3512479022100599027, guid: fa8f2ebb617f37541b810a76247611b5, type: 3}
       propertyPath: m_Name
       value: Diary
@@ -6616,7 +6636,7 @@ MonoBehaviour:
   sceneToChangeTo: Day2_Inside_Daytime
   objectToSpawnAt: 
   timeToLoad: 1
-  fadeInSpeed: 1
+  fadeInSpeed: 6
   actionName: Go To Sleep
   fadeToBlack: {fileID: 325551802}
   globalUiObject: {fileID: 495642999}
@@ -6626,11 +6646,11 @@ MonoBehaviour:
   notificationText: 
   eventToPlayAtSceneChange:
     Guid:
-      Data1: -1644380125
-      Data2: 1281144171
-      Data3: 399873980
-      Data4: -1837293744
-    Path: event:/World/QuestItems/BookPickUp
+      Data1: 668716482
+      Data2: 1251401215
+      Data3: 1316106421
+      Data4: -1747123241
+    Path: event:/World/QuestItems/Sleep
 --- !u!1001 &602912450
 PrefabInstance:
   m_ObjectHideFlags: 0
