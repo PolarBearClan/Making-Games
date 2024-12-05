@@ -54,6 +54,7 @@ public class Collectible : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
+        firstPersonController.isWalking = false;
         isCollected = true;
     }
     public void PlayInteractSound() { }

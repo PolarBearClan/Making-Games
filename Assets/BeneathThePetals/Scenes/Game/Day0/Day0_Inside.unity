@@ -1130,7 +1130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   npcBaseController: {fileID: 1034751729}
-  firstDayQuest: {fileID: 0}
 --- !u!23 &115501320
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5204,7 +5203,7 @@ MonoBehaviour:
   sceneToChangeTo: Day1_Inside_Daytime
   objectToSpawnAt: 
   timeToLoad: 1
-  fadeInSpeed: 1
+  fadeInSpeed: 6
   actionName: Go To Sleep
   fadeToBlack: {fileID: 325551802}
   globalUiObject: {fileID: 495642999}
@@ -5214,11 +5213,11 @@ MonoBehaviour:
   notificationText: 
   eventToPlayAtSceneChange:
     Guid:
-      Data1: 269432825
-      Data2: 1282793455
-      Data3: 22451885
-      Data4: -300424452
-    Path: event:/World/Doors/DoorInsideClose
+      Data1: 668716482
+      Data2: 1251401215
+      Data3: 1316106421
+      Data4: -1747123241
+    Path: event:/World/QuestItems/Sleep
 --- !u!1001 &602912450
 PrefabInstance:
   m_ObjectHideFlags: 0
