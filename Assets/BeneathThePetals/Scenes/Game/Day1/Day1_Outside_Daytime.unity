@@ -9805,7 +9805,7 @@ PrefabInstance:
       objectReference: {fileID: 1176257998}
     - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
       propertyPath: sceneToChangeTo
-      value: Day1_Inside_Nighttime
+      value: Day2_Inside_Nighttime
       objectReference: {fileID: 0}
     - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
       propertyPath: notificationText
@@ -9813,7 +9813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
       propertyPath: unlockRequirement
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7244509403988876412, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
       propertyPath: notificationDuration
@@ -17916,12 +17916,13 @@ MonoBehaviour:
   pointToFace: {fileID: 1115649666}
   facePlayerOnInteraction: 1
   mainDialogue:
-  - mainText: Spooked ya huh
-    isQuestion: 1
-    option1Text: Damn you!
-    option1FollowUp: Hahah!
-    option2Text: I need new pants...
-    option2FollowUp: Hahah!
+  - mainText: Are you lost, child? The gate to the forest is locked, as we wouldn't
+      want anyone to get lost out there.
+    isQuestion: 0
+    option1Text: 
+    option1FollowUp: 
+    option2Text: 
+    option2FollowUp: 
     givesQuest: 0
   quest:
     description: 

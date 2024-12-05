@@ -30,6 +30,7 @@ public class PoliceCarScene : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        playerControls.isWalking = false;
         if(canInteract)
             StartCutScene();
     }
