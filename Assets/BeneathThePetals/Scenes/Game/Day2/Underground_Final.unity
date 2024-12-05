@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToChangeTo: ForestBarn_Night
+  sceneToChangeTo: ForestBarn_Night 1
   objectToSpawnAt: BarnHatch
   timeToLoad: 2
   fadeInSpeed: 1
@@ -5538,6 +5538,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryUIRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: itemInfo
+      value: 
+      objectReference: {fileID: 1468577480}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: itemName
+      value: 
+      objectReference: {fileID: 246359380}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: MainUIObj
+      value: 
+      objectReference: {fileID: 1850914335}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: textPanel
+      value: 
+      objectReference: {fileID: 1218230376}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 8765489994903951809}
+    - target: {fileID: 8612129586404626648, guid: 05da687a65cbc6842bff95a1d7438ca4, type: 3}
+      propertyPath: InventoryUIObj
+      value: 
+      objectReference: {fileID: 1008550314}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5659,6 +5683,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1912935214}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1912935213}
@@ -5689,6 +5725,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UndergroundCloset, Assembly-CSharp
           m_MethodName: StartDialogue
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1912935214}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6181,6 +6229,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 898913564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1218230376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5955205708251837863, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 8765489994903951804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231997995
 GameObject:
   m_ObjectHideFlags: 0
@@ -7847,11 +7900,11 @@ MonoBehaviour:
   undergroundScareConvo: 1
   soundToPlayOnInteract:
     Guid:
-      Data1: -1037160976
-      Data2: 1200010173
-      Data3: 1889408163
-      Data4: 1638584986
-    Path: event:/World/NPCDialougeReactions/LeaderValgaris
+      Data1: 1667954663
+      Data2: 1310036452
+      Data3: -1738030452
+      Data4: -988217693
+    Path: event:/World/NPCDialougeReactions/LeaderUnderground3D
 --- !u!114 &1342970056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9372,11 +9425,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundToPlayLeader:
     Guid:
-      Data1: -632243020
-      Data2: 1287817226
-      Data3: -1103978850
-      Data4: 64237178
-    Path: event:/World/NPCDialougeReactions/LeaderValgaris3D
+      Data1: 1667954663
+      Data2: 1310036452
+      Data3: -1738030452
+      Data4: -988217693
+    Path: event:/World/NPCDialougeReactions/LeaderUnderground3D
   soundToPlayDoorOpen:
     Guid:
       Data1: -1346722358
@@ -11158,13 +11211,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 2860c5c87109b1144a9493590f94f185, type: 2}
     - target: {fileID: 5866666021909216657, guid: 7d43324448982854a8e676a2cc887956, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:LeftFoot'\n\tTransform 'mixamorig:LeftHandThumb2'\n\tTransform
-        'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
-        'mixamorig:LeftHandThumb3'\n\tTransform 'mixamorig:RightArm'\n\tTransform
-        'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:RightHandIndex3'\n\tand
-        more ..."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6000407479487422213, guid: 7d43324448982854a8e676a2cc887956, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11370,6 +11417,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d43324448982854a8e676a2cc887956, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1912935211}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d43324448982854a8e676a2cc887956, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1912935214}
   m_SourcePrefab: {fileID: 100100000, guid: 7d43324448982854a8e676a2cc887956, type: 3}
 --- !u!95 &1912935208 stripped
 Animator:
@@ -11423,6 +11473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 1132200545}
   hidingInteractable: {fileID: 1444115535}
+  sound: {fileID: 1912935214}
   killSounds:
     Guid:
       Data1: 1784357633
@@ -11442,6 +11493,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2faf49f37d156c14b999d4c03ada525b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1912935214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912935209}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd059e053b7d1774e98d6b42a8623e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: 2
 --- !u!1 &1931091707
 GameObject:
   m_ObjectHideFlags: 0
@@ -13275,6 +13339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 1132200545}
   hidingInteractable: {fileID: 1444115535}
+  sound: {fileID: 0}
   killSounds:
     Guid:
       Data1: 1784357633
@@ -14561,6 +14626,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4358187821174538998, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -220.5224
+      objectReference: {fileID: 0}
     - target: {fileID: 4434956603575457811, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_fontStyle
       value: 16
@@ -14740,6 +14809,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5290965629616166471, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 8765489994903951804}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &8765489994903951809 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4459864851310106426, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 8765489994903951804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8882059567743181718
 GameObject:
   m_ObjectHideFlags: 0
@@ -14834,6 +14908,6 @@ SceneRoots:
   - {fileID: 841781652}
   - {fileID: 898913564}
   - {fileID: 1603472556713949525}
-  - {fileID: 1080798482}
   - {fileID: 983157289}
   - {fileID: 685148066}
+  - {fileID: 1080798482}

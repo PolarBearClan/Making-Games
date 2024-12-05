@@ -5973,6 +5973,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1200093919}
     m_Modifications:
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Path
+      value: event:/World/QuestItems/BloodNapkin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Guid.Data1
+      value: 986315592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Guid.Data2
+      value: 1280394605
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Guid.Data3
+      value: 1639407765
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Guid.Data4
+      value: 1299175438
+      objectReference: {fileID: 0}
     - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.653992
@@ -17203,11 +17223,11 @@ MonoBehaviour:
   storyText: Key 1 story clue!
   soundToPlayOnPickUp:
     Guid:
-      Data1: -1644380125
-      Data2: 1281144171
-      Data3: 399873980
-      Data4: -1837293744
-    Path: event:/World/QuestItems/BookPickUp
+      Data1: -993499391
+      Data2: 1154655192
+      Data3: 1342682536
+      Data4: -682404834
+    Path: event:/World/QuestItems/KeyPickUp
 --- !u!65 &1561564017
 BoxCollider:
   m_ObjectHideFlags: 0

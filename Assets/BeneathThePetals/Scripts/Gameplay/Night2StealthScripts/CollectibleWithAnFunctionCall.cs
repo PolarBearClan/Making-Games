@@ -1,3 +1,6 @@
+using FMODUnity;
+using FMOD.Studio;
+using FMOD;
 using UnityEngine;
 
 public class CollectibleWithAnFunctionCall : MonoBehaviour, IInteractable
@@ -19,6 +22,7 @@ public class CollectibleWithAnFunctionCall : MonoBehaviour, IInteractable
     private GameObject player;
     protected FirstPersonController firstPersonController;
     protected PlayerController playerController;
+    public EventReference eventToPlay;
 
     protected bool shouldEnableInput = true;
     
@@ -58,7 +62,14 @@ public class CollectibleWithAnFunctionCall : MonoBehaviour, IInteractable
         GetComponent<GenericScriptForDisablingObjects>().OnTriggerEnter(null);
 
     }
-    public void PlayInteractSound() { }
+
+    public void PlayInteractSound()
+    {
+        EventInstance soundOnPickUp = RuntimeManager.CreateInstance(eventToPlay);
+        RuntimeManager.AttachInstanceToGameObject(soundOnPickUp, transform);
+        soundOnPickUp.start();
+        soundOnPickUp.release();
+    }
 
     public virtual void Activate()
     {

@@ -31,6 +31,7 @@ public class StoryClue : Collectible
     public override void Interact()
     {
         PlayOnInteract();
+        firstPersonController.isWalking = false;
         if (OnStoryCluePickup != null) OnStoryCluePickup();
         //playerController.ScreenNoteManagerScript.ShowNote(storyText);
         

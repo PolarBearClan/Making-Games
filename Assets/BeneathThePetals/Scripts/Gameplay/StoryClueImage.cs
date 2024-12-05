@@ -13,6 +13,7 @@ public class StoryClueImage : MonoBehaviour, IInteractable
     [SerializeField] private string storyclueName;
     [SerializeField] private Sprite clueImage;
     [SerializeField, TextArea] private string monologueText;
+    public EventReference eventToPlay;
 
     private GameObject storyclueUI;
 
@@ -102,7 +103,7 @@ public class StoryClueImage : MonoBehaviour, IInteractable
         if (storyclueUI != null && !isInteracting)
         {
             UpdateUI();
-
+            PlayInteractSound();
             int childCount = storyclueUI.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
@@ -126,7 +127,10 @@ public class StoryClueImage : MonoBehaviour, IInteractable
 
     public void PlayInteractSound()
     {
-        //
+        EventInstance soundOnPickUp = RuntimeManager.CreateInstance(eventToPlay);
+        RuntimeManager.AttachInstanceToGameObject(soundOnPickUp, transform);
+        soundOnPickUp.start();
+        soundOnPickUp.release();
     }
     private void UpdateUI()
     {
