@@ -16,6 +16,7 @@ public class LeaderUndergroundTrigger : MonoBehaviour
     private FirstPersonController playerControls;
     private Animator anim;
     private JumpscareTrigger undergroundJumpscare;
+    public AISoundForLeaderUnderground sound;
 
     private bool dialogueHasStarted = false;
     private bool coroutineStarted = false;

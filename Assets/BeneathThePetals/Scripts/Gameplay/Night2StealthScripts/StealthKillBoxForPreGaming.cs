@@ -116,13 +116,10 @@ public class StealthKillBoxForPreGaming : MonoBehaviour
 
     private IEnumerator StartKillTransition()
     {
-        
-        
         playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
         yield return new WaitForSeconds(4f);
         playKillSound();
         yield return new WaitForSeconds(2f);
-        
     }
     
     private void playKillSound()

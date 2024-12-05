@@ -6812,14 +6812,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemRequired: 0
-  itemName: 
   sceneToChangeTo: Day2_Inside_Nighttime_Later
   objectToSpawnAt: 
   timeToLoad: 1
+  fadeInSpeed: 1
   actionName: Go To Sleep
   fadeToBlack: {fileID: 325551802}
   globalUiObject: {fileID: 495642999}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: -1644380125
@@ -15884,6 +15887,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Path
+      value: event:/World/QuestItems/BloodNapkin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Guid.Data1
+      value: 986315592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Guid.Data2
+      value: 1280394605
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Guid.Data3
+      value: 1639407765
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696000841759489361, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
+      propertyPath: eventToPlay.Guid.Data4
+      value: 1299175438
+      objectReference: {fileID: 0}
     - target: {fileID: 8147696771680595349, guid: 1e326309fd30d8744be6f47d387f34fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 131.417
@@ -16118,11 +16141,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3935396574283352871, guid: e493c94e7ab22164d861b3caa5e61b37, type: 3}
---- !u!1 &1471039981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8394669529811350344, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-  m_PrefabInstance: {fileID: 8765489994903951804}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1473064964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19194,14 +19212,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9886d3070917594c94a4a8c49e47b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemRequired: 0
-  itemName: 
   sceneToChangeTo: ForestBarn_Day
   objectToSpawnAt: 
   timeToLoad: 1
+  fadeInSpeed: 1
   actionName: Go outside the Village
   fadeToBlack: {fileID: 0}
   globalUiObject: {fileID: 0}
+  unlockRequirement: 0
+  requiredStoryClue: {fileID: 0}
+  notificationDuration: 0
+  notificationText: 
   eventToPlayAtSceneChange:
     Guid:
       Data1: 0
@@ -22767,7 +22788,7 @@ PrefabInstance:
     - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: dialogueBox
       value: 
-      objectReference: {fileID: 1471039981}
+      objectReference: {fileID: 0}
     - target: {fileID: 3209359190295644116, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: cameraTweenDuration
       value: 1.5

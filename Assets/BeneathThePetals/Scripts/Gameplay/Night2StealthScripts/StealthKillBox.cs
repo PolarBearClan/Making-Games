@@ -27,6 +27,7 @@ public class StealthKillBox : MonoBehaviour
     public EventReference killSounds;
     public StoryClueImage objectToDestroy;
     public StoryClueImage objectToDestroy2;
+    public StoryClueImage objectToDestroy3;
     private GameObject storyClueUI;
     
 
@@ -72,6 +73,10 @@ public class StealthKillBox : MonoBehaviour
 
     private void StartDialogue()
     {
+        Destroy(objectToDestroy);
+        Destroy(objectToDestroy2);
+        Destroy(objectToDestroy3);
+        
         leaderLookingToKill.GetComponentInChildren<BoxCollider>().enabled = false;
         leaderLookingToKill.AI.Activity = EActivity.TALKING;
         leaderLookingToKill.enabled = false;
@@ -82,7 +87,6 @@ public class StealthKillBox : MonoBehaviour
         leaderLookingToKill.anim.SetBool("isWalking", false);
         leaderLookingToKill.RotateTowardsDestination(transform);
         float tweenDuration = playerController.CameraLookAtTweenDuration;
-     
         
         // Important to rotate them both
         firstPersonController.playerCamera.transform.DOLookAt(pointToFace.position, tweenDuration);

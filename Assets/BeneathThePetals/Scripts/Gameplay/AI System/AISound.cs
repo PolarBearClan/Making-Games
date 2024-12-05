@@ -5,7 +5,6 @@ using FMOD.Studio;
 public class AISound : MonoBehaviour
 {
     public NPCBaseController AI;
-    public EventReference soundToPlayVoice;
     private EventReference soundToPlayCarpet;
     private EventReference soundToPlayWoodInside;
     private EventReference soundToPlayDirt;
@@ -33,17 +32,12 @@ public class AISound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //UnityEngine.Debug.Log(noiseTime);
-        UnityEngine.Debug.Log(AI.Activity);
+        UnityEngine.Debug.Log(noiseTime);
+        //UnityEngine.Debug.Log(AI.Activity);
         if (noiseTime >= 0.61 && AI.Activity == EActivity.WALKING)
         {
             PlayFootSound();
             noiseTime = 0;
-        }
-        else if (noiseTime >= Random.Range(3,6) && AI.Activity == EActivity.IDLE)
-        {
-           PlayVoiceSound();
-           noiseTime = 0;
         }
 
         noiseTime += Time.deltaTime;
@@ -76,15 +70,6 @@ public class AISound : MonoBehaviour
         } 
         
     }
-
-    public void PlayVoiceSound()
-    {
-        EventInstance  soundOnInteract = RuntimeManager.CreateInstance(soundToPlayVoice);
-        RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
-        soundOnInteract.start();
-        soundOnInteract.release();
-    }
-        
     public void PlayCarpetSound()
     {
         EventInstance  soundOnInteract = RuntimeManager.CreateInstance(soundToPlayCarpet);
