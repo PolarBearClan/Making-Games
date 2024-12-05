@@ -65,7 +65,9 @@ public class QuestItemHold : QuestItemBase
     {
         // Start Hold interaction
         holdingKey = true;
-        firstPersonController.DisableInput(false);
+        
+        // Disabling movement when holding the key
+        //firstPersonController.DisableInput(false);
     }
 
     public override void Activate()
@@ -77,7 +79,8 @@ public class QuestItemHold : QuestItemBase
     {
         //GetComponent<MeshRenderer>().material.color = Color.red;
         
-        firstPersonController.EnableInput();
+        //firstPersonController.EnableInput();
+        
         holdingKey = false;
         holdingTime = 0;
         UpdateUI();

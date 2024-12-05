@@ -62,6 +62,9 @@ public class DialogueSystem : MonoBehaviour
     {
         if (navigateAction.WasPressedThisFrame() && EventSystem.current.currentSelectedGameObject == null)
             EventSystem.current.SetSelectedGameObject(buttonContinue.activeSelf ? buttonContinue : buttonChoice1);
+        
+        if (Input.GetKeyDown(KeyCode.E) && EventSystem.current.currentSelectedGameObject != null)
+            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
     }
 
     public void NextText()
