@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3295230261966347196}
   - component: {fileID: 5542941538289263333}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Billboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 539916629681932823}
   - component: {fileID: 4560702483539436413}
   - component: {fileID: 4021350210987246697}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000fe115e671b054a965fb50c5b9077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleUp: 1.5
+  scaleDown: 0.5
 --- !u!1 &7863350022245162957
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +147,7 @@ GameObject:
   - component: {fileID: 5073786319076118321}
   - component: {fileID: 1047209059082172248}
   - component: {fileID: 5757216185084038676}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +249,7 @@ GameObject:
   - component: {fileID: 647835762328098682}
   - component: {fileID: 5342721353773461470}
   - component: {fileID: 5588903115325488265}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: InteractableLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
