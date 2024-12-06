@@ -7,6 +7,9 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Playables;
 using static System.Net.Mime.MediaTypeNames;
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
 
 [RequireComponent(typeof(TypewriterCore))]
 public class PrologueText : MonoBehaviour
@@ -17,6 +20,7 @@ public class PrologueText : MonoBehaviour
     [SerializeField, TextArea] private string[] sentences;
     [SerializeField] private KeyCode inputKey = KeyCode.E;
     [SerializeField] private float waitTime = 1f;
+    public EventReference soundToPlayOnInteract;
 
     [Header("Scene Objects")]
     [SerializeField] private PlayableDirector playableDirector;
@@ -84,7 +88,16 @@ public class PrologueText : MonoBehaviour
         yield return new WaitUntil(() => !typewriter.isShowingText);
 
         yield return new WaitUntil(() => Input.GetKeyDown(inputKey));
+        PlayInteractSound();
         playableDirector.Play(openLetter);
+    }
+    
+    public void PlayInteractSound()
+    {
+        EventInstance  soundOnInteract = RuntimeManager.CreateInstance(soundToPlayOnInteract);
+        RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
+        soundOnInteract.start();
+        soundOnInteract.release();
     }
 
     public void ChangeText(string newText)
