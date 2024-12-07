@@ -1,10 +1,15 @@
 using System;
 using Unity.Collections;
 using UnityEngine;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
+
 
 public class NoiseObstacle : MonoBehaviour
 {
     private NoiseManager noiseManager;
+    public EventReference branchSound;
     public int loudness = 10; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,11 +51,21 @@ public class NoiseObstacle : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         // TODO make sound of branch braking
+        PlayInteractSound();
         GetComponent<BoxCollider>().enabled = false; 
         noiseManager.IncreaseGlobalNoiseObstacle();
         
         Destroy(gameObject);
         BatchOverlapSphere();
 
+    }
+    
+    public void PlayInteractSound()
+    {
+            EventInstance sound = RuntimeManager.CreateInstance(branchSound);
+            RuntimeManager.AttachInstanceToGameObject(sound, transform);
+            sound.start();
+            sound.release();
+        
     }
 }

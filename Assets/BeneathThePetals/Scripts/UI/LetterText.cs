@@ -5,6 +5,9 @@ using TMPro;
 using Febucci.UI;
 using UnityEngine.UI;
 using System.Collections;
+using FMODUnity;
+using FMOD;
+using FMOD.Studio;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
@@ -18,10 +21,15 @@ public class LetterText : MonoBehaviour
     [SerializeField] private GameObject acceptInvitation;
     [SerializeField] private KeyCode inputKey = KeyCode.E;
 
+
     [Header("Scene Objects")]
     [SerializeField] private Animator transition;
     [SerializeField] private PlayableDirector playableDirector;
     [SerializeField] private PlayableAsset bus;
+
+    public EventReference letterAcceptSound;
+    public EventReference busSoundvroomvroom;
+    public GameObject beginningMusic;
 
     private void Start()
     {
@@ -59,12 +67,16 @@ public class LetterText : MonoBehaviour
     IEnumerator StartGame()
     {
         yield return new WaitUntil(() => Input.GetKeyDown(inputKey));
+        PlayLetterSound();
         transition.transform.gameObject.SetActive(true);
         transition.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);
         playableDirector.Stop();
         playableDirector.playableAsset = null;
+        
         playableDirector.Play(bus);
+        PlayBusSound();
+        Destroy(beginningMusic);
         yield return new WaitForSeconds((float)bus.duration);
         FinishPrologue();
     }
@@ -85,4 +97,22 @@ public class LetterText : MonoBehaviour
     {
         SceneManager.LoadScene("Day0_Outside");
     }
+    
+    
+    public void PlayLetterSound()
+    {
+        EventInstance  soundOnInteract = RuntimeManager.CreateInstance(letterAcceptSound);
+        RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
+        soundOnInteract.start();
+        soundOnInteract.release();
+    }
+    
+    public void PlayBusSound()
+    {
+        EventInstance  soundOnInteract = RuntimeManager.CreateInstance(busSoundvroomvroom);
+        RuntimeManager.AttachInstanceToGameObject(soundOnInteract, transform);
+        soundOnInteract.start();
+        soundOnInteract.release();
+    }
+    
 }
