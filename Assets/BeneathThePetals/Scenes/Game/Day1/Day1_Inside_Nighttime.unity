@@ -6648,7 +6648,7 @@ MonoBehaviour:
   sceneToChangeTo: Day2_Inside_Daytime
   objectToSpawnAt: 
   timeToLoad: 1
-  fadeInSpeed: 6
+  fadeInSpeed: 1
   actionName: Go To Sleep
   fadeToBlack: {fileID: 325551802}
   globalUiObject: {fileID: 495642999}
@@ -12966,7 +12966,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8634894958141366966, guid: 34347d17fdf6e074b8f87a779c7bc9be, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5015753112963008815, guid: 34347d17fdf6e074b8f87a779c7bc9be, type: 3}

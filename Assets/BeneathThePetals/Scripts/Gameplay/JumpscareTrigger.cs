@@ -85,6 +85,8 @@ public class JumpscareTrigger : MonoBehaviour
 
             _jumpscare.Scare();
 
+            Cursor.visible = false;
+
             Debug.Log("Jumpscare!");
 
         }
