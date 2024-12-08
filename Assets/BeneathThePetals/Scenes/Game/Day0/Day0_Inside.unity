@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 70555382}
   m_Layer: 0
   m_Name: GlobalVolume
-  m_TagString: Untagged
+  m_TagString: GlobalVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4540,6 +4540,95 @@ Transform:
   - {fileID: 115501317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &494578372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 28685719892690651, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_Size.x
+      value: 4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 28685719892690651, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_Size.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 28685719892690651, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_Size.z
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597220364493301419, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_Name
+      value: ScreenNotificationTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202387557298965676, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: notificationText
+      value: Why are the windows barred..?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202387557298965676, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: notificationDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 136.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 247.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.14393598
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.989587
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -163.449
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059456073435299726, guid: 0c940362d0207fa429332051e71f0706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c940362d0207fa429332051e71f0706, type: 3}
 --- !u!1 &495642999 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
@@ -5203,7 +5292,7 @@ MonoBehaviour:
   sceneToChangeTo: Day1_Inside_Daytime
   objectToSpawnAt: 
   timeToLoad: 1
-  fadeInSpeed: 6
+  fadeInSpeed: 1
   actionName: Go To Sleep
   fadeToBlack: {fileID: 325551802}
   globalUiObject: {fileID: 495642999}
@@ -17826,41 +17915,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: unlimitedSprint
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18090,3 +18147,4 @@ SceneRoots:
   - {fileID: 340800222}
   - {fileID: 1439640004}
   - {fileID: 214043777}
+  - {fileID: 494578372}
