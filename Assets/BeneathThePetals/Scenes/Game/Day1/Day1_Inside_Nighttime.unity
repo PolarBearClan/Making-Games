@@ -1314,6 +1314,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1175423742}
     m_Modifications:
     - target: {fileID: 510192088693345045, guid: fa8f2ebb617f37541b810a76247611b5, type: 3}
+      propertyPath: monologueText
+      value: "You quickly identify this book as Astrids old diary. You browse through
+        its pages and find passages where she first writes about meeting the people
+        from this community. Before that she had been lonely and was struggling to
+        make ends meet.\r\n\n\u201CEveryone is so supportive. They listen when I
+        need someone to talk to. Today, when Father Valgaris heard I could not afford
+        my groceries, he helped me pay. I feel like I may have found the family I
+        never had.\u201D \r\n\nThe praises continue for the next month or so. Then
+        you notice that the next couple of pages are ripped out. Astrid\u2019s journal
+        does not continue after that.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 510192088693345045, guid: fa8f2ebb617f37541b810a76247611b5, type: 3}
       propertyPath: eventToPlay.Path
       value: event:/World/QuestItems/BookPickUp
       objectReference: {fileID: 0}
@@ -9054,68 +9066,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745587414}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &752039235
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1175423742}
-    m_Modifications:
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 21.577362
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.965842
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.4025269
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.579156
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.8152168
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -109.218
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9141762923647823892, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-      propertyPath: m_Name
-      value: Letter (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
---- !u!4 &752039236 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8472889780679289518, guid: 76275d0b4013a7244b4b33c7ff8cdaab, type: 3}
-  m_PrefabInstance: {fileID: 752039235}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &754841214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14588,7 +14538,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1868976056}
-  - {fileID: 752039236}
   - {fileID: 1411834678}
   - {fileID: 56019659}
   m_Father: {fileID: 0}
