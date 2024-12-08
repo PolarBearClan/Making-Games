@@ -98,6 +98,8 @@ public class FirstPersonController : MonoBehaviour
     public float sprintBarWidthPercent = .3f;
     public float sprintBarHeightPercent = .015f;
 
+    private Volume globalVolumeBase;
+
     // Internal Variables
     private CanvasGroup sprintBarCG;
     private bool isSprinting = false;
@@ -199,6 +201,9 @@ public class FirstPersonController : MonoBehaviour
         #region Sprint Bar
 
         sprintBarCG = GetComponentInChildren<CanvasGroup>();
+
+        if(GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>() != null)
+            globalVolumeBase = GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>();
 
         if (useSprintBar)
         {
@@ -321,6 +326,12 @@ public class FirstPersonController : MonoBehaviour
                 if (!unlimitedSprint)
                 {
                     sprintRemaining -= 1 * Time.deltaTime;
+
+                    if(sprintRemaining <= sprintDuration / 2)
+                    {
+                        globalVolumeBase.weight = Mathf.MoveTowards(globalVolumeBase.weight, 0.5f, 0.1f * Time.deltaTime);
+                    }
+
                     if (sprintRemaining <= 0)
                     {
                         isSprinting = false;
@@ -332,6 +343,11 @@ public class FirstPersonController : MonoBehaviour
             {
                 // Regain sprint while not sprinting
                 sprintRemaining = Mathf.Clamp(sprintRemaining += 1 * Time.deltaTime, 0, sprintDuration);
+
+                if (globalVolumeBase.weight < 1)
+                {
+                    globalVolumeBase.weight = Mathf.MoveTowards(globalVolumeBase.weight, 1f, 0.1f * Time.deltaTime);
+                }
             }
 
             // Handles sprint cooldown

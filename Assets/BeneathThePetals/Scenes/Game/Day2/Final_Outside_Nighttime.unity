@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6081052}
   - component: {fileID: 6081053}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -305,7 +305,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -534,7 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 28783797}
   - component: {fileID: 28783798}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -604,7 +604,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -933,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &47408253
 Transform:
   m_ObjectHideFlags: 0
@@ -6297,7 +6297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 74131465}
   - component: {fileID: 74131466}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6331,7 +6331,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6367,7 +6367,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -14072,7 +14072,7 @@ GameObject:
   - component: {fileID: 262441144}
   m_Layer: 0
   m_Name: GlobalVolume
-  m_TagString: Untagged
+  m_TagString: GlobalVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15398,13 +15398,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistTorch (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3208745483681455287, guid: 069da956e2dff9d47a0317521702316e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: isLeader
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -15863,7 +15867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336699297}
   - component: {fileID: 336699298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15897,7 +15901,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -15933,7 +15937,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -21930,13 +21934,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistTorch
       objectReference: {fileID: 0}
+    - target: {fileID: 3208745483681455287, guid: 069da956e2dff9d47a0317521702316e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: isLeader
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.5
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -22258,13 +22266,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistTorch
       objectReference: {fileID: 0}
+    - target: {fileID: 3208745483681455287, guid: 069da956e2dff9d47a0317521702316e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: isLeader
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.25
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -29417,7 +29429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 604247641}
   - component: {fileID: 604247642}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29451,7 +29463,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -29487,7 +29499,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -38786,7 +38798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 814089480}
   - component: {fileID: 814089481}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38802,7 +38814,7 @@ Transform:
   m_GameObject: {fileID: 814089479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.16283195, z: -0, w: 0.98665386}
-  m_LocalPosition: {x: 0.154, y: 3.379, z: 1.54}
+  m_LocalPosition: {x: 0.21, y: 3.379, z: 1.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38820,7 +38832,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -38856,7 +38868,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -58819,13 +58831,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistTorch (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3208745483681455287, guid: 069da956e2dff9d47a0317521702316e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: isLeader
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.5
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -59157,13 +59173,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistTorch_Leader
       objectReference: {fileID: 0}
+    - target: {fileID: 3208745483681455287, guid: 069da956e2dff9d47a0317521702316e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: isLeader
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.75
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -77284,6 +77304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistTorch (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3208745483681455287, guid: 069da956e2dff9d47a0317521702316e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: isLeader
       value: 0
@@ -84529,13 +84553,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistTorch (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3208745483681455287, guid: 069da956e2dff9d47a0317521702316e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: isLeader
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.75
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -100195,7 +100223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013622160}
   - component: {fileID: 2013622161}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100229,7 +100257,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -100265,7 +100293,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -102573,13 +102601,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistTorch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3208745483681455287, guid: 069da956e2dff9d47a0317521702316e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: isLeader
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.35
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -103040,7 +103072,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122269719}
   - component: {fileID: 2122269720}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103074,7 +103106,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -103110,7 +103142,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0

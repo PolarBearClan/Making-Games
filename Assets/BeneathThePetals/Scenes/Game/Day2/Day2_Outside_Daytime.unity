@@ -3709,7 +3709,7 @@ Transform:
   m_Children:
   - {fileID: 1439714363}
   - {fileID: 1607292377}
-  - {fileID: 1910354749}
+  - {fileID: 1267109708}
   - {fileID: 1636084273}
   - {fileID: 1438377359}
   - {fileID: 1582173722}
@@ -4051,7 +4051,7 @@ GameObject:
   - component: {fileID: 262441144}
   m_Layer: 0
   m_Name: GlobalVolume
-  m_TagString: Untagged
+  m_TagString: GlobalVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5626,6 +5626,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385368644}
   m_Mesh: {fileID: -8784082451512579768, guid: 1b5d1bfff7f36be40bedc19c64ffa020, type: 3}
+--- !u!1 &386985104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386985105}
+  m_Layer: 0
+  m_Name: FacePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &386985105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386985104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1267109708}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &393175283
 GameObject:
   m_ObjectHideFlags: 0
@@ -16811,6 +16842,195 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5611329470099776415, guid: 9abfd554b250d7b41b5fb6ca07037eb8, type: 3}
   m_PrefabInstance: {fileID: 1259577180}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1267109707
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 219786462}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.8600006
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.770004
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_Name
+      value: Man3_Idle2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: f6c5c18061e4e00469401ecc72e4f5b8, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 970ce124659e07540b9363fe01f9cc4c, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 386985105}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1267109712}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1267109711}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1267109710}
+  m_SourcePrefab: {fileID: 100100000, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+--- !u!4 &1267109708 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+  m_PrefabInstance: {fileID: 1267109707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1267109709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 13961058e07856746b1b09a14c1a027c, type: 3}
+  m_PrefabInstance: {fileID: 1267109707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1267109710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267109709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc75c32d90dc1640bc524f65371fc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkPoints:
+  - {fileID: 864533877}
+  - {fileID: 1933084811}
+  - {fileID: 1873371533}
+  - {fileID: 112549925}
+  - {fileID: 1439880276}
+  - {fileID: 953113396}
+  - {fileID: 43994073}
+  - {fileID: 2002477142}
+  lerpDuration: 20
+  canWalk: 1
+  AI: {fileID: 0}
+--- !u!114 &1267109711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267109709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6ed371d29c04f4cbe248db82fcaa81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Casey
+  pointToFace: {fileID: 386985105}
+  facePlayerOnInteraction: 1
+  mainDialogue:
+  - mainText: Astrid has told me so much about you. I feel like I know you already.
+    isQuestion: 0
+    option1Text: 
+    option1FollowUp: 
+    option2Text: 
+    option2FollowUp: 
+    givesQuest: 0
+  quest:
+    description: 
+    goalAmount: 0
+    dialogueAfterQuestCompleted: []
+    notificationAfterQuestCompleted: 0
+    notificationDuration: 0
+    notificationText: 
+  dialogueAfterQuestAssigned: []
+  undergroundScareConvo: 0
+  soundToPlayOnInteract:
+    Guid:
+      Data1: 1409385096
+      Data2: 1228517639
+      Data3: 1202085294
+      Data4: -1004336434
+    Path: event:/World/NPCDialougeReactions/Hjalmar
+--- !u!136 &1267109712
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267109709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.28
+  m_Height: 1.79
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.81, z: 0}
 --- !u!1001 &1267618384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18246,8 +18466,16 @@ PrefabInstance:
       value: Man5_Idle
       objectReference: {fileID: 0}
     - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
+      propertyPath: mainDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
       propertyPath: mainDialogue.Array.data[0].mainText
-      value: Astrid has told me so much about you. I feel like I know you already.
+      value: You see that one there? Always seems to move closer when I turn my back.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
+      propertyPath: mainDialogue.Array.data[1].mainText
+      value: Cheeky little thing.
       objectReference: {fileID: 0}
     - target: {fileID: 5230696002005185854, guid: 3360c8b6f5a581044a01d8b4c0c95a0c, type: 3}
       propertyPath: mainDialogue.Array.data[0].isQuestion
@@ -25502,124 +25730,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.26, y: 0.22, z: 0.75}
   m_Center: {x: 0.0010775663, y: 0.018883198, z: -0.000000029802322}
---- !u!1001 &1910354748
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 219786462}
-    m_Modifications:
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.842041
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 24.774689
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2039711434589521550, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: m_Name
-      value: Man3_Walking
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: mainDialogue.Array.data[0].mainText
-      value: Astrid has told me so much about you. I feel like I know you already.
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: mainDialogue.Array.data[0].isQuestion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: mainDialogue.Array.data[0].option1Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: mainDialogue.Array.data[0].option2Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: mainDialogue.Array.data[0].option1FollowUp
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927976819752401548, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: mainDialogue.Array.data[0].option2FollowUp
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: 'walkPoints.Array.data[0]'
-      value: 
-      objectReference: {fileID: 864533877}
-    - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: 'walkPoints.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1933084811}
-    - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: 'walkPoints.Array.data[2]'
-      value: 
-      objectReference: {fileID: 1873371533}
-    - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: 'walkPoints.Array.data[3]'
-      value: 
-      objectReference: {fileID: 112549925}
-    - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: 'walkPoints.Array.data[4]'
-      value: 
-      objectReference: {fileID: 1439880276}
-    - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: 'walkPoints.Array.data[5]'
-      value: 
-      objectReference: {fileID: 953113396}
-    - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: 'walkPoints.Array.data[6]'
-      value: 
-      objectReference: {fileID: 43994073}
-    - target: {fileID: 3911242641598405922, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-      propertyPath: 'walkPoints.Array.data[7]'
-      value: 
-      objectReference: {fileID: 2002477142}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
---- !u!4 &1910354749 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1658822278067166260, guid: a4e90a140577bdf4488cd203c1b65d8b, type: 3}
-  m_PrefabInstance: {fileID: 1910354748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1926023874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29870,7 +29980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: unlimitedSprint
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name
