@@ -2481,9 +2481,6 @@ PrefabInstance:
       addedObject: {fileID: 2034142657}
     - targetCorrespondingSourceObject: {fileID: 7036213049465896255, guid: 794f279a7f4b1d144b4e05dc43a3fd29, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2034142659}
-    - targetCorrespondingSourceObject: {fileID: 7036213049465896255, guid: 794f279a7f4b1d144b4e05dc43a3fd29, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2034142658}
     - targetCorrespondingSourceObject: {fileID: -8734704173890467632, guid: 794f279a7f4b1d144b4e05dc43a3fd29, type: 3}
       insertIndex: -1
@@ -12043,51 +12040,38 @@ MonoBehaviour:
     option1FollowUp: 
     option2Text: 
     option2FollowUp: 
-    givesQuest: 0
+    givesQuest: 1
   quest:
     description: 
     goalAmount: 0
-    dialogueAfterQuestCompleted: []
+    dialogueAfterQuestCompleted:
+    - mainText: "You need to get away from here and send help. You won\u2019t get
+        far on foot."
+      isQuestion: 0
+      option1Text: 
+      option1FollowUp: 
+      option2Text: 
+      option2FollowUp: 
+      givesQuest: 0
+    - mainText: "In the office there is a key for the bus. I think it\u2019s your
+        only chance\u2026"
+      isQuestion: 0
+      option1Text: 
+      option1FollowUp: 
+      option2Text: 
+      option2FollowUp: 
+      givesQuest: 0
+    - mainText: And please. Forgive me.
+      isQuestion: 0
+      option1Text: 
+      option1FollowUp: 
+      option2Text: 
+      option2FollowUp: 
+      givesQuest: 0
     notificationAfterQuestCompleted: 0
     notificationDuration: 0
     notificationText: 
-  dialogueAfterQuestAssigned: []
-  undergroundScareConvo: 0
-  soundToPlayOnInteract:
-    Guid:
-      Data1: -1190608174
-      Data2: 1214011462
-      Data3: 378141593
-      Data4: 2098371494
-    Path: event:/World/NPCDialougeReactions/Magda
---- !u!114 &2034142658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034142654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa781e517065514ebd834d02488c9e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2034142659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034142654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6ed371d29c04f4cbe248db82fcaa81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcName: Astrid
-  pointToFace: {fileID: 691441722}
-  facePlayerOnInteraction: 0
-  mainDialogue:
+  dialogueAfterQuestAssigned:
   - mainText: "You need to get away from here and send help. You won\u2019t get far
       on foot."
     isQuestion: 0
@@ -12111,22 +12095,26 @@ MonoBehaviour:
     option2Text: 
     option2FollowUp: 
     givesQuest: 0
-  quest:
-    description: 
-    goalAmount: 0
-    dialogueAfterQuestCompleted: []
-    notificationAfterQuestCompleted: 0
-    notificationDuration: 0
-    notificationText: 
-  dialogueAfterQuestAssigned: []
   undergroundScareConvo: 0
   soundToPlayOnInteract:
     Guid:
-      Data1: -1190608174
-      Data2: 1214011462
-      Data3: 378141593
-      Data4: 2098371494
-    Path: event:/World/NPCDialougeReactions/Magda
+      Data1: 1531358558
+      Data2: 1171903475
+      Data3: -1388565615
+      Data4: 458675708
+    Path: event:/World/NPCDialougeReactions/ScaredFemale
+--- !u!114 &2034142658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034142654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa781e517065514ebd834d02488c9e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078479207
 GameObject:
   m_ObjectHideFlags: 0

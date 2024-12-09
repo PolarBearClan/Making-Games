@@ -165,7 +165,6 @@ public class AIFollower : MonoBehaviour
     }
     
     public void IncreaseLocalNoise(int overload) {
-        //If player is inside vision cone, increase noise meter by step
             personalNoiseLevel += overload;
     }
     public EActivity Activity => activity;

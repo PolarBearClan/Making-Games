@@ -1,6 +1,8 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
 
@@ -20,6 +22,8 @@ public class CultistOutsideRun : MonoBehaviour
     private PauseMenu pauseMenu;
     private PlayerController playerController;
     private NavMeshAgent navMeshAgent;
+    public EventReference killSounds;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -81,9 +85,29 @@ public class CultistOutsideRun : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             other.GetComponent<FirstPersonController>().DisableInput();
-            other.GetComponentInChildren<PauseMenu>().StartGameOver();
+            StartCoroutine(StartGameOver());
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
+    
+    private IEnumerator StartGameOver()
+    {
+        playerController.GetComponentInChildren<PauseMenu>().StartGameOver();
+        yield return new WaitForSeconds(4f);
+        playKillSound();
+        yield return new WaitForSeconds(2f);
+
+        yield return new WaitForSeconds(7f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    
+    private void playKillSound()
+    {
+        EventInstance  soundOnKill = RuntimeManager.CreateInstance(killSounds);
+        RuntimeManager.AttachInstanceToGameObject(soundOnKill, transform);
+        soundOnKill.start();
+        soundOnKill.release();
     }
 }

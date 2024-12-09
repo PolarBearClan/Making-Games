@@ -30,6 +30,7 @@ public class LetterText : MonoBehaviour
     public EventReference letterAcceptSound;
     public EventReference busSoundvroomvroom;
     public GameObject beginningMusic;
+    public GameObject beginningMusic2;
 
     private void Start()
     {
@@ -77,6 +78,7 @@ public class LetterText : MonoBehaviour
         playableDirector.Play(bus);
         PlayBusSound();
         Destroy(beginningMusic);
+        Destroy(beginningMusic2);
         yield return new WaitForSeconds((float)bus.duration);
         FinishPrologue();
     }

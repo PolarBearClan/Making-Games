@@ -12,15 +12,19 @@ public class VisionDetection : MonoBehaviour
         
         player = GameObject.FindGameObjectWithTag("Player");
     }
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Player")) return;
+
         if (!(AI.personalNoiseLevel >= 110) && !player.GetComponent<FirstPersonController>().isHiding && AI.lookingForPlayer) { 
             AI.IncreaseLocalNoise();      
         }
     }
 
-    void OnTriggerStay()
+    void OnTriggerStay(Collider other)
     {
+        if (!other.CompareTag("Player")) return;
+
         if (!(AI.personalNoiseLevel >= 110) && !player.GetComponent<FirstPersonController>().isHiding && AI.lookingForPlayer) {
             Debug.Log(AI.personalNoiseLevel);
             AI.IncreaseLocalNoise();      

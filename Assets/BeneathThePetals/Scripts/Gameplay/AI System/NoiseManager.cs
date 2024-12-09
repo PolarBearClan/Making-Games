@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using FMOD;
 using FMOD.Studio;
 using FMODUnity;
+using Unity.VisualScripting;
 
 public class NoiseManager : MonoBehaviour
 {
@@ -38,11 +39,21 @@ public class NoiseManager : MonoBehaviour
         currentGlobalNoiseLevel -= decayRate * Time.deltaTime;
         currentGlobalNoiseLevel = Mathf.Max(currentGlobalNoiseLevel, minValue); // Clamp to minValue
         }
+        else
+        {
+            noiseSound.setVolume(1);
+        }
 
         noiseSound.setVolume(currentGlobalNoiseLevel / 100);
     }
 
     // This will be called by the branch being broken
+
+    void OnDestroy()
+    {
+        noiseSound.setVolume(0);
+    }
+
     public void IncreaseGlobalNoise()
     {
         currentGlobalNoiseLevel += noiseStep;
@@ -79,6 +90,7 @@ public class NoiseManager : MonoBehaviour
     public void TriggerNPCs()
     {
         currentGlobalNoiseLevel = (maxValue + 1);
+        noiseSound.setVolume(1);
         IncreaseGlobalNoise();
     }
 }

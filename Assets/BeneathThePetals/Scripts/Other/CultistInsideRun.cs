@@ -104,6 +104,8 @@ public class CultistInsideRun : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            playerControls.isWalking = false;
+            GetComponent<AISoundForCultistRun>().enabled = false;
             StartCoroutine(StartGameOver());
         }
     }

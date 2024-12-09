@@ -35,6 +35,9 @@ public class CarFinalInteractable : MonoBehaviour, IInteractable
     public void Interact()
     {
         noiseManager.TriggerNPCs();
+        noiseManager.IncreaseGlobalNoise();
+        noiseManager.IncreaseGlobalNoise();
+        PlayInteractSound();
         Debug.Log("NPCs alerted by car");
     }
 

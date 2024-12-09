@@ -4,6 +4,7 @@ using UnityEngine;
 using FMOD;
 using FMODUnity;
 using FMOD.Studio;
+using Debug = UnityEngine.Debug;
 
 
 public class NoiseObstacle : MonoBehaviour
@@ -25,20 +26,20 @@ public class NoiseObstacle : MonoBehaviour
     public void BatchOverlapSphere()
     {
         var commands = new NativeArray<OverlapSphereCommand>(1, Allocator.TempJob);
-        var results = new NativeArray<ColliderHit>(100, Allocator.TempJob);
+        var results = new NativeArray<ColliderHit>(1000, Allocator.TempJob);
 
-        commands[0] = new OverlapSphereCommand(transform.position, 10f, QueryParameters.Default);
+        commands[0] = new OverlapSphereCommand(transform.position, 15f, QueryParameters.Default);
 
-        OverlapSphereCommand.ScheduleBatch(commands, results, 1, 100).Complete();
+        OverlapSphereCommand.ScheduleBatch(commands, results, 1, 1000).Complete();
 
         foreach (var hit in results)
         {
-
-            AIFollower ai;
+            
+            print(hit.collider.gameObject.name);
                
-            if (hit.collider.gameObject.TryGetComponent<AIFollower>(out ai))
+            if (hit.collider.gameObject.GetComponentInChildren<AIFollower>() == true)
             {
-                ai.IncreaseLocalNoise(loudness);
+                hit.collider.gameObject.GetComponentInChildren<AIFollower>() .IncreaseLocalNoise(loudness*15);
             }
         }
 
