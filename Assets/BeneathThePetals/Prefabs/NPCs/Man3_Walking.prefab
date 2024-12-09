@@ -173,8 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6ed371d29c04f4cbe248db82fcaa81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Mikkel
+  npcName: Casey
   pointToFace: {fileID: 6505429547505911699}
+  facePlayerOnInteraction: 1
   mainDialogue:
   - mainText: Quiet, now. The spirits are listening.
     isQuestion: 1
@@ -189,7 +190,11 @@ MonoBehaviour:
     description: 
     goalAmount: 0
     dialogueAfterQuestCompleted: []
+    notificationAfterQuestCompleted: 0
+    notificationDuration: 0
+    notificationText: 
   dialogueAfterQuestAssigned: []
+  undergroundScareConvo: 0
   soundToPlayOnInteract:
     Guid:
       Data1: 1409385096
@@ -220,3 +225,4 @@ MonoBehaviour:
   - {fileID: 0}
   lerpDuration: 20
   canWalk: 1
+  AI: {fileID: 0}

@@ -1609,8 +1609,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 344182284}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: RestartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8811,7 +8811,7 @@ GameObject:
   - component: {fileID: 262441144}
   m_Layer: 0
   m_Name: GlobalVolume
-  m_TagString: Untagged
+  m_TagString: GlobalVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9959,7 +9959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.75
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -13394,7 +13394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.5
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -42736,7 +42736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: runSpeed
-      value: 3.5
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 3692806973973138834, guid: 069da956e2dff9d47a0317521702316e, type: 3}
       propertyPath: globalVolumeBase
@@ -44416,7 +44416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cultist:'
+  m_text: ...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcb19c31f4249d043bafe83942bf51d4, type: 2}
   m_sharedMaterial: {fileID: -1560578324682730915, guid: fcb19c31f4249d043bafe83942bf51d4, type: 2}
